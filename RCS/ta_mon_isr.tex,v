@@ -1,0 +1,482 @@
+head	1.2;
+access;
+symbols;
+locks
+	penton:1.2; strict;
+comment	@% @;
+
+
+1.2
+date	2018.02.27.18.02.38;	author penton;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2018.02.08.19.14.28;	author penton;	state Exp;
+branches;
+next	;
+
+
+desc
+@TA C22-C24 monitoring ISR
+@
+
+
+1.2
+log
+@update
+@
+text
+@\documentclass[12pt]{reportj}
+%Uncomment this if you want to use BibTeX
+% RCS_ID: $Id: ta_mon_isr.tex,v 1.1 2018/02/08 19:14:28 penton Exp penton $
+\usepackage{astron}
+\usepackage{deluxetable}
+\usepackage{times}
+\usepackage{graphicx}
+\DeclareGraphicsRule{.ps}{eps}{.ps}{}
+\setlength{\headheight}{5mm}
+\setlength{\headsep}{10mm}
+\setlength{\footskip}{10mm}
+\setlength{\textheight}{220mm}
+\setlength{\textwidth}{170mm}
+\setlength{\topmargin}{-8.0mm}
+\setlength{\oddsidemargin}{+6.0mm}
+\setlength{\evensidemargin}{+6.0mm}
+\setlength{\parskip}{1mm}
+\setlength{\parsep}{100mm}
+\setlength{\parindent}{10mm}
+\def\arcsec{\hbox{$^{\prime\prime}$}}
+\usepackage{fancyheadings}
+\pagestyle{fancy}
+
+%%%%%%%%%%%%%%%%
+%For numbered sections use ssection/ssubsection/ssubsubsection. For sections without numbers user ssectionstar/ssubsectionstar/ssubsubsectionstar
+%%%%%%%%%%%%%%%%
+\def\ssection#1{\addtocounter{section}{1} \setcounter{subsection}{0} \S*{\hbox to \hsize{\large\bf \arabic{section}. #1\hfill }}}
+\def\ssectionstar#1{\S*{\hbox to \hsize{\large\bf #1\hfill}}}
+\def\ssubsection#1{\addtocounter{subsection}{1} \setcounter{subsubsection}{0} \subsection*{\hbox to \hsize{\normalsize\bfseries\itshape \arabic{section}.\arabic{subsection} #1\hfill}}}
+\def\ssubsectionstar#1{\subsection*{\hbox to \hsize{\normalsize\bfseries\itshape #1\hfill}}}
+\def\ssubsubsection#1{\addtocounter{subsubsection}{1} \subsection*{\hbox to \hsize{\normalsize\it \arabic{section}.\arabic{subsection}.\arabic{subsubsection} #1\hfill}}}
+\def\ssubsubsectionstar#1{\subsection*{\hbox to \hsize{\normalsize\it #1\hfill}}}
+%Set the footer on the first page
+\lhead{}
+\cfoot{\rm \footnotesize \hspace{-1.5cm}\it{
+Operated by the Association of Universities for Research in Astronomy, Inc.,
+for the National Aeronautics \newline and Space Administration.}\hspace{2.0 cm}}
+\setlength{\headrulewidth}{0pt}
+\setlength{\footrulewidth}{0pt}
+
+\setlength{\textwidth}{147mm}
+
+\begin{document}
+
+~\\
+
+\vspace{-2.4cm}
+\noindent\includegraphics*[width=0.295\linewidth]{new_st_logo.eps}
+
+\vspace{-0.4cm}
+
+\begin{flushright}
+% Put the instrument, year, and ISR number here (and also below)
+{\bf Instrument Science Report COS2016-XX(v1)}
+
+\vspace{1.1cm}
+
+%Put ISR Title
+{\bf\Huge Cycle 21-24 COS Target Acquisition Monitoring}
+
+\rule{0.25\linewidth}{0.5pt}
+
+\vspace{0.5cm}
+%Put Authors
+Steven V. Penton$^1$
+\linebreak
+\newline
+%Put Author's affiliations
+\footnotesize{$^1$ Space Telescope Science Institute, Baltimore, MD}
+\vspace{0.5cm}
+
+% Date here below
+09-Feb-2018
+\end{flushright}
+
+\vspace{0.1cm}
+%%%%%%%%
+%Abstract
+%%%%%%%%
+\noindent\rule{\linewidth}{1.0pt}
+\noindent{\bf A{\footnotesize BSTRACT}}
+
+{\it \noindent
+Beginning with HST Cycle 21, a series of annual HST programs were executed to verify that COS Target Acquisitions (TA) were performing
+nominally.  This ISR documents these programs for HST Cycles 21-24. During this period, all FUV exposures were executed at Lifetime Position 3 (LP3),
+and all NUV exposures were obtained at the nominal (LP1) position.
+These programs were designed to monitor numerous aspects of both imaging and spectroscopic COS TAs, including
+checking the TA subarrays, monitoring the required flashes of the internal PtNe lamps, and evaluating the accuracy of
+numerous COS flight software (FSW) patchable constants required for TA.
+
+There are three COS TA modes, FUV spectroscopic, NUV spectroscopic, and NUV imaging.
+This project verified that all three modes were behaving nominally in Cycle 21-24, and determined that no SIAF or FSW parameter updates were required during this time.
+There were, however, changed required for MIRRORB NUV ACQ/IMAGEs. These changes included a changing of the lamp current from LOW to MEDIUM, an adjustment of the LTACAL exposure time, and a modification of both the MIRRORB WCA and PSA/BOA TA subarrays. }
+
+\vspace{-0.1cm}
+\noindent\rule{\linewidth}{1.0pt}
+%%%%%%%%
+%Contents
+%%%%%%%%
+\vspace{-0.3cm}
+\ssectionstar{Contents}
+\vspace{-0.3cm}
+
+%%%%%%%%%%%%%%%%%%%
+%May need to compile twice for page references
+%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+\item Introduction (page \pageref{sec:Introduction})
+\item Program Descriptions \pageref{sec:programs}
+\item SIAF Verification (page \pageref{sec:siaf})
+\item ACQ/IMAGE Performance (page \pageref{sec:acqimage})
+\item ACQ/PEAKXD Performance (page \pageref{sec:acqpeakxd})
+\item TA Subarray Performance (page \pageref{sec:subarray})
+\item Conclusion (page \pageref{sec:theend})
+\end{itemize}
+%%%%%%%%
+%Body
+%%%%%%%%
+\clearpage
+\ssection{Introduction}\label{sec:Introduction}
+
+The basic results of the programs reviewed here were previously reported in the following COS ISRs:
+\begin{itemize}
+\item{COS ISR 2016-09 (Cycle 21 COS Target Acquisition Monitor Summary)}
+\item{COS ISR 2017-09 (Cycle 22 COS Target Acquisition Monitor Summary)}
+\item{COS ISR 2018-09 (Cycle 23 COS Target Acquisition Monitor Summary)}
+\item{COS ISR 2018-09 (Cycle 24 COS Target Acquisition Monitor Summary)}
+\end{itemize}
+This ISR provides the full details of the following HST+COS Programs:
+\begin{itemize}
+\item{HST Program 13526 (COS Imaging TA and Spectroscopic WCA-PSA/BOA offset verifications, Cycle 21)}
+\item{HST Program 13972 (COS Imaging TA and Spectroscopic WCA-PSA/BOA offset verifications, Cycle 22)}
+\item{HST Program 14440 (COS Imaging TA and Spectroscopic WCA-PSA/BOA offset verifications, Cycle 23)}
+\item{HST Program 14857 (COS Imaging TA and Spectroscopic WCA-PSA/BOA offset verifications, Cycle 24)}
+\end{itemize}
+
+There are three modes of COS Target Acquisition (TA); NUV imaging, NUV spectroscopic, and NUV imaging.
+There are four COS TA (ACQ/) procedures; ACQ/IMAGE, PEAKD, PEAKXD, and SEARCH. The ACQ/PEAKD and SEARCH
+step the telescope through dwell patterns on the sky. As long as the target light falls correctly within
+the TA detector sub-arrays, ACQ/PEAKD and SEARCH will continue to nominally assist in TA (barring any
+unforeseen anomalies). The ACQ/IMAGE and PEAKXD procedures rely on the sub-arrays and patchable constants
+in the COS flight software (FSW) which assist in target centering. In both ACQ/IMAGE and PEAKXD, the internal
+wavelength calibration lamp is flashed to locate the center of the wavelength calibration aperture (WCA). From this location, the center of the
+science aperture (SA) in use can be predicted by applying the FSW constant that give the SA offset compared to the WCA center. For ACQ/IMAGE,
+the offset is in both detector X (along-dispersion, AD) and Y (cross-dispersion, XD). For ACQ/PEAKXD, which
+uses dispersed light, this offset is only in the Y (XD) direction. HST program 13972 also verifies that the TA subarrays
+are proper and re-measures the actively used WCA-to-SA offsets to monitor the performance of COS TAs.
+
+ACQ/IMAGE has four combinations of two SAs, the Primary Science Aperture (PSA) and the Bright
+Object Aperture (BOA), and two mirror modes, MIRRORA and MIRRORB. Each combination is commonly used, and has a slightly different
+WCA-to-SA offset in both X (AD) and Y(XD), which must be verified. Each COS grating has a different WCA-to-SA XD offset.
+BOA spectroscopic TAs are not supported for COS, so 13972 only verifies the WCA-to-PSA offsets that are used in ACQ/PEAKXD.
+Each COS grating has a different offset, as do each of the FUV lifetime positions (LP). This program only verifies the NUV LP1
+and FUV LP3\footnote{The COS FUV channel was moved to LP3 on February 15, 2015.} position offsets.
+
+The centering requirements are based upon the wavelength accuracy requirements in the AD, and for flux and resolution optimization
+in the XD. The strictest NUV requirements are [AD,XD] = [0.041, 0.3]\arcsec, while for the FUV they are [AD,XD] = [0.106, 0.3]\arcsec. The XD
+requirement is that all TAs center to within $\pm$ 0.3 \arcsec\ with a 1$\sigma$ goal of $\pm$ 0.1\arcsec.
+
+In \S~\ref{sec:acqimage} we will discuss the verification of the FSW parameters associated with COS ACQ/IMAGEs.
+Some data from visit 'A2' of program 14035 will be used to assist in this verification. This data will be used to verify
+the COS NUV SIAF (Science Instrument Aperture File) entries. In ~\S~\ref{sec:peakxd},
+we will discuss the verification of the FSW parameters associated with COS ACQ/PEAKXDs, and the verification of the
+COS FUV SIAF entries.
+
+All 13972 data were taken on October 6, 2015, while the data in 14035 used by this program (Visit A2) were taken on October 2, 2015.
+These data were intentionally taken contemporaneously to avoid any long-term detector or spacecraft effects from affecting our results.\\
+
+%!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+%THIS SECTION NEEDS TO GO AFTER THE END OF THE FIRST PAGE AND BEFORE THE END OF THE SECOND PAGE
+%Fill in Instrument, Year, and ISR Number and delete "newpage" immediately after this message
+%!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+\newpage
+
+\lhead{}
+\rhead{}
+\cfoot{\rm {\hspace{-1.9cm} Instrument Science Report COS 2016-09(v1) Page \thepage}}
+
+\clearpage
+\ssection{Program Descriptions \label{sec:programs} }
+
+In addition to 13972, COS exposures obtained in HST program 14035 (HST Cycle 22 Focal Plane Calibration (SI-FGS Alignment)) were used in this analysis.
+This program builds upon the monitoring and calibration of the FGS-to-SI alignment program (14452 - HST Cycle 23- Focal Plane Calibration (SI-FGS Alignment)).  HST 14452 performs back-to-back PSA/MIRRORA and PSA/MIRRORB ACQ/IMAGEs, from which all the results herein are bootstrapped.
+
+The FGS-to-SI program is repeated twice a year (every cycle) and we will use its COS exposures as the baseline for this TA co-alignment program. The historical list of FCS-to-SI proposals, and cycles, are:
+11878 (C17)
+12399 (C18)
+12781 (C19)
+13171 (C20)
+13616 (C21)
+14035 (C22)
+14452 (C23)
+
+13526 (C21)
+13972 (C22)
+14440 (C23)
+14857 (C24)
+
+The FGS-to-SI program (14452) performs a PSA/MIRRORA ACQ/IMAGE on a target that should be centered in the aperture.
+This verifies the COS NUV PSA aperture position in the SIAF. After this PSA+MIRRORA ACQ/IMAGE, a PSA+MIRRORB ACQ/IMAGE is then performed.
+This exposure bootstraps the PSA+MIRRORB centering to the PSA+MIRRORA SIAF verification.
+This allows us to monitor the properties of the PSA+MIRRORB image in a controlled way on a centered target.
+No spectra are taken in 14452 due to time constraints, but we are currently planning on adding in PSA/MIRRORA and PSA/MIRRORB lamp images.
+
+Visits 01 and 02 of this program extend the COS SIAF/FGS-to-SI verification of Visit 02 of 14452 to the other two ACQ/IMAGE combinations (BOA+MIRRORA and BOA+MIRRORB) by bootstraping from the PSA+MIRRORB verification to co-align all the COS TA imaging modes.
+The details of the observations are given is the observing section.
+
+Visit 01 of this program bootstraps off Visit 02 of 14452  to co-align the PSA+MIRRORB ACQ/IMAGE mode to the BOA+MIRRORA.
+We prefer that Visit 01 of this program executes within 45 days of Visit 02 of 14452, to ensure that no long term instrument or telescope focus changes impact our results.
+
+Visit 02 of this program follows the style of Visit 01,  and bootstraps from the BOA+MIRRORA mode to the BOA+MIRRORB TA imaging mode.
+Visit 02 should also occur within 45 days of visit 02 of 14452 and within 45 days of Visit 01 of this program.
+
+Visit 3 of this program is an on-hold, contingency visit that would be used to replace the 14452 Visit 02 in case this program is, for whatever reason, not executed as planned.
+In this case the 1st ACQ/IMAGE is PSA/MIRRORA and the 2nd ACQ/Image is PSA/MIRRORB.
+This visit also takes several lamp images to measure the WCA-to-PSA imaging offset FSW patchable constants.
+
+In all visits, lamp+target images are taken before and after the TA imaging mode that is being co-aligned (the second ACQ/IMAGE of the program.)
+
+All visits in this program are single orbit visits, this program is very similar to the C22 version (13972).
+Due to the change in OSM2 Home position, some NUV spectra have been re-ordered for efficiency AND some NUV cenwaves were changed to those that are known to have good stripe B WCA spectra.
+\clearpage
+\ssection{SIAF \label{sec:siaf} }
+
+\ssection{Verifying the ACQ/IMAGE WCA-to-SA Offsets.\label{sec:acqimage} }
+\vspace{-0.3cm}
+
+In the servicing mision orbital verification (SMOV) phase, a series of programs in NUV imaging mode
+carefully determined the two-dimensional offset from the WCA to the center of the PSA when observed with MIRRORA.
+These X and Y offsets were loaded in the FSW parameters {\it pcta\_XImCalTargetOffset} and {\it pcta\_YImCalTargetOffset}.
+A target was then centered using a PSA+MIRRORA ACQ/IMAGE, then a target image was taken along with a MIRRORB image
+of the WCA image. These images were used to determine the X and Y offsets of the image target and WCA centroids.
+These values were uploaded in the FSW paramaters. This bootstrapping procedure was repeated with the BOA+MIRRORA
+and BOA+MIRRORB ACQ/IMAGE modes until all four ACQ/IMAGE modes were co-aligned.
+
+In this program (13972) we use this bootstrapping strategy to test the co-alignment of all four ACQ/IMAGE modes.\footnote{On November 6, 2014,
+the MIRRORB ACQ/IMAGE wavelength calibration lamp exposure was changed from a 30 second exposure
+at LOW current (3mA) to a 12 second exposure at MEDIUM current. At this point the {\it pcta\_XImCalTargetOffset} and {\it pcta\_YImCalTargetOffset}
+FSW parameters were also updated to reflect a small change in the WCA-to-SA imaging MIRRORB offsets. This program is the first
+to monitor the updated offsets.}
+To accomplish this in only two orbits, this project leverages observations taken in FGS-to-SI alignment verification
+program (14035).
+\clearpage
+The FGS-to-SI program (14035) performs a PSA/MIRRORA ACQ/IMAGE on a target that should be centered in the aperture.
+The PSA+MIRRORA ACQ/IMAGE in Visit 'A2' of 14035 can be used to verify the COS NUV PSA aperture position in the SIAF.
+This exposure shows that the COS NUV PSA SIAF entry combined with the PSA+MIRRORA WCA-to-PSA offsets are
+accurate to within [AD,XD] = [-0.020,0.105]\arcsec\ (this is the distance that the ACQ/IMAGE slewed to center the target).
+The COS aperture is only repeatable in the XD direction to $\pm$ one motor step (0.05\arcsec). In addition, the WCA location
+cannot be measured to better than 1/2 pixel as the pixel used to determine the median location in an integer.
+On the NUV detector, 1 pixel is $\sim$ 0.023\arcsec. Based upon this information, the COS NUV PSA definition
+in the SIAF file appears to meet our accuracy requirements for Cycle 22.
+
+After the 14035 Visit 'A2' PSA+MIRRORA ACQ/IMAGE, a PSA+MIRRORB ACQ/IMAGE is performed.
+This exposure bootstraps the PSA+MIRRORB centering to the PSA+MIRRORA + SIAF verification.
+This allows us to monitor the properties of the PSA+MIRRORB image in a controlled way on a centered target. No spectra or images are taken in 14035 due to time constraints.
+Visits 01 \& 02 of 13972 extend the COS SIAF/FGS-to-SI verification of Visit 02 of 14035 to the other two ACQ/IMAGE combinations (BOA+MIRRORA \& BOA+MIRRORB) by bootstraping from the PSA+MIRRORB verification to co-align all the COS TA imaging modes. The details of the observations are given is the observing section.
+Visit 01 of 13972 bootstraps off Visit 02 of 14035 to co-align the PSA+MIRRORB ACQ/IMAGE mode to the BOA+MIRRORA. Visit 01 of 13972 executed within 45 days of Visit 02 of 14035, to ensure that no long term instrument or telescope focus changes impact our results.
+Visit 02 of 13972 follows the style of Visit 01, and bootstraps from the BOA+MIRRORA mode to the BOA+MIRRORB TA imaging mode. Visit 02 should also occur within 45 days of visit 02 of 14035 and within 45 days of Visit 01 of 13972.
+
+The results of 13972 \& 14035 show that, for ACQ/IMAGEs :
+\footnotesize
+\begin{itemize}
+\item PSA+MIRRORA is aligned with PSA+MIRRORB to [AD, XD] $\le$ [0.022, 0.007] \arcsec\ (14035, Visit 'A2')
+\item PSA+MIRRORB is aligned with BOA+MIRRORA to [AD, XD] $\le$ [0.023, 0.100] \arcsec\ (13972, Visit '01')
+\item BOA+MIRRORA is aligned with BOA+MIRRORB to [AD, XD] $\le$ [0.022, 0.024] \arcsec\ (13972, Visit '02')
+\end{itemize}
+\normalsize
+
+These results can be combined to show the measured offsets of PSA+MIRRORB, BOA+MIRRORA, \& BOA+MIRRORB when compared
+to the initial PSA+MIRRORA ACQ/IMAGE of Visit 'A2' of 14035. These results are shown in Table~\ref{table:ai}.
+Combined offsets from PSA+MIRRORA are provided in both NUV pixels (p) and in arcseconds (\arcsec).
+
+\begin{deluxetable}{|r|r|r|r|r|r|}
+\tabcolsep 10pt
+\tabletypesize{\footnotesize}
+\tablecolumns{6}
+\tablewidth{0 pt}
+\tablecaption{ACQ/IMAGE WCA-to-SA offsets from PSA+MIRRORA\label{table:ai}}
+\tablehead{\colhead{Aperture}&\colhead{MIRROR}&AD Offset & XD Offset & AD Offset& XD Offset\\
+&&(\arcsec) & (\arcsec) & (p) & (p)
+}
+\startdata
+\hline
+PSA & B & 0.021 &-0.049 & 0.298 & 0.893\\
+BOA & A & 0.010	& 0.060 & 0.425 & 2.550\\
+BOA & B & 0.036	& 0.070 &1.530 & 2.975 \\
+\hline
+\enddata
+
+\end{deluxetable}
+\clearpage
+\ssection{Verifying the ACQ/PEAKXD WCA-to-PSA Offsets. \label{sec:acqpeakxd} }
+
+After the series of ACQ/IMAGEs that start each visit of 13972, the target should be accurately
+centered. We take advantage of this to test the WCA-to-PSA offsets required for the spectroscopic
+TA sequence ACQ/PEAKXD (TA in the XD direction). In the COS FSW, these values are contained in the
+patchable constant table {\it pcta\_CalTargetOffset}. The verification process is simple, take a normal
+spectrum with a target signal-to-noise ratio of least 50 for the entire spectrum (2500 target counts)
+used by ACQ/PEAKXD. For NUV exposures, this is the 'B' stripe only, and for the FUV, only events on the
+'A' segment are used. TA subarrays are used to make out any detector hot-spots or Geocoronal light that
+could interfere with the centering process.
+
+In Visit 01, we take spectra that meet these requirements with the G130M/1309, G140L/1280, G285M/2676, \& G230L/3000, and in Visit 02,
+we take spectra with the G160M/1600, G185M/1913, G225M/2306. Table ~\ref{table:peakxd} the results of these exposures are summarized.
+The rightmost column gives the WCA-to-PSA offsets measured in 13972, in arcseconds (\arcsec).
+All exposures, except {\bf lcri01h6q}, the G140L/1280 measurement, which showed an offset of 0.15\arcsec\ exceed our $\pm 0.1$\arcsec\ goal.
+All exposures exceed our $\pm 0.33$\arcsec\ requirement. The XD profile of G140L spectra is wider that the medium
+resolution gratings (G130M and G160M), making in more susceptible to detector 'Y-walk' (Penton \& Keyes, 2010).
+No action is required at this time as the measured offset is 1/2 of our 0.3\arcsec\ requirement.
+
+The final two exposures of the 02 visit intentionally offset the target by $\pm$ 0.7\arcsec\ to test the effects
+of 'Y-walk' on G160M ACQ/PEAKXDs. All three G160M exposures in Visit 02 show offsets from the expected position
+of $\le 0.05$\arcsec\ within our 0.1\arcsec\ goal. No action (e.g., updating the {\it pcta\_CalTargetOffset} in the FSW)
+is required at this time.
+%\input{WCA\_to_SA\_table.tex}
+\clearpage
+\ssection{Verifying the ACQ Subarrays \label{sec:subarray} }
+
+The TA subarrays for all exposures were extracted from the "\_spt.fits" files. All values indicate that
+the intended subarrays are being used for all TA and science exposures. All FUV spectra were visually
+inspected to verify that the TA subarrays were successfully excluding all known detector hot-spots and the
+bright Geocoronal emission lines that can negatively affect TAs.  No action is required based upon this
+analysis of the TA and science sub-arrays used in HST Cycle 21.
+\clearpage
+\vspace{-0.3cm}
+\ssection{WCA Lamp Images (aka, Lamp Family Portrait) \label{sec:family_portrait} }
+\vspace{-0.3cm}
+
+\begin{figure}
+\noindent\includegraphics*[width=0.795\linewidth]{FP_13526.png}
+\caption{Cycle 21 PtNe Lamp `Family Portrait'' \ref{fig:FG21}}
+\end{figure}
+
+\begin{figure}
+\noindent\includegraphics*[width=0.795\linewidth]{FP_13972.png}
+\caption{Cycle 22 PtNe Lamp `Family Portrait'' \ref{fig:FG22}}
+\end{figure}
+\begin{figure}
+\noindent\includegraphics*[width=0.795\linewidth]{FP_14440_V01.png}
+\caption{Cycle 23 PtNe Lamp `Family Portrait'' \ref{fig:FG23v1}}
+\end{figure}
+\begin{figure}
+\noindent\includegraphics*[width=0.795\linewidth]{FP_14440_V02.png}
+\caption{Cycle 23 PtNe Lamp `Family Portrait'' \ref{fig:FG23v2}}
+\end{figure}
+
+\begin{figure}
+\noindent\includegraphics*[width=0.795\linewidth]{FP_14857.png}
+\caption{Cycle 24 PtNe Lamp `Family Portrait'' \ref{fig:FG24}}
+\end{figure}
+
+\vspace{-0.3cm}
+\ssection{Conclusions.\label{theend} }
+\vspace{-0.3cm}
+
+%%%%%%%%
+%Acknowledgements
+%%%%%%%%
+\vspace{-0.3cm}
+\ssectionstar{Acknowledgements}
+\vspace{-0.3cm}
+%%%%%%%%
+%Change History
+%%%%%%%%
+\vspace{-0.3cm}
+%Put instrument, year, and ISR number
+\ssectionstar{Change History for COS ISR 2018-XX}\label{sec:History}
+\vspace{-0.3cm}
+%Put publication date
+Version 1: 28-Feb-2018 Original Draft Document
+%%%%%%%%
+%References
+%%%%%%%%
+\vspace{-0.3cm}
+\ssectionstar{References}\label{sec:References}
+\vspace{-0.3cm}
+
+\noindent
+Penton, S., 2016, COS Instrument Science Report 2019-09
+Penton, S., 2016, COS Instrument Science Report 2019-09, C22 Summary
+Penton, S., 2017, COS Instrument Science Report 2019-09, C23 Summary
+Penton, S., 2018, COS Instrument Science Report 2019-09, C24 Summary
+\\
+Penton \& Keys, COS TIR
+\\
+C22 IHB
+C23 IHB
+C24 IHB
+
+\\
+TAACOS1
+TAACOS2
+\\
+
+\newpage
+%%%%%%%%
+%Appendix
+%%%%%%%%
+\vspace{-0.3cm}
+\ssectionstar{Appendix A}\label{sec:Appendix}
+\vspace{-0.3cm}
+\end{document}
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d3 1
+a3 1
+% RCS_ID: $Id$
+d59 1
+a59 1
+{\bf\Huge Cycle 22-24 COS Target Acquisition Monitoring}
+d73 1
+a73 1
+09-Sept-2016
+d84 2
+a85 2
+Beginning with HST Cycle 22, a series of annual HST programs were executed to verify that COS Target Acquisitions (TA) were performing
+nominally.  This ISR documents these programs for HST Cycles 22-24. During this period, all FUV exposures were executed at Lifetime Position 3 (LP3),
+d92 1
+a92 1
+This project verified that all three modes were behaving nominally in Cycle 22-24, and determined that no SIAF or FSW parameter updates were required during this time.
+d124 3
+a126 2
+\item{COS ISR 2016-09 (Cycle 22 COS Target Acquisition Monitor Summary)}
+\item{COS ISR 2017-09 (Cycle 23 COS Target Acquisition Monitor Summary)}
+d131 1
+d133 2
+a134 2
+\item{HST Program 13972 (COS Imaging TA and Spectroscopic WCA-PSA/BOA offset verifications, Cycle 23)}
+\item{HST Program 13972 (COS Imaging TA and Spectroscopic WCA-PSA/BOA offset verifications, Cycle 24)}
+d183 1
+d185 37
+d323 1
+a323 1
+analysis of the TA and science sub-arrays used in HST Cycle 22.
+d330 5
+d336 1
+a336 1
+\caption{Cycle 22 PtNe Lamp `Family Portrait'' \ref{fig:FG}}
+d339 2
+a340 2
+\noindent\includegraphics*[width=0.795\linewidth]{FP_14440.png}
+\caption{Cycle 23 PtNe Lamp `Family Portrait'' \ref{fig:FG}}
+d343 7
+a349 2
+\noindent\includegraphics*[width=0.795\linewidth]{FP_13972.png}
+\caption{Cycle 24 PtNe Lamp `Family Portrait'' \ref{fig:FG}}
+@

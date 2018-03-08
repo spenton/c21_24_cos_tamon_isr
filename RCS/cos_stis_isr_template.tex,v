@@ -1,0 +1,199 @@
+head	1.1;
+access;
+symbols;
+locks
+	penton:1.1; strict;
+comment	@% @;
+
+
+1.1
+date	2018.02.07.17.32.57;	author penton;	state Exp;
+branches;
+next	;
+
+
+desc
+@initial version
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@%Created 2/12/2010 by A. Bostroem
+%Updated 01 March 2011 by J. Ely
+%Updated 12 July 2016 by R. Plesha
+
+\documentclass[12pt]{reportj}
+%Uncomment this if you want to use BibTeX
+%\usepackage{astron}
+\usepackage{deluxetablej}
+\usepackage{times}
+\usepackage{graphicx}
+\DeclareGraphicsRule{.ps}{eps}{.ps}{}
+\setlength{\headheight}{5mm}
+\setlength{\headsep}{10mm}
+\setlength{\footskip}{10mm}
+\setlength{\textheight}{220mm}
+\setlength{\textwidth}{170mm}
+\setlength{\topmargin}{-8.0mm}
+\setlength{\oddsidemargin}{+6.0mm}
+\setlength{\evensidemargin}{+6.0mm}
+\setlength{\parskip}{1mm}
+\setlength{\parsep}{100mm}
+\setlength{\parindent}{10mm}
+\def\arcsec{\hbox{$^{\prime\prime}$}}
+\usepackage{fancyheadings}
+\pagestyle{fancy}
+
+%%%%%%%%%%%%%%%%
+%For numbered sections use ssection/ssubsection/ssubsubsection. For sections without numbers user ssectionstar/ssubsectionstar/ssubsubsectionstar
+%%%%%%%%%%%%%%%%
+\def\ssection#1{\addtocounter{section}{1} \setcounter{subsection}{0} \section*{\hbox to \hsize{\large\bf \arabic{section}. #1\hfill }}}
+\def\ssectionstar#1{\section*{\hbox to \hsize{\large\bf #1\hfill}}}
+\def\ssubsection#1{\addtocounter{subsection}{1} \setcounter{subsubsection}{0} \subsection*{\hbox to \hsize{\normalsize\bfseries\itshape \arabic{section}.\arabic{subsection} #1\hfill}}}
+\def\ssubsectionstar#1{\subsection*{\hbox to \hsize{\normalsize\bfseries\itshape #1\hfill}}}
+\def\ssubsubsection#1{\addtocounter{subsubsection}{1} \subsection*{\hbox to \hsize{\normalsize\it \arabic{section}.\arabic{subsection}.\arabic{subsubsection} #1\hfill}}}
+\def\ssubsubsectionstar#1{\subsection*{\hbox to \hsize{\normalsize\it  #1\hfill}}}
+%Set the footer on the first page
+\lhead{}
+\cfoot{\rm \footnotesize \hspace{-1.5cm}\it{
+Operated by the Association of Universities for Research in Astronomy, Inc.,
+for the National Aeronautics \newline and Space Administration.}\hspace{2.0 cm}}
+\setlength{\headrulewidth}{0pt}
+\setlength{\footrulewidth}{0pt}
+
+\setlength{\textwidth}{147mm}
+
+\begin{document}
+
+~\\
+
+\vspace{-2.4cm}
+\noindent\includegraphics*[width=0.295\linewidth]{new_st_logo.eps}
+
+\vspace{-0.4cm}
+
+\begin{flushright}
+% Put the instrument, year, and ISR number here (and also below)
+{\bf Instrument Science Report COS(or STIS) YYYY-XX(v1)}
+
+\vspace{1.1cm}
+
+%Put ISR Title
+{\bf\Huge ISR TITLE}
+
+\rule{0.25\linewidth}{0.5pt}
+
+\vspace{0.5cm}
+%Put Authors
+Author 1$^1$, Author 2$^2$
+\linebreak
+\newline
+%Put Author's affiliations
+\footnotesize{$^1$ Space Telescope Science Institute, Baltimore, MD\\
+$^2$ Affiliation 2\\}
+\vspace{0.5cm}
+
+% Date here below
+DD Month YYYY
+\end{flushright}
+
+\vspace{0.1cm}
+%%%%%%%%
+%Abstract
+%%%%%%%%
+\noindent\rule{\linewidth}{1.0pt}
+\noindent{\bf A{\footnotesize BSTRACT}}
+
+{\it \noindent Write the Abstract Here}
+
+\vspace{-0.1cm}
+\noindent\rule{\linewidth}{1.0pt}
+%%%%%%%%
+%Contents
+%%%%%%%%
+\vspace{-0.3cm}
+\ssectionstar{Contents}
+\vspace{-0.3cm}
+
+%%%%%%%%%%%%%%%%%%%
+%May need to compile twice for page references
+%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+\item Introduction (page \pageref{sec:Introduction})
+\item ...
+\item ...
+\item Change History (page \pageref{sec:History})
+\item References (page \pageref{sec:References})
+\item Appendices (page \pageref{sec:Appendix})
+\end{itemize}
+%%%%%%%%
+%Body
+%%%%%%%%
+\vspace{-0.3cm}
+\ssection{Introduction}\label{sec:Introduction}
+\vspace{-0.3cm}
+
+Write Introduction Here.
+
+\vspace{-0.3cm}
+\ssection{Section Title }
+\vspace{-0.3cm}
+\ssubsection{Sub Section}
+
+
+%!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+%THIS SECTION NEEDS TO GO AFTER THE END OF THE FIRST PAGE AND BEFORE THE END OF THE SECOND PAGE
+%Fill in Instrument, Year, and ISR Number and delete "newpage" immediately after this message
+%!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+\newpage
+
+\lhead{}
+\rhead{}
+\cfoot{\rm {\hspace{-1.9cm} Instrument Science Report COS(or STIS) YYYY-XX(v1) Page \thepage}}
+
+
+\vspace{-0.3cm}
+\ssection{Section}
+\vspace{-0.3cm}
+%%%%%%%%
+%Acknowledgements
+%%%%%%%%
+\vspace{-0.3cm}
+\ssectionstar{Acknowledgements}
+\vspace{-0.3cm}
+%%%%%%%%
+%Change History
+%%%%%%%%
+\vspace{-0.3cm}
+%Put instrument, year, and ISR number
+\ssectionstar{Change History for COS(or STIS) ISR YYYY-XX}\label{sec:History}
+\vspace{-0.3cm}
+%Put publication date
+Version 1: DD Month YYYY- Original Document
+%%%%%%%%
+%References
+%%%%%%%%
+\vspace{-0.3cm}
+\ssectionstar{References}\label{sec:References}
+\vspace{-0.3cm}
+
+\noindent
+Authors, year, COS Instrument Science Report YYYY-XX
+\\
+Author, year, journal, edition, page
+
+\newpage
+%%%%%%%%
+%Appendix
+%%%%%%%%
+\vspace{-0.3cm}
+\ssectionstar{Appendix A}\label{sec:Appendix}
+\vspace{-0.3cm}
+
+
+\end{document}
+@
