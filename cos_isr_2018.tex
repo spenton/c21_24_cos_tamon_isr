@@ -5,7 +5,21 @@
 \usepackage{deluxetable}
 \usepackage{times}
 \usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{flafter}
+
 \DeclareGraphicsRule{.ps}{eps}{.ps}{}
+\definecolor{green}{rgb}{0, 1.0, 0}
+\definecolor{red}{rgb}{1,0,0}
+\definecolor{blue}{rgb}{0,0,1}
+\definecolor{Lblue}{rgb}{0.8,0.85,1}
+\definecolor{darkgreen}{rgb}{0.25,1.0,0.25}
+\definecolor{Brown}{cmyk}{0, 0.8, 1, 0.6}
+\definecolor{Yellow}{rgb}{1, 1, 0}
+\definecolor{Light}{gray}{.80}
+\definecolor{Dark}{gray}{.20}
+
 \setlength{\headheight}{5mm}
 \setlength{\headsep}{10mm}
 \setlength{\footskip}{10mm}
@@ -17,20 +31,12 @@
 \setlength{\parskip}{1mm}
 \setlength{\parsep}{100mm}
 \setlength{\parindent}{10mm}
-\def\arcsec{\hbox{$^{\prime\prime}$}}
-\def\degree{$^{\circ}$}
 \usepackage{fancyheadings}
 \pagestyle{fancy}
-\newcommand*{\myfont}{\fontfamily{rm}\selectfont}
-\def\numpos{{\bf NUM$\_$POS}\rm}
-\def\acqimageno{{\myfont ACQ/IMAGE}\rm}
-\def\acqimage{{\myfont ACQ/IMAGE}\rm~}
-\def\acqimages{{\myfont ACQ/IMAGE{\rm s}}\rm~}
-\def\acqsearch{{\myfont ACQ/SEARCH}\rm~}
-\def\acqpeakd{{\myfont ACQ/PEAKD}\rm~}
-\def\acqpeakxd{{\myfont ACQ/PEAKXD}\rm~}
-\def\acqpeakds{{\myfont ACQ/PEAKD{\rm s}}\rm~}
-\def\acqpeakxds{{\myfont ACQ/PEAKXD{\rm s}}\rm~}
+\newcommand{\numpos}{{\bf NUM$\_$POS}\rm}
+\newcommand{\psiafdate}{2010.060}
+\def\arcsec{\hbox{$^{\prime\prime}$}}
+\def\degree{\hbox{$^{\circ}$}}
 
 %%%%%%%%%%%%%%%%
 %For numbered sections use ssection/ssubsection/ssubsubsection. For sections without numbers user ssectionstar/ssubsectionstar/ssubsubsectionstar
@@ -52,7 +58,7 @@ for the National Aeronautics \newline and Space Administration.}\hspace{2.0 cm}}
 
 \begin{document}
 \vspace{-2.4cm}
-\noindent\includegraphics*[width=0.295\linewidth]{new_st_logo.eps}
+\noindent\includegraphics*[width=0.295\linewidth]{eps/new_st_logo.eps}
 
 \vspace{-0.4cm}
 
@@ -97,7 +103,7 @@ numerous COS flight software (FSW) patchable constants required for TA.
 
 There are three COS TA modes, FUV spectroscopic, NUV spectroscopic, and NUV imaging.
 This project verified that all three modes were behaving nominally in Cycle 21-24, and determined that no SIAF or FSW parameter updates were required during this time.
-There were, however, changed required for MIRRORB NUV \acqimages. These changes included a changing of the lamp current from LOW to MEDIUM, an adjustment of the LTACAL exposure time, and a modification of both the MIRRORB WCA and PSA/BOA TA subarrays. }
+There were, however, changed required for MIRRORB NUV \texttt{ACQ/IMAGE}s. These changes included a changing of the lamp current from LOW to MEDIUM, an adjustment of the LTACAL exposure time, and a modification of both the MIRRORB WCA and PSA/BOA TA subarrays. }
 
 \vspace{-0.1cm}
 \noindent\rule{\linewidth}{1.0pt}
@@ -115,7 +121,7 @@ There were, however, changed required for MIRRORB NUV \acqimages. These changes 
 \item Introduction (page \pageref{sec:Introduction})
 \item Program Descriptions \pageref{sec:programs}
 \item SIAF Verification (page \pageref{sec:siaf})
-\item \acqimage Performance (page \pageref{sec:acqimage})
+\item \texttt{ACQ/IMAGE} Performance (page \pageref{sec:acqimage})
 \item ACQ/PEAKXD Performance (page \pageref{sec:acqpeakxd})
 \item TA Subarray Performance (page \pageref{sec:subarray})
 \item Conclusion (page \pageref{sec:theend})
@@ -142,18 +148,18 @@ This ISR provides the full details of the following HST+COS Programs:
 \end{itemize}
 
 There are three modes of COS Target Acquisition (TA); NUV imaging, NUV spectroscopic, and NUV imaging.
-There are four COS TA (ACQ/) procedures; \acqimageno, PEAKD, PEAKXD, and SEARCH. The ACQ/PEAKD and SEARCH
+There are four COS TA (ACQ/) procedures; \texttt{ACQ/IMAGE}, PEAKD, PEAKXD, and SEARCH. The ACQ/PEAKD and SEARCH
 step the telescope through dwell patterns on the sky. As long as the target light falls correctly within
 the TA detector sub-arrays, ACQ/PEAKD and SEARCH will continue to nominally assist in TA (barring any
-unforeseen anomalies). The \acqimage and PEAKXD procedures rely on the sub-arrays and patchable constants
-in the COS flight software (FSW) which assist in target centering. In both \acqimage and PEAKXD, the internal
+unforeseen anomalies). The \texttt{ACQ/IMAGE} and PEAKXD procedures rely on the sub-arrays and patchable constants
+in the COS flight software (FSW) which assist in target centering. In both \texttt{ACQ/IMAGE} and PEAKXD, the internal
 wavelength calibration lamp is flashed to locate the center of the wavelength calibration aperture (WCA). From this location, the center of the
-science aperture (SA) in use can be predicted by applying the FSW constant that give the SA offset compared to the WCA center. For \acqimageno,
+science aperture (SA) in use can be predicted by applying the FSW constant that give the SA offset compared to the WCA center. For \texttt{ACQ/IMAGE},
 the offset is in both detector X (along-dispersion, AD) and Y (cross-dispersion, XD). For ACQ/PEAKXD, which
 uses dispersed light, this offset is only in the Y (XD) direction. HST program 13972 also verifies that the TA subarrays
 are proper and re-measures the actively used WCA-to-SA offsets to monitor the performance of COS TAs.
 
-\acqimage has four combinations of two SAs, the Primary Science Aperture (PSA) and the Bright
+\texttt{ACQ/IMAGE} has four combinations of two SAs, the Primary Science Aperture (PSA) and the Bright
 Object Aperture (BOA), and two mirror modes, MIRRORA and MIRRORB. Each combination is commonly used, and has a slightly different
 WCA-to-SA offset in both X (AD) and Y(XD), which must be verified. Each COS grating has a different WCA-to-SA XD offset.
 BOA spectroscopic TAs are not supported for COS, so 13972 only verifies the WCA-to-PSA offsets that are used in ACQ/PEAKXD.
@@ -164,7 +170,7 @@ The centering requirements are based upon the wavelength accuracy requirements i
 in the XD. The strictest NUV requirements are [AD,XD] = [0.041, 0.3]\arcsec, while for the FUV they are [AD,XD] = [0.106, 0.3]\arcsec. The XD
 requirement is that all TAs center to within $\pm$ 0.3 \arcsec\ with a 1$\sigma$ goal of $\pm$ 0.1\arcsec.
 
-In \S~\ref{sec:acqimage} we will discuss the verification of the FSW parameters associated with COS \acqimages.
+In \S~\ref{sec:acqimage} we will discuss the verification of the FSW parameters associated with COS \texttt{ACQ/IMAGE}s.
 Some data from visit 'A2' of program 14035 will be used to assist in this verification. This data will be used to verify
 the COS NUV SIAF (Science Instrument Aperture File) entries. In ~\S~\ref{sec:peakxd},
 we will discuss the verification of the FSW parameters associated with COS ACQ/PEAKXDs, and the verification of the
@@ -184,96 +190,139 @@ These data were intentionally taken contemporaneously to avoid any long-term det
 \cfoot{\rm {\hspace{-1.9cm} Instrument Science Report COS 2016-09(v1) Page \thepage}}
 
 \clearpage
+\subsection{Introductory Notes and Conventions}
+\vspace{-0.3cm}
+There are a few COS conventions to be established before discussing TA in detail.
+\begin{enumerate}
+	\item{COS TAs are performed in raw or ``detector'' coordinates, not the ``user'' coordinate system of calibrated
+		COS files. To avoid confusion over the different coordinate systems, we will use along-dispersion (AD) and cross-dispersion
+		(XD) whenever possible.
+		All references to the coordinates ``X'' and ``Y'' are in the detector coordinate system unless otherwise
+		specified.
+		In raw NUV coordinates, +X is the +XD and +Y is -AD. In raw FUV coordinates, +X is -AD and +Y is +XD.
+		The transformations between user and detector coordinates are :
+		\begin{equation} NUV: X_{user} = 1023 - Y_{detector} \ ; Y_{user} = 1023-X_{detector} \end{equation}
+		\begin{equation} FUV: X_{user} = 16383 - X_{detector} \ ; Y_{user} = Y_{detector} \end{equation}
+		}
+	\item{To emphasize the names of various TA parameters:
+		\begin{itemize}
+			\item{Keywords in FITS headers will be in \textit{ITALICIZED ALL CAPITALS}.}
+			\item{COS TA modes and optional parameters will be in \texttt{Courier} (e.g., 	\texttt{ACQ/IMAGE}).}
+			\item{Parameters in the COS flight software (FSW) will be in \textsc{small capitals}.
+In the FSW, all parameters begin with ``\textsc{pcta\_}''. In this TIR, this prefix is considered implied and is not included,
+except in the tables and descriptions in the appendices.}
+			\item{COS FITS filenames, or portions of a filename, will be in {\sf sans-serif}.}
+		\end{itemize}
+	}
+	\item{There are three centering options during \texttt{ACQ/SEARCH} and \texttt{ACQ/PEAKD}. In the Astronomers Proposal Tool (APT), these are
+		referred to as \texttt{CENTER}=\texttt{FLUX-WT}, \texttt{FLUX-WT-FLR}, and \texttt{BRIGHTEST}.
+		These parameters have slightly different names in the IHB, the FITS keywords, and the FSW.
+		In this ISR, we will refer to the centering options as \texttt{CENTER}=\texttt{Flux-Weighted(FW)}, \texttt{Flux-Weighted-Floor(FWF)}, and \texttt{Return-To-Brightest(RTB)}.
+	}
+	\item{When discussing the various subarrays used during COS TA, boxes will be specified by giving the lowest
+		valued corner (C) and full size (S) for both X and Y. A box is fully specified by
+		giving its XC, XS, YC, \& YS. In this TIR, these will always be given in detector coordinates.}
+	\item{When referencing NUV pixels, we will abbreviate pixel as p. For the FUV, we use DE to reference the FUV digital elements.}
+	\item{Milli-arcseconds (0.001\arcsec) will be abbreviated as mas. }
+	\item{When referring to a particular day, we will use YEAR.DAY. For example, day 60 of 2010 will be referred to as \psiafdate. We will also occasionally use decimal years. In these cases, there will only be a single digit in the fractional part (e.g., 2009.9).}
+	\item{Archived COS files are in FITS format (.fits) and the filenames are in the form {\sf IPPPSSOOT\_{\it extension}.fits}.
+The HST naming convention breaks down for COS as I=Instrument=``L'', PPP=Program ID, SS=Visit ID, OO=Exposure ID,
+and T=``Q'' for nominally recorded observations. See the COS DHB for a full breakdown of the HST IPPPSSOOT naming conventions.
+COS TA files have the {\it extension} of {\sf rawacq}, and additional
+TA information is contained in the {\sf IPPPSSOOT\_{\it spt}.fits} file known as the support file.}
+\end{enumerate}
 \ssection{Program Descriptions \label{sec:programs} }
 
 In addition to 13972, COS exposures obtained in HST program 14035 (HST Cycle 22 Focal Plane Calibration (SI-FGS Alignment)) were used in this analysis.
-This program builds upon the monitoring and calibration of the FGS-to-SI alignment program (14452 - HST Cycle 23- Focal Plane Calibration (SI-FGS Alignment)).  HST 14452 performs back-to-back PSA/MIRRORA and PSA/MIRRORB \acqimages, from which all the results herein are bootstrapped.
+This program builds upon the monitoring and calibration of the FGS-to-SI alignment program (14452 - HST Cycle 23- Focal Plane Calibration (SI-FGS Alignment)).  HST 14452 performs back-to-back PSA/MIRRORA and PSA/MIRRORB \texttt{ACQ/IMAGE}s, from which all the results herein are bootstrapped.
 
-From Cycles 17-23, an FGS-to-SI program was repeated twice a year. These programs contained COS exposures designed to assist in the monitoring of the COS NUV alignent to HST.
-These programs used the same two stars with COS in visits spaced six months apart. Both visits observed the astrometric open cluster M35, at orientations that were 180\degree apart.
+\ssubsection{FGS-to-SI Programs \label{sec:fgs2si} }
+
+From Cycles 17-23, an FGS-to-SI program executed with COS visits twice a year. These programs contained COS exposures designed to assist in the monitoring of the COS NUV alignent to HST.
+These programs used the same two stars with COS in visits spaced six months apart. Both visits observed the astrometric open cluster M35, at orientations that were 180\degree~apart.
 The two stars observed were 206W3 (in the Fall) and 427W3 (in the Spring). Due to time constraints, the exact content of the COS visits in these programs varied from year to year.
 
-However, the COS portion of each program begins with a PSA+MIRRORA \acqimage on a target should be approximately centered due to observations with other instruments earlier in the Visit.
-Post-observation telemetry data, an the results of the \acqimage, are used to refine this assumption.
+However, the COS portion of each program begins with a PSA+MIRRORA \texttt{ACQ/IMAGE} on a target should be approximately centered due to observations with other instruments earlier in the Visit.
+Post-observation telemetry data, an the results of the \texttt{ACQ/IMAGE}, are used to refine this assumption.
 This process verifies the COS NUV PSA aperture position\footnote{Specifically, the \textit{LFPSAA} entry.} in the SIAF to about 0.5 pixels or (~0.012\arcsec).
 
-After this PSA+MIRRORA \acqimageno, a PSA+MIRRORB \acqimage is then performed.
-This exposure bootstraps the PSA+MIRRORB centering to the PSA+MIRRORA SIAF verification.
+After this PSA+MIRRORA \texttt{ACQ/IMAGE}, a PSA+MIRRORB \texttt{ACQ/IMAGE} is then performed (a ``set'').
+This bootstraps the PSA+MIRRORB centering to the PSA+MIRRORA and to the SIAF verification.
 This allows us to monitor the properties of the PSA+MIRRORB image in a controlled way on a centered target.
-No spectra are taken in 14452 due to time constraints, but we are currently planning on adding in PSA/MIRRORA and PSA/MIRRORB lamp images.
+Where possible, time-tag (\textbf{TT}) images of the lamps and/or targets along with NUV G230L
 
-The historical list of FCS-to-SI proposals, cycles (C), and content were:
+The historical list of FGS-to-SI proposals, cycles (C), and content were:
 \begin{itemize}
-	\item{11878 (C17)}{Two sets of PSA/MIRRORA + PSA/MIRRORB \acqimages, Target+Lamp Time-Tag images, \& G230L Spectra}
-	\item{12399 (C18)}{Two sets of PSA/MIRRORA + PSA/MIRRORB \acqimages, One set of Target+Lamp Time-Tag images (427W3), one G230L Spectrum (427W3)}
-	\item{12781 (C19)}{Two sets of PSA/MIRRORA + PSA/MIRRORB \acqimages}
-	\item{13171 (C20)}{Two sets of PSA/MIRRORA + PSA/MIRRORB \acqimages}
-	\item{13616 (C21)}{Two sets of PSA/MIRRORA + PSA/MIRRORB \acqimages}
-	\item{14035 (C22)}{Two sets of PSA/MIRRORA + PSA/MIRRORB \acqimages}
-	\item{14452 (C23)}{Two sets of PSA/MIRRORA + PSA/MIRRORB \acqimages, but with Lamp-Only Time-Tag images after each \acqimage}
+	\item{11878 (C17):}{Two sets of PSA \texttt{ACQ/IMAGE}s, Target+Lamp Time-Tag images, \& G230L Spectra}
+	\item{12399 (C18):}{Two sets of PSA \texttt{ACQ/IMAGE}s, One set of Target+Lamp Time-Tag images (427W3), one G230L Spectrum (427W3)}
+	\item{12781 (C19):}{Two sets of PSA \texttt{ACQ/IMAGE}s}
+	\item{13171 (C20):}{Two sets of PSA \texttt{ACQ/IMAGE}s}
+	\item{13616 (C21):}{Two sets of PSA \texttt{ACQ/IMAGE}s}
+	\item{14035 (C22):}{Two sets of PSA \texttt{ACQ/IMAGE}s}
+	\item{14452 (C23):}{Two sets of PSA \texttt{ACQ/IMAGE}s,  with Lamp-Only Time-Tag images after each \texttt{ACQ/IMAGE}}
 \end{itemize}
 
-This verifies the COS NUV PSA aperture position in the SIAF. After this PSA+MIRRORA \acqimageno, a PSA+MIRRORB \acqimage is then performed.
+This verifies the COS NUV PSA aperture position in the SIAF. After this PSA+MIRRORA \texttt{ACQ/IMAGE}, a PSA+MIRRORB \texttt{ACQ/IMAGE} is then performed.
 This exposure bootstraps the PSA+MIRRORB centering to the PSA+MIRRORA SIAF verification.
 This allows us to monitor the properties of the PSA+MIRRORB image in a controlled way on a centered target.
 No spectra are taken in 14452 due to time constraints, but we are currently planning on adding in PSA/MIRRORA and PSA/MIRRORB lamp images.
 
-Visits 01 and 02 of this program extend the COS SIAF/FGS-to-SI verification of Visit 02 of 14452 to the other two \acqimage combinations (BOA+MIRRORA and BOA+MIRRORB) by bootstraping from the PSA+MIRRORB verification to co-align all the COS TA imaging modes.
+Visits 01 and 02 of this program extend the COS SIAF/FGS-to-SI verification of Visit 02 of 14452 to the other two \texttt{ACQ/IMAGE} combinations (BOA+MIRRORA and BOA+MIRRORB) by bootstraping from the PSA+MIRRORB verification to co-align all the COS TA imaging modes.
 The details of the observations are given is the observing section.
 
-Visit 01 of this program bootstraps off Visit 02 of 14452  to co-align the PSA+MIRRORB \acqimage mode to the BOA+MIRRORA.
+Visit 01 of this program bootstraps off Visit 02 of 14452  to co-align the PSA+MIRRORB \texttt{ACQ/IMAGE} mode to the BOA+MIRRORA.
 We prefer that Visit 01 of this program executes within 45 days of Visit 02 of 14452, to ensure that no long term instrument or telescope focus changes impact our results.
 
 Visit 02 of this program follows the style of Visit 01,  and bootstraps from the BOA+MIRRORA mode to the BOA+MIRRORB TA imaging mode.
 Visit 02 should also occur within 45 days of visit 02 of 14452 and within 45 days of Visit 01 of this program.
 
 Visit 3 of this program is an on-hold, contingency visit that would be used to replace the 14452 Visit 02 in case this program is, for whatever reason, not executed as planned.
-In this case the 1st \acqimage is PSA/MIRRORA and the 2nd \acqimage is PSA/MIRRORB.
+In this case the 1st \texttt{ACQ/IMAGE} is PSA/MIRRORA and the 2nd \texttt{ACQ/IMAGE} is PSA/MIRRORB.
 This visit also takes several lamp images to measure the WCA-to-PSA imaging offset FSW patchable constants.
 
-In all visits, lamp+target images are taken before and after the TA imaging mode that is being co-aligned (the second \acqimage of the program.)
+In all visits, lamp+target images are taken before and after the TA imaging mode that is being co-aligned (the second \texttt{ACQ/IMAGE} of the program.)
 
 All visits in this program are single orbit visits, this program is very similar to the C22 version (13972).
 Due to the change in OSM2 Home position, some NUV spectra have been re-ordered for efficiency AND some NUV cenwaves were changed to those that are known to have good stripe B WCA spectra.
 \clearpage
 \ssection{SIAF \label{sec:siaf} }
 
-\ssection{Verifying the \acqimage WCA-to-SA Offsets.\label{sec:acqimage} }
+\ssection{Verifying the \texttt{ACQ/IMAGE} WCA-to-SA Offsets.\label{sec:acqimage} }
 \vspace{-0.3cm}
 
 In the servicing mision orbital verification (SMOV) phase, a series of programs in NUV imaging mode
 carefully determined the two-dimensional offset from the WCA to the center of the PSA when observed with MIRRORA.
 These X and Y offsets were loaded in the FSW parameters {\it pcta\_XImCalTargetOffset} and {\it pcta\_YImCalTargetOffset}.
-A target was then centered using a PSA+MIRRORA \acqimageno, then a target image was taken along with a MIRRORB image
+A target was then centered using a PSA+MIRRORA \texttt{ACQ/IMAGE}, then a target image was taken along with a MIRRORB image
 of the WCA image. These images were used to determine the X and Y offsets of the image target and WCA centroids.
 These values were uploaded in the FSW paramaters. This bootstrapping procedure was repeated with the BOA+MIRRORA
-and BOA+MIRRORB \acqimage modes until all four \acqimage modes were co-aligned.
+and BOA+MIRRORB \texttt{ACQ/IMAGE} modes until all four \texttt{ACQ/IMAGE} modes were co-aligned.
 
-In this program (13972) we use this bootstrapping strategy to test the co-alignment of all four \acqimage modes.\footnote{On November 6, 2014,
-the MIRRORB \acqimage wavelength calibration lamp exposure was changed from a 30 second exposure
+In this program (13972) we use this bootstrapping strategy to test the co-alignment of all four \texttt{ACQ/IMAGE} modes.\footnote{On November 6, 2014,
+the MIRRORB \texttt{ACQ/IMAGE} wavelength calibration lamp exposure was changed from a 30 second exposure
 at LOW current (3mA) to a 12 second exposure at MEDIUM current. At this point the {\it pcta\_XImCalTargetOffset} and {\it pcta\_YImCalTargetOffset}
 FSW parameters were also updated to reflect a small change in the WCA-to-SA imaging MIRRORB offsets. This program is the first
 to monitor the updated offsets.}
 To accomplish this in only two orbits, this project leverages observations taken in FGS-to-SI alignment verification
 program (14035).
 \clearpage
-The FGS-to-SI program (14035) performs a PSA/MIRRORA \acqimage on a target that should be centered in the aperture.
-The PSA+MIRRORA \acqimage in Visit 'A2' of 14035 can be used to verify the COS NUV PSA aperture position in the SIAF.
+The FGS-to-SI program (14035) performs a PSA/MIRRORA \texttt{ACQ/IMAGE} on a target that should be centered in the aperture.
+The PSA+MIRRORA \texttt{ACQ/IMAGE} in Visit 'A2' of 14035 can be used to verify the COS NUV PSA aperture position in the SIAF.
 This exposure shows that the COS NUV PSA SIAF entry combined with the PSA+MIRRORA WCA-to-PSA offsets are
-accurate to within [AD,XD] = [-0.020,0.105]\arcsec\ (this is the distance that the \acqimage slewed to center the target).
+accurate to within [AD,XD] = [-0.020,0.105]\arcsec\ (this is the distance that the \texttt{ACQ/IMAGE} slewed to center the target).
 The COS aperture is only repeatable in the XD direction to $\pm$ one motor step (0.05\arcsec). In addition, the WCA location
 cannot be measured to better than 1/2 pixel as the pixel used to determine the median location in an integer.
 On the NUV detector, 1 pixel is $\sim$ 0.023\arcsec. Based upon this information, the COS NUV PSA definition
 in the SIAF file appears to meet our accuracy requirements for Cycle 22.
 
-After the 14035 Visit 'A2' PSA+MIRRORA \acqimageno, a PSA+MIRRORB \acqimage is performed.
+After the 14035 Visit 'A2' PSA+MIRRORA \texttt{ACQ/IMAGE}, a PSA+MIRRORB \texttt{ACQ/IMAGE} is performed.
 This exposure bootstraps the PSA+MIRRORB centering to the PSA+MIRRORA + SIAF verification.
 This allows us to monitor the properties of the PSA+MIRRORB image in a controlled way on a centered target. No spectra or images are taken in 14035 due to time constraints.
-Visits 01 \& 02 of 13972 extend the COS SIAF/FGS-to-SI verification of Visit 02 of 14035 to the other two \acqimage combinations (BOA+MIRRORA \& BOA+MIRRORB) by bootstraping from the PSA+MIRRORB verification to co-align all the COS TA imaging modes. The details of the observations are given is the observing section.
-Visit 01 of 13972 bootstraps off Visit 02 of 14035 to co-align the PSA+MIRRORB \acqimage mode to the BOA+MIRRORA. Visit 01 of 13972 executed within 45 days of Visit 02 of 14035, to ensure that no long term instrument or telescope focus changes impact our results.
+Visits 01 \& 02 of 13972 extend the COS SIAF/FGS-to-SI verification of Visit 02 of 14035 to the other two \texttt{ACQ/IMAGE} combinations (BOA+MIRRORA \& BOA+MIRRORB) by bootstraping from the PSA+MIRRORB verification to co-align all the COS TA imaging modes. The details of the observations are given is the observing section.
+Visit 01 of 13972 bootstraps off Visit 02 of 14035 to co-align the PSA+MIRRORB \texttt{ACQ/IMAGE} mode to the BOA+MIRRORA. Visit 01 of 13972 executed within 45 days of Visit 02 of 14035, to ensure that no long term instrument or telescope focus changes impact our results.
 Visit 02 of 13972 follows the style of Visit 01, and bootstraps from the BOA+MIRRORA mode to the BOA+MIRRORB TA imaging mode. Visit 02 should also occur within 45 days of visit 02 of 14035 and within 45 days of Visit 01 of 13972.
 
-The results of 13972 \& 14035 show that, for \acqimages :
+The results of 13972 \& 14035 show that, for \texttt{ACQ/IMAGE}s :
 \footnotesize
 \begin{itemize}
 \item PSA+MIRRORA is aligned with PSA+MIRRORB to [AD, XD] $\le$ [0.022, 0.007] \arcsec\ (14035, Visit 'A2')
@@ -283,15 +332,38 @@ The results of 13972 \& 14035 show that, for \acqimages :
 \normalsize
 
 These results can be combined to show the measured offsets of PSA+MIRRORB, BOA+MIRRORA, \& BOA+MIRRORB when compared
-to the initial PSA+MIRRORA \acqimage of Visit 'A2' of 14035. These results are shown in Table~\ref{table:ai}.
+to the initial PSA+MIRRORA \texttt{ACQ/IMAGE} of Visit 'A2' of 14035. These results are shown in Table~\ref{table:ai}.
 Combined offsets from PSA+MIRRORA are provided in both NUV pixels (p) and in arcseconds (\arcsec).
+
+\begin{deluxetable}{|c||c|c|}
+\tablewidth{0pt}
+\tabcolsep 17pt
+\tablecolumns{3}
+\tablecaption{COS Along-Dispersion (AD) Centering Requirements.\label{table:TAaccuracy}}
+\tablehead{	\colhead{COS Grating} &
+			\colhead{Total Error Budget} &
+			\colhead{AD TA Requirement}
+}
+\startdata
+G185M & 0.058\arcsec\ & 0.041\arcsec\\
+G225M & 0.076\arcsec\ & 0.054\arcsec\\
+G285M & 0.084\arcsec\ & 0.059\arcsec\\
+G230L & 0.086\arcsec\ & 0.061\arcsec\\
+\hline
+G130M & 0.150\arcsec\ & 0.106\arcsec\\
+G160M & 0.153\arcsec\ & 0.108\arcsec\\
+G140L & 0.247\arcsec\ & 0.175\arcsec\\
+\enddata
+\tablecomments{Assuming the total error budget (column 2) is split equally between TA AD centering and wavelength scale accuracy,
+the AD TA requirements (column 3) are 1/$\sqrt{2}$ of the total error budget (equations~\ref{eq:TAcenter}--\ref{eq:TAcenterL}).}
+\end{deluxetable}
 
 \begin{deluxetable}{|r|r|r|r|r|r|}
 \tabcolsep 10pt
 \tabletypesize{\footnotesize}
 \tablecolumns{6}
 \tablewidth{0 pt}
-\tablecaption{\acqimage WCA-to-SA offsets from PSA+MIRRORA\label{table:ai}}
+\tablecaption{\texttt{ACQ/IMAGE} WCA-to-SA offsets from PSA+MIRRORA\label{table:ai}}
 \tablehead{\colhead{Aperture}&\colhead{MIRROR}&AD Offset & XD Offset & AD Offset& XD Offset\\
 &&(\arcsec) & (\arcsec) & (p) & (p)
 }
@@ -307,7 +379,7 @@ BOA & B & 0.036	& 0.070 &1.530 & 2.975 \\
 \clearpage
 \ssection{Exposure Lists \label{sec:elists} }
 
-After the series of \acqimages that start each visit of 13972, the target should be accurately
+After the series of \texttt{ACQ/IMAGE}s that start each visit of 13972, the target should be accurately
 centered. We take advantage of this to test the WCA-to-PSA offsets required for the spectroscopic
 TA sequence ACQ/PEAKXD (TA in the XD direction). In the COS FSW, these values are contained in the
 patchable constant table {\it pcta\_CalTargetOffset}. The verification process is simple, take a normal
@@ -338,28 +410,25 @@ is required at this time.
 \clearpage
 
 There are 3 modes of COS target acquisition (TA); NUV imaging, NUV and FUV spectroscopic.
-There are 4 COS TA (ACQ) procedures; \acqsearch, \acqimage, \acqpeakd, and \acqpeakxd. \acqpeakd~ and \acqsearch~ step the telescope through dwell patterns on the sky. As long as the target light falls completely within
-the TA detector subarrays, \acqpeakd~ and \acqsearch~ will continue to operate nominally.
-In addition to proper TA subarrays, \acqimage, and \acqpeakxd \footnote{At FUV LP3, all \acqpeakxd~observations use the optional parameter \numpos=1.} require accurate TA-associated flight software (FSW) patchable constants.
+There are 4 COS TA (ACQ) procedures; \texttt{ACQ/SEARCH}, \texttt{ACQ/IMAGE}, \texttt{ACQ/PEAKD}, and \texttt{ACQ/PEAKXD}. \texttt{ACQ/PEAKD}~ and \texttt{ACQ/SEARCH}~ step the telescope through dwell patterns on the sky. As long as the target light falls completely within
+the TA detector subarrays, \texttt{ACQ/PEAKD}~ and \texttt{ACQ/SEARCH}~ will continue to operate nominally.
+In addition to proper TA subarrays, \texttt{ACQ/IMAGE}, and \texttt{ACQ/PEAKXD} \footnote{At FUV LP3, all \texttt{ACQ/PEAKXD}~observations use the optional parameter \numpos=1.} require accurate TA-associated flight software (FSW) patchable constants.
 HST program 14857 verifies that all Cycle~24 NUV and FUV TA subarrays are proper, and evaluates if the actively used WCA-to-PSA offsets\footnote{No BOA spectroscopic TAs were performed in Cycle~24, so these offsets were not verified.} are correct.
 The initial HST/COS target pointing is based on definitions of the physical locations of the COS apertures in terms of [V2,V3] in the Science Instrument Aperture File (SIAF).
 All of the actively used NUV (LP1) and FUV (LP3\footnote{The default COS FUV spectral location was moved to LP3 on February 15, 2015, for all central wavelength settings except G130M/1055 and G130M/1096, which still operate at LP2. On October 2, 2017, the default location of COS FUV spectra were moved to LP4, with additional observing and TA constraints as outlined on the COS2025 website (http://www.stsci.edu/hst/cos/cos2025).}) SIAF entries used for TA are also verified in this program.
 
-In both \acqimage~ and \acqpeakxd\footnote{Beginning in Cycle~25, the \acqpeakxd~algorithm was enhanced so that two distinct algorithms can be employed.
-The original \acqpeakxd, used in Cycles 19-24, is referred to as \numpos=1, while the Cycle~25 (LP4) algorithm
-uses the \acqpeakd~algorithm, but in the cross-dispersion (XD) direction and is referred to as the \numpos $ > 1$ \acqpeakxd.},
+In both \texttt{ACQ/IMAGE}~ and \texttt{ACQ/PEAKXD}\footnote{Beginning in Cycle~25, the \texttt{ACQ/PEAKXD}~algorithm was enhanced so that two distinct algorithms can be employed.
+The original \texttt{ACQ/PEAKXD}, used in Cycles 19-24, is referred to as \numpos=1, while the Cycle~25 (LP4) algorithm
+uses the \texttt{ACQ/PEAKD}~algorithm, but in the cross-dispersion (XD) direction and is referred to as the \numpos $ > 1$ \texttt{ACQ/PEAKXD}.},
  the internal wavelength calibration lamp is flashed to locate the wavelength calibration aperture (WCA). From its measured location on the detector, the center of the science aperture (SA) in use can be predicted by applying the FSW constants that give the SA offset compared to the WCA center for the combination of optics in use.
-For \acqimage, the offset is in both the along-dispersion (AD) and cross-dispersion (XD) directions. For \acqpeakxd, which uses dispersed light, this offset is only in the XD direction.
+For \texttt{ACQ/IMAGE}, the offset is in both the along-dispersion (AD) and cross-dispersion (XD) directions. For \texttt{ACQ/PEAKXD}, which uses dispersed light, this offset is only in the XD direction.
 \begin{itemize}
-\item{
-The \acqimage~procedure has four combinations of two SAs, the Primary Science Aperture (PSA) and the Bright Object Aperture (BOA), and two mirror modes, MIRRORA and MIRRORB. Each combination is commonly used, and has a different WCA-to-SA offset in both AD and XD, which must be verified\footnote{These offsets are maintained in the FSW as the patchable constant tables {\it pcta$\_$XImCalTargetOffset} (XD) and {\it pcta$\_$YImCalTargetOffset} (AD).}. \acqimages~also rely on accurate AD and XD plate scales. These physical plate scales should remain constant for the NUV MAMA and are not monitored or tested by this program.
+\item{The \texttt{ACQ/IMAGE}~procedure has four combinations of two SAs, the Primary Science Aperture (PSA) and the Bright Object Aperture (BOA), and two mirror modes, MIRRORA and MIRRORB. Each combination is commonly used, and has a different WCA-to-SA offset in both AD and XD, which must be verified\footnote{These offsets are maintained in the FSW as the patchable constant tables {\it pcta$\_$XImCalTargetOffset} (XD) and {\it pcta$\_$YImCalTargetOffset} (AD).}. \texttt{ACQ/IMAGE}s~also rely on accurate AD and XD plate scales. These physical plate scales should remain constant for the NUV MAMA and are not monitored or tested by this program.
 }
-\item{
-The \acqpeakxd~procedure used in Cycle~24 relies upon FSW XD WCA-to-PSA offsets\footnote{Maintained in the FSW patchable constant table {\it pcta$\_$CalTargetOffset} for both NUV and FUV.}, and grating-specific XD plate scales\footnote{Maintained in the FSW patchable constant tables {\it pcta$\_$NUVMilliArcsecsPerPixelXDisp} and {\it pcta$\_$FUVMilliArcsecsPerPixelXDisp}.}
+\item{The \texttt{ACQ/PEAKXD}~procedure used in Cycle~24 relies upon FSW XD WCA-to-PSA offsets\footnote{Maintained in the FSW patchable constant table {\it pcta$\_$CalTargetOffset} for both NUV and FUV.}, and grating-specific XD plate scales\footnote{Maintained in the FSW patchable constant tables {\it pcta$\_$NUVMilliArcsecsPerPixelXDisp} and {\it pcta$\_$FUVMilliArcsecsPerPixelXDisp}.}
 Each COS grating, SA, and lifetime position (LP) combination has a different offset. This program verifies all 4 NUV LP1 and 3 FUV LP3 grating-specific WCA-to-PSA offsets but does not test or monitor the FSW XD plate scales.
 }
-\item{
-This program does not attempt to monitor the AD accuracy of the COS spectroscopic TA modes.\footnote{For \acqpeakd, short-term fluctuations of the detector background rate due to environmental conditions remains the largest source of along-dispersion pointing error.}
+\item{This program does not attempt to monitor the AD accuracy of the COS spectroscopic TA modes.\footnote{For \texttt{ACQ/PEAKD}, short-term fluctuations of the detector background rate due to environmental conditions remains the largest source of along-dispersion pointing error.}
 }
 \end{itemize}
 
@@ -369,25 +438,25 @@ COS centering requirements are based on wavelength accuracy in the AD, and flux 
 
 There are several important differences between the Cycle~24 program (14857) and the Cycle~23 program (14440).
 
-In the Cycle~23 HST+COS monitoring program, Visit '01' was an on-hold contingency visit in case visit '2A' of 14452\footnote{HST Cycle 23 Focal Plane Calibration (SI-FGS alignment), PI = Colin Cox.}, the Cycle~23 FGS-to-SI alignment program did not execute as planned in the fall of 2016. The 14452 visit '2A' executed on Oct 2, 2016, with a COS PSA/MIRRORA \acqimage~followed immediately by a PSA/MIRRORB \acqimage~followed by internal lamp exposures. This visit was used to verify the co-alignment of the 'PA" and 'PB' \acqimage~modes, which the Cycle~23 needed for co-alignment verification of all \acqimage~modes. The Cycle~24 version of the FGS-to-SI program was replaced with a better program (HST PID 14867\footnote{HST Cycle 24 Focal Plane Calibration (SI-FGS alignment), PI = Edmund Nelan.} for aligning the FGSs which did not allow the inclusion of these \acqimage~exposures\footnote{The FGSs were used as the prime science instrument in this proposal, which precluded the use of COS during the visit as COS is not an allowed parallel HST instrument.}. For Cycle 24, we activated this visit to obtain the needed PSA/MIRRORA to PSA/MIRRORB \acqimage~alignment verification.
+In the Cycle~23 HST+COS monitoring program, Visit '01' was an on-hold contingency visit in case visit '2A' of 14452\footnote{HST Cycle 23 Focal Plane Calibration (SI-FGS alignment), PI = Colin Cox.}, the Cycle~23 FGS-to-SI alignment program did not execute as planned in the fall of 2016. The 14452 visit '2A' executed on Oct 2, 2016, with a COS PSA/MIRRORA \texttt{ACQ/IMAGE}~followed immediately by a PSA/MIRRORB \texttt{ACQ/IMAGE}~followed by internal lamp exposures. This visit was used to verify the co-alignment of the 'PA" and 'PB' \texttt{ACQ/IMAGE}~modes, which the Cycle~23 needed for co-alignment verification of all \texttt{ACQ/IMAGE}~modes. The Cycle~24 version of the FGS-to-SI program was replaced with a better program (HST PID 14867\footnote{HST Cycle 24 Focal Plane Calibration (SI-FGS alignment), PI = Edmund Nelan.} for aligning the FGSs which did not allow the inclusion of these \texttt{ACQ/IMAGE}~exposures\footnote{The FGSs were used as the prime science instrument in this proposal, which precluded the use of COS during the visit as COS is not an allowed parallel HST instrument.}. For Cycle 24, we activated this visit to obtain the needed PSA/MIRRORA to PSA/MIRRORB \texttt{ACQ/IMAGE}~alignment verification.
 
-Each visit begins with a comparison of the centering of two \acqimage~modes out of the possible four (PSA or BOA) $\times$ (MIRRORA or MIRRORRB). The visit names were changed from '01', '02', and '03' to 'BA', 'BB' , and 'PB' to indicate which ACQ/IMAGE mode was being tested; PB = PSA/MIRRORB, BA = BOA/MIRRORA, and BB = BOA/MIRRORB. Visits 'BA' and 'BB' of the Cycle~24 program are identical to Visits '01' and '02' of the Cycle~23 program in all other regards.
-Visit 'PB' of the Cycle~24 program is noticeably different than the contingency visit '03' in Cycle~23 program. The 'PB' visit only includes those exposures absolutely required to compare the \acqimage~accuracy of PSA/MIRRORA to PSA/MIRRORB, while the Cycle~23 program also obtained spectra of all three FUV gratings for additional monitoring of spectroscopic TA performance under the assumption that detector 'Y-walk' monitoring would benefit from additional observations near the end of the FUV LP3 lifetime. As all three visits of 14857 executed near the end of the LP3 lifetime, these additional exposures were not required.
+Each visit begins with a comparison of the centering of two \texttt{ACQ/IMAGE}~modes out of the possible four (PSA or BOA) $\times$ (MIRRORA or MIRRORRB). The visit names were changed from '01', '02', and '03' to 'BA', 'BB' , and 'PB' to indicate which ACQ/IMAGE mode was being tested; PB = PSA/MIRRORB, BA = BOA/MIRRORA, and BB = BOA/MIRRORB. Visits 'BA' and 'BB' of the Cycle~24 program are identical to Visits '01' and '02' of the Cycle~23 program in all other regards.
+Visit 'PB' of the Cycle~24 program is noticeably different than the contingency visit '03' in Cycle~23 program. The 'PB' visit only includes those exposures absolutely required to compare the \texttt{ACQ/IMAGE}~accuracy of PSA/MIRRORA to PSA/MIRRORB, while the Cycle~23 program also obtained spectra of all three FUV gratings for additional monitoring of spectroscopic TA performance under the assumption that detector 'Y-walk' monitoring would benefit from additional observations near the end of the FUV LP3 lifetime. As all three visits of 14857 executed near the end of the LP3 lifetime, these additional exposures were not required.
 \clearpage
 \ssection{Program Structure \label{sec:structure}}
-Each visit begins with a comparison of the centering of two \acqimage~modes out of the possible four (PSA or BOA) $\times$ (MIRRORA or MIRRORRB). This will involve not only the \acqimages, but NUV detector images of the WCA lamp image and, if possible, coeval target images. These direct comparisons are only available for the PSA modes. For the BOA modes, the WCA lamp images and target images are taken consecutively. The assumption is that the PSA/MIRRORA \acqimage~centering has not changed since SMOV (questionable). Each of the other science aperture (SA) and MIRRORA/B ACO/IMAGE combinations were co-aligned during SMOV and rely on the flight software
+Each visit begins with a comparison of the centering of two \texttt{ACQ/IMAGE}~modes out of the possible four (PSA or BOA) $\times$ (MIRRORA or MIRRORRB). This will involve not only the \texttt{ACQ/IMAGE}s, but NUV detector images of the WCA lamp image and, if possible, coeval target images. These direct comparisons are only available for the PSA modes. For the BOA modes, the WCA lamp images and target images are taken consecutively. The assumption is that the PSA/MIRRORA \texttt{ACQ/IMAGE}~centering has not changed since SMOV (questionable). Each of the other science aperture (SA) and MIRRORA/B ACO/IMAGE combinations were co-aligned during SMOV and rely on the flight software
 (FSW) WCA-to-SA along-dispersion (AD) and cross-dispersion (XD) offsets.
 
-This back-to-back \acqimage~ process allows us to test that TA modes are centering the target to the same point in the aperture. The Lamp+target exposures are interleaved throughout the visit to measure and verify the imaging WCA-to-SA offsets are still accurate for the remainder of the current HST Cycle. Images will usually use the PtNe\#2 (P2) lamp, as it is the primary TA lamp, but some images will use PtNe\#1 (P1) to monitor the lamps in imaging mode.
+This back-to-back \texttt{ACQ/IMAGE}~ process allows us to test that TA modes are centering the target to the same point in the aperture. The Lamp+target exposures are interleaved throughout the visit to measure and verify the imaging WCA-to-SA offsets are still accurate for the remainder of the current HST Cycle. Images will usually use the PtNe\#2 (P2) lamp, as it is the primary TA lamp, but some images will use PtNe\#1 (P1) to monitor the lamps in imaging mode.
 
-Visit PB was an on-hold contingency visit in case, for whatever reason, visit 2A of 14452, did not execute as planned in the fall of 2017. This program was replaced with an improved process for aligning the FGSs so we needed to activate this visit to obtain the PSA/MIRRORA to PSA/MIRRORB \acqimage~ alignment.
-Visit BA of this program takes back-to-back PSA/MIRRORB \& BOA/MIRRORA \acqimages~and target TIME-TAG images (with lamp flashes) and also takes G230L, G285M as well as FUV LP3 G130M and G140L spectra to test the WCA-to-PSA offsets.
-Visit BB of this program repeats the ~\acqimage~sequence for BOA/MIRRORA \& BOA/MIRRORB and takes G225M, G185M, and FUV LP3 G160M spectra to test the WCA-to-PSA offsets. To test Ywalk, we also take G160M/1600 exposures offset by {\bf POS$\_$TARG}s by +/- 0.7".
+Visit PB was an on-hold contingency visit in case, for whatever reason, visit 2A of 14452, did not execute as planned in the fall of 2017. This program was replaced with an improved process for aligning the FGSs so we needed to activate this visit to obtain the PSA/MIRRORA to PSA/MIRRORB \texttt{ACQ/IMAGE}~ alignment.
+Visit BA of this program takes back-to-back PSA/MIRRORB \& BOA/MIRRORA \texttt{ACQ/IMAGE}s~and target TIME-TAG images (with lamp flashes) and also takes G230L, G285M as well as FUV LP3 G130M and G140L spectra to test the WCA-to-PSA offsets.
+Visit BB of this program repeats the ~\texttt{ACQ/IMAGE}~sequence for BOA/MIRRORA \& BOA/MIRRORB and takes G225M, G185M, and FUV LP3 G160M spectra to test the WCA-to-PSA offsets. To test Ywalk, we also take G160M/1600 exposures offset by {\bf POS$\_$TARG}s by +/- 0.7".
 As shown in Figure~\ref{fig:FP}, Visit BB of this program also takes a "family portrait" of all the P1/P2 MIRRORA/B WCA lamp images to track any drifting of the centroids or changes in the lamps.
 
 \ssection{Verifying the ACQ/PEAKXD WCA-to-PSA Offsets. \label{sec:acqpeakxd} }
 
-\vspace{-0.1cm}
+\tiny
 \begin{table}[ht]
  \caption{COS Cycle~24 TA Monitoring Results Summary}
  \def\arraystretch{1.25}
@@ -397,35 +466,37 @@ As shown in Figure~\ref{fig:FP}, Visit BB of this program also takes a "family p
  ACQ & COS & Optical & Direction & Measured Offset\tablenotemark{b} & Requirement& Goal\\
  Mode & Channel & Configuration & AD or XD & mas\tablenotemark{a} & mas\tablenotemark{a} & mas\tablenotemark{a}\\
  \hline
- IMAGE	&	NUV	&	PSA+MIRRORA	&	AD	&	20$\pm$14	&	41--105	&	40\\
- IMAGE	&	NUV	&	PSA+MIRRORB	&	AD	&	10$\pm$14	&	41--105	&	40\\
- IMAGE	&	NUV	&	BOA+MIRRORA	&	AD	&	20$\pm$14	&	41--105	&	40\\
- IMAGE	&	NUV	&	BOA+MIRRORB	&	AD	&	15$\pm$14	&	41--105	&	40\\
- \hline
- IMAGE	&	NUV	&	PSA+MIRRORA	&	XD	&	75$\pm$14	&	300		&	100\\
- IMAGE	&	NUV	&	PSA+MIRRORB	&	XD	&	20$\pm$14	&	300		&	100\\
- IMAGE	&	NUV	&	BOA+MIRRORA	&	XD	&	95$\pm$14	&	300		&	100\\
- IMAGE	&	NUV	&	BOA+MIRRORB	&	XD	&	12$\pm$14	&	300		&	100\\
-  PEAKXD	&	NUV	&	G185M		&	XD	&	 70$\pm$17		&	300		&	100\\
-  PEAKXD	&	NUV	&	G225M		&	XD	&	 60$\pm$17		&	300		&	100\\
-  PEAKXD	&	NUV	&	G285M		&	XD	&	 20$\pm$17		&	300		&	100\\
-  PEAKXD	&	NUV	&	G230L		&	XD	&	 20$\pm$17		&	300		&	100\\
-  PEAKXD	&	FUVA	&	G130M		&	XD	&	-30$\pm$71		&	300		&	100\\
-  PEAKXD	&	FUVA	&	G160M		&	XD	&	-20$\pm$71		&	300		&	100\\
-  PEAKXD	&	FUVA	&	G140L		&	XD	&	-170$\pm$71		&	300		&	100\\
-  \hline
+	IMAGE	&	NUV	&	PSA+MIRRORA	&	AD	&	20$\pm$14	&	41--105	&	40\\
+	IMAGE	&	NUV	&	PSA+MIRRORB	&	AD	&	10$\pm$14	&	41--105	&	40\\
+	IMAGE	&	NUV	&	BOA+MIRRORA	&	AD	&	20$\pm$14	&	41--105	&	40\\
+	IMAGE	&	NUV	&	BOA+MIRRORB	&	AD	&	15$\pm$14	&	41--105	&	40\\
+	\hline
+	IMAGE	&	NUV	&	PSA+MIRRORA	&	XD	&	75$\pm$14	&	300		&	100\\
+	IMAGE	&	NUV	&	PSA+MIRRORB	&	XD	&	20$\pm$14	&	300		&	100\\
+	IMAGE	&	NUV	&	BOA+MIRRORA	&	XD	&	95$\pm$14	&	300		&	100\\
+	IMAGE	&	NUV	&	BOA+MIRRORB	&	XD	&	12$\pm$14	&	300		&	100\\
+	\hline
+	PEAKXD	&	NUV	&	G185M		&	XD	&	 70$\pm$17		&	300		&	100\\
+	PEAKXD	&	NUV	&	G225M		&	XD	&	 60$\pm$17		&	300		&	100\\
+	PEAKXD	&	NUV	&	G285M		&	XD	&	 20$\pm$17		&	300		&	100\\
+	PEAKXD	&	NUV	&	G230L		&	XD	&	 20$\pm$17		&	300		&	100\\
+	PEAKXD	&	FUVA	&	G130M		&	XD	&	-30$\pm$71		&	300		&	100\\
+	PEAKXD	&	FUVA	&	G160M		&	XD	&	-20$\pm$71		&	300		&	100\\
+	PEAKXD	&	FUVA	&	G140L		&	XD	&	-170$\pm$71		&	300		&	100\\
+	\hline
   \centering
   \tablenotetext{a}{1 mas = 1 milli-arcsecond.}
   \tablenotetext{b}{The quoted error bars are associated with a 0.5 uncertainty when measuring the integer WCA coordinate,
-  and 1/3 of an NUV pixel when using the \acqimage~checkbox centering algorithm. Added in quadrature, the approximate
-  \acqimage~measurement error is $\approx 0.6$ NUV pixels, or 14 mas.
-  Each \acqpeakxd~ WCA-to-SA measurement contains an error estimate of $\sqrt2 * 0.5 $ times the plate scale of the detector in use
+  and 1/3 of an NUV pixel when using the \texttt{ACQ/IMAGE}~checkbox centering algorithm. Added in quadrature, the approximate
+  \texttt{ACQ/IMAGE}~measurement error is $\approx 0.6$ NUV pixels, or 14 mas.
+  Each \texttt{ACQ/PEAKXD}~ WCA-to-SA measurement contains an error estimate of $\sqrt2 * 0.5 $ times the plate scale of the detector in use
   (one half pixel or digital-element uncertainty for each measurement of an integer quantity).
   For the NUV channel, this is 23.5 mas/p or $\sqrt2 * 0.5 * 23.5 = 17$ mas.
   For the FUV channel, this is $\approx \sqrt2 * 0.5 * 100 \approx 71$ mas.}
   \end{tabular}
 	\label{tab:table_one}
 \end{table}
+\normalsize
 \clearpage
 
 \ssection{Verifying the ACQ Subarrays \label{sec:subarray} }
@@ -440,63 +511,97 @@ analysis of the TA and science sub-arrays used in HST Cycle 21.
 \ssection{WCA Lamp Images (aka, Lamp Family Portrait) \label{sec:family_portrait} }
 \vspace{-0.3cm}
 
-\begin{figure}
-\noindent\includegraphics*[width=0.795\linewidth]{epsHEFP13526.eps}
-\caption{Cycle 21 PtNe Lamp `Family Portrait'' \ref{fig:FG21}
-	These four panels show a 'family portrait' of the available COS PtNe Lamp + MIRROR combinations possible with ACQ/IMAGE. Panel titles give the lamp and mirror combination, along with the current setting (in milli-amps, mA) and the exposure times in this program.
-	These images are in 'detector' coordinates, as used on-board COS.
-	The images show the observed counts/pixel/s (cps) as given by the colorbar on the bottom.
-	The \textcolor{red}{red} dashed boxes show the Cycle~24 \acqimage~WCA subarrays. At the top of the subarrays, text provides the count rate in the brightest pixel (BP) in units of counts per second per NUV MAMA pixel (cps).
-	The \textcolor{blue}{blue} histogram on the bottom edge shows the cross-dispersion (XD) lamp profile in detector 'X' coordinates, while
-	the \textcolor{green}{green} histogram on the left edge shows the along-dispersion (AD) lamp profile in detector 'Y' coordinates.
-	The cross-hairs show the median location of the given configurations' lamp events within the TA subarray.
-	PtNe\#2 lamp was used for all \acqimages~ during Cycle~24, and was operated at LOW current (6~mA) for those using MIRRORA and MEDium current (10~mA) for those using MIRRORB.
+\begin{figure}[!h]
+\vspace{1.3cm}
+\centering
+\includegraphics[width=\textwidth]{png/C24_14857_FP.png}
+\caption{These four panels show a 'family portrait' of the available COS PtNe Lamp + MIRROR combinations possible with ACQ/IMAGE. Panel titles give the lamp and mirror combination, along with the current setting (in milli-amps, mA) and the exposure times in this program.
+These images are in 'detector' coordinates, as used on-board COS.
+The images show the observed counts/pixel/s (cps) as given by the colorbar on the bottom.
+The \textcolor{red}{red} dashed boxes show the Cycle~24 \texttt{ACQ/IMAGE}~WCA subarrays. At the top of the subarrays, text provides the count rate in the brightest pixel (BP) in units of counts per second per NUV MAMA pixel (cps).
+The \textcolor{blue}{blue} histogram on the bottom edge shows the cross-dispersion (XD) lamp profile in detector 'X' coordinates, while
+the \textcolor{green}{green} histogram on the left edge shows the along-dispersion (AD) lamp profile in detector 'Y' coordinates.
+The cross-hairs show the median location of the given configurations' lamp events within the TA subarray.
+PtNe\#2 lamp was used for all \texttt{ACQ/IMAGE}s~ during Cycle~24, and was operated at LOW current (6~mA) for those using MIRRORA and MEDium current (10~mA) for those using MIRRORB.
 }
+\label{fig:FP}
+\vspace{1.3cm}
 \end{figure}
 
 \begin{figure}
-\noindent\includegraphics*[width=0.795\linewidth]{epsHEFP13526.eps}
+\noindent\includegraphics*[width=0.795\linewidth]{eps/epsHEFP13526.eps}
 \caption{Cycle 21 PtNe Lamp `Family Portrait'' \ref{fig:FG21}}
 \end{figure}
 
 \begin{figure}
-\noindent\includegraphics*[width=0.795\linewidth]{epsHEFP13523.eps}
-\caption{Cycle 21 PtNe Lamp `Family Portrait'' \ref{fig:FG21}}
+\noindent\includegraphics*[width=0.795\linewidth]{eps/epsHEFP13523.eps}
+\caption{Cycle~§21 PtNe Lamp `Family Portrait'' \ref{fig:FG21}}
 \end{figure}
 
 \begin{figure}
-\noindent\includegraphics*[width=0.795\linewidth]{epsHEFP13972.eps}
-\caption{Cycle 22 PtNe Lamp `Family Portrait'' \ref{fig:FG22}}
+\noindent\includegraphics*[width=0.795\linewidth]{eps/epsHEFP13972.eps}
+\caption{Cycle~22 PtNe Lamp `Family Portrait'' \ref{fig:FG22}}
 \end{figure}
 \begin{figure}
-\noindent\includegraphics*[width=0.795\linewidth]{epsHEFP14440.eps}
-\caption{Cycle 23 PtNe Lamp `Family Portrait'' \ref{fig:FG23v1}}
+\noindent\includegraphics*[width=0.795\linewidth]{eps/epsHEFP14440.eps}
+\caption{Cycle~23 PtNe Lamp `Family Portrait'' \ref{fig:FG23v1}}
 \end{figure}
 
 \begin{center}
 \begin{figure}
-\noindent\includegraphics*[width=0.795\linewidth]{epsHEFP14857.eps}
-\caption{Cycle 24 PtNe Lamp `Family Portrait'' \ref{fig:FG24}}
+\noindent\includegraphics*[width=0.795\linewidth]{eps/epsHEFP14857.eps}
+\caption{Cycle~24 PtNe Lamp `Family Portrait'' \ref{fig:FG24}}
 \end{figure}
 \end{center}
+\section{SIAF}
+\section{Spectroscopic TA}
 
+\begin{deluxetable}{|r|r|r|r|}
+\tabcolsep 10pt
+\tabletypesize{\footnotesize}
+\tablecolumns{4}
+\tablewidth{0 pt}
+\tablecaption{\texttt{ACQ/PEAKXD} WCA-to-PSA offsets \label{table:soffsets}}
+\tablehead{\colhead{OPT\_ELEM}&\colhead{LP1}&\colhead{LP2}&\colhead{LP3}\\
+}
+\startdata
+\hline
+\cutinhead{4}{c}{FUV}\\
+G130M	&	 -898	&	-943	&	-892 \\
+G140L	&	 -884	&	-950	&	-857 \\
+G160M	&	 -898	&	-933	&	-901 \\
+\hline
+\cutinhead{4}{c}{NUV}\\
+G185M	3742&	N/A	&	N/A \\
+G225M	3746&	N/A	&	N/A \\
+G230L	3734&	N/A	&	N/A \\
+G285M	3749&	N/A	&	N/A \\
+\hline
+\enddata
+\tablenote{Divide by 100 \textsc{pcta_} determines scaling factor. FUV are "negative"}
+\end{table}
 
+\hline
+\enddata
+\ssubsection{NUV Spectroscopic TA}
+
+\ssubsection{FUV Spectroscopic TA}
 \ssection{Results\label{sec:results}}
 The main results of the HST Cycle~C21--24 COS TA monitoring program are as follows:
 \begin{description}
 \item{\bf SIAF:}{
-	All COS NUV \acqimages~use identical SIAF entries ({\it LFPSA} or {\it LFBOA}).
+	All COS NUV \texttt{ACQ/IMAGE}s~use identical SIAF entries ({\it LFPSA} or {\it LFBOA}).
 	Previously, the exposures in the Cycle~23 FGS-to-SI Alignment program (14452) gave a good estimate of the accuracy of the existing NUV LP1 {\it LFPSA}/{\it LFBOA} SIAF entries
 	as 14452 performed a PSA/MIRRORA ACQ/IMAGE on a target whose position was already determined by cross-calibration of the other HST Science Instruments (SI).
-	For Cycle~23, data from 14452 indicated that the NUV SIAF entry was accurate to at least [AD,XD] = [0.02,0.08]$\arcsec$.\footnote{As determined from the initial pointing before the first COS \acqimage~of the program.}
+	For Cycle~23, data from 14452 indicated that the NUV SIAF entry was accurate to at least [AD,XD] = [0.02,0.08]$\arcsec$.\footnote{As determined from the initial pointing before the first COS \texttt{ACQ/IMAGE}~of the program.}
 	No SIAF adjustments were identified as being needed for NUV (LP1) or FUV (LP3) from this program.\footnote{Long term SIAF monitoring is used to track any mechanical drift in the location of the COS aperture mechanism or any changes to the FGS-to-SI alignment that will need adjusting.
 	The last such adjustment was in Cycle~22 (February 2, 2014), while COS FUV observations were at LP2. At this time, all COS entries (NUV and FUV) were adjusted in [V2,V3] by [0.077, -0.070]". }
 
 }
 \item{\bf TA Subarrays:} Visual inspection of NUV images, and a review of the photon lists of the NUV and FUV spectra, indicate that all TA subarrays are appropriately defined for Cycle~24 and no adjustments were necessary.
 \item{\bf NUV Imaging TAs:}
-	The COS \acqimage~ tests in HST~14452 indicate that the centering achieved with a PSA/MIRRORB \acqimage~is co-aligned with a PSA/MIRRORA \acqimage~to within [AD,XD] $\approx [0.010,0.020]\arcsec$, with a measurement error of approximately $0.014\arcsec$.
-	\acqimage~ tests in HST~14857 reveal that BOA/MIRRORA is co-aligned with PSA/MIRRORB to within [AD,XD] $\approx [0.015,0.100]\arcsec$,
+	The COS \texttt{ACQ/IMAGE}~ tests in HST~14452 indicate that the centering achieved with a PSA/MIRRORB \texttt{ACQ/IMAGE}~is co-aligned with a PSA/MIRRORA \texttt{ACQ/IMAGE}~to within [AD,XD] $\approx [0.010,0.020]\arcsec$, with a measurement error of approximately $0.014\arcsec$.
+	\texttt{ACQ/IMAGE}~ tests in HST~14857 reveal that BOA/MIRRORA is co-aligned with PSA/MIRRORB to within [AD,XD] $\approx [0.015,0.100]\arcsec$,
 	\footnote{The larger XD alignment error is due to a frequent 1 aperture XD (XAPER) step mechanism position error (1 step ~ $0.048\arcsec$).}
 	and that BOA/MIRRORB is co-aligned with BOA/MIRRORA to within [AD,XD] $\approx [0.007,0.062]\arcsec$.
 
@@ -506,38 +611,24 @@ The main results of the HST Cycle~C21--24 COS TA monitoring program are as follo
 	(MIRRORA \& MIRRORB) to monitor the observed count rates. No changes were observed in the PtNe lamp count rates between Cycles~23 and 24.
 	\clearpage
 \item{\bf NUV Spectroscopic TAs:}
-	The G285M and G230L WCA-to-PSA offsets were measured after a PSA/MIRRORB \acqimage, and were within a XD offset of $0.020\arcsec$ of the FSW value for each grating.
-	\footnote{Spectroscopic NUV WCA-to-PSA offsets are determined using a median photon lamp and/or target XD position in the appropriate subarray. The difference between the positions is compared to the FSW value, accounting for any measured offset in the preceding \acqimage.}
-	The G185M and G225M offsets were measured after a BOA/MIRRORA \acqimage, and were measured to be within a XD offset of $0.070\arcsec$ and $0.060\arcsec$, respectively, of the FSW value.
+	The G285M and G230L WCA-to-PSA offsets were measured after a PSA/MIRRORB \texttt{ACQ/IMAGE}, and were within a XD offset of $0.020\arcsec$ of the FSW value for each grating.
+	\footnote{Spectroscopic NUV WCA-to-PSA offsets are determined using a median photon lamp and/or target XD position in the appropriate subarray. The difference between the positions is compared to the FSW value, accounting for any measured offset in the preceding \texttt{ACQ/IMAGE}.}
+	The G185M and G225M offsets were measured after a BOA/MIRRORA \texttt{ACQ/IMAGE}, and were measured to be within a XD offset of $0.070\arcsec$ and $0.060\arcsec$, respectively, of the FSW value.
 	Spectroscopic TAs for all NUV gratings met both the $0.3\arcsec$ requirement and the $0.1\arcsec$ goal.
 \item{\bf FUV Spectroscopic TAs:}
-	The G130M and G140L WCA-to-PSA offsets were measured after the same PSA/MIRRORB \acqimage~as the G285M and G230L observations.
+	The G130M and G140L WCA-to-PSA offsets were measured after the same PSA/MIRRORB \texttt{ACQ/IMAGE}~as the G285M and G230L observations.
 	The measured offsets were determined to be offset from the FSW values by $\approx -0.030\arcsec$ and $-0.170\arcsec$, respectively, with a measurement error estimated at $0.070\arcsec$.
-	The G160M offset was measured after the BOA/MIRRORA \acqimage~used for the G185M and G225M observations. The G160M offset was determined to have a WCA-to-PSA XD offset of $-0.020 \pm 0.070\arcsec$ of the FSW WCA-to-PSA value.
-footnote{Spectroscopic FUV WCA-to-PSA offsets are determined using a mean photon lamp and/or target XD position in the appropriate subarray. The difference between the positions is compared to the FSW value, accounting for any measured offset in the preceding \acqimage.}
+	The G160M offset was measured after the BOA/MIRRORA \texttt{ACQ/IMAGE}~used for the G185M and G225M observations. The G160M offset was determined to have a WCA-to-PSA XD offset of $-0.020 \pm 0.070\arcsec$ of the FSW WCA-to-PSA value.
+footnote{Spectroscopic FUV WCA-to-PSA offsets are determined using a mean photon lamp and/or target XD position in the appropriate subarray. The difference between the positions is compared to the FSW value, accounting for any measured offset in the preceding \texttt{ACQ/IMAGE}.}
 	Spectroscopic TAs for all FUV gratings met the $0.3\arcsec$ requirement and the G130M and G160M gratings achieved the $0.1\arcsec$ goal.
-	\begin{figure}[!h]
-	\vspace{1.3cm}
-	\centering
-	\includegraphics[width=\textwidth]{C24_14857_FP.png}
-	\caption{These four panels show a 'family portrait' of the available COS PtNe Lamp + MIRROR combinations possible with ACQ/IMAGE. Panel titles give the lamp and mirror combination, along with the current setting (in milli-amps, mA) and the exposure times in this program.
-	These images are in 'detector' coordinates, as used on-board COS.
-	The images show the observed counts/pixel/s (cps) as given by the colorbar on the bottom.
-	The \textcolor{red}{red} dashed boxes show the Cycle~24 \acqimage~WCA subarrays. At the top of the subarrays, text provides the count rate in the brightest pixel (BP) in units of counts per second per NUV MAMA pixel (cps).
-	The \textcolor{blue}{blue} histogram on the bottom edge shows the cross-dispersion (XD) lamp profile in detector 'X' coordinates, while
-	the \textcolor{green}{green} histogram on the left edge shows the along-dispersion (AD) lamp profile in detector 'Y' coordinates.
-	The cross-hairs show the median location of the given configurations' lamp events within the TA subarray.
-	PtNe\#2 lamp was used for all \acqimages~ during Cycle~24, and was operated at LOW current (6~mA) for those using MIRRORA and MEDium current (10~mA) for those using MIRRORB.
-	}
-	\label{fig:FP}
-	\vspace{1.3cm}
-	\end{figure}
 
 \end{description}
 \vspace{-0.3cm}
 \ssection{Conclusions.\label{theend} }
 \vspace{-0.3cm}
+	It's all good.
 
+\clearpage
 %%%%%%%%
 %Acknowledgements
 %%%%%%%%
