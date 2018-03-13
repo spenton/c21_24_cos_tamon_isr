@@ -1,0 +1,74 @@
+head	1.1;
+access;
+symbols;
+locks
+	penton:1.1; strict;
+comment	@% @;
+
+
+1.1
+date	2018.03.13.14.43.40;	author penton;	state Exp;
+branches;
+next	;
+
+
+desc
+@FUV Spectro files
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@\begin{deluxetable}{|r|r|r|r|r|r|r|r|r|r|r|}
+\tabcolsep 2pt
+\tabletypesize{\tiny}
+\tablecolumns{11}
+\tablewidth{0 pt}
+\tablecaption{COS/FUV TA Monitoring Exposures\label{table:FUVtamon}}
+\tablehead{
+\colhead{ROOTNAME}&\colhead{PROP}&\colhead{TARGNAME}&
+\colhead{EXPTIME}&\colhead{LAMP}&\colhead{CEN}&
+\colhead{LP}&\colhead{APER}&\colhead{APER}&\colhead{OPT}&\colhead{DATE}\\
+\colhead{}&\colhead{ID}&\colhead{}&
+\colhead{(s)}&\colhead{USED}&\colhead{WAVE}&
+\colhead{}&\colhead{XPOS}&\colhead{YPOS}&\colhead{ELEM}&\colhead{OBS}\\
+
+}
+\startdata
+lcgq01r8q	&	13526	&	WD-1657+343	&	20	&	P2	&	1309		&	2	&	22.1	&	52.1	&	G130M	&	2014-11-19	\\
+lcgq01r8q	&	13526	&	WD-1657+343	&	20	&	P2	&	1309		&	2	&	22.1	&	52.1	&	G130M	&	2014-11-19	\\
+lcgq01raq	&	13526	&	WD-1657+343	&	7	&	P2	&	1280		&	2	&	22.1	&	52.1	&	G140L	&	2014-11-19	\\
+lcgq01raq	&	13526	&	WD-1657+343	&	7	&	P2	&	1280		&	2	&	22.1	&	52.1	&	G140L	&	2014-11-19	\\
+lcgq02i6q	&	13526	&	HIP66578	&	18	&	P2	&	1600		&	2	&	22.1	&	52.1	&	G160M	&	2014-11-17	\\
+lcgq02i8q	&	13526	&	HIP66578	&	22	&	P2	&	1600		&	2	&	22.1	&	52.1	&	G160M	&	2014-11-17	\\
+lcgq02iaq	&	13526	&	HIP66578	&	22	&	P2	&	1600		&	2	&	22.1	&	52.1	&	G160M	&	2014-11-17	\\
+lcri01gkq	&	13972	&	WD-1657+343	&	20	&	P2	&	1309		&	3	&	22.1	&	182.1	&	G130M	&	2015-10-06	\\
+lcri01gkq	&	13972	&	WD-1657+343	&	20	&	P2	&	1309		&	3	&	22.1	&	182.1	&	G130M	&	2015-10-06	\\
+lcri01h6q	&	13972	&	WD-1657+343	&	7	&	P2	&	1280		&	3	&	22.1	&	182.1	&	G140L	&	2015-10-06	\\
+lcri01h6q	&	13972	&	WD-1657+343	&	7	&	P2	&	1280		&	3	&	22.1	&	182.1	&	G140L	&	2015-10-06	\\
+lcri02hsq	&	13972	&	HIP66578	&	22	&	P2	&	1600		&	3	&	22.1	&	182.1	&	G160M	&	2015-10-06	\\
+lcri02huq	&	13972	&	HIP66578	&	25	&	P2	&	1600		&	3	&	22.1	&	182.1	&	G160M	&	2015-10-06	\\
+lcri02hwq	&	13972	&	HIP66578	&	25	&	P2	&	1600		&	3	&	22.1	&	182.1	&	G160M	&	2015-10-06	\\
+ld3701hdq	&	14440	&	WD-1657+343	&	25	&	P2	&	1309		&	3	&	22.1	&	182.1	&	G130M	&	2016-10-18	\\
+ld3701hdq	&	14440	&	WD-1657+343	&	25	&	P2	&	1309		&	3	&	22.1	&	182.1	&	G130M	&	2016-10-18	\\
+ld3701hfq	&	14440	&	WD-1657+343	&	10	&	P2	&	1280		&	3	&	22.1	&	182.1	&	G140L	&	2016-10-18	\\
+ld3701hfq	&	14440	&	WD-1657+343	&	10	&	P2	&	1280		&	3	&	22.1	&	182.1	&	G140L	&	2016-10-18	\\
+ld3702nqq	&	14440	&	HIP66578	&	22	&	P2	&	1600		&	3	&	22.1	&	182.1	&	G160M	&	2016-10-19	\\
+ld3702nsq	&	14440	&	HIP66578	&	25	&	P2	&	1600		&	3	&	22.1	&	182.1	&	G160M	&	2016-10-19	\\
+ld3702nuq	&	14440	&	HIP66578	&	25	&	P2	&	1600		&	3	&	22.1	&	182.1	&	G160M	&	2016-10-19	\\
+ldozbae1q	&	14857	&	WD-1657+343	&	25	&	P2	&	1309		&	3	&	22.1	&	182.1	&	G130M	&	2017-09-04	\\
+ldozbae1q	&	14857	&	WD-1657+343	&	25	&	P2	&	1309		&	3	&	22.1	&	182.1	&	G130M	&	2017-09-04	\\
+ldozbae3q	&	14857	&	WD-1657+343	&	10	&	P2	&	1280		&	3	&	22.1	&	182.1	&	G140L	&	2017-09-04	\\
+ldozbae3q	&	14857	&	WD-1657+343	&	10	&	P2	&	1280		&	3	&	22.1	&	182.1	&	G140L	&	2017-09-04	\\
+ldozbblyq	&	14857	&	HIP66578	&	22	&	P2	&	1600		&	3	&	22.1	&	182.1	&	G160M	&	2017-09-06	\\
+ldozbbm0q	&	14857	&	HIP66578	&	27	&	P2	&	1600		&	3	&	22.1	&	182.1	&	G160M	&	2017-09-06	\\
+ldozbbm2q	&	14857	&	HIP66578	&	27	&	P2	&	1600		&	3	&	22.1	&	182.1	&	G160M	&	2017-09-06	\\
+
+\hline
+\enddata
+\tablecomments{All exposures were taken with the PSA at \texttt{FP-POS}=3.}
+\end{deluxetable}
+@
