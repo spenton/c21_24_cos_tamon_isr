@@ -37,6 +37,9 @@
 \newcommand{\psiafdate}{2010.060}
 \def\arcsec{\hbox{$^{\prime\prime}$}}
 \def\degree{\hbox{$^{\circ}$}}
+\newcommand{\nokmsno}{{\rm km~s}\ensuremath{^{-1}}}
+\newcommand{\kmsno}{~\nokmsno}
+\newcommand{\kms}{~\nokmsno\ }
 
 %%%%%%%%%%%%%%%%
 %For numbered sections use ssection/ssubsection/ssubsubsection. For sections without numbers user ssectionstar/ssubsectionstar/ssubsubsectionstar
@@ -253,13 +256,13 @@ Where possible, time-tag (\textbf{TT}) images of the lamps and/or targets along 
 
 The historical list of FGS-to-SI proposals, cycles (C), and content were:
 \begin{itemize}
-	\item{11878 (C17):}{Two sets of PSA \texttt{ACQ/IMAGE}s, Target+Lamp Time-Tag images, \& G230L Spectra}
-	\item{12399 (C18):}{Two sets of PSA \texttt{ACQ/IMAGE}s, One set of Target+Lamp Time-Tag images (427W3), one G230L Spectrum (427W3)}
-	\item{12781 (C19):}{Two sets of PSA \texttt{ACQ/IMAGE}s}
-	\item{13171 (C20):}{Two sets of PSA \texttt{ACQ/IMAGE}s}
-	\item{13616 (C21):}{Two sets of PSA \texttt{ACQ/IMAGE}s}
-	\item{14035 (C22):}{Two sets of PSA \texttt{ACQ/IMAGE}s}
-	\item{14452 (C23):}{Two sets of PSA \texttt{ACQ/IMAGE}s,  with Lamp-Only Time-Tag images after each \texttt{ACQ/IMAGE}}
+	\item{11878 (Cycle~17):}{Two sets of PSA \texttt{ACQ/IMAGE}s, Target+Lamp Time-Tag images, \& G230L Spectra}
+	\item{12399 (Cycle~18):}{Two sets of PSA \texttt{ACQ/IMAGE}s, One set of Target+Lamp Time-Tag images (427W3), one G230L Spectrum (427W3)}
+	\item{12781 (Cycle~19):}{Two sets of PSA \texttt{ACQ/IMAGE}s}
+	\item{13171 (Cycle~20):}{Two sets of PSA \texttt{ACQ/IMAGE}s}
+	\item{13616 (Cycle~21):}{Two sets of PSA \texttt{ACQ/IMAGE}s}
+	\item{14035 (Cycle~22):}{Two sets of PSA \texttt{ACQ/IMAGE}s}
+	\item{14452 (Cycle~23):}{Two sets of PSA \texttt{ACQ/IMAGE}s,  with Lamp-Only Time-Tag images after each \texttt{ACQ/IMAGE}}
 \end{itemize}
 
 This verifies the COS NUV PSA aperture position in the SIAF. After this PSA+MIRRORA \texttt{ACQ/IMAGE}, a PSA+MIRRORB \texttt{ACQ/IMAGE} is then performed.
@@ -282,7 +285,7 @@ This visit also takes several lamp images to measure the WCA-to-PSA imaging offs
 
 In all visits, lamp+target images are taken before and after the TA imaging mode that is being co-aligned (the second \texttt{ACQ/IMAGE} of the program.)
 
-All visits in this program are single orbit visits, this program is very similar to the C22 version (13972).
+All visits in this program are single orbit visits, this program is very similar to the Cycle~22 version (13972).
 Due to the change in OSM2 Home position, some NUV spectra have been re-ordered for efficiency AND some NUV cenwaves were changed to those that are known to have good stripe B WCA spectra.
 \clearpage
 \ssection{SIAF \label{sec:siaf} }
@@ -292,7 +295,7 @@ Due to the change in OSM2 Home position, some NUV spectra have been re-ordered f
 
 In the servicing mision orbital verification (SMOV) phase, a series of programs in NUV imaging mode
 carefully determined the two-dimensional offset from the WCA to the center of the PSA when observed with MIRRORA.
-These X and Y offsets were loaded in the FSW parameters {\it pcta\_XImCalTargetOffset} and {\it pcta\_YImCalTargetOffset}.
+These X and Y offsets were loaded in the FSW parameters \textsc{pcta\_XImCalTargetOffset} and \textsc{pcta\_YImCalTargetOffset}.
 A target was then centered using a PSA+MIRRORA \texttt{ACQ/IMAGE}, then a target image was taken along with a MIRRORB image
 of the WCA image. These images were used to determine the X and Y offsets of the image target and WCA centroids.
 These values were uploaded in the FSW paramaters. This bootstrapping procedure was repeated with the BOA+MIRRORA
@@ -300,7 +303,7 @@ and BOA+MIRRORB \texttt{ACQ/IMAGE} modes until all four \texttt{ACQ/IMAGE} modes
 
 In this program (13972) we use this bootstrapping strategy to test the co-alignment of all four \texttt{ACQ/IMAGE} modes.\footnote{On November 6, 2014,
 the MIRRORB \texttt{ACQ/IMAGE} wavelength calibration lamp exposure was changed from a 30 second exposure
-at LOW current (3mA) to a 12 second exposure at MEDIUM current. At this point the {\it pcta\_XImCalTargetOffset} and {\it pcta\_YImCalTargetOffset}
+at LOW current (3mA) to a 12 second exposure at MEDIUM current. At this point the \textsc{pcta\_XImCalTargetOffset} and \textsc{pcta\_YImCalTargetOffset}
 FSW parameters were also updated to reflect a small change in the WCA-to-SA imaging MIRRORB offsets. This program is the first
 to monitor the updated offsets.}
 To accomplish this in only two orbits, this project leverages observations taken in FGS-to-SI alignment verification
@@ -334,6 +337,48 @@ The results of 13972 \& 14035 show that, for \texttt{ACQ/IMAGE}s :
 These results can be combined to show the measured offsets of PSA+MIRRORB, BOA+MIRRORA, \& BOA+MIRRORB when compared
 to the initial PSA+MIRRORA \texttt{ACQ/IMAGE} of Visit 'A2' of 14035. These results are shown in Table~\ref{table:ai}.
 Combined offsets from PSA+MIRRORA are provided in both NUV pixels (p) and in arcseconds (\arcsec).
+
+For COS TA, we take the CEI spec (0.3\arcsec) to refer to the required centering accuracy in the XD, and the wavelength requirements to apply to
+the TA accuracy required in the AD direction. Since the AD requirement is in units of \kmsno, it is detector and wavelength
+dependent as defined in equations~\ref{eq:TAcenter}--\ref{eq:TAcenterL}.
+Assuming that the wavelength error budget is split evenly between the COS TA and wavelength scale accuracies,
+the error budgets for the COS gratings, in arc-seconds (\arcsec), are given in Table~\ref{table:TAaccuracy}. By ``evenly'' we mean that when added in quadrature the total error budget is that given by the second column of Table~\ref{table:TAaccuracy}.
+Setting the TA error budget equal to the wavelength scale accuracy, the AD TA requirement given in the third column is the second column divided by $\sqrt{2}$.
+%\small
+%\begin{eqnarray}\label{eq:TAcenter}
+%\Delta\ AD(G185M@1825\AA) = {{ 15\kms \times 1825\AA}\over{c \times 0 .037\AA/p\times 42.47 p/\arcsec}}  = 0.058\arcsec\\
+%\Delta\ AD(G225M@2250\AA) = {{ 15\kms \times 2250\AA}\over{c \times  0.035\AA/p\times 42.47 p/\arcsec}}  = 0.076\arcsec\\
+%\Delta\ AD(G285M@2850\AA) = {{ 15\kms \times 2850\AA}\over{c \times  0.040\AA/p\times 42.47 p/\arcsec}}  = 0.084\arcsec\\
+%\Delta\ AD(G230L@2450\AA) = {{175\kms \times 2450\AA}\over{c \times  0.390\AA/p\times 42.47 p/\arcsec}}  = 0.086\arcsec\\
+%\Delta\ AD(G130M@1300\AA) = {{ 15\kms \times 1300\AA}\over{c \times 0.00997\AA/ p\times 43.5 p/\arcsec}} = 0.150\arcsec\\
+%\Delta\ AD(G160M@1600\AA) = {{ 15\kms \times 1600\AA}\over{c \times 0.01223\AA/ p\times 42.9 p/\arcsec}} = 0.153\arcsec\\
+%\Delta\ AD(G140L@1800\AA) = {{150\kms \times 1800\AA}\over{c \times 0.08030\AA/ p\times 45.4 p/\arcsec}} = 0.247\arcsec\label{eq:TAcenterL}
+%\end{eqnarray}
+\normalsize
+\clearpage
+
+\begin{deluxetable}{|c||c|c|}
+%\tablewidth{0pt}
+\tabcolsep 19pt
+\tablecolumns{3}
+\tablecaption{COS Along-Dispersion (AD) Centering Requirements.\label{table:TAaccuracy}}
+\tablehead{	\colhead{COS Grating} &
+			\colhead{Total Error Budget} &
+			\colhead{AD TA Requirement}
+}
+\startdata
+G185M & 0.058\arcsec\ & 0.041\arcsec\\
+G225M & 0.076\arcsec\ & 0.054\arcsec\\
+G285M & 0.084\arcsec\ & 0.059\arcsec\\
+G230L & 0.086\arcsec\ & 0.061\arcsec\\
+\hline
+G130M & 0.150\arcsec\ & 0.106\arcsec\\
+G160M & 0.153\arcsec\ & 0.108\arcsec\\
+G140L & 0.247\arcsec\ & 0.175\arcsec\\
+\enddata
+\tablecomments{Assuming the total error budget (column 2) is split equally between TA AD centering and wavelength scale accuracy,
+the AD TA requirements (column 3) are 1/$\sqrt{2}$ of the total error budget (equations~\ref{eq:TAcenter}--\ref{eq:TAcenterL}).}
+\end{deluxetable}
 
 \begin{deluxetable}{|c||c|c|}
 \tablewidth{0pt}
@@ -382,7 +427,7 @@ BOA & B & 0.036	& 0.070 &1.530 & 2.975 \\
 After the series of \texttt{ACQ/IMAGE}s that start each visit of 13972, the target should be accurately
 centered. We take advantage of this to test the WCA-to-PSA offsets required for the spectroscopic
 TA sequence ACQ/PEAKXD (TA in the XD direction). In the COS FSW, these values are contained in the
-patchable constant table {\it pcta\_CalTargetOffset}. The verification process is simple, take a normal
+patchable constant table \textsc{pcta\_CalTargetOffset}. The verification process is simple, take a normal
 spectrum with a target signal-to-noise ratio of least 50 for the entire spectrum (2500 target counts)
 used by ACQ/PEAKXD. For NUV exposures, this is the 'B' stripe only, and for the FUV, only events on the
 'A' segment are used. TA subarrays are used to make out any detector hot-spots or Geocoronal light that
@@ -398,16 +443,16 @@ No action is required at this time as the measured offset is 1/2 of our 0.3\arcs
 
 The final two exposures of the 02 visit intentionally offset the target by $\pm$ 0.7\arcsec\ to test the effects
 of 'Y-walk' on G160M ACQ/PEAKXDs. All three G160M exposures in Visit 02 show offsets from the expected position
-of $\le 0.05$\arcsec\ within our 0.1\arcsec\ goal. No action (e.g., updating the {\it pcta\_CalTargetOffset} in the FSW)
+of $\le 0.05$\arcsec\ within our 0.1\arcsec\ goal. No action (e.g., updating the \textsc{pcta\_CalTargetOffset} in the FSW)
 is required at this time.
 %\input{WCA\_to_SA\_table.tex}
 \clearpage
-\input{NUVimagetamonfiles.tex}
-\clearpage
-\input{NUVspectamonfiles.tex}
-\clearpage
-\input{FUVtamonfiles.tex}
-\clearpage
+%\input{NUVimagetamonfiles.tex}
+%\clearpage
+%\input{NUVspectamonfiles.tex}
+%\clearpage
+%\input{FUVtamonfiles.tex}
+%\clearpage
 
 There are 3 modes of COS target acquisition (TA); NUV imaging, NUV and FUV spectroscopic.
 There are 4 COS TA (ACQ) procedures; \texttt{ACQ/SEARCH}, \texttt{ACQ/IMAGE}, \texttt{ACQ/PEAKD}, and \texttt{ACQ/PEAKXD}. \texttt{ACQ/PEAKD}~ and \texttt{ACQ/SEARCH}~ step the telescope through dwell patterns on the sky. As long as the target light falls completely within
@@ -423,9 +468,9 @@ uses the \texttt{ACQ/PEAKD}~algorithm, but in the cross-dispersion (XD) directio
  the internal wavelength calibration lamp is flashed to locate the wavelength calibration aperture (WCA). From its measured location on the detector, the center of the science aperture (SA) in use can be predicted by applying the FSW constants that give the SA offset compared to the WCA center for the combination of optics in use.
 For \texttt{ACQ/IMAGE}, the offset is in both the along-dispersion (AD) and cross-dispersion (XD) directions. For \texttt{ACQ/PEAKXD}, which uses dispersed light, this offset is only in the XD direction.
 \begin{itemize}
-\item{The \texttt{ACQ/IMAGE}~procedure has four combinations of two SAs, the Primary Science Aperture (PSA) and the Bright Object Aperture (BOA), and two mirror modes, MIRRORA and MIRRORB. Each combination is commonly used, and has a different WCA-to-SA offset in both AD and XD, which must be verified\footnote{These offsets are maintained in the FSW as the patchable constant tables {\it pcta$\_$XImCalTargetOffset} (XD) and {\it pcta$\_$YImCalTargetOffset} (AD).}. \texttt{ACQ/IMAGE}s~also rely on accurate AD and XD plate scales. These physical plate scales should remain constant for the NUV MAMA and are not monitored or tested by this program.
+\item{The \texttt{ACQ/IMAGE}~procedure has four combinations of two SAs, the Primary Science Aperture (PSA) and the Bright Object Aperture (BOA), and two mirror modes, MIRRORA and MIRRORB. Each combination is commonly used, and has a different WCA-to-SA offset in both AD and XD, which must be verified\footnote{These offsets are maintained in the FSW as the patchable constant tables \textsc{pcta\_ImCalTargetOffset} (XD) and \textsc\textsc{pcta\_YImCalTargetOffset} (AD).}. \texttt{ACQ/IMAGE}s~also rely on accurate AD and XD plate scales. These physical plate scales should remain constant for the NUV MAMA and are not monitored or tested by this program.
 }
-\item{The \texttt{ACQ/PEAKXD}~procedure used in Cycle~24 relies upon FSW XD WCA-to-PSA offsets\footnote{Maintained in the FSW patchable constant table {\it pcta$\_$CalTargetOffset} for both NUV and FUV.}, and grating-specific XD plate scales\footnote{Maintained in the FSW patchable constant tables {\it pcta$\_$NUVMilliArcsecsPerPixelXDisp} and {\it pcta$\_$FUVMilliArcsecsPerPixelXDisp}.}
+\item{The \texttt{ACQ/PEAKXD}~procedure used in Cycle~24 relies upon FSW XD WCA-to-PSA offsets\footnote{Maintained in the FSW patchable constant table \textsc{pcta\_CalTargetOffset} for both NUV and FUV.}, and grating-specific XD plate scales\footnote{Maintained in the FSW patchable constant tables \textsc{pcta\_NUVMilliArcsecsPerPixelXDisp} and \textsc{pcta\_FUVMilliArcsecsPerPixelXDisp}.}
 Each COS grating, SA, and lifetime position (LP) combination has a different offset. This program verifies all 4 NUV LP1 and 3 FUV LP3 grating-specific WCA-to-PSA offsets but does not test or monitor the FSW XD plate scales.
 }
 \item{This program does not attempt to monitor the AD accuracy of the COS spectroscopic TA modes.\footnote{For \texttt{ACQ/PEAKD}, short-term fluctuations of the detector background rate due to environmental conditions remains the largest source of along-dispersion pointing error.}
@@ -514,7 +559,7 @@ analysis of the TA and science sub-arrays used in HST Cycle 21.
 \begin{figure}[!h]
 \vspace{1.3cm}
 \centering
-\includegraphics[width=\textwidth]{png/C24_14857_FP.png}
+\includegraphics[width=\textwidth]{png/C21_13526_FP.png}
 \caption{These four panels show a 'family portrait' of the available COS PtNe Lamp + MIRROR combinations possible with ACQ/IMAGE. Panel titles give the lamp and mirror combination, along with the current setting (in milli-amps, mA) and the exposure times in this program.
 These images are in 'detector' coordinates, as used on-board COS.
 The images show the observed counts/pixel/s (cps) as given by the colorbar on the bottom.
@@ -529,39 +574,403 @@ PtNe\#2 lamp was used for all \texttt{ACQ/IMAGE}s~ during Cycle~24, and was oper
 \end{figure}
 
 \begin{figure}
-\noindent\includegraphics*[width=0.795\linewidth]{eps/epsHEFP13526.eps}
-\caption{Cycle 21 PtNe Lamp `Family Portrait'' \ref{fig:FG21}}
+\noindent\includegraphics*[width=0.795\linewidth]{png/C22_13972_FP.png}
+\caption{Cycle~22 PtNe Lamp `Family Portrait'' \ref{fig:FG21}}
 \end{figure}
 
 \begin{figure}
-\noindent\includegraphics*[width=0.795\linewidth]{eps/epsHEFP13523.eps}
-\caption{Cycle~§21 PtNe Lamp `Family Portrait'' \ref{fig:FG21}}
+\noindent\includegraphics*[width=0.795\linewidth]{png/C23_14440_FP.png}
+\caption{Cycle~23 PtNe Lamp `Family Portrait'' \ref{fig:FG22}}
 \end{figure}
 
 \begin{figure}
-\noindent\includegraphics*[width=0.795\linewidth]{eps/epsHEFP13972.eps}
-\caption{Cycle~22 PtNe Lamp `Family Portrait'' \ref{fig:FG22}}
-\end{figure}
-\begin{figure}
-\noindent\includegraphics*[width=0.795\linewidth]{eps/epsHEFP14440.eps}
-\caption{Cycle~23 PtNe Lamp `Family Portrait'' \ref{fig:FG23v1}}
+\noindent\includegraphics*[width=0.795\linewidth]{png/C24_14857_FP.png}
+\caption{Cycle 24 PtNe Lamp `Family Portrait'' \ref{fig:FG21}}
 \end{figure}
 
 \begin{center}
 \begin{figure}
-\noindent\includegraphics*[width=0.795\linewidth]{eps/epsHEFP14857.eps}
+\noindent\includegraphics*[width=0.795\linewidth]{png/C24_14857_Error_vs_lampSN.png}
 \caption{Cycle~24 PtNe Lamp `Family Portrait'' \ref{fig:FG24}}
 \end{figure}
 \end{center}
 \section{SIAF}
 \section{Spectroscopic TA}
 
+COS spectroscopic TAs consist of up to three stages \texttt{ACQ/SEARCH}, \texttt{ACQ/PEAKD}, and \texttt{ACQ/PEAKXD}.
+All NUV and FUV (LP1, LP2 and LP3) \texttt{ACQ/PEAKXDs} monitored in this ISR used the original \numpos1 algorithm (\textbf{ADD REF}).
+The COS spectroscopic \texttt{ACQ/SEARCH} and \texttt{ACQ/PEAKD} algorithms do not use any FSW patchable constants, and do not flash the
+internal calibration lamps. The only monitoring required for these TA phases is to ensure that the TA subarrays defined in the
+HST ground commanding are proper for the OSM1 and OSM2 positions used during the acquisitions. Each FUV central wavelength setting (CENWAVE)
+uses a unique OSM1 rotation, whereas all NUV TAs use the same OSM1 rotation independent of CENWAVE. Each NUV CENWAVE uses a different
+OSM2 rotation during TA. Each FUV CENWAVE has it's own set of TA subarrays (up to four per segment), while the NUV TA subarrays are not CENWAVE
+specific, but are grating specific.
+
+\ssubsection{NUV Imaging TA subarrays}
+
+
+Aperture  Mirror       XC      YC     XS      YS
+WCA       MIRRORA     345     324     50     300
+WCA       MIRRORB     184     539     50     300
+PSA/BOA   MIRRORA     630     284    220     470
+PSA/BOA   MIRRORB     469     499    220     470
+
+PR\#67139
+
+In this section, we describe the various subarrays used in COS TA.
+These subarrays are defined by giving the detector coordinate of the lowest valued corner (C) and the full size (S) for both X and Y.
+A subarray is fully specified by giving its XC, XS, YC, and YS. Unless noted, coordinates are in detector coordinates as this is the system in which COS TAs are performed.
+\vspace{-0.3cm}
+\subsection{NUV Imaging Subarrays}\label{sec:NUVsubIMAGE}
+%\vspace{-0.3cm}
+The NUV imaging TA subarrays are given in Table~\ref{table:TAnuvIMAGEpeakdXC}.
+These subarrays are used for both the \texttt{ACQ/IMAGE} and \texttt{ACQ/SEARCH} TA phases.
+This table includes entries for the WCA and PSA and both
+MIRRORA and MIRRORB. The COS FSW uses the same subarrays for the PSA
+and BOA as the offset between the apertures is small ($\Delta$~[AD,XD]$\sim$[11.0,0.4]p).
+As discussed in \S~\ref{sec:TAback}, the rising NUV detector background necessitates a reduction
+in the TA subarray size for WCA+MIRRORB (\texttt{LTAIMCAL}).
+The OSM positions, and hence the WCA \texttt{LTAIMCAL} MIRRORA and MIRROB image placements (see Figure~\ref{LTAIMCALpos}), are fairly repeatable and
+it is recommended that both WCA TA subarrays be reduced by 50p in XD and 100p in AD as outlined in Table~\ref{table:TAnuvIMAGEupdate}.
+
+During \texttt{ACQ/IMAGE}, the region of the detector used to determine the source location is small,
+and is given by the square of the TA parameter
+\textsc{pcta\_CheckboxSize}, which is currently set to 9p (81 total pixels).
+However, during \texttt{ACQ/SEARCH},
+the counts in the full subarray are used (currently $345 \times 816$=19,376p).
+NUV \texttt{ACQ/SEARCH} TAs are therefore much more vulnerable (by a factor of 3500)
+to contamination from background events and SAA passages as described in
+\S~\ref{sec:TAback}.
+
+\vspace{-0.3cm}
+\subsection{NUV Spectroscopic Subarrays}\label{sec:NUVsubSPEC}
+%\vspace{-0.3cm}
+The NUV spectroscopic TA subarrays for the \texttt{ACQ/SEARCH} and
+\texttt{ACQ/PEAKD} phases
+are identical and are given in Table~\ref{table:TAnuvSRCHpeakdXC}.
+These subarrays are not grating-specific and are large enough to capture the flux from all three stripes (two for G230L, stripe C is not used).
+The COS FSW uses the same subarrays for the PSA
+and BOA as the offset between the NUV spectra is small ($\Delta$~XD$\sim$5p).
+
+\begin{deluxetable}{|l|l|r|r|r|r|}
+\tabcolsep 14pt
+\tabletypesize{\footnotesize}
+\tablecolumns{6}
+\tablewidth{0 pt}
+\tablecaption{Current Imaging NUV \texttt{ACQ/IMAGE} and \texttt{ACQ/SEARCH} TA Subarrays\label{table:TAnuvIMAGEpeakdXC}.}
+\tablehead{\colhead{Aperture}&\colhead{MIRROR}&\colhead{XC}&\colhead{YC}&\colhead{XS}&\colhead{YS}}
+\startdata
+%WCA &MIRRORA&268&95&200&660\\
+%WCA &MIRRORB&108&200&200&660\\
+WCA &MIRRORA&268&95&200&660\\
+WCA &MIRRORB&103&361&200&660\\
+PSA/BOA &MIRRORA&572&108&345&816\\
+PSA/BOA &MIRRORB&411&200&345&816\\
+\enddata
+\tablecomments{Updated on SMOV-SMS201 with PR\#63095.}
+\end{deluxetable}
+
+\begin{deluxetable}{|l|l|r|r|r|r|}
+\tabcolsep 14pt
+\tabletypesize{\footnotesize}
+\tablecolumns{6}
+\tablewidth{0 pt}
+\tablecaption{Proposed Imaging NUV \texttt{ACQ/SEARCH} TA Subarrays\label{table:TAnuvIMAGEupdate}.}
+\tablehead{\colhead{Aperture}&\colhead{MIRROR}&\colhead{XC}&\colhead{YC}&\colhead{XS}&\colhead{YS}}
+\startdata
+%WCA &MIRRORA&\textbf{293}&\textbf{195}&\textbf{150}&\textbf{560}\\
+%WCA &MIRRORB&\textbf{133}&\textbf{300}&\textbf{150}&\textbf{560}\\
+%PSA &MIRRORA&570&60&345&816\\
+%PSA &MIRRORB&410&200&345&816\\
+%\hline
+%WCA &MIRRORA&\textbf{320} & \textbf{274} & \textbf{100} & \textbf{400}\\
+%WCA &MIRRORB&\textbf{159} & \textbf{486} & \textbf{100} & \textbf{400}\\
+%PSA/BOA &MIRRORA&\textbf{605} & \textbf{234} & \textbf{270} & \textbf{570}\\
+%PSA/BOA &MIRRORB&\textbf{444} & \textbf{446} & \textbf{270} & \textbf{570}\\
+WCA &MIRRORA&\textbf{345} & \textbf{324} & \textbf{50} & \textbf{300}\\
+WCA &MIRRORB&\textbf{184} & \textbf{539} & \textbf{50} & \textbf{300}\\
+PSA/BOA &MIRRORA&\textbf{630} & \textbf{284} & \textbf{220} & \textbf{470}\\
+PSA/BOA &MIRRORB&\textbf{469} & \textbf{499} & \textbf{220} & \textbf{470}\\
+\enddata
+%Updated April 14, 2010
+\tablecomments{To be updated in PR\#67139 (2011.017). New values are in \textbf{bold}.
+These subarrays are the dashed ones displayed in Figure~\ref{LTAIMCALpos}.
+Before this PR, the NUV \texttt{ACQ/IMAGE} subarrays were identical to the NUV \texttt{ACQ/SEARCH} subarrays.}
+\end{deluxetable}
+
+Need to insert new MIRRORB TABLE here.
+Need to insert LP2 and LP3 TA Subarray changes.
+
+\begin{deluxetable}{|l|r|r|r|r|}
+\tablewidth{0pt}
+\tabcolsep 10pt
+\tabletypesize{\footnotesize}
+\tablecolumns{5}
+\tablecaption{Spectroscopic NUV \texttt{ACQ/SEARCH} and \texttt{ACQ/PEAKD} TA Subarrays\label{table:TAnuvSRCHpeakdXC}.}
+\tablehead{\colhead{Optical Element} &\colhead{XC}&\colhead{YC}&\colhead{XS} & \colhead{YS}}
+\startdata
+G185M&509&0&420&1024\\
+G225M&512&0&420&1024\\
+G285M&499&0&420&1024\\
+G230L&659&0&275&1024\\
+\enddata
+\tablecomments{Updated SMOV--SMS201 with PR\#63095.}
+\end{deluxetable}
+
+The NUV spectroscopic TA subarrays for the \texttt{ACQ/PEAKXD}
+are given in Table~\ref{table:TAnuvPEAKXDxc}.
+These subarrays are large enough to only capture the flux from a single stripe.
+Stripe-specific subarrays are defined for both the WCA and PSA.
+The COS FSW uses the same subarrays for the PSA
+and BOA as the offset between the apertures is small.
+If used with an extended source, these subarrays are vulnerable to
+cross-contamination of stripe light. In this table, only the values
+of XC are listed, for all NUV \texttt{ACQ/PEAKXD} YC=0, YS=1024, and XS=81.
+
+\begin{deluxetable}{|l|r|r|r|r|r|r|}
+\tablewidth{0pt}
+\tabcolsep 8pt
+\tabletypesize{\footnotesize}
+\tablecolumns{7}
+\tablecaption{XC Values for NUV \texttt{ACQ/PEAKXD} TA Subarrays\label{table:TAnuvPEAKXDxc}.}
+\tablehead{\colhead{Grating}&\colhead{WCA-A}& \colhead{WCA-B} &
+\colhead{WCA-C} & \colhead{PSA-A} &\colhead{PSA-B}& \colhead{PSA-C}
+}
+\startdata
+G185M&418&327&192&794&740&565\\
+G225M&440&327&186&804&743&560\\
+G285M&417&333&180&782&728&545\\
+G230L&443&344&194&807&747&564\\
+\enddata
+\tablecomments{Updated after SMOV with PR \#63095. For all NUV \texttt{ACQ/PEAKXD} TA subarrays: YC=0, YS=1024, and XS=81.}
+\end{deluxetable}
+%\clearpage
+\vspace{-0.3cm}
+\subsection{FUV Spectroscopic Subarrays}\label{sec:FUVsubSPEC}
+
+The FUV spectroscopic TA subarrays for the WCA are the same for \texttt{ACQ/SEARCH},  \texttt{ACQ/PEAKD}, and \texttt{ACQ/PEAKXD}
+and are given in Table~\ref{table:TAsubWCAfuv}
+for both Segment-A and Segment-B.
+Only one subarray is used for each FUV segment, these are labeled `A1' and `B1'.
+As the data are taken in ``detector'' coordinates, all FUV TA subarrays values are valid only for the normal operating temperature range of COS. Segment-B is not used in G140L TAs.
+
+The FUV spectroscopic subarrays for the \texttt{ACQ/PEAKXD} are
+given for Segment-A in Table~\ref{table:FUVsubA} and for Segment-B in Table~\ref{table:FUVsubB}.
+There are two subarrays used for each FUV segment, these are labeled `A1', `A2', `B1', and `B1'.
+The COS FSW uses the same subarrays for the PSA and BOA as the offset between the FUV spectra is small ($\Delta$~XD$\sim$3p).
+As with the other HST spectrographs, FUV TA is susceptible to contamination from geocoronal light as outlined in
+Table~\ref{table:GEO}, particularly Ly$\alpha$ 1216\AA, {\rm O}\textsc{I} 1302\AA, and {\rm Si}{\sc II}1304\AA.
+The FUV TA subarrays outlined in tables~\ref{table:FUVsubA} and \ref{table:FUVsubB} have been tailored to remove regions
+of the target spectrum that may contain Geocoronal light.
+The Geocoronal light fills the aperture and has a very different XD
+profile which could cause problems with FUV TAs.
+
+\begin{deluxetable}{|l||rrrr|rrrr||}
+\tablewidth{0pt}
+\tabcolsep 8pt
+\tabletypesize{\footnotesize}
+\tablecolumns{9}
+\tablecaption{FUV WCA Subarrays\label{table:TAsubWCAfuv}.}
+\tablehead{
+\colhead{} &
+\colhead{XS} & \colhead{YS} & \colhead{XC} & \colhead{YC} &
+\colhead{XS} & \colhead{YS} & \colhead{XC} & \colhead{YC}\\
+
+\colhead{Grating} &
+\colhead{A1} & \colhead{A1} & \colhead{A1} & \colhead{A1} &
+\colhead{B1} & \colhead{B1} & \colhead{B1} & \colhead{B1}
+}
+\startdata
+G130M & 13799 & 44 & 1201 & 541\tablenotemark{a} & 13799 & 44 & 1501 & 585 \\
+G160M & 13799 & 44 & 1201 & 535\tablenotemark{a} & 13799 & 44 & 1501 & 579\tablenotemark{a} \\ \hline
+G140L & 13799 & 44 & 1201 & 547\tablenotemark{a} &  NA  & NA & NA & NA    \\ \hline
+\enddata
+\tablenotetext{a}{Updated for SMOV--SMS201 with PR\#63095.}
+\end{deluxetable}
+
+
+\begin{deluxetable}{|l|r||rrrr|rrrr||rrrr|rrrr||}
+\tablewidth{0pt}
+\tabletypesize{\footnotesize}
+\tabcolsep 10pt
+\tablecolumns{10}
+\tablecaption{PSA/BOA FUV LP2 Segment-A TA Subarrays\label{table:FUVsubA}.}
+\tablehead{
+\colhead{Grating} & \colhead{Cenwave} &
+\colhead{XS} & \colhead{YS} & \colhead{XC} & \colhead{YC} &
+\colhead{XS} & \colhead{YS} & \colhead{XC} & \colhead{YC} \\
+
+\colhead{} & \colhead{(\AA)} &
+\colhead{A1} & \colhead{A1} & \colhead{A1} & \colhead{A1} &
+\colhead{A2} & \colhead{A2} & \colhead{A2} & \colhead{A2}
+}
+\startdata
+G130M & 1291\AA & 6555\tablenotemark{b}  & 76 & 1201 & 437\tablenotemark{a} & 4078 & 76 & 8896\tablenotemark{b} & 437\tablenotemark{a} \\
+G130M & 1300\AA & 7559\tablenotemark{b}  & 76 & 1201 & 437\tablenotemark{a} & 4078 & 76 & 9900\tablenotemark{b} & 437\tablenotemark{a} \\
+G130M & 1309\AA & 8562\tablenotemark{b}  & 76 & 1201 & 437\tablenotemark{a} & 4097\tablenotemark{b} & 76 & 10903\tablenotemark{b} & 437\tablenotemark{a}\\
+G130M & 1318\AA & 9465\tablenotemark{b}  & 76 & 1201 & 437\tablenotemark{a} & 3194\tablenotemark{b} & 76 & 11806\tablenotemark{b} & 437\tablenotemark{a} \\
+G130M & 1327\AA & 10489\tablenotemark{b} & 76 & 1201 & 437\tablenotemark{a} & 2170\tablenotemark{b} & 76 & 12830\tablenotemark{b} & 437\tablenotemark{a} \\ \hline
+G160M & ALL     & 13799 & 76 & 1201 & 432\tablenotemark{a,b} &      &    &       &     \\ \hline
+G140L & 1105\AA & 10458 & 76 & 1201 & 445\tablenotemark{a,b} &  457 & 76 & 14543 & 445\tablenotemark{a,b} \\
+G140L & 1230\AA & 12216 & 76 & 1201 & 445\tablenotemark{a,b} &      &    &       &     \\ \hline
+\enddata
+\tablenotetext{a}{Updated for LP2 operations on  with PR\#63095.}
+\end{deluxetable}
+
+\begin{deluxetable}{|l|r||rrrr|rrrr||}
+\tablewidth{0pt}
+\tabcolsep 10pt
+\tablecolumns{10}
+\tabletypesize{\footnotesize}
+\tablecaption{PSA/BOA FUV LP2 Segment-B TA Subarrays\label{table:FUVsubB2}.}
+\tablehead{
+\colhead{Grating} & \colhead{Cenwave} &
+\colhead{XS} & \colhead{YS} & \colhead{XC} & \colhead{YC} &
+\colhead{XS} & \colhead{YS} & \colhead{XC} & \colhead{YC}\\
+
+\colhead{} & \colhead{(\AA)} &
+\colhead{B1} & \colhead{B1} & \colhead{B1} & \colhead{B1} &
+\colhead{B2} & \colhead{B2} & \colhead{B2} & \colhead{B2}
+}
+\startdata
+G130M & 1291\AA &  5036\tablenotemark{b} & 76 & 1501 & 483 & 7477\tablenotemark{b} & 76 & 7773\tablenotemark{b} & 483\tablenotemark{a,b} \\
+G130M & 1300\AA &  6039\tablenotemark{b} & 76 & 1501 & 483 & 6474\tablenotemark{b} & 76 & 8776\tablenotemark{b} & 483\tablenotemark{a,b} \\
+G130M & 1309\AA &  7023\tablenotemark{b} & 76 & 1501 & 483 & 5490\tablenotemark{a} & 76 & 9760\tablenotemark{a} & 483\tablenotemark{a,b} \\
+G130M & 1318\AA &  7977\tablenotemark{b} & 76 & 1501 & 483 & 4536\tablenotemark{b} & 76 & 10714\tablenotemark{b} & 483\tablenotemark{a,b} \\
+G130M & 1327\AA &  7629\tablenotemark{b} & 76 & 2792\tablenotemark{b} & 483 & 3593\tablenotemark{b} & 76 & 11657\tablenotemark{b} & 483\tablenotemark{a,b} \\ \hline
+G160M & ALL  & 13749 & 76 & 1501 & 477\tablenotemark{a,b} &  &   &    &    \\ \hline
+G140L & 1105\AA &       &    &      &     &      &    &       &     \\
+G140L & 1230\AA &       &    &      &     &      &    &       &     \\ \hline
+\enddata
+\tablenotetext{a}{Updated during SMOV (2009.201) with PR\#63095.}
+\tablenotetext{b}{Updated during SMOV (2009.215) with PR\#63378.}
+\end{deluxetable}
+
+
+\begin{deluxetable}{|l|r||rrrr|rrrr||}
+\tablewidth{0pt}
+\tabcolsep 10pt
+\tablecolumns{10}
+\tabletypesize{\footnotesize}
+\tablecaption{PSA/BOA FUV LP3 "Pre-Hot spot" Segment-B TA Subarrays\label{table:FUVsubB}.}
+\tablehead{
+\colhead{Grating} & \colhead{Cenwave} &
+\colhead{XS} & \colhead{YS} & \colhead{XC} & \colhead{YC} &
+\colhead{XS} & \colhead{YS} & \colhead{XC} & \colhead{YC}\\
+
+\colhead{} & \colhead{(\AA)} &
+\colhead{B1} & \colhead{B1} & \colhead{B1} & \colhead{B1} &
+\colhead{B2} & \colhead{B2} & \colhead{B2} & \colhead{B2}
+}
+\startdata
+
+G130M & 1291\AA &  5036 & 76 & 1501 & 460 & 5036 & 76 & 7773 & 460 \\
+G130M & 1300\AA &  6039 & 76 & 1501 & 460 & 6039 & 76 & 8776 & 460 \\
+G130M & 1309\AA &  7023 & 76 & 1501 & 460 & 7023 & 76 & 9760 & 460 \\
+G130M & 1318\AA &  7977 & 76 & 1501 & 460 & 7977 & 76 & 10714 & 460 \\
+G130M & 1327\AA &  7629 & 76 & 2792 & 460 & 7629 & 76 & 11657 & 460 \\ \hline
+G160M & ALL  & 13749 & 76 & 1501 & 453 &  &   &    &    \\ \hline
+G140L & 1105\AA &       &    &      &     &      &    &       &     \\
+G140L & 1230\AA &       &    &      &     &      &    &       &     \\ \hline
+\enddata
+\tablenotetext{a}{Updated for LP3 operations on  with PR\#80571.}
+\end{deluxetable}
+
+\ssubsection{Trimming of FUV-B TA subarrays due to FUVB ``Hot-Spot''.}
+A ``Hot Spot'' appeared on the COS FUV-B segment coincident with the solar maximum of 20XX.
+This spot produced enough counts that it could cause mis-centering during all phases of the FUV LP3 spectroscopic TAs.
+This mis-centerings could be in significant in either the AD or XD. On 201X\footnote{STScI PR\#{}.}, all affected
+LP3 FUV subarrays were changed.
+
+In raw FUV-B detector coordinates, the approximate location of the 'Hot Spot' is at [X,Y]=[14895,482].
+As this is near the detector edge, we are able to avoid this hotspot by stopping the last subarray of the FUVB subarrays at X=14833.
+For the COS FUV gratings and the FUVB TA subarrays, the impacts were
+\begin{enumerate}
+	\item[G140L:]{NOT affected as no FUVB TA subarrays are used for G140L }
+	\item[G160M:]{One subarray is used, all have XC1=1501, XS1=13749. These will all change to XS1=13332. (no change in Y)}
+	\item[G130M:]{Two subarrays are used to avoid Geocoronal Ly$\alpha$. The X-size of the second subarray (XS2) will be trimmed to avoid the hotspot (XC1, XS1, XC2 and all the Y definitions do not change).}
+\end{enumerate}
+
+\begin{deluxetable}{|l|r||rrrr|rrrr||}
+\tablewidth{0pt}
+\tabcolsep 10pt
+\tablecolumns{10}
+\tabletypesize{\footnotesize}
+\tablecaption{PSA/BOA FUV LP3 "Post-Hot spot" Segment-B TA Subarrays\label{table:FUVsubB}.}
+\tablehead{
+\colhead{Grating} & \colhead{CENWAVE} &
+\colhead{XS} & \colhead{YS} & \colhead{XC} & \colhead{YC} & \colhead{XS} & \colhead{YS} & \colhead{XC} & \colhead{YC}\\
+
+\colhead{} & \colhead{(\AA)} &
+\colhead{B1} & \colhead{B1} & \colhead{B1} & \colhead{B1} & \colhead{B2} & \colhead{B2} & \colhead{B2} & \colhead{B2}
+}
+\startdata
+G130M & 1291\AA &  5036\tablenotemark{b} & 76 & 1501 & 483 & 7477\tablenotemark{b} & 76 & 7773\tablenotemark{b} & 483\tablenotemark{a,b} \\
+G130M & 1300\AA &  6039\tablenotemark{b} & 76 & 1501 & 483 & 6474\tablenotemark{b} & 76 & 8776\tablenotemark{b} & 483\tablenotemark{a,b} \\
+G130M & 1309\AA &  7023\tablenotemark{b} & 76 & 1501 & 483 & 5490\tablenotemark{a} & 76 & 9760\tablenotemark{a} & 483\tablenotemark{a,b} \\
+G130M & 1318\AA &  7977\tablenotemark{b} & 76 & 1501 & 483 & 4536\tablenotemark{b} & 76 & 10714\tablenotemark{b} & 483\tablenotemark{a,b} \\
+G130M & 1327\AA &  7629\tablenotemark{b} & 76 & 2792\tablenotemark{b} & 483 & 3593\tablenotemark{b} & 76 & 11657\tablenotemark{b} & 483\tablenotemark{a,b} \\ \hline
+G160M & ALL  & 13332 & 76 & 1501 & 477\tablenotemark{a,b} &  &   &    &    \\ \hline
+G140L & 1105\AA &       &    &      &     &      &    &       &     \\
+G140L & 1230\AA &       &    &      &     &      &    &       &     \\ \hline
+\enddata
+\tablenotetext{a}{Updated for LP3 operations on  with PR\#80571.}
+\end{deluxetable}
+
+
+
+\ssubsection{Spectroscopic TA subarrays}
+	COS TA subarrays are defined in detector coordinates, and are specified by giving the [X,Y] corners ([XC,YC]) and sizes ([XS,YS]).
+Table~\ref{table:NUVsubs} below gives the NUV spectroscopic TA subarrays used for \texttt{ACQ/SEARCH} and \texttt{ACQ/PEAKD}, which have not changed since SMOV.
+Table~\ref{table:NUVsubsXD} below gives the NUV spectroscopic TA subarrays used for \texttt{ACQ/PEAKXD}, which include subarrays to measure the
+calibration lamp XD location (Cal) as well as the target spectral location of the "B" (WAVELENGTH=MEDIUM) stripe.
+These have not changed there updated in 2010 as STScI PR\#{}.
+
+
+\begin{deluxetable}{|r|r|r|r|r|}
+\tabcolsep 10pt
+\tabletypesize{\footnotesize}
+\tablecolumns{5}
+\tablewidth{0 pt}
+\tablecaption{NUV \texttt{ACQ/SEARCH} and \texttt{ACQ/PEAKD} Spectroscopic TA subarrays \label{table:NUVsubsSD}}
+\tablehead{\colhead{GRating}&\colhead{XC}&\colhead{YC}&\colhead{XS}&\colhead{YS}\\
+}
+\startdata
+\hline
+G185M&509&0&420&1024\\
+G225M&512&0&420&1024\\
+G285M&499&0&420&1024\\
+G230L&659&0&275&1024\\
+\hline
+\enddata
+\tablecomments{These NUV TA subarrays were installed in HST commanding in PR\#{}.}
+\end{table}
+
+\begin{deluxetable}{|r|r|r|r|r|r|r|}
+\tabcolsep 10pt
+\tabletypesize{\footnotesize}
+\tablecolumns{7}
+\tablewidth{0 pt}
+\tablecaption{NUV \texttt{ACQ/PEAKXD} WCA and PSA/BOA TA Subarrays \label{table:Nspecsubs}}
+\tablehead{\colhead{OPT\_ELEM}&\colhead{CAL-A}&\colhead{CAL-B}&\colhead{CAL-C} &\colhead{SCI-A}&\colhead{SCI-B}&\colhead{SCI-C}
+}
+\startdata
+\hline
+G185M	&	418	&	327	&	192	&	794	&	700	&	565	\\
+G225M	&	430	&	327	&	186	&	804	&	703	&	560	\\
+G285M	&	407	&	313	&	180	&	782	&	688	&	555	\\
+G230L	&	433	&	334	&	194	&	807	&	707	&	564	\\
+\hline
+\enddata
+\tablecomments{These are the XC, XS=}
+\end{table}
+
 \begin{deluxetable}{|r|r|r|r|}
 \tabcolsep 10pt
 \tabletypesize{\footnotesize}
 \tablecolumns{4}
 \tablewidth{0 pt}
-\tablecaption{\texttt{ACQ/PEAKXD} WCA-to-PSA offsets \label{table:soffsets}}
+\tablecaption{FUV \texttt{ACQ/PEAKXD} WCA-to-PSA offsets \label{table:FUVwcatopsa}}
 \tablehead{\colhead{OPT\_ELEM}&\colhead{LP1}&\colhead{LP2}&\colhead{LP3}\\
 }
 \startdata
@@ -578,7 +987,7 @@ G230L	3734&	N/A	&	N/A \\
 G285M	3749&	N/A	&	N/A \\
 \hline
 \enddata
-\tablenote{Divide by 100 \textsc{pcta_} determines scaling factor. FUV are "negative"}
+\tablecomments{Divide by 100 \textsc{pcta_} determines scaling factor. FUV are "negative"}
 \end{table}
 
 \hline
@@ -587,7 +996,7 @@ G285M	3749&	N/A	&	N/A \\
 
 \ssubsection{FUV Spectroscopic TA}
 \ssection{Results\label{sec:results}}
-The main results of the HST Cycle~C21--24 COS TA monitoring program are as follows:
+The main results of the HST Cycle~Cycle~21--24 COS TA monitoring program are as follows:
 \begin{description}
 \item{\bf SIAF:}{
 	All COS NUV \texttt{ACQ/IMAGE}s~use identical SIAF entries ({\it LFPSA} or {\it LFBOA}).
@@ -654,9 +1063,9 @@ Version 1: 28-Feb-2018 Original Draft Document
 \noindent
 Penton, S., 2016, COS Instrument Science Report 2019-09
 \\
-C22 IHB
-C23 IHB
-C24 IHB
+Cycle~22 IHB
+Cycle~23 IHB
+Cycle~24 IHB
 TAACOS1
 TAACOS2
 Keyes, T., \& Penton, S. COS 2010-14 (v1) (HST+COS Target Acquisition Guidelines, Recommendations, and Interpretation)\\
