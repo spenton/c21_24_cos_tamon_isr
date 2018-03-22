@@ -1,14 +1,16 @@
+%\startlongtable
 \begin{deluxetable}{|r|r|r|r|r|r|r|r|r|r|r|r|r|}
+\tabcolsep 2pt
 \tabletypesize{\tiny}
-\tablecolumns{13}
-\begin{center}
-\tablecaption{COS/NUV TA Monitoring Imaging Exposures\label{table:NUVtamonimage}}
+%\tablecolumns{13}
+%\tablewidth{0 pt}
+\tablecaption{COS/NUV TA Monitoring Imaging Exposures\label{tab:NUVtamonimage}}
 \tablehead{
-\colhead{ROOTNAME}&\colhead{PROP}&\colhead{TARGNAME}&\colhead{OBS}&\colhead{EXP}&\colhead{EXP}&\colhead{Lamp}&\colhead{Lamp}&\colhead{APER}&\colhead{APER}&\colhead{APER}&\colhead{OPT\_}&\colhead{DATE}\\
-\colhead{}&\colhead{ID}&\colhead{}&\colhead{MODE}&\colhead{TYPE}&\colhead{TIME(s)}&\colhead{USED}&\colhead{Current}&\colhead{TURE}&\colhead{XPOS}&\colhead{YPOS}&\colhead{ELEM}&\colhead{OBS}\\
+\colhead{ROOTNAME}&\colhead{PROP}&\colhead{TARGNAME}&\colhead{OBS} &\colhead{EXP}   &\colhead{EXP}  &\colhead{PtNe}&\colhead{Lamp}   &\colhead{APER}&\colhead{APER}&\colhead{APER}&\colhead{OPT\_}&\colhead{DATE}\\
+\colhead{}        &\colhead{ID}  &\colhead{}        &\colhead{MODE}&\colhead{TYPE}&\colhead{TIME(s)}&\colhead{Lamp}&\colhead{Current}&\colhead{TURE}&\colhead{XPOS}&\colhead{YPOS}&\colhead{ELEM}&\colhead{OBS}
 }
+\hline
 \startdata
-\colnumbers
 lc6ka1i1q	&	13171	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRRORA	&	2013-03-02	\\
 lc6ka1i3q	&	13171	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRRORB	&	2013-03-02	\\
 lc6ka2imq	&	13171	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRRORA	&	2013-09-01	\\
@@ -83,7 +85,7 @@ ld3701h1q	&	14440	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	150	&	P2	&	Low	&	BOA	&	22.
 ld3701h3q	&	14440	&	WAVE	&	TT	&	WAVECAL	&	10	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRRORA	&	2016-10-18	\\
 ld3701h5q	&	14440	&	WD-1657+343	&	TT	&	EXT/SCI	&	16	&	P2	&	Med	&	PSA	&	22.1	&	126.1	&	MIRRORB	&	2016-10-18	\\
 ld3701h7q	&	14440	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	13	&	P2	&	Med	&	PSA	&	22.1	&	126.1	&	MIRRORB	&	2016-10-18	\\
-ld3702mzq	&	14440	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	16	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRRORA	&	2016-10-19	\\
+ld3702mzq&	14440	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	16	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRRORA	&	2016-10-19	\\
 ld3702n1q	&	14440	&	WAVE	&	TT	&	WAVECAL	&	14	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRRORA	&	2016-10-19	\\
 ld3702n4q	&	14440	&	HIP66578	&	TT	&	EXT/SCI	&	183	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRRORB	&	2016-10-19	\\
 ld3702n7q	&	14440	&	WAVE	&	TT	&	WAVECAL	&	24	&	P2	&	Med	&	WCA	&	22.1	&	126.1	&	MIRRORB	&	2016-10-19	\\
@@ -111,10 +113,10 @@ ldozbblmq	&	14857	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	183	&	P2	&	Med	&	BOA	&	22.1	&
 ldozbbloq	&	14857	&	WAVE	&	TT	&	WAVECAL	&	24	&	P2	&	Med	&	WCA	&	22.1	&	126.1	&	MIRRORB	&	2017-09-06	\\
 ldozbblqq	&	14857	&	WAVE	&	TT	&	WAVECAL	&	14	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRRORA	&	2017-09-06	\\
 ldozbblsq	&	14857	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	16	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRRORA	&	2017-09-06	\\
-ldozbbm4q	&	14857	&	WAVE	&	TT	&	WAVECAL	&	16	&	P1	&	Low	&	WCA	&	22.1	&	125.1	&	MIRRORA	&	2017-09-06	\\
-ldozbbm6q	&	14857	&	WAVE	&	TT	&	WAVECAL	&	26	&	P2	&	Low	&	WCA	&	22.1	&	125.1	&	MIRRORA	&	2017-09-06	\\
-ldozbbm8q	&	14857	&	WAVE	&	TT	&	WAVECAL	&	32	&	P1	&	Low	&	WCA	&	22.1	&	125.1	&	MIRRORB	&	2017-09-06	\\
-ldozbbmaq	&	14857	&	WAVE	&	TT	&	WAVECAL	&	26	&	P2	&	Med	&	WCA	&	22.1	&	125.1	&	MIRRORB	&	2017-09-06	\\
+ldozbbm4q&	14857	&	WAVE	&	TT	&	WAVECAL	&	16	&	P1	&	Low	&	WCA	&	22.1	&	125.1	&	MIRRORA	&	2017-09-06	\\
+ldozbbm6q&	14857	&	WAVE	&	TT	&	WAVECAL	&	26	&	P2	&	Low	&	WCA	&	22.1	&	125.1	&	MIRRORA	&	2017-09-06	\\
+ldozbbm8q&	14857	&	WAVE	&	TT	&	WAVECAL	&	32	&	P1	&	Low	&	WCA	&	22.1	&	125.1	&	MIRRORB	&	2017-09-06	\\
+ldozbbmaq&	14857	&	WAVE	&	TT	&	WAVECAL	&	26	&	P2	&	Med	&	WCA	&	22.1	&	125.1	&	MIRRORB	&	2017-09-06	\\
 ldozpbf5q	&	14857	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	20	&	P2	&	Low	&	PSA	&	22.1	&	125.1	&	MIRRORA	&	2017-09-10	\\
 ldozpbf7q	&	14857	&	206W3	&	TT	&	EXT/SCI	&	20	&	P2	&	Low	&	PSA	&	22.1	&	125.1	&	MIRRORA	&	2017-09-10	\\
 ldozpbf9q	&	14857	&	206W3	&	TT	&	EXT/SCI	&	220	&	P2	&	Med	&	PSA	&	22.1	&	125.1	&	MIRRORB	&	2017-09-10	\\
@@ -124,6 +126,7 @@ ldozpbffq	&	14857	&	206W3	&	TT	&	EXT/SCI	&	20	&	P2	&	Low	&	PSA	&	22.1	&	125.1	&	
 ldozpbfhq	&	14857	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	20	&	P2	&	Low	&	PSA	&	22.1	&	125.1	&	MIRRORA	&	2017-09-10	\\
 \hline
 \enddata
-\end{center}
-\tablecomments{All NUV Imaging}
+%\end{center}
+%\tablecomments{Exposures listed as \textsc{EXPTYPE}=EXT/SCI contain coeval target and PtNe lamp (P1 or P2) images taken in time-tag (\textsc{OBSTYPE}=TT) mode.
+%Exposures listed as \textsc{EXPTYPE}=WAVECAL (target = WAVE) contain only TT PtNe lamp (WCA) images.  \tacq{IMAGE} exposures return before and after target images in \textsc{OBSTYPE}=ACCUM, but do not return  lamp images.}
 \end{deluxetable}

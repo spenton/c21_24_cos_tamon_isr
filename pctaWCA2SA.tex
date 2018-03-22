@@ -1,0 +1,31 @@
+\begin{deluxetable}{lclcccr}
+%\tablewidth{0pt}
+\tabcolsep 10pt
+\tabletypesize{\footnotesize}
+\tablecolumns{4}
+\tablecaption{\tacq{PEAKXD} WCA-to-PSA offsets} \label{tab:wcatopsa}
+\tablehead{
+\colhead{OPT\_ELEM}&\colhead{LP1}&\colhead{LP2}&\colhead{LP3}\\
+}
+
+\startdata
+\hline
+\multicolumn{4}{c}{FUV\tablenotemark{f}}\\
+\hline
+G130M	&	 -898	&	-943	&	-892 \\
+G140L	&	 -884	&	-950	&	-857 \\
+G160M	&	 -898	&	-933	&	-901 \\
+\hline
+\multicolumn{4}{c}{NUV\tablenotemark{n}}\\
+\hline
+G185M	&	3742	&	\dots	&	\dots \\
+G225M	&	3746	&	\dots	&	\dots \\
+G230L	&	3734	&	\dots	&	\dots \\
+G285M	&	3749	&	\dots	&	\dots \\
+\hline
+\enddata
+\tablenotetext{f}{Divide the FUV numbers by -10 to get the number of XD rows between the PSA and WCA spectra for a target centered in the aperture.}
+\tablenotetext{n}{Divide the NUV numbers by 10 to get the NUV WCA-to-PSA offset. }
+\tablecomments{The FSW patchable constant \textsc{pcta\_CalTargetOffsetScale} determines the FSW scaling (currently set to 10).
+FUV scalings are "negative" due to parity of HST slews relative to the COS coordinate system.}
+\end{deluxetable}
