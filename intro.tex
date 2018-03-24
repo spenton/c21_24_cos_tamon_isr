@@ -1,0 +1,81 @@
+\section{Introduction}\label{sec:Introduction}
+
+Preliminary results of the Hubble Space Telescopes' (HST) Cosmic Origins Spectrograph (COS) target acquisition (TA) programs reviewed here were previously reported in the following COS ISRs:
+\small
+\begin{itemize}
+\item{COS ISR 2015-02 (Summary of the COS Cycle 20 Calibration Program)}
+\item{COS ISR 2015-06 (Summary of the COS Cycle 21 Calibration Program)}
+\item{COS ISR 2016-03 (Summary of the COS Cycle 22 Calibration Program)}
+\item{COS ISR 2016-09 (Cycle 22 COS Target Acquisition Monitor Summary)}
+\item{COS ISR 2017-18 (Cycle 23 COS Target Acquisition Monitor Summary)}
+\item{COS ISR 2018-09 (Cycle 24 COS Target Acquisition Monitor Summary)}
+\end{itemize}
+\normalsize
+The information in this ISR supercedes any previous preliminary results or conclusions.\\
+
+This ISR provides the full details of the following HST+COS calibration {\bf P}rograms:
+\small
+\begin{itemize}
+\item{{\bf P}13124 (COS Imaging TA and Spectroscopic WCA-PSA/BOA offset verifications, Cycle 20)}
+\item{{\bf P}13526 (COS Imaging TA and Spectroscopic WCA-PSA/BOA offset verifications, Cycle 21)}
+\item{{\bf P}13972 (COS Imaging TA and Spectroscopic WCA-PSA/BOA offset verifications, Cycle 22)}
+\item{{\bf P}14440 (COS Imaging TA and Spectroscopic WCA-PSA/BOA offset verifications, Cycle 23)}
+\item{{\bf P}14857 (COS Imaging TA and Spectroscopic WCA-PSA/BOA offset verifications, Cycle 24)}
+\end{itemize}
+\normalsize
+
+\subsection{Introductory Notes and Conventions}\label{subsec:conventions}
+%\vspace{-0.3cm}
+There are a few COS conventions to be established before discussing the TA monitoring in detail.
+\begin{enumerate}
+	\item{COS TAs are performed in raw or ``detector'' coordinates, not the ``user'' coordinate system of calibrated
+		COS files. To avoid confusion over the different coordinate systems, we will use along-dispersion (AD) and cross-dispersion (XD) whenever possible.
+		{\ul All references to the coordinates ``X'' and ``Y'' are in the detector coordinate system unless otherwise specified.}
+		In raw NUV coordinates, +X is -XD and +Y is -AD. In raw FUV coordinates, +X is -AD and +Y is +XD.
+		The transformations between user and detector coordinates are :
+		\begin{equation} NUV: X_{user} = 1023 - Y_{detector} \ ; Y_{user} = 1023 - X_{detector} \end{equation}
+		\begin{equation} FUV: X_{user} = 16383 - X_{detector} \ ; Y_{user} = Y_{detector} \end{equation}
+		}
+	\item{When referencing NUV pixels, we will abbreviate pixel as p. For the FUV, we use DE to reference the FUV digital elements.}
+	\item{When discussing the various subarrays used during COS TA, boxes will be specified by giving the lowest
+		valued corner (C) and full size (S) for both X and Y. A box is fully specified by giving its XC, XS, YC, \& YS. In this TIR, these will always be given in detector coordinates.}
+	\item{To clarify the names and locations of various TA parameters, the following convention will be used :
+		\begin{itemize}
+			\item{COS TA modes and their optional parameters will be in \texttt{Courier} (e.g., \tacq{IMAGE} and \numpos).}
+			\item{Keywords in FITS headers will be in \textit{ITALICIZED ALL CAPITALS} (e.g., \textit{ACQYSLEW}).}
+			\item{Flight SoftWare parameters (FSW) will be in \textsc{small capitals} (e.g., \textsc{pcta\_CalTargetOffset}).
+All TA FSW patchable constants begin with ``\textsc{pcta\_}''. In this ISR, this prefix is considered implied after the initial introduction of a paramater, and will not always be included.}
+			\item{Archived COS files are in FITS (.fits) format. FITS filenames, or portions of a filename, will be in {\sf sans-serif} (e.g., {\sf ld9mg2nrq\_rawtag.fits} or {\sf \_spt.fits}).
+			COS filenames are in the form {\sf IPPPSSOOT\_{\it extension}.fits}.
+			The HST naming convention breaks down for COS as I=Instrument=``L'', PPP=Program ID, SS=Visit ID, OO=Exposure ID,
+			and T=``Q'' for nominally recorded observations. See the COS DHB for a full breakdown of the HST IPPPSSOOT naming conventions.
+			COS TA files have the {\it extension} of {\sf rawacq}, and additional
+			information useful for TA analysis is contained in the {\sf IPPPSSOOT\_{\it spt}.fits} file known as the support file,
+			and in the {\sf IPPPSSOOT\_{\it jit/f}.fits} file known as the jitter files.}
+		\end{itemize}
+	}
+%	\item{There are three centering options during \tacq{SEARCH} and \tacq{PEAKD}. In the Astronomers Proposal Tool (APT), these are
+%		referred to as \texttt{CENTER}=\texttt{FLUX-WT}, \texttt{FLUX-WT-FLR}, and \texttt{BRIGHTEST}.
+%		These parameters have slightly different names in the IHB, the FITS keywords, and the FSW.
+%		In this ISR, we will refer to the centering options as \texttt{CENTER}=\texttt{Flux-Weighted (FW)}, \texttt{Flux-Weighted-Floor (FWF)}, and \texttt{Return-To-Brightest (RTB)}.
+%	}
+	\item{Milli-arcseconds (0.001\arcsec) will be abbreviated as mas.}
+	\item{Milli-amperes (0.001A) will be abbreviated as mA.}
+	\item{Counts per second will be abbreviated as cps.}
+	\item{COS contains numerous FUV and NUV central wavelength settings, which are defined in the FSW by the OSM1 or OSM2 rotation positions.
+	In this ISR, the term CENWAVE will be used to mean any of the pre-defined OSM1 + OSM2 rotation settings that uniquely define a central wavelength setting.}
+	\item{COS CENWAVEs are named for the (predicted) lowest wavelength that lands on the FUVA detector segment for FP-POS=3. For convienence, when referring to
+	a specific CENWAVE we will either call out the grating and CENWAVE is use as GRATING/CENWAVE (e.g. G130M/1222), or just use a leading ``C" to identify a particular CENWAVE (e.g., C1222) in the same manor as ``G" is used for GRATING (e.g., G130M).}
+	\item{When referring to an HST program number, we will use either ``HST PID" or a leading ``{\bf P}" in a similar fashion an "C=CENWAVE" and "G=GRATING", but using a {\bf bold} font.}
+	\item{The COS FUV detector has two independent segments, Segment-A and Segment-B. In this ISR, they will be referred to as FUVA and FUVB.}
+	\item{When referring to a particular day, we will use YEAR.DAY. For example, day 60 of 2010 will be referred to as \psiafdate. We will also occasionally use decimal years. In these cases, there will only be a single digit in the fractional part (e.g., 2009.9).}
+	\item{HST observations are grouped in $\sim$ annual ``cycles.'' A leading `C' will be used as shorthand for ``HST Cycle''.}
+\end{enumerate}
+
+\subsection{ISR Organization}\label{subsec:org}
+{\bf COME BACK AND COMPLETE THIS SECTION LATER}
+In \S~\ref{subsec:acqimage} we will discuss the verification of the FSW parameters, lamp operations, and subarrays associated with COS \tacq{image}s.
+As outlined in \S~\ref{subsec:fgs2si}, data from outside the COS calibration programs listed above will be used in this analysis.
+As part of this process, we will verify the active COS NUV SIAF (Science Instrument Aperture File) entries. In ~\S~\ref{sec:spVER},
+we will discuss the verification of the FSW parameters, lamp operations, and subarrays associated with COS spectroscopic TAs.
+In the FUV sub-section we will discuss and the verification of COS FUV SIAF entries.

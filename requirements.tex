@@ -1,0 +1,20 @@
+\subsection{COS TA Centering Requirements}\label{subsec:requirements}
+
+The COS TA centering requirements are based upon the wavelength accuracy requirements in the AD, and for flux and resolution optimization
+in the XD.\footnote{The COS requirements are documented in the CEI (Contract End Item) Specification (Smith et. al., 2004).} The strictest NUV requirements are [AD,XD] = [0.041, 0.3]\arcsec, while for the FUV they are [AD,XD] = [0.106, 0.3]\arcsec.\footnote{While the XD requirement for all TAs is $\pm$ 0.3\arcsec, our 1$\sigma$ goal is $\pm$ 0.1\arcsec. This goal ensures that spectra fall on a consistent XD location on the the detector, which aids in extraction and calibration accuracy.}
+Since the AD requirement is in units of \kmsno, it is detector, grating, and wavelength dependent as defined in equations~\ref{eq:TAcenter}--\ref{eq:TAcenterL}.
+\small
+\begin{eqnarray}\label{eq:TAcenter}
+\Delta\ AD(G185M@1825\AA) = {{ 15\kms \times 1825\AA}\over{c \times 0 .037\AA/p\times 42.47 p/\arcsec}}  = 0.058\arcsec\\
+\Delta\ AD(G225M@2250\AA) = {{ 15\kms \times 2250\AA}\over{c \times  0.035\AA/p\times 42.47 p/\arcsec}}  = 0.076\arcsec\\
+\Delta\ AD(G285M@2850\AA) = {{ 15\kms \times 2850\AA}\over{c \times  0.040\AA/p\times 42.47 p/\arcsec}}  = 0.084\arcsec\\
+\Delta\ AD(G230L@2450\AA) = {{175\kms \times 2450\AA}\over{c \times  0.390\AA/p\times 42.47 p/\arcsec}}  = 0.086\arcsec\\
+\Delta\ AD(G130M@1300\AA) = {{ 15\kms \times 1300\AA}\over{c \times 0.00997\AA/ p\times 43.5 p/\arcsec}} = 0.150\arcsec\\
+\Delta\ AD(G160M@1600\AA) = {{ 15\kms \times 1600\AA}\over{c \times 0.01223\AA/ p\times 42.9 p/\arcsec}} = 0.153\arcsec\\
+\Delta\ AD(G140L@1800\AA) = {{150\kms \times 1800\AA}\over{c \times 0.08030\AA/ p\times 45.4 p/\arcsec}} = 0.247\arcsec\label{eq:TAcenterL}
+\end{eqnarray}
+\normalsize
+
+Assuming that the wavelength error budget is split evenly between the COS TA and wavelength scale accuracies,
+the error budgets for the COS gratings, in arc-seconds (\arcsec), are given in Table~\ref{tab:TAaccuracy}. By ``evenly'' we mean that when added in quadrature the total error budget is that given by the second column of Table~\ref{tab:TAaccuracy}.
+Setting the TA error budget equal to the wavelength scale accuracy, the AD TA requirement given in the third column is the second column divided by $\sqrt{2}$.

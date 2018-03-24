@@ -1,0 +1,201 @@
+
+\texttt{
+DATE    = '2017-07-08'         / date this file was written (yyyy-mm-dd)
+FILENAME= 'ld3702mzq_rawacq.fits                  ' / name of file
+ROOTNAME= 'ld3702mzq                         ' / rootname of the observation set
+PROPOSID=                14440 / PEP proposal identifier
+OPUS_VER= 'COMMON 2017_2     ' / data processing software system version
+CSYS_VER= 'hstdp-2017.2'       / Calibration software system version id
+
+
+              / SCIENCE INSTRUMENT CONFIGURATION
+
+OBSTYPE = 'IMAGING       '     / observation type - imaging or spectroscopic
+OBSMODE = 'ACCUM     '         / operating mode
+EXPTYPE = 'ACQ/IMAGE   '       / type of exposure
+DETECTHV= 'NomA    '           / FUV High voltage state, from LDCSTATE
+COSCOORD= 'USER    '           / COS output coordinate frame
+APERTURE= 'BOA '               / aperture name
+PROPAPER= 'BOA             '   / proposed aperture name
+APER_FOV= '2.5 arcsec diameter circular + ND2 filter' / aperture field of view
+APMPOS  = 'BOA-NUVO'           / Aperture Mechanism Position from telemetry
+APERXPOS=                 22.1 / Aperture Block Position dispersion (telemetry)
+APERYPOS=               -153.1 / Aperture Block Pos. cross dispersion(telemetry)
+OPT_ELEM= 'MIRRORA '           / optical element in use
+SHUTTER = 'Open '              / External Shutter Position (OPEN, CLOSED)
+
+
+              / LAMP ACQUISITION PARAMETERS
+
+LAMPSTAT= 'Success '           / Status of wavecal lamp image (LTAIMCAL)
+LAMPTIME=                  7.0 / Lamp exposure integration time (seconds)
+LAMPMXCR=                509.0 / Measured centroid of lamp exposure in X (AD)
+LAMPMYCR=                654.0 / Measured centroid of lamp exposure in Y (XD)
+LAMPEVNT=                 2895 / Total events in lamp exposure
+APMPOS_L= 'WCA-NUVO'           / Aperture Mechanism Position telemetry(lamp exp)
+LAMPXPOS=                 22.1 / Aperture Block Position in X(lamp exp)telemetry
+LAMPYPOS=                125.1 / Aperture Block Position in Y(lamp exp)telemetry
+LAMPCNTR= 'Median  '           / Lamp Centering Method
+LMPSUBX1=                  400 / X coord left  edge of lamp subarray (pix)
+LMPSUBX2=                  699 / X coord right edge of lamp subarray (pix)
+LMPSUBY1=                  629 / Y coord upper edge of lamp subarray (pix)
+LMPSUBY2=                  678 / Y coord lower edge of lamp subarray (pix)
+
+              / TARGET ACQUISITION PARAMETERS
+
+ACQSTAT = 'Success '           / Status of target exposure (LTAIMAGE)
+TARGTIME=                 16.0 / Target integration time (seconds)
+ACQCENTX=                480.0 / Measured target centroid in X (AD) direction
+ACQCENTY=                299.3 / Measured target centroid in Y (XD) direction
+ACQPREFX=                463.5 / Desired target X (AD) position
+ACQPREFY=                285.6 / Desired target Y (XD) position
+ACQSLEWX=                 0.39 / Slew offset in X (AD) (arcseconds)
+ACQSLEWY=                0.322 / Slew offset in Y (XD) (arcseconds)
+TAFLAG  = '                   0' / TA Global Stat Flag
+TRGSUBX1=                  100 / X coord left  edge of target subarray (pix)
+TRGSUBX2=                  915 / X coord right edge of target subarray (pix)
+TRGSUBY1=                  107 / Y coord upper edge of target subarray (pix)
+TRGSUBY2=                  451 / Y coord lower edge of target subarray (pix)
+WCA2SCIX=                -45.5 / WCA to Science Aperture offset in X (AD)
+WCA2SCIY=               -368.4 / WCA to Science Aperture offset in Y (XD)
+}
+\texttt{NUV: RAWACQ
+TRGSUBX1=                  100 / X coord left  edge of target subarray (pix)
+TRGSUBX2=                  915 / X coord right edge of target subarray (pix)
+TRGSUBY1=                  107 / Y coord upper edge of target subarray (pix)
+TRGSUBY2=                  451 / Y coord lower edge of target subarray (pix)
+
+}
+\texttt{NUV: SPT
+
+              / EXPOSURE PARAMETERS
+
+LQNUMSUB=                    1 / Number of subarrays (1-8)
+LQSUB0XS=                   50 / Subarray 0 X Size
+LQSUB0YS=                  300 / Subarray 0 Y Size
+LQSUB0XC=                  345 / Subarray 0 X Corner Coordinate
+LQSUB0YC=                  324 / Subarray 0 Y Corner Coordinate
+}
+
+
+\subsection{FITS file subarray verification}
+
+\subsection{NUV Imaging \texttt{\_spt.fits} FITS Header keywords}\label{subsec:NsptSUB}
+
+\subsection{NUV Imaging \texttt{\_rawtag.fits} FITS Header keywords}\label{subsec:NfitsSUB}
+
+\testttt{
+              / LAMP ACQUISITION PARAMETERS
+
+LAMPSTAT= 'Success '           / Status of wavecal lamp image (LTAIMCAL)
+LAMPTIME=                  7.0 / Lamp exposure integration time (seconds)
+LAMPMXCR=                509.0 / Measured centroid of lamp exposure in X (AD)
+LAMPMYCR=                654.0 / Measured centroid of lamp exposure in Y (XD)
+LAMPEVNT=                 2895 / Total events in lamp exposure
+LAMPXPOS=                 22.1 / Aperture Block Position in X(lamp exp)telemetry
+LAMPYPOS=                125.1 / Aperture Block Position in Y(lamp exp)telemetry
+LAMPCNTR= 'Median  '           / Lamp Centering Method
+LMPSUBX1=                  400 / X coord left  edge of lamp subarray (pix)
+LMPSUBX2=                  699 / X coord right edge of lamp subarray (pix)
+LMPSUBY1=                  629 / Y coord upper edge of lamp subarray (pix)
+LMPSUBY2=                  678 / Y coord lower edge of lamp subarray (pix)
+
+              / TARGET ACQUISITION PARAMETERS
+
+ACQSTAT = 'Success '           / Status of target exposure (LTAIMAGE)
+TARGTIME=                 16.0 / Target integration time (seconds)
+ACQCENTX=                480.0 / Measured target centroid in X (AD) direction
+ACQCENTY=                299.3 / Measured target centroid in Y (XD) direction
+ACQPREFX=                463.5 / Desired target X (AD) position
+ACQPREFY=                285.6 / Desired target Y (XD) position
+ACQSLEWX=                 0.39 / Slew offset in X (AD) (arcseconds)
+ACQSLEWY=                0.322 / Slew offset in Y (XD) (arcseconds)
+TRGSUBX1=                  100 / X coord left  edge of target subarray (pix)
+TRGSUBX2=                  915 / X coord right edge of target subarray (pix)
+TRGSUBY1=                  107 / Y coord upper edge of target subarray (pix)
+TRGSUBY2=                  451 / Y coord lower edge of target subarray (pix)
+WCA2SCIX=                -45.5 / WCA to Science Aperture offset in X (AD)
+WCA2SCIY=               -368.4 / WCA to Science Aperture offset in Y (XD)
+}
+
+\subsection{FUV \tacq{SEARCH} and \tacq{PEAKD} FITS}
+
+\subsection{FUV \tacq{PEAKXD} FITS}
+
+\testttt{
+              / SCIENCE INSTRUMENT CONFIGURATION
+
+OBSTYPE = 'SPECTROSCOPIC '     / observation type - imaging or spectroscopic
+OBSMODE = 'ACCUM     '         / operating mode
+EXPTYPE = 'ACQ/PEAKXD  '       / type of exposure
+DETECTOR= 'FUV'                / FUV or NUV
+SEGMENT = 'BOTH'               / FUV detector segment name (FUVA, FUVB, or BOTH)
+DETECTHV= 'NomAB   '           / FUV High voltage state, from LDCSTATE
+COSCOORD= 'USER    '           / COS output coordinate frame
+SUBARRAY=                    T / data from a subarray (T) or full frame (F)
+LAMPPLAN= 'NONE          '     / Name of lamp that was planned to be used
+LAMPUSED= 'NONE          '     / lamp status, NONE or name of lamp which is on
+LAMPSET = 'Off   '             / spectral cal lamp current value (milliamps)
+LIFE_ADJ=                    3 / Life Time Adjustment Position
+EXP_NUM =                    1 / exposure number for repeated observations
+NRPTEXP =                    1 / number of repeat exposures in set: default 1
+FPPOS   =                    3 / grating offset index (1-4) for FP split
+CENWAVE =                 1309 / central wavelength of spectrum
+APERTURE= 'PSA '               / aperture name
+PROPAPER= 'PSA             '   / proposed aperture name
+APER_FOV= '2.5 arcsec (0.700 mm) diameter circular' / aperture field of view
+APMPOS  = 'PSA-FUVB'           / Aperture Mechanism Position from telemetry
+APERXPOS=                 22.1 / Aperture Block Position dispersion (telemetry)
+APERYPOS=                182.1 / Aperture Block Pos. cross dispersion(telemetry)
+OPT_ELEM= 'G130M   '           / optical element in use
+SHUTTER = 'Open '              / External Shutter Position (OPEN, CLOSED)
+EXTENDED= 'NO '                / Is target specified as extended object?
+TAGFLASH= 'NONE            '   / Type of flashed exposures in time-tag
+
+              / LAMP ACQUISITION PARAMETERS
+
+LAMPSTAT= 'Success '           / Status of wavecal lamp image (LTACAL)
+LAMPTIME=                 17.0 / Lamp exposure integration time (seconds)
+LAMPMYCR=                538.8 / Measured centroid of lamp exposure in Y (XD)
+LAMPEVNT=                  812 / Total events in lamp exposure
+APMPOS_L= 'WCA-FUVB'           / Aperture Mechanism Position telemetry(lamp exp)
+LAMPXPOS=                 22.1 / Aperture Block Position in X(lamp exp)telemetry
+LAMPYPOS=                182.1 / Aperture Block Position in Y(lamp exp)telemetry
+LAMPCNTR= 'Mean    '           / Lamp Centering Method
+LMPASBX1=                 1384 / X coord left  1st seg A lamp subarray (pix)
+LMPASBX2=                15182 / X coord right 1st seg A lamp subarray (pix)
+LMPASBY1=                  515 / Y coord upper 1st seg A lamp subarray (pix)
+LMPASBY2=                  558 / Y coord lower 1st seg A lamp subarray (pix)
+LMPBSBX1=                    0 / X coord left  1st seg B lamp subarray (pix)
+LMPBSBX2=                    0 / X coord right 1st seg B lamp subarray (pix)
+LMPBSBY1=                    0 / Y coord upper 1st seg B lamp subarray (pix)
+LMPBSBY2=                    0 / Y coord lower 1st seg B lamp subarray (pix)
+
+              / TARGET ACQUISITION PARAMETERS
+
+ACQSTAT = 'Success '           / Status of target exposure (LTAPKXD)
+TARGTIME=                  3.0 / Target integration time (seconds)
+ACQNPOS =                    1 / Number of dwells
+ACQSLEWY=                0.095 / Slew offset in Y (XD) (arcseconds)
+TRGAS1X1=                 6621 / X coord left  1st seg A target subarray (pix)
+TRGAS1X2=                15182 / X coord right 1st seg A target subarray (pix)
+TRGAS1Y1=                  409 / Y coord upper 1st seg A target subarray (pix)
+TRGAS1Y2=                  484 / Y coord lower 1st seg A target subarray (pix)
+TRGAS2X1=                    0 / X coord left  2nd seg A target subarray (pix)
+TRGAS2X2=                    0 / X coord right 2nd seg A target subarray (pix)
+TRGAS2Y1=                    0 / Y coord upper 2nd seg A target subarray (pix)
+TRGAS2Y2=                    0 / Y coord lower 2nd seg A target subarray (pix)
+TRGBS1X1=                    0 / X coord left  1st seg B target subarray (pix)
+TRGBS1X2=                    0 / X coord right 1st seg B target subarray (pix)
+TRGBS1Y1=                    0 / Y coord upper 1st seg B target subarray (pix)
+TRGBS1Y2=                    0 / Y coord lower 1st seg B target subarray (pix)
+TRGBS2X1=                    0 / X coord left  2nd seg B target subarray (pix)
+TRGBS2X2=                    0 / X coord right 2nd seg B target subarray (pix)
+TRGBS2Y1=                    0 / Y coord upper 2nd seg B target subarray (pix)
+TRGBS2Y2=                    0 / Y coord lower 2nd seg B target subarray (pix)
+}
+
+\subsection{FUV Imaging \texttt{\_spt.fits} FITS Header keywords}\label{subsec:FsptSUB}
+
+\subsection{FUV Imaging \texttt{\_rawtag.fits} FITS Header keywords}\label{subsec:FfitsSUB}
+

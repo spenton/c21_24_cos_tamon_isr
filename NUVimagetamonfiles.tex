@@ -1,16 +1,16 @@
-%\startlongtable
-\begin{deluxetable}{|r|r|r|r|r|r|r|r|r|r|r|r|r|}
+\startlongtable
+\begin{deluxetable}{rrrrrrrrrrrrr}
 \tabcolsep 2pt
 \tabletypesize{\tiny}
-%\tablecolumns{13}
+\tablecolumns{13}
 %\tablewidth{0 pt}
 \tablecaption{COS/NUV TA Monitoring Imaging Exposures\label{tab:NUVtamonimage}}
 \tablehead{
-\colhead{ROOTNAME}&\colhead{PROP}&\colhead{TARGNAME}&\colhead{OBS} &\colhead{EXP}   &\colhead{EXP}  &\colhead{PtNe}&\colhead{Lamp}   &\colhead{APER}&\colhead{APER}&\colhead{APER}&\colhead{OPT\_}&\colhead{DATE}\\
-\colhead{}        &\colhead{ID}  &\colhead{}        &\colhead{MODE}&\colhead{TYPE}&\colhead{TIME(s)}&\colhead{Lamp}&\colhead{Current}&\colhead{TURE}&\colhead{XPOS}&\colhead{YPOS}&\colhead{ELEM}&\colhead{OBS}
+\colhead{ROOTNAME}&\colhead{PROP}&\colhead{TARGNAME}&\colhead{OBS} &\colhead{EXP}   &\colhead{EXP}  &\colhead{PtNe}&\colhead{Lamp}   &\colhead{APERTURE}&\colhead{APERXPOS}&\colhead{APERYPOS}&\colhead{OPT\_}&\colhead{DATE}\\
+\colhead{}        &\colhead{ID}  &\colhead{}        &\colhead{MODE}&\colhead{TYPE}&\colhead{TIME(s)}&\colhead{Lamp}&\colhead{Current}&\colhead{}&\colhead{}&\colhead{ }&\colhead{ELEM}&\colhead{OBS}
 }
-\hline
 \startdata
+\hline
 lc6ka1i1q	&	13171	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRRORA	&	2013-03-02	\\
 lc6ka1i3q	&	13171	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRRORB	&	2013-03-02	\\
 lc6ka2imq	&	13171	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRRORA	&	2013-09-01	\\
@@ -127,6 +127,6 @@ ldozpbfhq	&	14857	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	20	&	P2	&	Low	&	PSA	&	22.1	&	125
 \hline
 \enddata
 %\end{center}
-%\tablecomments{Exposures listed as \textsc{EXPTYPE}=EXT/SCI contain coeval target and PtNe lamp (P1 or P2) images taken in time-tag (\textsc{OBSTYPE}=TT) mode.
-%Exposures listed as \textsc{EXPTYPE}=WAVECAL (target = WAVE) contain only TT PtNe lamp (WCA) images.  \tacq{IMAGE} exposures return before and after target images in \textsc{OBSTYPE}=ACCUM, but do not return  lamp images.}
+\tablecomments{Exposures listed as \textsc{EXPTYPE}=EXT/SCI contain coeval target and PtNe lamp (P1 or P2) images taken in time-tag (\textsc{OBSTYPE}=TT) mode.
+Exposures listed as \textsc{EXPTYPE}=WAVECAL (target = WAVE) contain only TT PtNe lamp (WCA) images.  \tacq{IMAGE} exposures return before and after target images in \textsc{OBSTYPE}=ACCUM, but do not return  lamp images.}
 \end{deluxetable}

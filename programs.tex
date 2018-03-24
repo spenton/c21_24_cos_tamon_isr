@@ -1,0 +1,17 @@
+\section{Program Descriptions} \label{sec:programs}
+
+COS \tacq{IMAGE} has four commonly used combinations of two Science Apertures (SAs), the Primary Science Aperture (PSA) and the Bright Object Aperture (BOA), and two mirror modes, MIRRORA and MIRRORB.
+During the 2009 servicing mission orbital verification (SMOV) phase, a series of Cycle~17 calibration programs in NUV imaging mode (P11469, P11473, \& P11471) carefully determined the two-dimensional offset from the COS WCA to the center of the PSA when observed with MIRRORA.
+These X and Y offsets were loaded in the FSW TA parameters\footnote{In the COS FSW, these WCA-to-SA offsets are stored as patchable constants in the \textsc{pcta\_XImCalTargetOffset} (XD) and \textsc{pcta\_YImCalTargetOffset} (AD)}.}
+A target was then centered using a PSA+MIRRORA \texttt{ACQ/IMAGE}, then a target image was taken along with a MIRRORB image
+of the WCA image. These images were used to determine the AD (Y) and XD (X) offsets of the image target and WCA centroids.
+These values were uploaded in the FSW paramaters. This bootstrapping procedure was repeated with the BOA+MIRRORA
+and BOA+MIRRORB \texttt{ACQ/IMAGE} modes until all four \texttt{ACQ/IMAGE} modes were co-aligned.
+
+In the COS TA Monitoring programs described in this ISR, we re-use this bootstrapping strategy to test the co-alignment of all four \texttt{ACQ/IMAGE} modes.\footnote{The underlying assumption of these programs is that that the PSA/MIRRORA \texttt{ACQ/IMAGE}~centering has not changed since SMOV.},
+In addition to COS calibration programs listed above, and described in detail is \S~\ref{subsec:History}--\ref{subsec:elists},
+COS \tacq{IMAGE} exposures obtained in numerous cycles of the "Focal Plane Calibration (SI-FGS Alignment)" series were used in the COS TA monitoring discussed in this ISR.
+These programs were developed by the HST Telescope's division (PIs Cox and/or Lallo) for Fine Guidance Sensor (FGS) to Science Instrument (SI) alignment, and are described in \S~\ref{subsec:fgs2si}.
+
+All data with a given program/cycle were intentionally taken contemporaneously to avoid any long-term detector or spacecraft effects from affecting our results.
+Our requirement was that all data for a given program were taken within 45 days of each other.\\

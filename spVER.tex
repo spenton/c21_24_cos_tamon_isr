@@ -1,0 +1,25 @@
+\section{Spectroscopic TA Verification}\label{sec:spVER}
+
+After the series of \texttt{ACQ/IMAGE}s that start each visit, the target should be accurately centered. We take advantage of this to monitor COS spectroscopic TAs.
+
+COS spectroscopic TAs consist of up to three stages \texttt{ACQ/SEARCH}, \texttt{ACQ/PEAKD}, and \texttt{ACQ/PEAKXD}.
+The COS spectroscopic \texttt{ACQ/SEARCH} and \texttt{ACQ/PEAKD} algorithms do not use any FSW patchable constants, and do not flash the
+internal calibration lamps. The only monitoring required for these TA phases is to ensure that the mechanisms were in their proper
+positions and that the TA subarrays defined in the HST ground commanding are proper for the mechanism positions used during the acquisitions.
+
+Each FUV central wavelength setting (CENWAVE) uses a unique OSM1 rotation, whereas all NUV TAs use the same OSM1 rotation independent of CENWAVE.
+However, each NUV CENWAVE uses a different OSM2 rotation during TA. Each FUV CENWAVE has it's own set of TA subarrays (up to four per segment), while the NUV TA subarrays are not CENWAVE
+specific, but are grating specific.
+
+COS TA in the XD direction (\texttt{ACQ/PEAKXD}) requires the use of XD WCA-to-PSA offsets with the nominal {{\bf NUM$\_$POS}\rm}~=1 algorithm.
+These values are contained for both the NUV and FUV channels in the FSW patchable constant table \textsc{pcta\_CalTargetOffset}, and are provided for reference in Table~\ref{tab:wcatopsa}.
+All NUV and FUV (LP1, LP2 and LP3) \texttt{ACQ/PEAKXDs} monitored in this ISR used the original {{\bf NUM$\_$POS}\rm}~=1 algorithm).
+
+The verification process is for \texttt{ACQ/PEAKXD} is simple, take a normal spectrum with a target signal-to-noise ratio of least 50 for the entire spectrum (2500 target counts) used by \texttt{ACQ/PEAKXD}.
+For NUV exposures, this is the `B' stripe only, and for the FUV, only events on FUVA are used.
+TA subarrays are used to mask out any detector hot-spots or Geocoronal light that could interfere with the centering process.
+
+\input{pctaWCA2SA.tex}
+\input{tamon_output.tex}
+\subsection{NUV Spectroscopic TA verification}\label{subsec:NspVER}
+\subsection{FUV Spectroscopic TA verification}\label{subsec:FspVER}

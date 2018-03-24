@@ -1,0 +1,31 @@
+\section{COS TA Operations Summary}\label{sec:TAoperations}
+
+There are three modes of Target Acquisition (TA) for the Cosmic Origins Spectograph (COS); NUV imaging, NUV spectroscopic, and FUV spectroscopic.
+There are four COS TA (\tacq{}) procedures; \tacq{IMAGE}, \tacq{PEAKD}, \tacq{PEAKXD}, and \tacq{SEARCH}.
+\tacq{PEAKD} and \tacq{SEARCH} step the telescope through dwell patterns on the sky.
+As long as the target light falls correctly within the TA detector sub-arrays, \tacq{PEAKD} and \tacq{SEARCH} will continue to nominally assist in TA (barring any unforeseen anomalies, such as detector `hot-spots').
+The \tacq{IMAGE} and \tacq{PEAKXD} procedures also rely on the sub-arrays, but also rely on numerous patchable (changeable) constants
+in the COS flight software (FSW) which assist in target centering.
+
+In both \tacq{IMAGE} and \tacq{PEAKXD}, the internal wavelength calibration lamp is flashed to locate the center of the wavelength calibration aperture (WCA).
+From this location, the center of the science aperture (SA) in use, which could be the PSA or BOA, can be predicted by applying the FSW constants that give the SA offset compared to the WCA center. For \tacq{IMAGE},
+the offset is in both detector `X' (along-dispersion, AD) and `Y' (cross-dispersion, XD).
+For \tacq{PEAKXD}, which uses dispersed light, this offset is only in the Y (XD) direction.
+All programs verify that the TA subarrays in use for the given cycle were proper for the \tacq modes tested, verify that the actively used WCA-to-SA offsets, and monitor, as much as possible, the performance of COS TAs.
+
+BOA spectroscopic TAs were not supported for COS during Cycles 19-24, accordingly  the programs discussed here only verify PSA spectroscopic TAs.
+WCA-to-PSA offsets are used in \tacq{PEAKXD}s, and each COS grating has a different XD offset. These offsets are both grating (\textsc{OPT\_ELEM})
+and lifetime position (LP) dependent.\footnote{In the COS FSW, these WCA-to-SA XD offsets are stored in the \textsc{pcta\_CalTargetOffset} table.}
+The programs listed here verify the NUV LP1 as well as the FUV LP2 and LP3\footnote{The COS FUV channel was moved to LP3 on February 15, 2015.} position offsets.
+The FUV LP4 uses a different \tacq{PEAKXD} algorithm ({\numpos$>1$), and, like \tacq{PEAKD}, does not use the WCA-to-SA XD offsets\footnote{All NUV and FUV LP1-3 \tacq{PEAKXD} observations use the optional parameter, \numpos=1.}.
+
+The initial HST/COS target pointing is based on definitions of the physical locations of the COS apertures in terms of [V2,V3] in the Science Instrument Aperture File (SIAF).
+All of the actively used NUV (LP1) and FUV (LP2\footnote{The default COS FUV spectral location was moved to LP2 on February XX, YYY, for all CENWAVEs.}
+and LP3\footnote{The default COS FUV spectral location was moved to LP3 on February 15, 2015, for all CENWAVEs except G130M/1055 and G130M/1096, which still operate at LP2. On October 2, 2017, the default location of COS FUV spectra were moved to LP4, with additional observing and TA constraints as outlined on the COS2025 website (http://www.stsci.edu/hst/cos/cos2025).})
+SIAF entries used for TA during Cycles~21--24 are also verified in this program.\footnote{These entries are not really really tested that accurately, because ...\dots.}
+
+The COS TA centering requirements are based upon the wavelength accuracy requirements in the AD, and for flux and resolution optimization
+in the XD. The strictest NUV requirements are [AD,XD] = [0.041, 0.3]\arcsec, while for the FUV they are [AD,XD] = [0.106, 0.3]\arcsec.\footnote{While the XD requirement for all TAs is $\pm$ 0.3\arcsec, our 1$\sigma$ goal is $\pm$ 0.1\arcsec. This goal ensures that spectra fall on a consistent XD location on the the detector, which aids in extraction and calibration accuracy.}
+COS TA requirements are discussed in detail in \S~\ref{subsec:requirements}.
+
+This program does not attempt to monitor the AD accuracy of the COS spectroscopic TA modes.\footnote{For \tacq{PEAKD}, short-term fluctuations of the detector background rate due to environmental conditions remains the largest source of AD pointing error.}
