@@ -1,0 +1,108 @@
+head	1.2;
+access;
+symbols;
+locks
+	penton:1.2; strict;
+comment	@% @;
+
+
+1.2
+date	2018.03.30.20.22.12;	author penton;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2018.03.29.19.16.24;	author penton;	state Exp;
+branches;
+next	;
+
+
+desc
+@pcta
+@
+
+
+1.2
+log
+@More
+@
+text
+@% rcs_id = "$Id: pctaWCA2SANIM.tex,v 1.1 2018/03/29 19:16:24 penton Exp $"
+\begin{center}
+\begin{table}
+	\begin{threeparttable}
+	\caption{COS NUV Imaging (\tacq{IMAGE}) WCA-to-SA FSW Target Offsets}
+	\centering
+		\begin{tabular*}{14cm}{ccrrr}
+		Direction & Detector & MIR  &	PSA	&	BOA\\
+		(AD or XD) & Coordinate &	&	&	\\
+		\hline
+		\hline
+		\multicolumn{5}{c}{MIRA}\\
+		\hline
+		AD	&	Y	&	MIRA	&	45.3	&	45.5 \\
+		XD	&	X	&	MIRA	&	372.7	&	368.4 \\
+		\hline
+		\multicolumn{5}{c}{MIRB {\bf prior} to Oct-20-2014 (2014.283)}\\
+		\hline
+		AD	&	Y	&	MIRB	&	45.0	&	45.5 \\
+		XD	&	X	&	MIRB	&	374.1	&	366.3 \\
+		\hline
+		\multicolumn{5}{c}{MIRB {\bf after}$^{a}$ to Oct-20-2014 (2014.283)}\\
+		\hline
+		AD	&	Y	&	MIRB	&	46.0	&	46.5 \\
+		XD	&	X	&	MIRB	&	374.0	&	366.2 \\
+		\hline
+		\end{tabular*}
+		\label{tab:pctaWCA2SANIM}
+		\begin{tablenotes}
+			\item[a] Installed 2014.283 (STScI PR\#79116, "Update MIRB Cal Target Offsets").
+			\item[x] X (XD) direction offsets are measured from the median calibration lamp image event to the center of the specified aperture (\textsc{pcta\_XImCalTargetOffset}).
+			\item[y] Y (AD) direction offsets are measured from the median calibration lamp image event to the center of the specified aperture (\textsc{pcta\_YImCalTargetOffset}).
+		\end{tablenotes}
+	\end{threeparttable}
+\end{table}
+\end{center}
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d1 34
+a34 31
+% rcs_id = "$Id$"
+\begin{threeparttable}[htb]
+\caption{COS NUV Imaging WCA-to-SA FSW Target Offsets}
+\centering
+\begin{tabular}{ccrrr}
+Direction & Detector & MIRROR  &	PSA	&	BOA\\
+(AD or XD) & Coordinate &	&	&	\\
+\hline
+\hline
+\multicolumn{5}{c}{MIRRORA}\\
+\hline
+AD	&	Y	&	MIRA	&	45.3	&	45.5 \\
+XD	&	X	&	MIRA	&	372.7	&	368.4 \\
+\hline
+\multicolumn{5}{c}{MIRRORB {\bf prior} to Oct-20-2014}\\
+\hline
+AD	&	Y	&	MIRB	&	45.0	&	45.5 \\
+XD	&	X	&	MIRB	&	374.1	&	366.3 \\
+\hline
+\multicolumn{5}{c}{MIRRORB {\bf after}$^{a}$ to Oct-20-2014}\\
+\hline
+AD	&	Y	&	MIRB	&	46.0	&	46.5 \\
+XD	&	X	&	MIRB	&	374.0	&	366.2 \\
+\hline
+\end{tabular}
+\label{tab:pctaWCA2SANIM}
+\begin{tablenotes}
+	\item[a] See STScI PR\#79116 ("Update MIRRORB Cal Target Offsets"), installed Oct-20-2014 (2014.XXX).
+	\item[x] The offset in the X (XD) direction from the measured cal lamp image Y coordinate to the X coordinate of the center of the specified aperture (\textsc{pcta\_XImCalTargetOffset}).
+	\item[y] The offset in the Y (AD) direction from the measured cal lamp image Y coordinate to the Y coordinate of the center of the specified aperture (\textsc{pcta\_YImCalTargetOffset}).
+\end{tablenotes}
+d36 1
+@

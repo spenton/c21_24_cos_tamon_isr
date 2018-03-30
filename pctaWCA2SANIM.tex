@@ -1,0 +1,36 @@
+% rcs_id = "$Id: pctaWCA2SANIM.tex,v 1.2 2018/03/30 20:22:12 penton Exp $"
+\begin{center}
+\begin{table}
+	\begin{threeparttable}
+	\caption{COS NUV Imaging (\tacq{IMAGE}) WCA-to-SA FSW Target Offsets}
+	\centering
+		\begin{tabular*}{14cm}{ccrrr}
+		Direction & Detector & MIR  &	PSA	&	BOA\\
+		(AD or XD) & Coordinate &	&	&	\\
+		\hline
+		\hline
+		\multicolumn{5}{c}{MIRA}\\
+		\hline
+		AD	&	Y	&	MIRA	&	45.3	&	45.5 \\
+		XD	&	X	&	MIRA	&	372.7	&	368.4 \\
+		\hline
+		\multicolumn{5}{c}{MIRB {\bf prior} to Oct-20-2014 (2014.283)}\\
+		\hline
+		AD	&	Y	&	MIRB	&	45.0	&	45.5 \\
+		XD	&	X	&	MIRB	&	374.1	&	366.3 \\
+		\hline
+		\multicolumn{5}{c}{MIRB {\bf after}$^{a}$ to Oct-20-2014 (2014.283)}\\
+		\hline
+		AD	&	Y	&	MIRB	&	46.0	&	46.5 \\
+		XD	&	X	&	MIRB	&	374.0	&	366.2 \\
+		\hline
+		\end{tabular*}
+		\label{tab:pctaWCA2SANIM}
+		\begin{tablenotes}
+			\item[a] Installed 2014.283 (STScI PR\#79116, "Update MIRB Cal Target Offsets").
+			\item[x] X (XD) direction offsets are measured from the median calibration lamp image event to the center of the specified aperture (\textsc{pcta\_XImCalTargetOffset}).
+			\item[y] Y (AD) direction offsets are measured from the median calibration lamp image event to the center of the specified aperture (\textsc{pcta\_YImCalTargetOffset}).
+		\end{tablenotes}
+	\end{threeparttable}
+\end{table}
+\end{center}

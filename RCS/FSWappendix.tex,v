@@ -1,0 +1,27 @@
+head	1.1;
+access;
+symbols;
+locks
+	penton:1.1; strict;
+comment	@% @;
+
+
+1.1
+date	2018.03.29.19.16.24;	author penton;	state Exp;
+branches;
+next	;
+
+
+desc
+@appendix
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@% RCSID="$Id$"
+\input{pctaWCA2SANIM.tex}
+@

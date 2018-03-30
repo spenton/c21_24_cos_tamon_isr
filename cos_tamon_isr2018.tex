@@ -1,0 +1,194 @@
+% $Id: cos_tamon_isr2018.tex,v 1.3 2018/03/30 21:22:16 penton Exp $
+\documentclass{stsci_report}
+\usepackage{graphicx}
+\usepackage{threeparttable}
+\usepackage{ulem}
+%\usepackage{amsfonts}
+\usepackage{latexsym}
+%\usepackage{siunitx}
+\usepackage{xcolor}
+\usepackage{times}
+\usepackage{deluxetable}
+\usepackage{longtable}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+
+%\bibliography{bibliography.bib}
+\copyrighttext{Copyright\copyright\ \the\year\ The Association of Universities for Research in Astronomy, Inc. All Rights Reserved.}
+
+\presubtitle{Instrument Science Report HST+COS 2018}
+\title{\textbf{Cycle 21-24 HST+COS\\Target Acquisition Monitoring}}
+\author{Steven V. Penton}
+\date{\today}
+
+\DeclareGraphicsRule{.ps}{eps}{.ps}{}
+\definecolor{green}{rgb}{0, 1.0, 0}
+\definecolor{red}{rgb}{1,0,0}
+\definecolor{blue}{rgb}{0,0,1}
+\definecolor{Lblue}{rgb}{0.8,0.85,1}
+\definecolor{darkgreen}{rgb}{0.25,1.0,0.25}
+\definecolor{Brown}{cmyk}{0, 0.8, 1, 0.6}
+\definecolor{Yellow}{rgb}{1, 1, 0}
+\definecolor{Light}{gray}{.80}
+\definecolor{Dark}{gray}{.20}
+
+\newcommand{\numpos}{\texttt{NUM$\_$POS}}
+\newcommand{\numposone}{\texttt{NUM$\_$POS=1}}
+\newcommand{\psiafdate}{2010.060}
+\def\arcsec{\hbox{$^{\prime\prime}$}}
+\def\degree{\hbox{$^{\circ}$}}
+\newcommand{\nokmsno}{{\rm km~s}\ensuremath{^{-1}}}
+\newcommand{\kmsno}{~\nokmsno}
+\newcommand{\kms}{~\nokmsno\ }
+\newcommand{\tacq}[1]{\texttt{ACQ/#1}}
+\newcommand{\pid}[1]{{\bf P}#1}
+\newcommand{\cenwaveno}{\textit{CENWAVE}}
+\newcommand{\cenwave}{\cenwaveno\space}
+\def\cenwaves{\textit{CENWAVE}s }
+%\newcommand{\dotuline}{\bgroup \markoverwith{\lower .4ex\hbox{.}}\ULon}
+
+\begin{document}
+\maketitle
+
+\input{abstract.tex}
+\clearpage
+\tableofcontents
+\listoffigures
+\listoftables
+\newpage
+%\input{Contents.tex}
+\input{intro.tex}
+\clearpage
+\input{TAoperations}
+\input{requirements.tex}
+\input{TAaccuracy.tex}
+\clearpage
+\input{programs.tex}
+\input{fgs2si.tex}
+\input{structure.tex}
+\input{differences.tex}
+\input{elists.tex}
+\clearpage
+\input{TAsubarrays.tex}
+\input{TAspecsubs.tex}
+\input{TAspecFUVsubs.tex}
+\clearpage
+\section{NUV Imaging TA verification}\label{sec:NimVER}
+{\bf Note to Reviewers: I am still working with Colin Cox on some details of the
+initial pointing offsets that are provided outside of the exposures of these programs (from the telemetry stream that creates the jitter files).
+
+In order to streamline the review process of this ISR, I prefer
+to hold back this entire section until this portion of the
+analysis has been complete as the offsets from Colin directly
+affect the conclusions about the validity of the COS SIAF entries, and all offsets trickle down through all of the bootstrapping
+analysis. The current analysis is contained in file ``NimVer.tex''
+and this is currently commented out "%\input{NimVer.tex}" directly below
+this section in the main .tex file for this ISR (cos\_tamon\_isr2018.tex).
+The tables that I think are complete are included in the file ``NimVerT.tex''.}
+%\input{NimVer.tex}
+\input{NimVerT.tex}
+\input{NimFPortrait.tex}
+%Begin [OPTIONAL]
+\subsection{[OPTIONAL] Reconfiguration of MIRB \tacq{IMAGE}} \label{subsec:newMIRB}
+{\bf Note to Reviewers: There are additional Details on the MIRB \tacq{IMAGE} adjust of 2014.
+If you feel this document would be a good place to put that information, it could be added here.}\\
+
+\subsection{[OPTIONAL] SIAF Verification} \label{sec:siaf}\label{subsec:siafextra}
+{\bf Note to Reviewers: There are additional details on the COS SIAF entries that can be inferred from the FGS-to-SI alignment program than are documented here. They mostly live in spreadsheet, that
+should be in the directory in the repo called ``siaf\_extra''. If you feel this document would be a good place to put that information, it could be added here.
+Also, nowhere in any ISR are our SIAF entries documented. If requested, they could be added to the ISR either here or in the appendix.}
+\input{siaf.tex}
+\subsection{[OPTIONAL] Importance of S/N to \tacq{IMAGE}} \label{sec:snai}
+{\bf Note to Reviewers: A great deal of effort was
+exerted in 2017 to analysis the S/N requirement of
+\tacq{IMAGE}s. This allowed the relaxing of the S/N requirements that allowed many of the Mdwarf exposures to proceed.
+If you feel this document would be a good place to put that information, it could be added here, OR
+a new ISR could be initiated to document these efforts. Please let me know your thoughts on this.}
+\begin{figure}[htb]
+\noindent\includegraphics*[width=0.795\linewidth]{png/C24_14857_Error_vs_lampSN.png}
+\caption[OPTIONAL:Example of Lamp S/N centering concerns]{Example of C24 centering changes with S/N. \label{fig:FG24e}.
+{\bf Note to reviewers, this is a sample of the data available for the S/N vs centering accuracy discussion.} }
+\end{figure}
+%End OPTIONAL
+\clearpage
+\input{spVER.tex}
+\input{NspVER.tex}
+\input{fspVER.tex}
+\clearpage
+\input{Results.tex}
+\vspace{-0.3cm}
+\section{Conclusions.\label{theend} }
+\vspace{-0.3cm}
+Through constant monitoring, and periodic FSW, ground commanding, and operations updates,
+HST+COS TA has performed remarkablely well during Cycles 21--24. The STScI Team thanks the
+GSFC and STScI personal for there outstanding cooperation and contributions in these efforts
+
+NUV detector background has been the biggest source of concern
+for NUV TAs, while FUV gain-sag induced Y-walk and inherent detector geometric distortions
+were the biggest concerns of FUV TAs at LP1--3. At FUV LP4, Y-walk will not be as big a concern as
+the \numposone \tacq{PEAKXD} is not affected by either Y-walk or geometric distortions.
+
+{\bf Notes to reviewers: This section will be continue to be completed as the review process continues.}
+
+\clearpage
+%%%%%%%%
+%Acknowledgements
+%%%%%%%%
+\vspace{-0.3cm}
+\section{Acknowledgements}
+{\bf Notes to reviewers: This section will be completed as the review process continues.}
+To be acknowledeged:
+GFSC: Mike Kelly, Ben Teasdel, Olivia Lupie, Scott Swain,
+STScI: John Bacinski, George Chapman, Merle Reinhart, James White, Sean Lockwood, Brian York, David Sahnow, Karla Peterson, Josh Goldberg.
+
+\vspace{-0.3cm}
+%%%%%%%%
+%Change History
+%%%%%%%%
+\vspace{0.3cm}
+%Put instrument, year, and ISR number
+\section{Change History for COS ISR 2018-XX}\label{sec:History}
+\vspace{0.3cm}
+%Put publication date
+Version 0.1: 30-March-2018 Original Draft Document for Review
+{\bf Note to reviewers: I will be documenting updates here, until Version 1.0 is released, then the notes
+will be moved to comments.}
+%%%%%%%%
+%References
+%%%%%%%%
+\vspace{0.3cm}
+\section{References}\label{sec:References}
+\vspace{0.3cm}
+
+\small
+Dixon, W.~V., et al. 2010, Cosmic Origins Instrument Handbook (IHB), Version 2.0 (Baltimore, STScI)\\
+Keyes, T., \& Penton, S. 2010, COS ISR 2010-14 (v1) (HST+COS Target Acquisition Guidelines, Recommendations, and Interpretation)\\
+Fix, M.~B., 2018, COS ISR 2018-03 (v1) (COS NUV Dark Monitor Summary)\\
+Fox, A., at al. 2017, Cosmic Origins Spectosgraph Instrument Handbook (IHB), Version 9.0 (Baltimore, STScI)\\
+Holland, S. T., et al. 2014, Cosmic Origins Spectrograph Instrument Handbook (IHB), Version 6.0 (Baltimore: STScI)\\
+Penton, S,, 2001, COS-11-0024A, ``TAACOS: Phase I NUV Report''\\
+Penton, S., 2001, COS-11-0014B, ``Recommended TA FSW and Operations Changes Based upon the TAACOS Phase I Reports for the FUV and NUV Channels"\\
+Penton, S., 2002, COS-11-0016A, ``TAACOS: Phase I FUV Report''\\
+Penton, S., \& Keyes, T., 2011, COS TIR 2010-03 (On-Orbit Target Acquisitions with HST+COS)\\
+Penton, S., 2016, COS ISR 2016-09 (Cycle~22 HST+COS Target Acquisition Monitoring Summary (\pid{13972})\\
+Penton, S., 2017, COS ISR 2017-18 (Cycle~23 HST+COS Target Acquisition Monitoring Summary (\pid{14440})\\
+Penton, S., COS ISR 2018-{\bf XX} (HST+COS LP2 Target Acquisition Enabling (LENA3, \pid{12797})\\
+Penton, S., COS ISR 2018-{\bf XX} (HST+COS LP3 Target Acquisition Enabling (FENA4, \pid{13636})\\
+Penton, S. \& White, J. 2018, COS ISR 2018-{\bf XX} (HST+COS LP4 Target Acquisition Enabling (\pid{14907}\\
+Roman-Duval, J., 2015, COS ISR 2015-02 (Summary of the COS Cycle 20 Calibration Program: \pid{13124})\\
+Rose, S., et al., 2017, HST Cycle~25 Phase II Proposal Instructions (V25.0)\\
+Sana, H., et. al., 2015, COS ISR 2015-06 (Summary of the COS Cycle 21 Calibration Program: \pid{13526}))\\
+Smith, H., et al., 2004, ``Hubble Space Telescope Cosmic Origins Spectrograph Contract End Item (CEI) Specification'' (NASA STE-63, HST \#TM-025984) (2004)\\
+Sonnetrucker, P., et. al., 2016, COS ISR 2016-03 (Summary of the COS Cycle 22 Calibration Program : \pid{13972}) \\
+Taylor, J., 2017, COS ISR 2017-13 (v1) (Cycle 23 COS/NUV Spectroscopic Sensitivity Monitor)\\
+\normalsize
+\newpage
+%%%%%%%%
+%Appendix
+%%%%%%%%
+%\vspace{-0.3cm}
+\section{[OPTIONAL]Appendix A}\label{sec:Appendix}
+{\bf Note To Reviewer: If You Think That A Complete Listing Of All Ta Fsw \& Siaf Parameters And Tables Is Appropriate, I Am Willing To Include These Here.}
+
+%\input{FSWappendix.tex}
+%\vspace{-0.3cm}
+\end{document}

@@ -1,0 +1,90 @@
+head	1.2;
+access;
+symbols;
+locks
+	penton:1.2; strict;
+comment	@% @;
+
+
+1.2
+date	2018.03.30.22.08.14;	author penton;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2018.03.30.21.02.44;	author penton;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@tweaks
+@
+text
+@\begin{deluxetable}{rrrrrrrrrr}
+\tablecaption{FGS-to-SI Program Initial Pointing Determinations\label{table:fgs2siInit}}
+\tablecolumns{10}
+\tabletypesize{\footnotesize}
+\tablehead{
+\colhead{HST} & \colhead{YEAR.DAY} & \colhead{DATE-OBS} & \multicolumn{2}{c}{Initial Pointing} & \multicolumn{2}{c}{Miss-Distance} & {SIAF} & \multicolumn{2}{c}{Active SIAF Entry}\\
+\colhead{PID} & \colhead{} & \colhead{} & \colhead{V2 (\arcsec)} & \colhead{V3 (\arcsec)} & \colhead{V2 (\arcsec)} & \colhead{V3 (\arcsec)} & \colhead{V2 (\arcsec)} & \colhead{Dates\tablenotemark{a}} & \colhead{V3 (\arcsec)}\\
+\colhead{(1)}&\colhead{(2)} & \colhead{(3)}&\colhead{(4)} & \colhead{(5)}&\colhead{(6)} & \colhead{(7)}&\colhead{(8)} & \colhead{(9)}&\colhead{(10)}
+}
+\startdata
+\hline
+\pid{11878} & 2009.338 & 04-Dec-2009 & 232.581 & -237.544 & -0.191 & -0.033 & 3-Aug-2009 & 232.772 & -237.511\\
+\pid{11878} & 2010.074 & 15-Mar-2010 & 232.488 & -237.462 & -0.284 & 0.049 & \dots & 232.772 & -237.511\\
+\pid{11878} & 2010.110 & 20-Apr-2010 & 232.481 & -237.457 & -0.291 & 0.054 & \dots & 232.772 & -237.511\\
+\pid{11878} & 2010.309 & 05-Nov-2010 & 232.604 & -237.561 & -0.168 & -0.050 & \dots & 232.772 & -237.511\\
+\pid{12399} & 2011.070 & 11-Mar-2011 & 232.645 & -237.438 & -0.127 & 0.073 & 20-Jun-2011 & 232.772 & -237.511\\
+\hline
+\pid{12399} & 2011.255 & 12-Sep-2011 & 232.737 & -237.507 & 0.091 & -0.062 & 21-Jun-2011 & 232.646 & -237.445\\
+\pid{12781} & 2012.087 & 27-Mar-2012 & 232.622 & -237.515 & -0.024 & -0.070 & \dots & 232.646 & -237.445\\
+\pid{12781} & 2012.268 & 24-Sep-2012 & 232.713 & -237.578 & 0.067 & -0.133 & \dots &232.646 & -237.445\\
+\pid{13171} & 2013.061 & 02-Mar-2013 & 232.647 & -237.590 & 0.001 & -0.145 & 23-Feb-2014 & 232.646 & -237.445\\
+\hline
+\pid{13171} & 2013.244 & 01-Sep-2013 & 232.723 & -237.515 & 0.077 & -0.070 & 24-Feb-2014 & 232.723 & -237.515\\
+\pid{13616} & 2014.055 & 06-Apr-2014 & 232.535 & -237.497 & -0.188 & 0.018 & \dots & 232.723 & -237.515\\
+\pid{13616} & 2014.300 & 27-Oct-2014 & 232.841 & -237.465 & 0.118 & 0.050 & \dots & 232.723 & -237.515\\
+\pid{14035} & 2015.104 & 14-May-2015 & 232.617 & -237.464 & -0.106 & 0.051 & \dots & 232.723 & -237.515\\
+\pid{14035} & 2015.275 & 02-Oct-2015 & 232.788 & -237.462 & 0.065 & 0.053 & \dots & 232.723 & -237.515\\
+\pid{14452} & 2016.092 & 01-Apr-2016 & 232.742 & -237.485 & 0.019 & 0.030 & \dots & 232.723 & -237.515\\
+\hline
+\enddata
+\tablenotetext{a}{Dates in this column show the dates that the [V2,V3] SIAF entries in the this and the following rows were active.}
+\tablecomments{Comments to be added here.}
+\end{deluxetable}
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d1 1
+a1 1
+\begin{deluxetable}{rrrrrrrrr}
+d3 2
+a4 1
+\tablecolumns{9}
+d8 1
+a8 5
+\colhead{(1)}&\colhead{(2)} &
+\colhead{(3)}&\colhead{(4)} &
+\colhead{(5)}&\colhead{(6)} &
+\colhead{(7)}&\colhead{(8)} &
+\colhead{(9)}
+d27 1
+a27 1
+\pid{14025} & 2015.275 & 02-Oct-2015 & 232.788 & -237.462 & 0.065 & 0.053 & \dots & 232.723 & -237.515\\
+d30 3
+a32 2
+\enddata\\
+\tablenotetext{a}{Dates in this column show the dates that the [V2,V3] SIAF entries in the following columns two columns were active.}
+@

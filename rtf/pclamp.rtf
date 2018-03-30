@@ -1,0 +1,315 @@
+/*============================================================================*\par
+ * Note: This file was originally developed for the HST program Advanced      *\par
+ *       Cameras for Surveys (ACS).  It has been reused for the HST Cosmic    *\par
+ *       Origins Spectrograph (COS) program.  Comments, function names, and   *\par
+ *       variable names may still reflect ACS nomenclature.  The following    *\par
+ *       are some examples where the terminology has changed for COS but the  *\par
+ *       code may still make use of the ACS nomenclature:                     *\par
+ *                                                                            *\par
+ *                       ACS Name            COS Name                         *\par
+ *                       --------            --------                         *\par
+ *                       MIE                 DIB                              *\par
+ *                       SBC MAMA            NUV MAMA                         *\par
+ *                       EDAC RAM            EXEC RAM                         *\par
+ *                       MAMA Field Voltage  MAMA Photocathode Voltage        *\par
+ *============================================================================*/\par
+\par
+ \par
+ \par
+/*******************************************************************************\par
+\par
+FILE NAME:    pclamp.c\par
+\par
+AUTHOR:       Glenn Foley\par
+\par
+DATE:         19-Feb-1997\par
+\par
+DESCRIPTION:\par
+\par
+   This file defines the data segment used to allocate storage for the\par
+   ACS calibration lamp related patchable constants.\par
+\par
+REVISION HISTORY:\par
+\par
+   SCR      Date      Engineer         Description\par
+   -------  --------  ---------------  -----------------------------------------\par
+   SCR 187  08/12/98  Glenn Foley      Update cal lamp verification limits.\par
+\par
+   n/a      05/26/00  C. Dorato        Remove cal door restriction for COS\par
+                                       heritage build\par
+\par
+   C027     03/14/01  L.Krauze         Updates for COS lamp configuration.\par
+\par
+   C137     10/03/01  R. Gillett       Updated lamp threshold values.\par
+   \par
+   C264     03/21/03  L. Krauze        Updates to lamp threshold values to\par
+                                       reflect flight hardware values.\par
+\par
+*******************************************************************************/\par
+\par
+#pragma codesegment (pconst_pclamp)\par
+\par
+/*===============*\par
+ * Include Files *\par
+ *===============*/\par
+\par
+#include "acs.h"\par
+#include "d_lamp.h"\par
+\par
+/*====================*\par
+ * Storage Allocation *\par
+ *====================*/\par
+\par
+\par
+/*\par
+pclamp_OffLowerThresh\par
+-------------------------\par
+Description:      This is the lower threshhold on the range of the number of\par
+                  counts reported for SES #1 H/W ED calibration lamp items \par
+                  within which a lamp may be considered to be "off" for \par
+                  purposes of onboard verification of commanded lamp state.\par
+                  The values in the array correspond to the lamps as follows:\par
+                  0 - deuterium lamp 1, 1 - deuterium lamp 2, 2 - platinum-neon\par
+                  lamp 1, and 3 - paltinum-neon lamp 2.\par
+Format:           n/a\par
+Units:            counts\par
+Limits/Ranges:    n/a\par
+Scaling:          n/a\par
+Update Frequency: patchable constant\par
+*/\par
+const USHORT pclamp_OffLowerThresh[LAMP_NUM_CAL_LAMPS] = \{1986,\par
+                                                          1986,\par
+                                                          1986,\par
+                                                          1986\}; /* -0.3 v -0.6mA */\par
+                                                         /* SCR 187 C027 C137 */\par
+\par
+/*\par
+pclamp_OffUpperThresh\par
+-------------------------\par
+Description:      This is the upper threshhold on the range of the number of\par
+                  counts reported for SES #1 H/W ED calibration lamp items \par
+                  within which a lamp may be considered to be "off" for \par
+                  purposes of onboard verification of commanded lamp state.\par
+                  The values in the array correspond to the lamps as follows:\par
+                  0 - deuterium lamp 1, 1 - deuterium lamp 2, 2 - platinum-neon\par
+                  lamp 1, and 3 - paltinum-neon lamp 2.\par
+Format:           n/a\par
+Units:            counts\par
+Limits/Ranges:    n/a\par
+Scaling:          n/a\par
+Update Frequency: patchable constant\par
+*/\par
+const USHORT pclamp_OffUpperThresh[LAMP_NUM_CAL_LAMPS] = \{2110,\par
+                                                          2110,\par
+                                                          2110,\par
+                                                          2110\}; /* +0.3 v 0.6mA */\par
+                                                         /* SCR 187 C027 C137 */\par
+\par
+/*\par
+pclamp_LowOnLowerThresh\par
+------------------------\par
+Description:      This is the lower threshhold on the range of the number of\par
+                  counts reported for SES #1 H/W ED calibration lamp items \par
+                  within which a lamp may be considered to be "on" at the "low"\par
+                  current level for purposes of onboard verification of \par
+                  commanded lamp state.\par
+                  The values in the array correspond to the lamps as follows:\par
+                  0 - deuterium lamp 1, 1 - deuterium lamp 2, 2 - platinum-neon\par
+                  lamp 1, and 3 - paltinum-neon lamp 2.\par
+Format:           n/a\par
+Units:            counts\par
+Limits/Ranges:    n/a\par
+Scaling:          n/a\par
+Update Frequency: patchable constant\par
+*/\par
+const USHORT pclamp_LowOnLowerThresh [LAMP_NUM_CAL_LAMPS] = \{2326, /* 2.71 mA */\par
+                                                             2326, /* 2.71 mA */\par
+                                                             2631, /* 5.69 mA */\par
+                                                             2339\};/* 2.84 mA */\par
+                                                    /* SCR 187 C027 C137 C264 */\par
+\par
+/*\par
+pclamp_LowOnUpperThresh\par
+------------------------\par
+Description:      This is the upper threshhold on the range of the number of\par
+                  counts reported for SES #1 H/W ED calibration lamp items \par
+                  within which a lamp may be considered to be "on" at the "low"\par
+                  current level for purposes of onboard verification of \par
+                  commanded lamp state.\par
+                  The values in the array correspond to the lamps as follows:\par
+                  0 - deuterium lamp 1, 1 - deuterium lamp 2, 2 - platinum-neon\par
+                  lamp 1, and 3 - paltinum-neon lamp 2.\par
+Format:           n/a\par
+Units:            counts\par
+Limits/Ranges:    n/a\par
+Scaling:          n/a\par
+Update Frequency: patchable constant\par
+*/\par
+const USHORT pclamp_LowOnUpperThresh [LAMP_NUM_CAL_LAMPS] = \{2356, /* 3.01 mA */\par
+                                                             2356, /* 3.01 mA */\par
+                                                             2694, /* 6.31 mA */\par
+                                                             2371\};/* 3.15 mA */\par
+                                                    /* SCR 187 C027 C137 C264 */\par
+\par
+/*\par
+pclamp_MedOnLowerThresh\par
+------------------------\par
+Description:      This is the lower threshhold on the range of the number of\par
+                  counts reported for SES #1 H/W ED calibration lamp items \par
+                  within which a lamp may be considered to be "on" at the \par
+                  "medium" current level for purposes of onboard verification \par
+                  of commanded lamp state.\par
+                  The values in the array correspond to the lamps as follows:\par
+                  0 - deuterium lamp 1, 1 - deuterium lamp 2, 2 - platinum-neon\par
+                  lamp 1, and 3 - paltinum-neon lamp 2.\par
+Format:           n/a\par
+Units:            counts\par
+Limits/Ranges:    n/a\par
+Scaling:          n/a\par
+Update Frequency: patchable constant\par
+*/\par
+const USHORT pclamp_MedOnLowerThresh [LAMP_NUM_CAL_LAMPS] = \{2709, /* 6.46 mA */\par
+                                                             2709, /* 6.46 mA */\par
+                                                             3020, /* 9.49 mA */\par
+                                                             3020\};/* 9.49 mA */\par
+                                                    /* SCR 187 C027 C137 C264 */\par
+\par
+/*\par
+pclamp_MedOnUpperThresh\par
+------------------------\par
+Description:      This is the upper threshhold on the range of the number of\par
+                  counts reported for SES #1 H/W ED calibration lamp items\par
+                  within which a lamp may be considered to be "on" at the\par
+                  "medium" current level for purposes of onboard verification\par
+                  of commanded lamp state.\par
+                  The values in the array correspond to the lamps as follows:\par
+                  0 - deuterium lamp 1, 1 - deuterium lamp 2, 2 - platinum-neon\par
+                  lamp 1, and 3 - paltinum-neon lamp 2.\par
+Format:           n/a\par
+Units:            counts\par
+Limits/Ranges:    n/a\par
+Scaling:          n/a\par
+Update Frequency: patchable constant\par
+*/\par
+const USHORT pclamp_MedOnUpperThresh [LAMP_NUM_CAL_LAMPS] = \{2779, /* 7.14 mA */\par
+                                                             2779, /* 7.14 mA */\par
+                                                             3124, /* 10.51 mA */\par
+                                                             3124\};/* 10.51 mA */\par
+                                                    /* SCR 187 C027 C137 C264 */\par
+\par
+/*\par
+pclamp_HighOnLowerThresh\par
+------------------------\par
+Description:      This is the lower threshhold on the range of the number of\par
+                  counts reported for SES #1 H/W ED calibration lamp items\par
+                  within which a lamp may be considered to be "on" at the "high"\par
+                  current level for purposes of onboard verification of\par
+                  commanded lamp state.\par
+                  The values in the array correspond to the lamps as follows:\par
+                  0 - deuterium lamp 1, 1 - deuterium lamp 2, 2 - platinum-neon\par
+                  lamp 1, and 3 - paltinum-neon lamp 2.\par
+Format:           n/a\par
+Units:            counts\par
+Limits/Ranges:    n/a\par
+Scaling:          n/a\par
+Update Frequency: patchable constant\par
+*/\par
+const USHORT pclamp_HighOnLowerThresh [LAMP_NUM_CAL_LAMPS] = \{3663, /* 15.77 mA */\par
+                                                              3663, /* 15.77 mA */\par
+                                                              3799, /* 17.10 mA */\par
+                                                              3409\};/* 13.29 mA */\par
+                                                    /* SCR 187 C027 C137 C264 */\par
+\par
+/*\par
+pclamp_HighOnUpperThresh\par
+------------------------\par
+Description:      This is the upper threshhold on the range of the number of\par
+                  counts reported for SES #1 H/W ED calibration lamp items\par
+                  within which a lamp may be considered to be "on" at the "high"\par
+                  current level for purposes of onboard verification of\par
+                  commanded lamp state.\par
+                  The values in the array correspond to the lamps as follows:\par
+                  0 - deuterium lamp 1, 1 - deuterium lamp 2, 2 - platinum-neon\par
+                  lamp 1, and 3 - paltinum-neon lamp 2.\par
+Format:           n/a\par
+Units:            counts\par
+Limits/Ranges:    n/a\par
+Scaling:          n/a\par
+Update Frequency: patchable constant\par
+*/\par
+const USHORT pclamp_HighOnUpperThresh [LAMP_NUM_CAL_LAMPS] = \{3833, /* 17.43 mA */\par
+                                                              3833, /* 17.43 mA */\par
+                                                              3984, /* 18.91 mA */\par
+                                                              3554\};/* 14.71 mA */\par
+                                                    /* SCR 187 C027 C137 C264 */\par
+\par
+/*\par
+pclamp_DeutDefaultCurLevel\par
+--------------------------\par
+Description:      This is the default power or current level written to the\par
+                  SES #1 HW calibration lamp control register which controls\par
+                  the brightness of the deuterium lamps when the are turned\par
+                  on.  The value can be 2, 0, or 1 corresponding to\par
+                  LAMP_CURRENT_LOW, LAMP_CURRENT_MEDIUM, or LAMP_CURRENT_HIGH.\par
+Format:           n/a\par
+Units:            n/a\par
+Limits/Ranges:    value can be 0, 1, or 2\par
+Scaling:          n/a\par
+Update Frequency: patchable constant\par
+*/\par
+const USHORT pclamp_DeutDefaultCurLevel = LAMP_CURRENT_LOW;\par
+\par
+/*\par
+pclamp_PtNeDefaultCurLevel\par
+--------------------------\par
+Description:      This is the default power or current level written to the\par
+                  SES #1 HW calibration lamp control register which controls\par
+                  the brightness of the paltinum-neon lamps when the are turned\par
+                  on.  The value can be 2, 0, or 1 corresponding to\par
+                  LAMP_CURRENT_LOW, LAMP_CURRENT_MEDIUM, or LAMP_CURRENT_HIGH.\par
+Format:           n/a\par
+Units:            n/a\par
+Limits/Ranges:    value can be 0, 1, or 2\par
+Scaling:          n/a\par
+Update Frequency: patchable constant\par
+*/\par
+const USHORT pclamp_PtNeDefaultCurLevel = LAMP_CURRENT_LOW;\par
+\par
+/*\par
+pclamp_EnaSimultOnCheck\par
+-----------------------\par
+Description:      This flag enables or disables verification that none of\par
+                  the simultaneous lamp on constraints will be violated by\par
+                  performing the requested turn-on of a calibration lamp.\par
+Format:           0 = disable, any other value is enable\par
+Units:            enable/disable flag\par
+Limits/Ranges:    n/a\par
+Scaling:          n/a\par
+Update Frequency: patchable constant\par
+*/\par
+const USHORT pclamp_EnaSimultOnCheck = ENABLE;\par
+\par
+/*\par
+pclamp_SES1LampEDAddr\par
+---------------------\par
+Description:      These are the SES #1 H/W addresses for the 4 ED items used to\par
+                  verify that a calibration lamp was successfully turned on at\par
+                  the correct current level or turned off.\par
+Format:           SES #2 H/W ED address\par
+Units:            n/a\par
+Limits/Ranges:    n/a\par
+Scaling:          n/a\par
+Update Frequency: patchable constant\par
+*/\par
+const BYTE pclamp_SES1LampEDAddr[LAMP_NUM_ED_ITEMS] =\par
+\{\par
+   1,   /* SES #1 HWED address of PlampA_Mon */\par
+   2,   /* SES #1 HWED address of PlampB_Mon */\par
+   3,   /* SES #1 HWED address of DlampB_Mon */\par
+   4    /* SES #1 HWED address of DlampB_Mon */\par
+\};\par
+\par
+\par
+/* end of pclamp.c */\par
+}
+ 

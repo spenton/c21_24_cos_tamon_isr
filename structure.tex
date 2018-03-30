@@ -1,40 +1,31 @@
+% $Id: structure.tex,v 1.2 2018/03/27 18:32:49 penton Exp $
 \subsection{COS TA Monitoring Program Structure}\label{subsec:structure}
 
-Each cycles TA monitoring program contains three single-orbit visits. The number of visits is mandated by the bootstrapping technique between the four different \texttt{ACQ/IMAGE} SA+MIRROR combinations.
+Each cycles TA monitoring program contains three single-orbit visits. The number of visits is mandated by the bootstrapping technique between the four different \tacq{IMAGE} SA$\times$MIR combinations.
 
-Each visit begins with a comparison of the centering of two \texttt{ACQ/IMAGE}~modes out of the possible four science apertures (SA, PSA or BOA) $\times$ (MIRRORA or MIRRORRB).
-This back-to-back \texttt{ACQ/IMAGE} process allows us to test that all \texttt{ACQ/IMAGE} modes are centering the target to the same point in the aperture.
-This comparison involves not only the \texttt{ACQ/IMAGE}s, but NUV detector images of the PtNe lamp (WCA) image and, if possible, coeval target images.
+Each visit begins with a comparison of the centering of two \tacq{IMAGE}~modes out of the possible four science apertures (SA, PSA or BOA) $\times$ (MIRA or MIRB).
+This back-to-back \tacq{IMAGE} process allows us to test that all \tacq{IMAGE} modes are centering the target to the same point in the aperture.
+This comparison involves not only the \tacq{IMAGE}s, but NUV detector images of the PtNe lamp (WCA) image and, if possible, coeval target images.
 These direct lamp+target comparisons are only available for the PSA modes. For the BOA modes, the WCA lamp images and target images are taken consecutively.
 The lamp+target exposures are interleaved throughout the visit to measure and verify the imaging WCA-to-SA offsets are still accurate for each HST Cycle.
 Images will usually use the PtNe\#2 (P2) lamp, as it is the primary TA lamp, but some images will use PtNe\#1 (P1) to monitor both lamps in imaging mode.
 
 In its generic format, the three, one-orbit, visits are configured as follows:
 \begin{itemize}
-	\item{The first orbit on each program is designed to test the co-alignment of the PSA+MIRRORA and PSA+MIRRORB \texttt{ACQ/IMAGE} combinations.
-However, this exact combination occurs at the end of each semi-annual visit in the FGS-to-SI alignment programs (see \S~\ref{subsec:fgs2si}).
+	\item{The first orbit on each program is designed to test the co-alignment of the PSA$\times$MIRA and PSA$\times$MIRB \tacq{IMAGE} combinations.
+However, this exact combination of \tacq{IMAGE}s occurs at the end of each semi-annual visit in the FGS-to-SI alignment programs (see \S~\ref{subsec:fgs2si}).
 This visit was usually treated as an on-hold contingency visit in case, for whatever reason, the fall visit of the program did not execute in a given cycle.\footnote{Beginning with Cycle 23, this program
-was replaced with an improved process for aligning the FGSs. Accordingly,  we activated this contingency visit to obtain the necessary PSA/MIRRORA and PSA/MIRRORB exposures.}
-As discussed further in \S~\ref{sec:newMIRRORB}, in one case, (C22, {\bf P}13972), this visit was re-purposed to verify a change to the MIRRORB\texttt{ACQ/IMAGE} configuration required due to the increasing background (see \S~\ref{subsec:MIRRORB}).}
-	\item{The second orbit of each program takes back-to-back PSA/MIRRORB and BOA/MIRRORA \texttt{ACQ/IMAGE}s~and target TIME-TAG images (with lamp flashes). Additionally, NUV and FUV spectra are acquired to test their WCA-to-PSA offsets.}
-	\item{The third orbit of each program takes back-to-back BOA/MIRRORA and BOA/MIRRORB \texttt{ACQ/IMAGE}s~and target TIME-TAG images (with lamp flashes). Additional NUV and FUV spectra are acquired to the remaining WCA-to-PSA offsets not tested in the second orbit.}
+was replaced with an improved process for aligning the FGSs. Accordingly,  we activated this contingency visit to obtain the necessary PSA$\times$MIRA and PSA$\times$MIRB exposures.}
+The target for this contigency visit is 206W3, the same target as the Fall visit of the FGS-to-SI alignment program.
+As discussed further in \S~\ref{sec:newMIRB}, in one case, (C22, \pid{13972}), this visit was re-purposed to verify a change to the MIRB\tacq{IMAGE} configuration required due to the increasing background (see \S~\ref{subsec:MIRB}).}
+	\item{The second orbit of each program takes back-to-back PSA$\times$MIRB and BOA$\times$MIRA \tacq{IMAGE}s~and target (WD1657+343) TIME-TAG images (with lamp flashes).
+	Additionally, NUV and FUV spectra are acquired to test their WCA-to-PSA offsets.}
+	\item{The third orbit of each program takes back-to-back BOA$\times$MIRA and BOA$\times$MIRB \tacq{IMAGE}s~and target (HIP66578) TIME-TAG images (with lamp flashes). Additional NUV and FUV spectra are acquired to the remaining WCA-to-PSA offsets not tested in the second orbit.}
+	\item{All visis were executed with in the APT 3-Gyro mode (\texttt{3GOBAD}) with the \texttt{BASE1B3} guide star requirement set in APT.}
 \end{itemize}
-The exact configuration of which gratings and which CENWAVEs were spectroscopically tested varied with each cycle as the programs evolved.
-Specifically, with the 2015 change in OSM2 home position\footnote{In May 2015, the ``home'' position of the COS Optic Select Mechanism \#2 (OSM2, the NUV grating wheel) was changed from G185M/1850 to the MIRRORA position to reduce wear on the OSM, increase observing efficiency, and reduce mechanism drift and position offsets during \tacq{IMAGE} TAs. (see HST PR\#80893 and PR\#80894).}, NUV spectra were re-ordered for efficiency and some NUV cenwaves were changed to those
-that are known to have strong stripe-B WCA spectra against the increasing detector background (Fix, 2018) and declining NUV sensitivity (Taylor, 2017).
-In cycles 23 and 24, we took G160M/1600 exposures offset in XD by  +/- 0.7"\footnote{Offsets set by using APT exposure level \texttt{{\it POS$\_$TARG}s}.} to test for the effects of Ywalk on FUV spectra at LP3.
-In addition, one visit of each program, usually the second visit, performed an annual "family portrait"  of all the P1/P2 MIRRORA/B WCA lamp images to track any drifting of the centroids, or changes in the lamps with time.
+The exact configuration of which gratings and which \cenwaves were spectroscopically tested varied with each cycle as the programs evolved.
+Specifically, with the 2015 change in OSM2 home position\footnote{In May 2015, the ``home'' position of the COS Optic Select Mechanism \#2 (OSM2, the NUV grating wheel) was changed from G185M/1850 to the MIRA position to reduce wear on the OSM, increase observing efficiency, and reduce mechanism drift and position offsets during \tacq{IMAGE} TAs. (see HST PR\#80893 and PR\#80894).}, NUV spectra were re-ordered for efficiency and some NUV \cenwaves were changed to those
+that are known to have strong \textit{STRIPE}=B WCA spectra against the increasing detector background (Fix, 2018) and declining NUV sensitivity (Taylor, 2017).
+In C23--C24, we took G160M/1600 exposures offset in XD by $\pm 0.7$\arcsec\footnote{Offsets set by using APT exposure level \texttt{{\it POS$\_$TARG}s}.} to test for the effects of Ywalk on FUV spectra at LP3.
+In addition, one visit of each program, usually the second visit, performed an annual "family portrait"  of all the P1/P2 MIRA/B WCA lamp images to track any drifting of the centroids, or changes in the lamps with time.
 Further details on the differences between the programs is provided in \S~\ref{subsec:differences}.
-
-\subsection{Differences between TA monitoring programs}\label{subsec:differences}
-
-There are several important differences between the various versions of the COS TA monitoring programs:
-
-In the Cycle~21 HST+COS monitoring program,  \dots\\
-In the Cycle~22 HST+COS monitoring program,  \dots\\
-In the Cycle~23 HST+COS monitoring program,  \dots\\
-In the Cycle~24 HST+COS monitoring program,  \dots\\
-In the Cycle~25 HST+COS monitoring program, the visit names were changed from `01', `02', and `03' to `BA', `BB' , and `PB' to indicate which \texttt{ACQ/IMAGE} mode was being tested; PB = PSA/MIRRORB, BA = BOA/MIRRORA, and BB = BOA/MIRRORB. Visits `BA' and `BB' of the Cycle~24 program are identical to Visits `01' and `02' of the Cycle~23 program in all other regards.
-Visit `PB' of the Cycle~24 program is noticeably different than the contingency visit `03' in Cycle~23 program. The `PB' visit only includes those exposures absolutely required to compare the \texttt{ACQ/IMAGE}~accuracy of PSA/MIRRORA to PSA/MIRRORB, while the Cycle~23 program also obtained spectra of all three FUV gratings for additional monitoring of spectroscopic TA performance under the assumption that detector `Y-walk' monitoring would benefit from additional observations near the end of the FUV LP3 lifetime. As all three visits of 14857 executed near the end of the LP3 lifetime, these additional exposures were not required.
-The Cycle~24 version of the FGS-to-SI program was replaced with a better program (HST PID 14867\footnote{HST Cycle 24 Focal Plane Calibration (SI-FGS alignment), PI = Edmund Nelan.} for aligning the FGSs which did not allow the inclusion of these \texttt{ACQ/IMAGE}~exposures\footnote{The FGSs were used as the prime science instrument in this proposal, which precluded the use of COS during the visit as COS is not an allowed parallel HST instrument.}.
-For Cycle~24, we activated this visit to obtain the needed PSA/MIRRORA to PSA/MIRRORB \texttt{ACQ/IMAGE}~alignment verification.

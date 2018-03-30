@@ -1,25 +1,28 @@
+% $Id: spVER.tex,v 1.5 2018/03/30 20:22:12 penton Exp $
 \section{Spectroscopic TA Verification}\label{sec:spVER}
 
-After the series of \texttt{ACQ/IMAGE}s that start each visit, the target should be accurately centered. We take advantage of this to monitor COS spectroscopic TAs.
+After the series of \texttt{ACQ/IMAGE}s that start each visit, the target should be accurately centered.
+We take advantage of this to monitor certain aspects of COS spectroscopic TAs.
 
-COS spectroscopic TAs consist of up to three stages \texttt{ACQ/SEARCH}, \texttt{ACQ/PEAKD}, and \texttt{ACQ/PEAKXD}.
-The COS spectroscopic \texttt{ACQ/SEARCH} and \texttt{ACQ/PEAKD} algorithms do not use any FSW patchable constants, and do not flash the
+COS spectroscopic TAs consist of up to three stages \texttt{ACQ/SEARCH}, \texttt{PEAKD}, and \texttt{PEAKXD}.
+The COS spectroscopic \texttt{ACQ/SEARCH} and \texttt{PEAKD} algorithms do not use any FSW patchable constants, and do not flash the
 internal calibration lamps. The only monitoring required for these TA phases is to ensure that the mechanisms were in their proper
 positions and that the TA subarrays defined in the HST ground commanding are proper for the mechanism positions used during the acquisitions.
+As discussed in \S~\ref{sec:subarray}, the majority of the details will be addressed for each FUV LP in its enabling ISR, or have already been verified
+for the NUV and FUV LP1 positions in Penton \& Keyes (2011).
 
-Each FUV central wavelength setting (CENWAVE) uses a unique OSM1 rotation, whereas all NUV TAs use the same OSM1 rotation independent of CENWAVE.
-However, each NUV CENWAVE uses a different OSM2 rotation during TA. Each FUV CENWAVE has it's own set of TA subarrays (up to four per segment), while the NUV TA subarrays are not CENWAVE
-specific, but are grating specific.
+COS NUV (LP1) and FUV LP2--4 spectroscopic TA in the XD direction uses \texttt{ACQ/PEAKXD} and requires the use of the XD WCA-to-PSA offsets with the nominal \numposone~ algorithm.
+These offsets are contained for both the NUV and FUV channels in the FSW patchable constant table \textsc{pcta\_CalTargetOffset}, and are provided for reference for all COS LPs in Table~\ref{tab:wcatopsa}.
+This ISR only attempts to verify that these offsets were appropriate for all data obtained during the annual monitoring programs.
 
-COS TA in the XD direction (\texttt{ACQ/PEAKXD}) requires the use of XD WCA-to-PSA offsets with the nominal {{\bf NUM$\_$POS}\rm}~=1 algorithm.
-These values are contained for both the NUV and FUV channels in the FSW patchable constant table \textsc{pcta\_CalTargetOffset}, and are provided for reference in Table~\ref{tab:wcatopsa}.
-All NUV and FUV (LP1, LP2 and LP3) \texttt{ACQ/PEAKXDs} monitored in this ISR used the original {{\bf NUM$\_$POS}\rm}~=1 algorithm).
+Each FUV central wavelength setting (\cenwave) uses a unique OSM1 rotation, whereas all NUV TAs use the same OSM1 rotation independent of \cenwave.
+However, each NUV \cenwave uses a different OSM2 rotation during TA. Each FUV \cenwave has it's own set of TA subarrays (up to four per segment), while the NUV TA subarrays are not \cenwave
+specific, but are grating specific.\footnote{{\bf Note to reviewer: Do you think it is worthwhile to include the entire \textsc{pcmech\_osmtbl} in the appendix? If so, i would add a reference to the table and some
+explanatory text here.}}
 
-The verification process is for \texttt{ACQ/PEAKXD} is simple, take a normal spectrum with a target signal-to-noise ratio of least 50 for the entire spectrum (2500 target counts) used by \texttt{ACQ/PEAKXD}.
-For NUV exposures, this is the `B' stripe only, and for the FUV, only events on FUVA are used.
-TA subarrays are used to mask out any detector hot-spots or Geocoronal light that could interfere with the centering process.
+The verification process is for \texttt{ACQ/PEAKXD} is simple, take a normal spectrum with a target signal-to-noise ratio of least 50 for the entire spectrum (2500 target counts),
+and directly measure the WCA-to-PSA offset and compare it the FSW value. For NUV exposures, this is almost always \texttt{STRIPE=B}, and for the FUV, only events from FUVA are used at LP2--4.
+TA subarrays are used to mask out any detector hot-spots or Geocoronal light that could interfere with the centering process. These spectra are also compared to the TA subarrays to
+verify that they satisfactory.
 
 \input{pctaWCA2SA.tex}
-\input{tamon_output.tex}
-\subsection{NUV Spectroscopic TA verification}\label{subsec:NspVER}
-\subsection{FUV Spectroscopic TA verification}\label{subsec:FspVER}

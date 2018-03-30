@@ -1,0 +1,53 @@
+head	1.1;
+access;
+symbols;
+locks
+	penton:1.1; strict;
+comment	@% @;
+
+
+1.1
+date	2018.03.27.18.32.49;	author penton;	state Exp;
+branches;
+next	;
+
+
+desc
+@y
+COLIN SIAF RESULTS
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@\begin{deluxetable}{rrrrrrrrr}
+\tablecaption{FGS-to-SI Program Initial Pointing Determinations}\label{table:fgs2siInit}
+\tablehead{
+\colhead{HST} & \colhead{YEAR.DAY} & \colhead{OBS-DATE} & \multicolumn{2}{c}{Initial Pointing} & \multicolumn{2}{c}{Miss-Distance} & {SIAF} & \multicolumn{2}{c}{Active SIAF Entry}\\
+\colhead{PID} & \colhead{} & \colhead{} & \colhead{V2 (\arcsec)} & \colhead{V3 (\arcsec)} & \colhead{V2 (\arcsec)} & \colhead{V3 (\arcsec)} & \colhead{V2 (\arcsec)} & \colhead{Dates\tablenotemark{a}} & \colhead{V3 (\arcsec)}\\
+}
+\startdata
+{\bf P}1XXXXX & 2009.338 & 4-Dec-2009 & 232.581 & -237.544 & -0.191 & -0.033 & 3-Aug-2009 & 232.772 & -237.511
+{\bf P}1XXXXX & 2010.074 & 15-Mar-2010 & 232.488 & -237.462 & -0.284 & 0.049 & \dots & 232.772 & -237.511
+{\bf P}1XXXXX & 2010.110 & 20-Apr-2010 & 232.481 & -237.457 & -0.291 & 0.054 & \dots & 232.772 & -237.511
+{\bf P}1XXXXX & 2010.309 & 5-Nov-2010 & 232.604 & -237.561 & -0.168 & -0.050 & \dots & 232.772 & -237.511
+{\bf P}1XXXXX & 2011.070 & 11-Mar-2011 & 232.645 & -237.438 & -0.127 & 0.073 & 20-Jun-2011 & 232.772 & -237.511
+\hline
+{\bf P}1XXXXX & 2011.255 & 12-Sep-2011 & 232.737 & -237.507 & 0.091 & -0.062 & 21-Jun-2011 & 232.646 & -237.445
+{\bf P}1XXXXX & 2012.087 & 27-Mar-2012 & 232.622 & -237.515 & -0.024 & -0.070 & \dots & 232.646 & -237.445
+{\bf P}1XXXXX & 2012.268 & 24-Sep-2012 & 232.713 & -237.578 & 0.067 & -0.133 & \dots &232.646 & -237.445
+{\bf P}1XXXXX & 2013.061 & 2-Mar-2013 & 232.647 & -237.590 & 0.001 & -0.145 & 23-Feb-2014 & 232.646 & -237.445
+\hline
+{\bf P}1XXXXX & 2013.244 & 1-Sep-2013 & 232.723 & -237.515 & 0.077 & -0.070 & 24-Feb-2014 & 232.723 & -237.515
+{\bf P}1XXXXX & 2014.055 & 6-Apr-2014 & 232.535 & -237.497 & -0.188 & 0.018 & \dots & 232.723 & -237.515
+{\bf P}1XXXXX & 2014.300 & 27-Oct-2014 & 232.841 & -237.465 & 0.118 & 0.050 & \dots & 232.723 & -237.515
+{\bf P}1XXXXX & 2015.104 & 14-May-2015 & 232.617 & -237.464 & -0.106 & 0.051 & \dots & 232.723 & -237.515
+{\bf P}1XXXXX & 2015.275 & 2-Oct-2015 & 232.788 & -237.462 & 0.065 & 0.053 & \dots & 232.723 & -237.515
+{\bf P}1XXXXX & 2016.092 & 1-Apr-2016 & 232.742 & -237.485 & 0.019 & 0.030 & \dots & 232.723 & -237.515
+\enddata
+\tablenotetext{a}{Dates in this column show the dates that the [V2,V3] SIAF entries in the following columns two columns were active.}
+\end{deluxetable}
+@

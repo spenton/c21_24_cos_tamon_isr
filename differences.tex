@@ -1,0 +1,51 @@
+\subsection{Differences between HST+COS TA monitoring programs}\label{subsec:differences}
+
+There are several important differences between the various versions of the COS TA monitoring programs:
+
+\begin{itemize}
+\item{
+In the initial, C20, version of the TA monitoring program (\pid{13124}),
+the PSA$\times$MIRB + BOA$\times$MIRA \tacq{IMAGE} visit (`01', 24-Oct-2013), contained G230L/3000, G285M/2850, G130M/1309 \& G140L/1280.
+The BOA$\times$MIRA + BOA$\times$MIRB \tacq{IMAGE} visit (`02', 01-Nov-2013) contained G185M/1890, G225M/2306, and both BOA and PSA G160M/1623 spectra.
+A 2$\times$2 \tacq{SEARCH} proceeded the BOA$\times$MIRA \tacq{IMAGE} in visit `02' due to some uncertainty in the rather large ($> 400$ mas/yr) proper motion of the target (HIP66578).
+}
+\item{
+In the C21 TA monitoring program (\pid{13526}), the a 2$\times$2 \tacq{SEARCH} present in the beginning of Visit `02' was removed after further verification of the proper motion.
+Also, the G160M BOA spectrum was dropped in favor of the $\pm 0.7$\arcsec~\texttt{POS\_TARG} exposures to monitor gain sag/Ywalk at LP2 in Visit `02' (17-Nov-2014).
+In addition, a `family portait' of the P1 and P2 PtNe lamps were acquired using both MIRA and MIRB NUV imaging.
+The MIRA lamp images were taken for both the P1 and P2 lamps at LOW current, while for MIRB image the P1 lamp image was taken at LOW current and the P2 lamp was at MED current.
+Additionally, the C21, \pid{13526}, contingency visit `03` was activated to verify the count rates associated with the re-configuration of the
+the MIRB \tacq{IMAGE} lamp flash of the MIRB \texttt{LTACAL} exposures for P2 from LOW to MED current.
+All MIRB lamp images in the C21 program were also taken at MED current, as  compared to LOW for the C20 program.
+Further details on the MIRB \tacq{IMAGE} adjustments are given in \S~\ref{sec:MIRB}.\\
+
+The optional parameter \texttt{WAVECAL=YES} in the BOA$\times$MIRA target+Lamp image of the C20 program was discovered to not have taken the
+expected internal lamp image expected in the \textsf{LC6601RYQ\_rawtag.fits} exposure. Correcting this inconsistency would have required significant APT, TRANS, and commanding changes.
+As this internal calibration exposure combination is rarely executed, the C21 program included separate \texttt{TARGET=WAVE} companion lamp exposures for the target BOA exposure\footnote{The COS apertures are physically configured such that WCA light lands on the detector(s) when the PSA in place, but does not when the BOA is in place (INSERT REF). Therefore, whenever lamp images are required to verify BOA \tacq{IMAGE} exposures, the BOA is replaced by the PSA so that WCA light falls on the detector at the same location as it would fall for a PSA image.}
+A second MIRA lamp image was added directly after the BOA$\times$MIRA \tacq{IMAGE}, to verify the repeatability of the WCA lamp location when moving the BOA into and out of position.
+To create time for the new exposures, the exposure times of the spectroscopic observations were scaled back, but still achieved the required S/N to measure the XD spectral locations.
+}
+\item{
+In the C22 TA monitoring program (\pid{13972}), the G185M and G285M exposures were changed from C2850 to C2676 and from C1890 to C1913, respectively, as the WCA lamp spectra much stronger in the latter \texttt{STRIPE=B} bandpasses. Beginning with C22, GOs were discouraged from using the G285M for spectroscopic PEAKXD TAs,
+and the \cenwaves~ for the other NUV gratings were highlighted in section 2.6 (NUV Spectroscopic Acquisitions) of the C25 COS Instrument Handbook (Fox, 2017) and C25 Phase II Proposal Instructions (Rose, et al., 2017). Prior to C25, GOs were contacted directly by their Contact Scientists (CS) to ensure the success of their NUV spectroscopic \tacq{PEAKXD}s.
+The contingency visit (`03') was not executed in C22.
+}
+\item{
+In the C23 TA monitoring program (\pid{14440}), each of the one-orbit visits was placed in a non-interruptable sequence to prevent guide-star (GS) re-acquisitions (reacqs) from changing the telescope pointing during a visit.
+None of the previous visits encountered this situation, but the use of the non-interruptable sequences in APT requires this to be true for this, and all all subsequent programs.
+The lamp `family portrait' in Visit `02' is contained in a separate non-interruptable sequence from the other exposures in the visit as any GS reacqs would not affect the internal lamp exposures.
+Some exposures were slightly lengthened to take advantage of the increased efficiency of the modified OSM2 home position.\footnote{The OSM2 home position was changed from G185M to MIRA on July 6, 2015 (2015.157).}
+The contingency visit (`03') was not executed in C23.
+}
+\item{
+In the C24 TA monitoring program (\pid{14857}), the visit names were changed from
+`01', `02', and `03' to `BA', `BB', and `PB' to indicate which \tacq{IMAGE}
+mode was being tested; PB = PSA$\times$MIRB, BA = BOA$\times$MIRA, and BB = BOA$\times$MIRB.
+Visits `BA' and `BB' of the C24 program are identical to visits `01' and `02' of the C23 program in all other regards.
+Visit `PB' of the C24 program is noticeably different than the contingency visit `03' in C23 program.
+The `PB' visit only includes those exposures absolutely required to compare the \tacq{IMAGE} accuracy of PSA$\times$MIRA to PSA$\times$MIRB, while the C23 program also obtained spectra of all three FUV gratings for additional monitoring of spectroscopic TA performance under the assumption that detector `Y-walk' monitoring would benefit from additional observations near the end of the FUV LP3 lifetime.
+As all three visits of 14857 executed near the end of the LP3 lifetime, these additional exposures were not required.
+The C24 version of the FGS-to-SI program was replaced with an improved program (\pid{14867}\footnote{HST Cycle 24 Focal Plane Calibration (SI-FGS alignment), PI = Edmund Nelan.}) for aligning the FGSs which did not allow the inclusion of these \tacq{IMAGE}~exposures\footnote{The FGSs were used as the prime science instrument in this proposal, which precluded the use of COS during the visit as COS is not an allowed parallel HST instrument.}.
+For C24, we activated this visit to obtain the needed PSA$\times$MIRA to PSA$\times$MIRB \tacq{IMAGE} alignment verification.
+}
+\end{itemize}

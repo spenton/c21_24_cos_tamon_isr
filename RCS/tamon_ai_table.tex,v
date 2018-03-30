@@ -1,0 +1,166 @@
+head	1.2;
+access;
+symbols;
+locks
+	penton:1.2; strict;
+comment	@% @;
+
+
+1.2
+date	2018.03.29.19.16.24;	author penton;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2018.03.27.18.32.49;	author penton;	state Exp;
+branches;
+next	;
+
+
+desc
+@TAMON AI TABLE
+@
+
+
+1.2
+log
+@sorting
+@
+text
+@\begin{deluxetable}{|rrrr|rrrr|rrrr|r|}
+\tablecolumns{13}
+\tabcolsep 5 pt
+\tabletypesize{\scriptsize}
+\tablecaption{FITS Reported TA \tacq{IMAGE} Subarrays\label{tab:IMsubs}}
+\tablehead{
+\multicolumn{4}{|c|}{} & \multicolumn{4}{c}{WCA} & \multicolumn{4}{|c|}{SA (PSA or BOA)} & \colhead{\textit{DATE-OBS}}\\
+\colhead{PID} & \colhead{\textit{ROOTNAME}} & \colhead{SA} & \colhead{MIRROR} & \multicolumn{1}{|r}{XC} & \colhead{YC} & \colhead{XS} & \colhead{YS} & \colhead{XC} & \colhead{YC} & \colhead{XS} & \colhead{YS} & \colhead{}
+}
+\startdata
+\hline
+\multicolumn{13}{c}{MIRA \tacq{IMAGE} Subarrays}\\
+\hline
+13171& lc6ka1i1q & PSA & MIRA & 345 & 324 & 50 & 300 & 572 & 108 & 345 & 816 & 2013-03-02 \\
+13171& lc6ka1i1q & PSA & MIRA & 345 & 324 & 50 & 300 & 572 & 108 & 345 & 816 & 2013-03-02 \\
+13171& lc6ka2imq & PSA & MIRA & 345 & 324 & 50 & 300 & 572 & 108 & 345 & 816 & 2013-09-01 \\
+13171& lc6ka2imq & PSA & MIRA & 345 & 324 & 50 & 300 & 572 & 108 & 345 & 816 & 2013-09-01 \\
+13616& lci4a1dcq & PSA & MIRA & 345 & 324 & 50 & 300 & 572 & 108 & 345 & 816 & 2014-04-03 \\
+13616& lci4a2e3q & PSA & MIRA & 345 & 324 & 50 & 300 & 572 & 108 & 345 & 816 & 2014-10-27 \\
+13526& lcgq01qdq & BOA & MIRA & 345 & 324 & 50 & 300 & 572 & 108 & 345 & 816 & 2014-11-19 \\
+13526& lcgq02hmq & BOA & MIRA & 345 & 324 & 50 & 300 & 572 & 108 & 345 & 816 & 2014-11-17 \\
+13526& lcgq02i0q & BOA & MIRA & 345 & 324 & 50 & 300 & 572 & 108 & 345 & 816 & 2014-11-17 \\
+13526& lcgq03dbq & PSA & MIRA & 345 & 324 & 50 & 300 & 572 & 108 & 345 & 816 & 2014-10-06 \\
+13526& lcgq03dtq & PSA & MIRA & 345 & 324 & 50 & 300 & 572 & 108 & 345 & 816 & 2014-10-06 \\
+13972& lcri01g7q & BOA & MIRA & 345 & 324 & 50 & 300 & 572 & 108 & 345 & 816 & 2015-10-06 \\
+14035& lcsla1i4q & PSA & MIRA & 345 & 324 & 50 & 300 & 572 & 108 & 345 & 816 & 2015-04-14 \\
+13972& lcri02h8q & BOA & MIRA & 345 & 324 & 50 & 300 & 572 & 108 & 345 & 816 & 2015-10-06 \\
+13972& lcri02hmq & BOA & MIRA & 345 & 324 & 50 & 300 & 572 & 108 & 345 & 816 & 2015-10-06 \\
+14035& lcsla2bhq & PSA & MIRA & 345 & 324 & 50 & 300 & 572 & 108 & 345 & 816 & 2015-10-02 \\
+14440& ld3701h1q & BOA & MIRA & 345 & 324 & 50 & 300 & 572 & 108 & 345 & 816 & 2016-10-18 \\
+14440& ld3702mzq & BOA & MIRA & 345 & 324 & 50 & 300 & 572 & 108 & 345 & 816 & 2016-10-19 \\
+14440& ld3702nhq & BOA & MIRA & 345 & 324 & 50 & 300 & 572 & 108 & 345 & 816 & 2016-10-19 \\
+14857& ldozbadpq & BOA & MIRA & 345 & 324 & 50 & 300 & 572 & 108 & 345 & 816 & 2017-09-04 \\
+14857& ldozbbleq & BOA & MIRA & 345 & 324 & 50 & 300 & 572 & 108 & 345 & 816 & 2017-09-06 \\
+14857& ldozbblsq & BOA & MIRA & 345 & 324 & 50 & 300 & 572 & 108 & 345 & 816 & 2017-09-06 \\
+14857& ldozpbf5q & PSA & MIRA & 345 & 324 & 50 & 300 & 572 & 108 & 345 & 816 & 2017-09-10 \\
+14857& ldozpbfhq & PSA & MIRA & 345 & 324 & 50 & 300 & 572 & 108 & 345 & 816 & 2017-09-10 \\
+\hline
+\multicolumn{13}{c}{MIRB \tacq{IMAGE} Subarrays}\\
+\hline
+13171& lc6ka1i3q & PSA & MIRB & 184 & 539 & 50 & 300 & 411 & 200 & 345 & 816 & 2013-03-02 \\
+13171& lc6ka1i3q & PSA & MIRB & 184 & 539 & 50 & 300 & 411 & 200 & 345 & 816 & 2013-03-02 \\
+13171& lc6ka2ioq & PSA & MIRB & 184 & 539 & 50 & 300 & 411 & 200 & 345 & 816 & 2013-09-01 \\
+13171& lc6ka2ioq & PSA & MIRB & 184 & 539 & 50 & 300 & 411 & 200 & 345 & 816 & 2013-09-01 \\
+13616& lci4a1deq & PSA & MIRB & 184 & 539 & 50 & 300 & 411 & 200 & 345 & 816 & 2014-04-03 \\
+\hline
+13616& lci4a2e5q & PSA & MIRB & 187 & 566 & 50 & 300 & 411 & 200 & 345 & 816 & 2014-10-27 \\
+13526& lcgq01q5q & PSA & MIRB & 187 & 566 & 50 & 300 & 411 & 200 & 345 & 816 & 2014-11-19 \\
+13526& lcgq01qjq & PSA & MIRB & 187 & 566 & 50 & 300 & 411 & 200 & 345 & 816 & 2014-11-19 \\
+13526& lcgq02huq & BOA & MIRB & 187 & 566 & 50 & 300 & 411 & 200 & 345 & 816 & 2014-11-17 \\
+13526& lcgq03dlq & PSA & MIRB & 187 & 566 & 50 & 300 & 411 & 200 & 345 & 816 & 2014-10-06 \\
+13972& lcri01fzq & PSA & MIRB & 187 & 566 & 50 & 300 & 411 & 200 & 345 & 816 & 2015-10-06 \\
+13972& lcri01geq & PSA & MIRB & 187 & 566 & 50 & 300 & 411 & 200 & 345 & 816 & 2015-10-06 \\
+13972& lcri02hgq & BOA & MIRB & 187 & 566 & 50 & 300 & 411 & 200 & 345 & 816 & 2015-10-06 \\
+14035& lcsla1i6q & PSA & MIRB & 187 & 566 & 50 & 300 & 411 & 200 & 345 & 816 & 2015-04-14 \\
+14035& lcsla2bjq & PSA & MIRB & 187 & 566 & 50 & 300 & 411 & 200 & 345 & 816 & 2015-10-02 \\
+14440& ld3701gtq & PSA & MIRB & 187 & 566 & 50 & 300 & 411 & 200 & 345 & 816 & 2016-10-18 \\
+14440& ld3701h7q & PSA & MIRB & 187 & 566 & 50 & 300 & 411 & 200 & 345 & 816 & 2016-10-18 \\
+14440& ld3702n9q & BOA & MIRB & 187 & 566 & 50 & 300 & 411 & 200 & 345 & 816 & 2016-10-19 \\
+14857& ldozbadhq & PSA & MIRB & 187 & 566 & 50 & 300 & 411 & 200 & 345 & 816 & 2017-09-04 \\
+14857& ldozbadvq & PSA & MIRB & 187 & 566 & 50 & 300 & 411 & 200 & 345 & 816 & 2017-09-04 \\
+14857& ldozbblmq & BOA & MIRB & 187 & 566 & 50 & 300 & 411 & 200 & 345 & 816 & 2017-09-06 \\
+14857& ldozpbfbq & PSA & MIRB & 187 & 566 & 50 & 300 & 411 & 200 & 345 & 816 & 2017-09-10 \\
+\hline
+\enddata
+\tablecomments{As correctly reported in the FITS files, the  MIRB subarrays values were updated from [XC,YC]=[184,539] to [187,566] on Oct. 6, 2014 (2014.279) with PR\#78749. Simultaneously, the MIRB \tacq{} lamp exposure time and current settings (for the P2 lamp)
+TAsubarrays.tex:were changed from 17s @@ LOW current to 12s @@ MED current (PR\#78749). The FSW WCA-to-SA offsets (\textsc{[X,Y]imCalTargetOffset}) were adjusted accordingly (PR\#79116) on October 16, 2014 (2014.289)}
+\end{deluxetable}
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d3 1
+a3 1
+%\tabcolsep 2pt
+d5 1
+a5 1
+\tablecaption{COS TA Monitoring \tacq{IMAGE} Subarrays\label{tab:IMsubs}}
+d7 2
+a8 2
+\multicolumn{4}{|c|}{} & \multicolumn{4}{c}{WCA} & \multicolumn{4}{|c|}{SA (PSA or BOA)} & \colhead{OBS}\\
+\colhead{PID} & \colhead{IPPPSSOOT} & \colhead{SA} & \colhead{MIR} & \colhead{XC} & \colhead{YC} & \colhead{XS} & \colhead{YS} & \colhead{XC} & \colhead{YC} & \colhead{XS} & \colhead{YS} & \colhead{DATE}
+d11 54
+a64 47
+
+13171& lc6ka1i1q & PSA & MIRRORA &  345 &  324 &   50 &  300 &  572 &  108 &  345 &  816 & 2013-03-02 \\
+13171& lc6ka1i1q & PSA & MIRRORA &  345 &  324 &   50 &  300 &  572 &  108 &  345 &  816 & 2013-03-02 \\
+13171& lc6ka1i3q & PSA & MIRRORB &  184 &  539 &   50 &  300 &  411 &  200 &  345 &  816 & 2013-03-02 \\
+13171& lc6ka1i3q & PSA & MIRRORB &  184 &  539 &   50 &  300 &  411 &  200 &  345 &  816 & 2013-03-02 \\
+13171& lc6ka2imq & PSA & MIRRORA &  345 &  324 &   50 &  300 &  572 &  108 &  345 &  816 & 2013-09-01 \\
+13171& lc6ka2imq & PSA & MIRRORA &  345 &  324 &   50 &  300 &  572 &  108 &  345 &  816 & 2013-09-01 \\
+13171& lc6ka2ioq & PSA & MIRRORB &  184 &  539 &   50 &  300 &  411 &  200 &  345 &  816 & 2013-09-01 \\
+13171& lc6ka2ioq & PSA & MIRRORB &  184 &  539 &   50 &  300 &  411 &  200 &  345 &  816 & 2013-09-01 \\
+13616& lci4a1dcq & PSA & MIRRORA &  345 &  324 &   50 &  300 &  572 &  108 &  345 &  816 & 2014-04-03 \\
+13616& lci4a1deq & PSA & MIRRORB &  184 &  539 &   50 &  300 &  411 &  200 &  345 &  816 & 2014-04-03 \\
+13616& lci4a2e3q & PSA & MIRRORA &  345 &  324 &   50 &  300 &  572 &  108 &  345 &  816 & 2014-10-27 \\
+13616& lci4a2e5q & PSA & MIRRORB &  187 &  566 &   50 &  300 &  411 &  200 &  345 &  816 & 2014-10-27 \\
+13526& lcgq01q5q & PSA & MIRRORB &  187 &  566 &   50 &  300 &  411 &  200 &  345 &  816 & 2014-11-19 \\
+13526& lcgq01qdq & BOA & MIRRORA &  345 &  324 &   50 &  300 &  572 &  108 &  345 &  816 & 2014-11-19 \\
+13526& lcgq01qjq & PSA & MIRRORB &  187 &  566 &   50 &  300 &  411 &  200 &  345 &  816 & 2014-11-19 \\
+13526& lcgq02hmq & BOA & MIRRORA &  345 &  324 &   50 &  300 &  572 &  108 &  345 &  816 & 2014-11-17 \\
+13526& lcgq02huq & BOA & MIRRORB &  187 &  566 &   50 &  300 &  411 &  200 &  345 &  816 & 2014-11-17 \\
+13526& lcgq02i0q & BOA & MIRRORA &  345 &  324 &   50 &  300 &  572 &  108 &  345 &  816 & 2014-11-17 \\
+13526& lcgq03dbq & PSA & MIRRORA &  345 &  324 &   50 &  300 &  572 &  108 &  345 &  816 & 2014-10-06 \\
+13526& lcgq03dlq & PSA & MIRRORB &  187 &  566 &   50 &  300 &  411 &  200 &  345 &  816 & 2014-10-06 \\
+13526& lcgq03dtq & PSA & MIRRORA &  345 &  324 &   50 &  300 &  572 &  108 &  345 &  816 & 2014-10-06 \\
+13972& lcri01fzq & PSA & MIRRORB &  187 &  566 &   50 &  300 &  411 &  200 &  345 &  816 & 2015-10-06 \\
+13972& lcri01g7q & BOA & MIRRORA &  345 &  324 &   50 &  300 &  572 &  108 &  345 &  816 & 2015-10-06 \\
+13972& lcri01geq & PSA & MIRRORB &  187 &  566 &   50 &  300 &  411 &  200 &  345 &  816 & 2015-10-06 \\
+13972& lcri02h8q & BOA & MIRRORA &  345 &  324 &   50 &  300 &  572 &  108 &  345 &  816 & 2015-10-06 \\
+13972& lcri02hgq & BOA & MIRRORB &  187 &  566 &   50 &  300 &  411 &  200 &  345 &  816 & 2015-10-06 \\
+13972& lcri02hmq & BOA & MIRRORA &  345 &  324 &   50 &  300 &  572 &  108 &  345 &  816 & 2015-10-06 \\
+14035& lcsla1i4q & PSA & MIRRORA &  345 &  324 &   50 &  300 &  572 &  108 &  345 &  816 & 2015-04-14 \\
+14035& lcsla1i6q & PSA & MIRRORB &  187 &  566 &   50 &  300 &  411 &  200 &  345 &  816 & 2015-04-14 \\
+14035& lcsla2bhq & PSA & MIRRORA &  345 &  324 &   50 &  300 &  572 &  108 &  345 &  816 & 2015-10-02 \\
+14035& lcsla2bjq & PSA & MIRRORB &  187 &  566 &   50 &  300 &  411 &  200 &  345 &  816 & 2015-10-02 \\
+14440& ld3701gtq & PSA & MIRRORB &  187 &  566 &   50 &  300 &  411 &  200 &  345 &  816 & 2016-10-18 \\
+14440& ld3701h1q & BOA & MIRRORA &  345 &  324 &   50 &  300 &  572 &  108 &  345 &  816 & 2016-10-18 \\
+14440& ld3701h7q & PSA & MIRRORB &  187 &  566 &   50 &  300 &  411 &  200 &  345 &  816 & 2016-10-18 \\
+14440& ld3702mzq & BOA & MIRRORA &  345 &  324 &   50 &  300 &  572 &  108 &  345 &  816 & 2016-10-19 \\
+14440& ld3702n9q & BOA & MIRRORB &  187 &  566 &   50 &  300 &  411 &  200 &  345 &  816 & 2016-10-19 \\
+14440& ld3702nhq & BOA & MIRRORA &  345 &  324 &   50 &  300 &  572 &  108 &  345 &  816 & 2016-10-19 \\
+14857& ldozbadhq & PSA & MIRRORB &  187 &  566 &   50 &  300 &  411 &  200 &  345 &  816 & 2017-09-04 \\
+14857& ldozbadpq & BOA & MIRRORA &  345 &  324 &   50 &  300 &  572 &  108 &  345 &  816 & 2017-09-04 \\
+14857& ldozbadvq & PSA & MIRRORB &  187 &  566 &   50 &  300 &  411 &  200 &  345 &  816 & 2017-09-04 \\
+14857& ldozbbleq & BOA & MIRRORA &  345 &  324 &   50 &  300 &  572 &  108 &  345 &  816 & 2017-09-06 \\
+14857& ldozbblmq & BOA & MIRRORB &  187 &  566 &   50 &  300 &  411 &  200 &  345 &  816 & 2017-09-06 \\
+14857& ldozbblsq & BOA & MIRRORA &  345 &  324 &   50 &  300 &  572 &  108 &  345 &  816 & 2017-09-06 \\
+14857& ldozpbf5q & PSA & MIRRORA &  345 &  324 &   50 &  300 &  572 &  108 &  345 &  816 & 2017-09-10 \\
+14857& ldozpbfbq & PSA & MIRRORB &  187 &  566 &   50 &  300 &  411 &  200 &  345 &  816 & 2017-09-10 \\
+14857& ldozpbfhq & PSA & MIRRORA &  345 &  324 &   50 &  300 &  572 &  108 &  345 &  816 & 2017-09-10 \\
+d66 2
+@

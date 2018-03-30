@@ -1,0 +1,92 @@
+head	1.3;
+access;
+symbols;
+locks
+	penton:1.3; strict;
+comment	@% @;
+
+
+1.3
+date	2018.03.29.19.16.24;	author penton;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2018.03.27.18.32.49;	author penton;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2018.03.22.18.08.39;	author penton;	state Exp;
+branches;
+next	;
+
+
+desc
+@Program list
+@
+
+
+1.3
+log
+@updated
+@
+text
+@% $Id: programs.tex,v 1.2 2018/03/27 18:32:49 penton Exp penton $
+\section{Program Descriptions} \label{sec:programs}
+
+COS \tacq{IMAGE} has four commonly used combinations of two Science Apertures (SAs), the Primary Science Aperture (PSA) and the Bright Object Aperture (BOA), and two mirror modes, MIRA and MIRB.
+During the 2009 servicing mission orbital verification (SMOV) phase, a series of C17 calibration programs in NUV imaging mode (\pid{11469}, \pid{11473}, \& \pid{11471}) carefully determined the two-dimensional offset from the COS WCA to the center of the PSA when observed with MIRA.
+These X and Y offsets were loaded in the FSW TA parameters\footnote{In the COS FSW, these WCA-to-SA offsets are stored as patchable constants in the \textsc{pcta\_XImCalTargetOffset} (XD) and \textsc{pcta\_YImCalTargetOffset} (AD)}.}
+A target was then centered using a PSA+MIRA \texttt{ACQ/IMAGE}, then a target image was taken along with a MIRB image
+of the WCA image. These images were used to determine the AD (Y) and XD (X) offsets of the image target and WCA centroids.
+These values were uploaded in the FSW paramaters. This bootstrapping procedure was repeated with the BOA+MIRA
+and BOA+MIRB \texttt{ACQ/IMAGE} modes until all four \texttt{ACQ/IMAGE} modes were co-aligned.
+
+In the COS TA Monitoring programs described in this ISR, we re-use this bootstrapping strategy to test the co-alignment of all four \texttt{ACQ/IMAGE} modes\footnote{The underlying assumption of these programs is that that the PSA/MIRA \texttt{ACQ/IMAGE}~centering has not changed since SMOV.}.
+In addition to COS calibration programs listed above, and described in detail is \S~\ref{subsec:History}--\ref{subsec:elists},
+COS \tacq{IMAGE} exposures obtained in numerous cycles of the "Focal Plane Calibration (SI-FGS Alignment)" series were used in the COS TA monitoring discussed in this ISR.
+These programs were developed by the HST Telescope's division (PIs Cox and/or Lallo) for Fine Guidance Sensor (FGS) to Science Instrument (SI) alignment, and are described in \S~\ref{subsec:fgs2si}.
+
+All data for a given cycle were intentionally taken contemporaneously to avoid any long-term detector or spacecraft effects from affecting our results.
+Our requirement was that all data for a given program were taken within 45 days of each other.
+There were minor differences in the specific exposures in each cycles TA monitoring program, these are discussed in \S~\ref{subsec:differences}.\\
+@
+
+
+1.2
+log
+@3/28
+@
+text
+@d1 1
+a1 1
+% $Id$
+d5 1
+a5 1
+During the 2009 servicing mission orbital verification (SMOV) phase, a series of C17 calibration programs in NUV imaging mode (P11469, P11473, \& P11471) carefully determined the two-dimensional offset from the COS WCA to the center of the PSA when observed with MIRA.
+d12 1
+a12 1
+In the COS TA Monitoring programs described in this ISR, we re-use this bootstrapping strategy to test the co-alignment of all four \texttt{ACQ/IMAGE} modes.\footnote{The underlying assumption of these programs is that that the PSA/MIRA \texttt{ACQ/IMAGE}~centering has not changed since SMOV.},
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d1 1
+d4 7
+a10 2
+In addition to COS calibration programs listed above, COS exposures obtained in numerous cycles of the "Focal Plane Calibration (SI-FGS Alignment)" series were used  in this ISR.
+These programs were developed by the HST Telescope's division (PI Cox or ????) for Fine Guidance Sensor (FGS) to Science Instrument (SI) alignment, and are described in \S~\ref{subsec:fgs2si}
+d12 4
+a15 2
+This program builds upon the monitoring and calibration of the FGS-to-SI alignment program (P14452 - HST Cycle 23- Focal Plane Calibration (SI-FGS Alignment)).
+P14452 performs back-to-back PSA/MIRRORA and PSA/MIRRORB \texttt{ACQ/IMAGE}s, from which all the results herein are bootstrapped.
+d17 3
+a19 2
+All data with a given program/cycle were intentionally taken contemporaneously to avoid any long-term detector or spacecraft effects from affecting our results.
+Our requirement was that all data for a given program were taken within 60 days of each other.\\
+@

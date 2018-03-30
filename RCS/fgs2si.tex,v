@@ -1,0 +1,130 @@
+head	1.3;
+access;
+symbols;
+locks
+	penton:1.3; strict;
+comment	@% @;
+
+
+1.3
+date	2018.03.29.19.16.24;	author penton;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2018.03.27.18.32.49;	author penton;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2018.03.22.18.08.39;	author penton;	state Exp;
+branches;
+next	;
+
+
+desc
+@FGS2SI
+@
+
+
+1.3
+log
+@updated
+@
+text
+@% $Id: fgs2si.tex,v 1.2 2018/03/27 18:32:49 penton Exp penton $
+\subsection{FGS-to-SI Programs}\label{subsec:fgs2si}
+From C17--C23, an FGS-to-SI program executed with COS visits twice a year. These programs contained COS exposures designed to assist in the monitoring of the COS NUV alignent to HST.
+These programs used the same two target stars with COS in visits spaced six months apart. Both visits observed the astrometric open cluster M35, at orientations that were 180\degree~apart.
+The two stars observed were 206W3 (in the Fall) and 427W3 (in the Spring). Due to time constraints, the exact content of the COS visits in these programs varied from year to year.
+
+However, the COS portion of each program begins with a PSA$\times$MIRA \texttt{ACQ/IMAGE} on a target should be approximately centered due to observations with other instruments earlier in the visit.
+Post-observation telemetry data, an the results of the \texttt{ACQ/IMAGE}, are used to refine this assumption.
+This process verifies the COS NUV PSA aperture position\footnote{Specifically, the \textit{LFPSAA} SIAF entry.} in the SIAF to about 0.5 pixels or (~0.012\arcsec).
+
+After this PSA$\times$MIRA \texttt{ACQ/IMAGE}, a PSA$\times$MIRB \texttt{ACQ/IMAGE} is then performed (together, a ``set'').
+This bootstraps the PSA$\times$MIRB centering to the PSA$\times$MIRA and to the SIAF verification.
+This allows us to monitor the properties of the PSA$\times$MIRB image in a controlled way on a centered target.
+
+The historical list of FGS-to-SI proposals, HST cycles (C\#\#), and content are given in Table~\ref{tab:fgs2si}.
+Where possible, time-tag (TT) images of the lamps and/or targets, along with NUV G230L spectra were acquired.
+
+\begin{deluxetable}{rcl}
+\tabletypesize{\footnotesize}
+\tablecolumns{3}
+\tablecaption{Historical List of FGS-to-SI proposals used for COS TA Monitoring.\label{tab:fgs2si}}
+\tablehead{
+\colhead{PID} & \colhead{Cycle} & \colhead{Summary of Contents}\\
+}
+\startdata
+\pid{11878} & C17 & 2 sets of PSA \texttt{ACQ/IMAGE}s, Target+Lamp TT images, \& G230L Spectra \\
+\pid{12399} & C18 & 2 sets of PSA \texttt{ACQ/IMAGE}s, 1 set of Target+Lamp TT images + G230L Spectrum (427W3) \\
+\pid{12781} & C19 & 2 sets of PSA \texttt{ACQ/IMAGE}s \\
+\pid{13171} & C20 & 2 sets of PSA \texttt{ACQ/IMAGE}s \\
+\pid{13616} & C21 & 2 sets of PSA \texttt{ACQ/IMAGE}s \\
+\pid{14035} & C22 & 2 sets of PSA \texttt{ACQ/IMAGE}s \\
+\pid{14452} & C23 & 2 sets of PSA \texttt{ACQ/IMAGE}s,  with Lamp-Only TT images after each \texttt{ACQ/IMAGE} \\
+\enddata
+\end{deluxetable}
+@
+
+
+1.2
+log
+@3/28
+@
+text
+@d1 1
+a1 1
+% $Id$
+d21 1
+a21 1
+\tablecaption{Historical List of FGS-to-SI proposals used for COS TA Monitoring.\label{ref:fgs2si}}
+d23 1
+a23 1
+\colhead{HST PID} & \colhead{HST Cycle} & \colhead{Contents}\\
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d1 1
+d3 2
+a4 3
+
+From Cycles 17-23, an FGS-to-SI program executed with COS visits twice a year. These programs contained COS exposures designed to assist in the monitoring of the COS NUV alignent to HST.
+These programs used the same two stars with COS in visits spaced six months apart. Both visits observed the astrometric open cluster M35, at orientations that were 180\degree~apart.
+d7 1
+a7 1
+However, the COS portion of each program begins with a PSA+MIRRORA \texttt{ACQ/IMAGE} on a target should be approximately centered due to observations with other instruments earlier in the Visit.
+d9 1
+a9 1
+This process verifies the COS NUV PSA aperture position\footnote{Specifically, the \textit{LFPSAA} entry.} in the SIAF to about 0.5 pixels or (~0.012\arcsec).
+d11 3
+a13 4
+After this PSA+MIRRORA \texttt{ACQ/IMAGE}, a PSA+MIRRORB \texttt{ACQ/IMAGE} is then performed (a ``set'').
+This bootstraps the PSA+MIRRORB centering to the PSA+MIRRORA and to the SIAF verification.
+This allows us to monitor the properties of the PSA+MIRRORB image in a controlled way on a centered target.
+Where possible, time-tag (\textbf{TT}) images of the lamps and/or targets along with NUV G230L
+d15 2
+a16 10
+The historical list of FGS-to-SI proposals, cycles (C), and content were:
+\begin{itemize}
+	\item{11878 (Cycle~17):}{Two sets of PSA \texttt{ACQ/IMAGE}s, Target+Lamp Time-Tag images, \& G230L Spectra}
+	\item{12399 (Cycle~18):}{Two sets of PSA \texttt{ACQ/IMAGE}s, One set of Target+Lamp Time-Tag images (427W3), one G230L Spectrum (427W3)}
+	\item{12781 (Cycle~19):}{Two sets of PSA \texttt{ACQ/IMAGE}s}
+	\item{13171 (Cycle~20):}{Two sets of PSA \texttt{ACQ/IMAGE}s}
+	\item{13616 (Cycle~21):}{Two sets of PSA \texttt{ACQ/IMAGE}s}
+	\item{14035 (Cycle~22):}{Two sets of PSA \texttt{ACQ/IMAGE}s}
+	\item{14452 (Cycle~23):}{Two sets of PSA \texttt{ACQ/IMAGE}s,  with Lamp-Only Time-Tag images after each \texttt{ACQ/IMAGE}}
+\end{itemize}
+d18 17
+a34 4
+This verifies the COS NUV PSA aperture position in the SIAF. After this PSA+MIRRORA \texttt{ACQ/IMAGE}, a PSA+MIRRORB \texttt{ACQ/IMAGE} is then performed.
+This exposure bootstraps the PSA+MIRRORB centering to the PSA+MIRRORA SIAF verification.
+This allows us to monitor the properties of the PSA+MIRRORB image in a controlled way on a centered target.
+No spectra are taken in P14452 due to time constraints, but we are currently planning on adding in PSA/MIRRORA and PSA/MIRRORB lamp images.
+@

@@ -1,11 +1,12 @@
-\begin{deluxetable}{lclcccr}
+% $Id: pctaWCA2SA.tex,v 1.5 2018/03/30 20:22:12 penton Exp $
+\begin{deluxetable}{lrrr}
 %\tablewidth{0pt}
-%\tabcolsep 10pt
-\tabletypesize{\footnotesize}
+\tabcolsep 10 pt
+%\tabletypesize{\footnotesize}
 \tablecolumns{4}
-\tablecaption{\texttt{ACQ/PEAKXD} WCA-to-PSA offsets} \label{tab:wcatopsa}
+\tablecaption{\texttt{ACQ/PEAKXD} WCA-to-PSA offsets \label{tab:wcatopsa}}
 \tablehead{
-\colhead{OPT\_ELEM}&\colhead{LP1}&\colhead{LP2}&\colhead{LP3}\\
+\colhead{\texttt{OPT\_ELEM}}&\colhead{LP1}&\colhead{LP2}&\colhead{LP3}\\
 }
 
 \startdata
@@ -27,5 +28,6 @@ G285M	&	3749	&	\dots	&	\dots \\
 \tablenotetext{f}{Divide the FUV numbers by -10 to get the number of XD rows between the PSA and WCA spectra for a target centered in the aperture.}
 \tablenotetext{n}{Divide the NUV numbers by 10 to get the NUV WCA-to-PSA offset. }
 \tablecomments{The FSW patchable constant \textsc{pcta\_CalTargetOffsetScale} determines the FSW scaling (currently set to 10).
-FUV scalings are "negative" due to parity of HST slews relative to the COS coordinate system.}
+FUV scalings are "negative" due to parity of HST slews relative to the COS coordinate system. {\bf Note to reviewers: Do you think I should keep the numbers in their FSW
+values (not scaled), or should I go ahead and scale them ?}}
 \end{deluxetable}

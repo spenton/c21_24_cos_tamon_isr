@@ -1,10 +1,30 @@
-head	1.1;
+head	1.5;
 access;
 symbols;
 locks
-	penton:1.1; strict;
+	penton:1.5; strict;
 comment	@% @;
 
+
+1.5
+date	2018.03.30.15.20.58;	author penton;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2018.03.29.19.16.24;	author penton;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2018.03.27.18.32.49;	author penton;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2018.03.22.16.46.32;	author penton;	state Exp;
+branches;
+next	1.1;
 
 1.1
 date	2018.03.13.14.43.40;	author penton;	state Exp;
@@ -17,27 +37,65 @@ desc
 @
 
 
-1.1
+1.5
 log
-@Initial revision
+@3/30 update
 @
 text
-@\begin{deluxetable}{|r|r|r|r|r|r|r|r|r|r|r|}
-\tabcolsep 2pt
-\tabletypesize{\tiny}
+@% $Id: NUVspectamonfiles.tex,v 1.4 2018/03/29 19:16:24 penton Exp penton $
+\begin{deluxetable}{rrrrrrrrrrr}
+\tabcolsep 3pt
+\tabletypesize{\scriptsize}
 \tablecolumns{11}
-\tablewidth{0 pt}
-\tablecaption{COS/NUV TA Spectroscopic Monitoring Exposures\label{table:NUVtamonspec}}
+%\tablewidth{5.5 in}
+\tablecaption{COS/NUV TA Spectroscopic Monitoring Exposures\label{tab:NUVtamonspec}}
 \tablehead{
-\colhead{ROOTNAME}&\colhead{PROP}&\colhead{TARGNAME}&
-\colhead{EXPTIME}&\colhead{LAMP}&\colhead{CEN}&
-\colhead{LP}&\colhead{APER}&\colhead{APER}&\colhead{OPT}&\colhead{DATE}\\
-\colhead{}&\colhead{ID}&\colhead{}&
-\colhead{(s)}&\colhead{USED}&\colhead{WAVE}&
-\colhead{}&\colhead{XPOS}&\colhead{YPOS}&\colhead{ELEM}&\colhead{OBS}\\
-
+\colhead{\textit{ROOTNAME}}&\colhead{PID}&\colhead{TARGNAME}&
+\colhead{\textit{EXPTIME}}&\colhead{LAMP}&\colhead{\textit{OPT\_ELEM}}&\colhead{\cenwave}&
+\colhead{LP}&\colhead{\textit{APERXPOS}}&\colhead{\textit{APERYPOS}}&\colhead{\textit{DATE-OBS}}\\
+\colhead{}&\colhead{}&\colhead{}&
+\colhead{(s)}&\colhead{USED}&\colhead{}&
+\colhead{}&\colhead{}&\colhead{}&\colhead{}&\colhead{}
 }
 \startdata
+lcgq01qlq	&	13526	&	WD-1657+343	&	20	&	P2	&	G230L	&	3000	&	1	&	22.1	&	126.1	&	2014-11-19	\\
+lcgq01r6q	&	13526	&	WD-1657+343	&	151	&	P2	&	G285M	&	2850	&	1	&	22.1	&	126.1	&	2014-11-19	\\
+lcgq02i2q	&	13526	&	HIP66578	&	40	&	P2	&	G185M	&	1890	&	1	&	22.1	&	126.1	&	2014-11-17	\\
+lcgq02i4q	&	13526	&	HIP66578	&	52	&	P2	&	G225M	&	2306	&	1	&	22.1	&	126.1	&	2014-11-17	\\
+lcri01ggq	&	13972	&	WD-1657+343	&	20	&	P2	&	G230L	&	3000	&	1	&	22.1	&	126.1	&	2015-10-06	\\
+lcri01giq	&	13972	&	WD-1657+343	&	151	&	P2	&	G285M	&	2676	&	1	&	22.1	&	126.1	&	2015-10-06	\\
+lcri02hoq	&	13972	&	HIP66578	&	52	&	P2	&	G225M	&	2306	&	1	&	22.1	&	126.1	&	2015-10-06	\\
+lcri02hqq	&	13972	&	HIP66578	&	40	&	P2	&	G185M	&	1913	&	1	&	22.1	&	126.1	&	2015-10-06	\\
+ld3701h9q	&	14440	&	WD-1657+343	&	21	&	P2	&	G230L	&	3000	&	1	&	22.1	&	126.1	&	2016-10-18	\\
+ld3701hbq	&	14440	&	WD-1657+343	&	151	&	P2	&	G285M	&	2676	&	1	&	22.1	&	126.1	&	2016-10-18	\\
+ld3702nmq	&	14440	&	HIP66578	&	53	&	P2	&	G225M	&	2306	&	1	&	22.1	&	126.1	&	2016-10-19	\\
+ld3702noq	&	14440	&	HIP66578	&	40	&	P2	&	G185M	&	1913	&	1	&	22.1	&	126.1	&	2016-10-19	\\
+ldozbadxq	&	14857	&	WD-1657+343	&	23	&	P2	&	G230L	&	3000	&	1	&	22.1	&	126.1	&	2017-09-04	\\
+ldozbadzq	&	14857	&	WD-1657+343	&	151	&	P2	&	G285M	&	2676	&	1	&	22.1	&	126.1	&	2017-09-04	\\
+ldozbbluq	&	14857	&	HIP66578	&	53	&	P2	&	G225M	&	2306	&	1	&	22.1	&	126.1	&	2017-09-06	\\
+ldozbblwq	&	14857	&	HIP66578	&	40	&	P2	&	G185M	&	1913	&	1	&	22.1	&	126.1	&	2017-09-06	\\
+\hline
+\enddata
+\tablenotemark{y}{The NUV (LP1) XD location of the aperture (\texttt{APERYPOS}) is 126 in the FSW table \texttt{pcmech\_ApMXDispPosition}.).}
+\tablecomments{All exposures were taken with the PSA at \texttt{FP-POS=3}. All exposures executed at the expected aperture position (\texttt{APERXPOS} \& \texttt{APERYPOS}).}
+\end{deluxetable}
+@
+
+
+1.4
+log
+@updated
+@
+text
+@d1 1
+a1 1
+% $Id: NUVspectamonfiles.tex,v 1.3 2018/03/27 18:32:49 penton Exp penton $
+d10 2
+a11 2
+\colhead{\textit{EXPTIME}}&\colhead{LAMP}&\colhead{\cenwave}&
+\colhead{LP}&\colhead{\textit{APERXPOS}}&\colhead{\textit{APERYPOS}}&\colhead{\textit{OPT\_ELEM}}&\colhead{\textit{DATE-OBS}}\\
+d17 16
+a32 16
 lcgq01qlq	&	13526	&	WD-1657+343	&	20	&	P2	&	3000	&	1	&	22.1	&	126.1	&	G230L	&	2014-11-19	\\
 lcgq01r6q	&	13526	&	WD-1657+343	&	151	&	P2	&	2850	&	1	&	22.1	&	126.1	&	G285M	&	2014-11-19	\\
 lcgq02i2q	&	13526	&	HIP66578	&	40	&	P2	&	1890	&	1	&	22.1	&	126.1	&	G185M	&	2014-11-17	\\
@@ -54,8 +112,61 @@ ldozbadxq	&	14857	&	WD-1657+343	&	23	&	P2	&	3000	&	1	&	22.1	&	126.1	&	G230L	&	20
 ldozbadzq	&	14857	&	WD-1657+343	&	151	&	P2	&	2676	&	1	&	22.1	&	126.1	&	G285M	&	2017-09-04	\\
 ldozbbluq	&	14857	&	HIP66578	&	53	&	P2	&	2306	&	1	&	22.1	&	126.1	&	G225M	&	2017-09-06	\\
 ldozbblwq	&	14857	&	HIP66578	&	40	&	P2	&	1913	&	1	&	22.1	&	126.1	&	G185M	&	2017-09-06	\\
-\hline
-\enddata
+d35 2
+a36 1
+\tablecomments{All exposures were taken with the PSA at \texttt{FP-POS=3}. All exposures executed at the expected aperture positions {\texttt{APERXPOS} \& \texttt{APERYPOS}.}
+@
+
+
+1.3
+log
+@3/28.
+@
+text
+@d1 1
+a1 1
+% $Id$
+d9 1
+a9 1
+\colhead{\textit{IPPPSSOOT}}&\colhead{PID}&\colhead{TARGNAME}&
+d35 1
+a35 1
 \tablecomments{All exposures were taken with the PSA at \texttt{FP-POS}=3.}
-\end{deluxetable}
+@
+
+
+1.2
+log
+@March
+@
+text
+@d1 4
+a4 3
+\begin{deluxetable}{|r|r|r|r|r|r|r|r|r|r|r|}
+\tabcolsep 2pt
+\tabletypesize{\tiny}
+d6 1
+a6 1
+\tablewidth{0 pt}
+d9 6
+a14 6
+\colhead{ROOTNAME}&\colhead{PROP}&\colhead{TARGNAME}&
+\colhead{EXPTIME}&\colhead{LAMP}&\colhead{CEN}&
+\colhead{LP}&\colhead{APER}&\colhead{APER}&\colhead{OPT}&\colhead{DATE}\\
+\colhead{}&\colhead{ID}&\colhead{}&
+\colhead{(s)}&\colhead{USED}&\colhead{WAVE}&
+\colhead{}&\colhead{XPOS}&\colhead{YPOS}&\colhead{ELEM}&\colhead{OBS}\\
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d6 1
+a6 1
+\tablecaption{COS/NUV TA Spectroscopic Monitoring Exposures\label{table:NUVtamonspec}}
+a13 1
+
 @

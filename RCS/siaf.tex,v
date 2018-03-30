@@ -1,0 +1,52 @@
+head	1.2;
+access;
+symbols;
+locks
+	penton:1.2; strict;
+comment	@% @;
+
+
+1.2
+date	2018.03.30.22.12.34;	author penton;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2018.03.30.21.22.16;	author penton;	state Exp;
+branches;
+next	;
+
+
+desc
+@new siaf
+@
+
+
+1.2
+log
+@V0.1
+@
+text
+@\begin{figure}[htb]
+\noindent\includegraphics*[width=0.795\linewidth]{extrasiaf/LP4_SIAF_positions.png}
+\caption[OPTIONAL:SIAF1]{COS SIAF APERTURES \label{fig:SIAF1}.
+{\bf Note to reviewers, sample SIAF figure1} }
+\end{figure}
+\begin{figure}[htb]
+\noindent\includegraphics*[width=0.795\linewidth]{extrasiaf/LP4_SIAF_positions.png}
+\caption[OPTIONAL:SIAF2]{COS SIAF APERTURES \label{fig:SIAF2}.
+{\bf Note to reviewers, sample SIAF figure2} }
+\end{figure}
+\input{extrasiaf/activesiaf.tex}
+\input{extrasiaf/colinsiaf.tex}
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@a0 1
+\section{SIAF}\label{sec:siaf}
+@

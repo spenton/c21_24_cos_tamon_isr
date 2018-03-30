@@ -1,10 +1,35 @@
-head	1.1;
+head	1.6;
 access;
 symbols;
 locks
-	penton:1.1; strict;
+	penton:1.6; strict;
 comment	@% @;
 
+
+1.6
+date	2018.03.30.22.05.03;	author penton;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2018.03.30.15.20.58;	author penton;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2018.03.29.19.16.24;	author penton;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2018.03.27.18.32.49;	author penton;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2018.03.22.16.46.32;	author penton;	state Exp;
+branches;
+next	1.1;
 
 1.1
 date	2018.03.13.14.43.40;	author penton;	state Exp;
@@ -17,27 +42,135 @@ desc
 @
 
 
-1.1
+1.6
 log
-@Initial revision
+@V0.1
 @
 text
-@\begin{deluxetable}{|r|r|r|r|r|r|r|r|r|r|r|}
-\tabcolsep 2pt
-\tabletypesize{\tiny}
+@% $Id: FUVtamonfiles.tex,v 1.5 2018/03/30 15:20:58 penton Exp $
+\begin{deluxetable}{rrrrrrrrrrr}
+\tabcolsep 3 pt
+\tabletypesize{\scriptsize}
 \tablecolumns{11}
-\tablewidth{0 pt}
-\tablecaption{COS/FUV TA Monitoring Exposures\label{table:FUVtamon}}
+%\tablewidth{5 in}
+\tablecaption{COS/FUV TA Monitoring Exposures\label{tab:FUVtamon}}
 \tablehead{
+\colhead{\textit{ROOTNAME}}&\colhead{PROP}&\colhead{TARGNAME}&
+\colhead{\textit{EXPTIME}}&\colhead{LAMP}&\colhead{\cenwave}&
+\colhead{LP}&\colhead{\textit{APERXPOS}}&\colhead{\textit{APERYPOS}}&\colhead{\textit{OPT\_ELEM}}&\colhead{\textit{DATE-OBS}}\\
+\colhead{}&\colhead{ID}&\colhead{}&\colhead{(s)}&\colhead{USED}&\colhead{}&
+\colhead{}&\colhead{}&\colhead{}&\colhead{}&\colhead{}
+}
+\startdata
+lcgq01r8q	&	13526	&	WD-1657+343	&	20	&	P2	&	1309	&	2	&	22.1	&	52.1	&	G130M	&	2014-11-19	\\
+lcgq01r8q	&	13526	&	WD-1657+343	&	20	&	P2	&	1309	&	2	&	22.1	&	52.1	&	G130M	&	2014-11-19	\\
+lcgq01raq	&	13526	&	WD-1657+343	&	7	&	P2	&	1280	&	2	&	22.1	&	52.1	&	G140L	&	2014-11-19	\\
+lcgq01raq	&	13526	&	WD-1657+343	&	7	&	P2	&	1280	&	2	&	22.1	&	52.1	&	G140L	&	2014-11-19	\\
+lcgq02i6q	&	13526	&	HIP66578	&	18	&	P2	&	1600	&	2	&	22.1	&	52.1	&	G160M	&	2014-11-17	\\
+lcgq02i8q	&	13526	&	HIP66578	&	22	&	P2	&	1600	&	2	&	22.1	&	52.1	&	G160M	&	2014-11-17	\\
+lcgq02iaq	&	13526	&	HIP66578	&	22	&	P2	&	1600	&	2	&	22.1	&	52.1	&	G160M	&	2014-11-17	\\
+\hline
+lcri01gkq	&	13972	&	WD-1657+343	&	20	&	P2	&	1309	&	3	&	22.1	&	182.1	&	G130M	&	2015-10-06	\\
+lcri01gkq	&	13972	&	WD-1657+343	&	20	&	P2	&	1309	&	3	&	22.1	&	182.1	&	G130M	&	2015-10-06	\\
+lcri01h6q	&	13972	&	WD-1657+343	&	7	&	P2	&	1280	&	3	&	22.1	&	182.1	&	G140L	&	2015-10-06	\\
+lcri01h6q	&	13972	&	WD-1657+343	&	7	&	P2	&	1280	&	3	&	22.1	&	182.1	&	G140L	&	2015-10-06	\\
+lcri02hsq	&	13972	&	HIP66578	&	22	&	P2	&	1600	&	3	&	22.1	&	182.1	&	G160M	&	2015-10-06	\\
+lcri02huq	&	13972	&	HIP66578	&	25	&	P2	&	1600	&	3	&	22.1	&	182.1	&	G160M	&	2015-10-06	\\
+lcri02hwq	&	13972	&	HIP66578	&	25	&	P2	&	1600	&	3	&	22.1	&	182.1	&	G160M	&	2015-10-06	\\
+ld3701hdq	&	14440	&	WD-1657+343	&	25	&	P2	&	1309	&	3	&	22.1	&	182.1	&	G130M	&	2016-10-18	\\
+ld3701hdq	&	14440	&	WD-1657+343	&	25	&	P2	&	1309	&	3	&	22.1	&	182.1	&	G130M	&	2016-10-18	\\
+ld3701hfq	&	14440	&	WD-1657+343	&	10	&	P2	&	1280	&	3	&	22.1	&	182.1	&	G140L	&	2016-10-18	\\
+ld3701hfq	&	14440	&	WD-1657+343	&	10	&	P2	&	1280	&	3	&	22.1	&	182.1	&	G140L	&	2016-10-18	\\
+ld3702nqq	&	14440	&	HIP66578	&	22	&	P2	&	1600	&	3	&	22.1	&	182.1	&	G160M	&	2016-10-19	\\
+ld3702nsq	&	14440	&	HIP66578	&	25	&	P2	&	1600	&	3	&	22.1	&	182.1	&	G160M	&	2016-10-19	\\
+ld3702nuq	&	14440	&	HIP66578	&	25	&	P2	&	1600	&	3	&	22.1	&	182.1	&	G160M	&	2016-10-19	\\
+ldozbae1q	&	14857	&	WD-1657+343	&	25	&	P2	&	1309	&	3	&	22.1	&	182.1	&	G130M	&	2017-09-04	\\
+ldozbae1q	&	14857	&	WD-1657+343	&	25	&	P2	&	1309	&	3	&	22.1	&	182.1	&	G130M	&	2017-09-04	\\
+ldozbae3q	&	14857	&	WD-1657+343	&	10	&	P2	&	1280	&	3	&	22.1	&	182.1	&	G140L	&	2017-09-04	\\
+ldozbae3q	&	14857	&	WD-1657+343	&	10	&	P2	&	1280	&	3	&	22.1	&	182.1	&	G140L	&	2017-09-04	\\
+ldozbblyq	&	14857	&	HIP66578	&	22	&	P2	&	1600	&	3	&	22.1	&	182.1	&	G160M	&	2017-09-06	\\
+ldozbbm0q	&	14857	&	HIP66578	&	27	&	P2	&	1600	&	3	&	22.1	&	182.1	&	G160M	&	2017-09-06	\\
+ldozbbm2q	&	14857	&	HIP66578	&	27	&	P2	&	1600	&	3	&	22.1	&	182.1	&	G160M	&	2017-09-06	\\
+\hline
+\enddata
+\tablecomments{All exposures were taken with the PSA at \texttt{FP-POS=3}. All exposures executed at the expected aperture positions (\texttt{APERXPOS} \& \texttt{APERYPOS}).}
+\end{deluxetable}
+@
+
+
+1.5
+log
+@3/30 update
+@
+text
+@d1 1
+a1 1
+% $Id: FUVtamonfiles.tex,v 1.4 2018/03/29 19:16:24 penton Exp penton $
+d12 1
+a12 2
+\colhead{}&\colhead{ID}&\colhead{}&
+\colhead{(s)}&\colhead{USED}&\colhead{}&
+@
+
+
+1.4
+log
+@updated
+@
+text
+@d1 1
+a1 1
+% $Id: FUVtamonfiles.tex,v 1.3 2018/03/27 18:32:49 penton Exp penton $
+d14 1
+a14 1
+\colhead{}&\colhead{}&\colhead{}&\colhead{}&\colhead{}\\
+d48 1
+a48 1
+\tablecomments{All exposures were taken with the PSA at \texttt{FP-POS=3}. All exposures executed at the expected aperture positions {\texttt{APERXPOS} \& \texttt{APERYPOS}.}
+@
+
+
+1.3
+log
+@3/28.
+@
+text
+@d1 1
+a1 1
+% $Id$
+d3 1
+a3 1
+%\tabcolsep 3pt
+d9 3
+a11 3
 \colhead{ROOTNAME}&\colhead{PROP}&\colhead{TARGNAME}&
 \colhead{EXPTIME}&\colhead{LAMP}&\colhead{CEN}&
 \colhead{LP}&\colhead{APER}&\colhead{APER}&\colhead{OPT}&\colhead{DATE}\\
-\colhead{}&\colhead{ID}&\colhead{}&
+d13 2
+a14 2
 \colhead{(s)}&\colhead{USED}&\colhead{WAVE}&
 \colhead{}&\colhead{XPOS}&\colhead{YPOS}&\colhead{ELEM}&\colhead{OBS}\\
+d48 1
+a48 1
+\tablecomments{All exposures were taken with the PSA at \texttt{FP-POS=3}.}
+@
 
-}
-\startdata
+
+1.2
+log
+@March
+@
+text
+@d1 4
+a4 3
+\begin{deluxetable}{|r|r|r|r|r|r|r|r|r|r|r|}
+\tabcolsep 2pt
+\tabletypesize{\tiny}
+d6 1
+a6 1
+\tablewidth{0 pt}
+d17 7
+a23 7
 lcgq01r8q	&	13526	&	WD-1657+343	&	20	&	P2	&	1309		&	2	&	22.1	&	52.1	&	G130M	&	2014-11-19	\\
 lcgq01r8q	&	13526	&	WD-1657+343	&	20	&	P2	&	1309		&	2	&	22.1	&	52.1	&	G130M	&	2014-11-19	\\
 lcgq01raq	&	13526	&	WD-1657+343	&	7	&	P2	&	1280		&	2	&	22.1	&	52.1	&	G140L	&	2014-11-19	\\
@@ -45,6 +178,8 @@ lcgq01raq	&	13526	&	WD-1657+343	&	7	&	P2	&	1280		&	2	&	22.1	&	52.1	&	G140L	&	201
 lcgq02i6q	&	13526	&	HIP66578	&	18	&	P2	&	1600		&	2	&	22.1	&	52.1	&	G160M	&	2014-11-17	\\
 lcgq02i8q	&	13526	&	HIP66578	&	22	&	P2	&	1600		&	2	&	22.1	&	52.1	&	G160M	&	2014-11-17	\\
 lcgq02iaq	&	13526	&	HIP66578	&	22	&	P2	&	1600		&	2	&	22.1	&	52.1	&	G160M	&	2014-11-17	\\
+d25 21
+a45 21
 lcri01gkq	&	13972	&	WD-1657+343	&	20	&	P2	&	1309		&	3	&	22.1	&	182.1	&	G130M	&	2015-10-06	\\
 lcri01gkq	&	13972	&	WD-1657+343	&	20	&	P2	&	1309		&	3	&	22.1	&	182.1	&	G130M	&	2015-10-06	\\
 lcri01h6q	&	13972	&	WD-1657+343	&	7	&	P2	&	1280		&	3	&	22.1	&	182.1	&	G140L	&	2015-10-06	\\
@@ -66,9 +201,23 @@ ldozbae3q	&	14857	&	WD-1657+343	&	10	&	P2	&	1280		&	3	&	22.1	&	182.1	&	G140L	&	2
 ldozbblyq	&	14857	&	HIP66578	&	22	&	P2	&	1600		&	3	&	22.1	&	182.1	&	G160M	&	2017-09-06	\\
 ldozbbm0q	&	14857	&	HIP66578	&	27	&	P2	&	1600		&	3	&	22.1	&	182.1	&	G160M	&	2017-09-06	\\
 ldozbbm2q	&	14857	&	HIP66578	&	27	&	P2	&	1600		&	3	&	22.1	&	182.1	&	G160M	&	2017-09-06	\\
-
-\hline
-\enddata
+d48 1
+a48 1
 \tablecomments{All exposures were taken with the PSA at \texttt{FP-POS}=3.}
-\end{deluxetable}
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d6 1
+a6 1
+\tablecaption{COS/FUV TA Monitoring Exposures\label{table:FUVtamon}}
+a13 1
+
+d23 1
+a44 1
+
 @

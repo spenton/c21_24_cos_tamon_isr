@@ -1,0 +1,69 @@
+head	1.1;
+access;
+symbols;
+locks
+	penton:1.1; strict;
+comment	@% @;
+
+
+1.1
+date	2018.03.30.20.22.12;	author penton;	state Exp;
+branches;
+next	;
+
+
+desc
+@FP
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@\subsection{WCA Lamp Images (aka, Lamp Family Portrait) \label{subsec:fportrait} }
+
+The four panels of Figures~\ref{fig:C21}--\ref{fig:C24} show a `family portrait' of the available COS PtNe Lamp (P1 or P2) + MIRROR (MIRA or MIRB)
+combinations possible with \tacq{IMAGE}.
+Panel titles give the lamp and mirror combination, along with the current setting (in milli-amps, mA) and the exposure times.
+The images and subarrays are in `detector' coordinates, as used on-board COS.
+The images show the observed counts/pixel/s (cps) as given by the colorbar on the bottom.
+The \textcolor{red}{red} dashed boxes show the given cycles' \tacq{IMAGE} WCA subarrays. At the top of the subarrays, text provides the count rate in the brightest pixel (BP) in units of counts per second per NUV MAMA pixel (cps).
+The \textcolor{blue}{blue} histogram on the bottom edge shows the cross-dispersion (XD) lamp profile in detector `X' coordinates, while
+the \textcolor{green}{green} histogram on the left edge shows the along-dispersion (AD) lamp profile in detector `Y' coordinates.
+The cross-hairs show the median location of the given configurations' lamp events within the TA subarray.
+PtNe\#2 (P2) lamp was used for all \tacq{IMAGE}s during C21-24, and was operated at LOW current (6~mA) for the using MIRA images
+and LOW current (3~mA) or MEDium current (10~mA) for the MIRB, depending on the Cycle. Note the separate MIRB images in about a 2:1 ratio, and the asymmetric
+(toward -XD) scattered light.
+
+\begin{figure}[htb]
+\noindent\includegraphics[width=0.9\linewidth]{png/C21_13526_FP.png}
+\caption[C21 WCA Lamp `Family Portrait']{Cycle~21 (\pid{13526} PtNe Lamp `Family Portrait'
+Counts per second per pixel (cps) NUV images of the internal PtNe lamps (P1 \& P2) through the
+WCA using either MIRRORA (MIRA, left 2 panels) or MIRRORB (MIRB, right 2 panels). The titles
+give the exposure \texttt{ROOTNAME}, configuration, exposure time and lamp current. Cross hairs show median locations and dashed
+lines show the \texttt{LTAIMCAL} TA subarrays.
+The insert text gives the Brightest Pixel (BP) in cps and the total counts in the subarray.
+AD and XD profiles are given along each axis, and the color bar at the
+bottom applies to all four images. Note the separate MIRB images in about a 2:1 ratio, and the asymmetric
+(toward -XD) scattered light. All panels are in detector (DET) coordinates.\label{fig:FG21}}
+\end{figure}
+
+\begin{figure}[htb]
+\noindent\includegraphics*[width=0.9\linewidth]{png/C22_13972_FP.png}
+\caption[C22 WCA Lamp `Family Portrait']{Cycle~22 PtNe Lamp `Family Portrait' (see Fig~\ref{fig:FG21}). \label{fig:FG22}}
+\end{figure}
+
+\begin{figure}[htb]
+\noindent\includegraphics*[width=0.9\linewidth]{png/C23_14440_FP.png}
+\caption[C23 WCA Lamp `Family Portrait']{Cycle~23 PtNe Lamp `Family Portrait' (see Fig~\ref{fig:FG21}).\label{fig:FG23}}
+\end{figure}
+
+\begin{figure}[htb]
+\noindent\includegraphics*[width=0.9\linewidth]{png/C24_14857_FP.png}
+\caption[C24 WCA Lamp `Family Portrait']{Cycle~24 PtNe Lamp `Family Portrait' (see Fig~\ref{fig:FG21}).\label{fig:FG24}}
+\end{figure}
+
+{\bf Note to reviewers: Placeholder text alert for possible further analysis to be added. Most of it overlaps with the subarray section, so $\dots$}
+@

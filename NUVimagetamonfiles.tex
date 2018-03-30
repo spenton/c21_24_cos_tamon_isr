@@ -1,132 +1,178 @@
-\startlongtable
+% $Id: NUVimagetamonfiles.tex,v 1.4 2018/03/30 15:20:58 penton Exp $
 \begin{deluxetable}{rrrrrrrrrrrrr}
-\tabcolsep 2pt
+\tabcolsep 4 pt
 \tabletypesize{\tiny}
 \tablecolumns{13}
 %\tablewidth{0 pt}
 \tablecaption{COS/NUV TA Monitoring Imaging Exposures\label{tab:NUVtamonimage}}
 \tablehead{
-\colhead{ROOTNAME}&\colhead{PROP}&\colhead{TARGNAME}&\colhead{OBS} &\colhead{EXP}   &\colhead{EXP}  &\colhead{PtNe}&\colhead{Lamp}   &\colhead{APERTURE}&\colhead{APERXPOS}&\colhead{APERYPOS}&\colhead{OPT\_}&\colhead{DATE}\\
-\colhead{}        &\colhead{ID}  &\colhead{}        &\colhead{MODE}&\colhead{TYPE}&\colhead{TIME(s)}&\colhead{Lamp}&\colhead{Current}&\colhead{}&\colhead{}&\colhead{ }&\colhead{ELEM}&\colhead{OBS}
+\colhead{\textit{ROOTNAME}}&\colhead{PROP}&\colhead{TARGNAME}&\colhead{\textit{OBSMODE}\tablenotemark{t}} &\colhead{\textit{EXPTYPE}}   &\colhead{\textit{EXPTIME}}  &\colhead{PtNe}&\colhead{Lamp}   &\colhead{\textit{APERTURE}}&\colhead{\textit{APERXPOS\tablenotemark{x}}}&\colhead{\textit{APERYPOS}\tablenotemark{y}}&\colhead{\textit{OPT\_ELEM}}&\colhead{\textit{DATE-OBS}}\\
+\colhead{}                 &\colhead{ID}  &\colhead{}        &\colhead{}&\colhead{}&\colhead{(s)}&\colhead{Lamp \#}&\colhead{Current\tablenotemark{c}}&\colhead{}&\colhead{}&\colhead{ }&\colhead{}&\colhead{}
+\colhead{(1)}&\colhead{(2)} &
+\colhead{(3)}&\colhead{(4)} &
+\colhead{(5)}&\colhead{(6)} &
+\colhead{(7)}&\colhead{(8)} &
+\colhead{(9)}&\colhead{(10)} &
+\colhead{(11)} &\colhead{(12)} &
+\colhead{(13)}
 }
 \startdata
 \hline
-lc6ka1i1q	&	13171	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRRORA	&	2013-03-02	\\
-lc6ka1i3q	&	13171	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRRORB	&	2013-03-02	\\
-lc6ka2imq	&	13171	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRRORA	&	2013-09-01	\\
-lc6ka2ioq	&	13171	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRRORB	&	2013-09-01	\\
-lcgp01bpq	&	13523	&	WAVE	&	TT	&	WAVECAL	&	40	&	P2	&	Low	&	WCA	&	22.1	&	127.1	&	MIRRORB	&	2013-11-11	\\
-lcgp01bsq	&	13523	&	WAVE	&	TT	&	WAVECAL	&	40	&	P1	&	Low	&	WCA	&	22.1	&	127.1	&	MIRRORB	&	2013-11-11	\\
-lcgp01byq	&	13523	&	WAVE	&	TT	&	WAVECAL	&	20	&	P2	&	Low	&	WCA	&	22.1	&	127.1	&	MIRRORA	&	2013-11-11	\\
-lcgp01c3q	&	13523	&	WAVE	&	TT	&	WAVECAL	&	20	&	P1	&	Low	&	WCA	&	22.1	&	127.1	&	MIRRORA	&	2013-11-11	\\
-lci4a1dcq	&	13616	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRRORA	&	2014-04-03	\\
-lci4a1deq	&	13616	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRRORB	&	2014-04-03	\\
-lci4a2e3q	&	13616	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRRORA	&	2014-10-27	\\
-lci4a2e5q	&	13616	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	P2	&	Med	&	PSA	&	22.1	&	127.1	&	MIRRORB	&	2014-10-27	\\
-lcgq01q5q	&	13526	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	12	&	P2	&	Med	&	PSA	&	22.1	&	127.1	&	MIRRORB	&	2014-11-19	\\
-lcgq01q7q	&	13526	&	WD-1657+343	&	TT	&	EXT/SCI	&	16	&	P2	&	Med	&	PSA	&	22.1	&	127.1	&	MIRRORB	&	2014-11-19	\\
-lcgq01q9q	&	13526	&	WD-1657+343	&	TT	&	EXT/SCI	&	150	&	P2	&	Med	&	BOA	&	22.1	&	-153.1	&	MIRRORA	&	2014-11-19	\\
-lcgq01qbq	&	13526	&	WAVE	&	TT	&	WAVECAL	&	7	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRRORA	&	2014-11-19	\\
-lcgq01qdq	&	13526	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	150	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRRORA	&	2014-11-19	\\
-lcgq01qfq	&	13526	&	WAVE	&	TT	&	WAVECAL	&	7	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRRORA	&	2014-11-19	\\
-lcgq01qhq	&	13526	&	WD-1657+343	&	TT	&	EXT/SCI	&	12	&	P2	&	Med	&	PSA	&	22.1	&	126.1	&	MIRRORB	&	2014-11-19	\\
-lcgq01qjq	&	13526	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	12	&	P2	&	Med	&	PSA	&	22.1	&	126.1	&	MIRRORB	&	2014-11-19	\\
-lcgq02hmq	&	13526	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	12	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRRORA	&	2014-11-17	\\
-lcgq02hoq	&	13526	&	WAVE	&	TT	&	WAVECAL	&	7	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRRORA	&	2014-11-17	\\
-lcgq02hqq	&	13526	&	HIP66578	&	TT	&	EXT/SCI	&	181	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRRORB	&	2014-11-17	\\
-lcgq02hsq	&	13526	&	WAVE	&	TT	&	WAVECAL	&	12	&	P2	&	Med	&	WCA	&	22.1	&	126.1	&	MIRRORB	&	2014-11-17	\\
-lcgq02huq	&	13526	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	181	&	P2	&	Med	&	BOA	&	22.1	&	-153.1	&	MIRRORB	&	2014-11-17	\\
-lcgq02hwq	&	13526	&	WAVE	&	TT	&	WAVECAL	&	12	&	P2	&	Med	&	WCA	&	22.1	&	126.1	&	MIRRORB	&	2014-11-17	\\
-lcgq02hyq	&	13526	&	WAVE	&	TT	&	WAVECAL	&	10	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRRORA	&	2014-11-17	\\
-lcgq02i0q	&	13526	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	12	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRRORA	&	2014-11-17	\\
-lcgq02icq	&	13526	&	WAVE	&	TT	&	WAVECAL	&	10	&	P1	&	Low	&	WCA	&	22.1	&	127.1	&	MIRRORA	&	2014-11-17	\\
-lcgq02ieq	&	13526	&	WAVE	&	TT	&	WAVECAL	&	10	&	P2	&	Low	&	WCA	&	22.1	&	127.1	&	MIRRORA	&	2014-11-17	\\
-lcgq02igq	&	13526	&	WAVE	&	TT	&	WAVECAL	&	30	&	P1	&	Low	&	WCA	&	22.1	&	127.1	&	MIRRORB	&	2014-11-17	\\
-lcgq02iiq	&	13526	&	WAVE	&	TT	&	WAVECAL	&	20	&	P2	&	Med	&	WCA	&	22.1	&	127.1	&	MIRRORB	&	2014-11-17	\\
-lcgq03dbq	&	13526	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	15	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRRORA	&	2014-10-06	\\
-lcgq03ddq	&	13526	&	206W3	&	TT	&	EXT/SCI	&	15	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRRORA	&	2014-10-06	\\
-lcgq03dfq	&	13526	&	206W3	&	TT	&	EXT/SCI	&	160	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRRORB	&	2014-10-06	\\
-lcgq03dhq	&	13526	&	206W3	&	TT	&	EXT/SCI	&	180	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRRORB	&	2014-10-06	\\
-lcgq03djq	&	13526	&	206W3	&	TT	&	EXT/SCI	&	180	&	P2	&	Med	&	PSA	&	22.1	&	127.1	&	MIRRORB	&	2014-10-06	\\
-lcgq03dlq	&	13526	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	160	&	P2	&	Med	&	PSA	&	22.1	&	127.1	&	MIRRORB	&	2014-10-06	\\
-lcgq03dnq	&	13526	&	206W3	&	TT	&	EXT/SCI	&	180	&	P2	&	Med	&	PSA	&	22.1	&	127.1	&	MIRRORB	&	2014-10-06	\\
-lcgq03dpq	&	13526	&	206W3	&	TT	&	EXT/SCI	&	160	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRRORB	&	2014-10-06	\\
-lcgq03drq	&	13526	&	206W3	&	TT	&	EXT/SCI	&	12	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRRORA	&	2014-10-06	\\
-lcgq03dtq	&	13526	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	12	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRRORA	&	2014-10-06	\\
-lcri01fzq	&	13972	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	12	&	P2	&	Med	&	PSA	&	22.1	&	125.1	&	MIRRORB	&	2015-10-06	\\
-lcri01g1q	&	13972	&	WD-1657+343	&	TT	&	EXT/SCI	&	12	&	P2	&	Med	&	PSA	&	22.1	&	125.1	&	MIRRORB	&	2015-10-06	\\
-lcri01g3q	&	13972	&	WD-1657+343	&	TT	&	EXT/SCI	&	150	&	P2	&	Med	&	BOA	&	22.1	&	-153.1	&	MIRRORA	&	2015-10-06	\\
-lcri01g5q	&	13972	&	WAVE	&	TT	&	WAVECAL	&	10	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRRORA	&	2015-10-06	\\
-lcri01g7q	&	13972	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	150	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRRORA	&	2015-10-06	\\
-lcri01g9q	&	13972	&	WAVE	&	TT	&	WAVECAL	&	10	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRRORA	&	2015-10-06	\\
-lcri01gcq	&	13972	&	WD-1657+343	&	TT	&	EXT/SCI	&	14	&	P2	&	Med	&	PSA	&	22.1	&	126.1	&	MIRRORB	&	2015-10-06	\\
-lcri01geq	&	13972	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	12	&	P2	&	Med	&	PSA	&	22.1	&	126.1	&	MIRRORB	&	2015-10-06	\\
-lcri02h8q	&	13972	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	12	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRRORA	&	2015-10-06	\\
-lcri02haq	&	13972	&	WAVE	&	TT	&	WAVECAL	&	14	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRRORA	&	2015-10-06	\\
-lcri02hcq	&	13972	&	HIP66578	&	TT	&	EXT/SCI	&	181	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRRORB	&	2015-10-06	\\
-lcri02heq	&	13972	&	WAVE	&	TT	&	WAVECAL	&	24	&	P2	&	Med	&	WCA	&	22.1	&	126.1	&	MIRRORB	&	2015-10-06	\\
-lcri02hgq	&	13972	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	181	&	P2	&	Med	&	BOA	&	22.1	&	-153.1	&	MIRRORB	&	2015-10-06	\\
-lcri02hiq	&	13972	&	WAVE	&	TT	&	WAVECAL	&	24	&	P2	&	Med	&	WCA	&	22.1	&	126.1	&	MIRRORB	&	2015-10-06	\\
-lcri02hkq	&	13972	&	WAVE	&	TT	&	WAVECAL	&	14	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRRORA	&	2015-10-06	\\
-lcri02hmq	&	13972	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	12	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRRORA	&	2015-10-06	\\
-lcri02hyq	&	13972	&	WAVE	&	TT	&	WAVECAL	&	14	&	P1	&	Low	&	WCA	&	22.1	&	125.1	&	MIRRORA	&	2015-10-06	\\
-lcri02i0q	&	13972	&	WAVE	&	TT	&	WAVECAL	&	24	&	P2	&	Low	&	WCA	&	22.1	&	125.1	&	MIRRORA	&	2015-10-06	\\
-lcri02i2q	&	13972	&	WAVE	&	TT	&	WAVECAL	&	30	&	P1	&	Low	&	WCA	&	22.1	&	125.1	&	MIRRORB	&	2015-10-06	\\
-lcri02i4q	&	13972	&	WAVE	&	TT	&	WAVECAL	&	24	&	P2	&	Med	&	WCA	&	22.1	&	125.1	&	MIRRORB	&	2015-10-06	\\
-lcsla1i4q	&	14035	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	P2	&	Low	&	PSA	&	22.1	&	125.1	&	MIRRORA	&	2015-04-14	\\
-lcsla1i6q	&	14035	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	P2	&	Med	&	PSA	&	22.1	&	125.1	&	MIRRORB	&	2015-04-14	\\
-lcsla2bhq	&	14035	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	P2	&	Low	&	PSA	&	22.1	&	125.1	&	MIRRORA	&	2015-10-02	\\
-lcsla2bjq	&	14035	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	P2	&	Med	&	PSA	&	22.1	&	125.1	&	MIRRORB	&	2015-10-02	\\
-ld3701gtq	&	14440	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	13	&	P2	&	Med	&	PSA	&	22.1	&	125.1	&	MIRRORB	&	2016-10-18	\\
-ld3701gvq	&	14440	&	WD-1657+343	&	TT	&	EXT/SCI	&	16	&	P2	&	Med	&	PSA	&	22.1	&	125.1	&	MIRRORB	&	2016-10-18	\\
-ld3701gxq	&	14440	&	WD-1657+343	&	TT	&	EXT/SCI	&	150	&	P2	&	Med	&	BOA	&	22.1	&	-153.1	&	MIRRORA	&	2016-10-18	\\
-ld3701gzq	&	14440	&	WAVE	&	TT	&	WAVECAL	&	9	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRRORA	&	2016-10-18	\\
-ld3701h1q	&	14440	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	150	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRRORA	&	2016-10-18	\\
-ld3701h3q	&	14440	&	WAVE	&	TT	&	WAVECAL	&	10	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRRORA	&	2016-10-18	\\
-ld3701h5q	&	14440	&	WD-1657+343	&	TT	&	EXT/SCI	&	16	&	P2	&	Med	&	PSA	&	22.1	&	126.1	&	MIRRORB	&	2016-10-18	\\
-ld3701h7q	&	14440	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	13	&	P2	&	Med	&	PSA	&	22.1	&	126.1	&	MIRRORB	&	2016-10-18	\\
-ld3702mzq&	14440	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	16	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRRORA	&	2016-10-19	\\
-ld3702n1q	&	14440	&	WAVE	&	TT	&	WAVECAL	&	14	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRRORA	&	2016-10-19	\\
-ld3702n4q	&	14440	&	HIP66578	&	TT	&	EXT/SCI	&	183	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRRORB	&	2016-10-19	\\
-ld3702n7q	&	14440	&	WAVE	&	TT	&	WAVECAL	&	24	&	P2	&	Med	&	WCA	&	22.1	&	126.1	&	MIRRORB	&	2016-10-19	\\
-ld3702n9q	&	14440	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	183	&	P2	&	Med	&	BOA	&	22.1	&	-153.1	&	MIRRORB	&	2016-10-19	\\
-ld3702nbq	&	14440	&	WAVE	&	TT	&	WAVECAL	&	24	&	P2	&	Med	&	WCA	&	22.1	&	126.1	&	MIRRORB	&	2016-10-19	\\
-ld3702neq	&	14440	&	WAVE	&	TT	&	WAVECAL	&	14	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRRORA	&	2016-10-19	\\
-ld3702nhq	&	14440	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	16	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRRORA	&	2016-10-19	\\
-ld3702o1q	&	14440	&	WAVE	&	TT	&	WAVECAL	&	14	&	P1	&	Low	&	WCA	&	22.1	&	125.1	&	MIRRORA	&	2016-10-19	\\
-ld3702o3q	&	14440	&	WAVE	&	TT	&	WAVECAL	&	24	&	P2	&	Low	&	WCA	&	22.1	&	125.1	&	MIRRORA	&	2016-10-19	\\
-ld3702o5q	&	14440	&	WAVE	&	TT	&	WAVECAL	&	30	&	P1	&	Low	&	WCA	&	22.1	&	125.1	&	MIRRORB	&	2016-10-19	\\
-ld3702o7q	&	14440	&	WAVE	&	TT	&	WAVECAL	&	24	&	P2	&	Med	&	WCA	&	22.1	&	125.1	&	MIRRORB	&	2016-10-19	\\
-ldozbadhq	&	14857	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	13	&	P2	&	Med	&	PSA	&	22.1	&	125.1	&	MIRRORB	&	2017-09-04	\\
-ldozbadjs	&	14857	&	WD-1657+343	&	TT	&	EXT/SCI	&	16	&	P2	&	Med	&	PSA	&	22.1	&	125.1	&	MIRRORB	&	2017-09-04	\\
-ldozbadlq	&	14857	&	WD-1657+343	&	TT	&	EXT/SCI	&	150	&	P2	&	Med	&	BOA	&	22.1	&	-153.1	&	MIRRORA	&	2017-09-04	\\
-ldozbadnq	&	14857	&	WAVE	&	TT	&	WAVECAL	&	9	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRRORA	&	2017-09-04	\\
-ldozbadpq	&	14857	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	150	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRRORA	&	2017-09-04	\\
-ldozbadrq	&	14857	&	WAVE	&	TT	&	WAVECAL	&	10	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRRORA	&	2017-09-04	\\
-ldozbadtq	&	14857	&	WD-1657+343	&	TT	&	EXT/SCI	&	16	&	P2	&	Med	&	PSA	&	22.1	&	126.1	&	MIRRORB	&	2017-09-04	\\
-ldozbadvq	&	14857	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	13	&	P2	&	Med	&	PSA	&	22.1	&	126.1	&	MIRRORB	&	2017-09-04	\\
-ldozbbleq	&	14857	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	16	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRRORA	&	2017-09-06	\\
-ldozbblgq	&	14857	&	WAVE	&	TT	&	WAVECAL	&	14	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRRORA	&	2017-09-06	\\
-ldozbbliq	&	14857	&	HIP66578	&	TT	&	EXT/SCI	&	183	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRRORB	&	2017-09-06	\\
-ldozbblkq	&	14857	&	WAVE	&	TT	&	WAVECAL	&	24	&	P2	&	Med	&	WCA	&	22.1	&	126.1	&	MIRRORB	&	2017-09-06	\\
-ldozbblmq	&	14857	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	183	&	P2	&	Med	&	BOA	&	22.1	&	-153.1	&	MIRRORB	&	2017-09-06	\\
-ldozbbloq	&	14857	&	WAVE	&	TT	&	WAVECAL	&	24	&	P2	&	Med	&	WCA	&	22.1	&	126.1	&	MIRRORB	&	2017-09-06	\\
-ldozbblqq	&	14857	&	WAVE	&	TT	&	WAVECAL	&	14	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRRORA	&	2017-09-06	\\
-ldozbblsq	&	14857	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	16	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRRORA	&	2017-09-06	\\
-ldozbbm4q&	14857	&	WAVE	&	TT	&	WAVECAL	&	16	&	P1	&	Low	&	WCA	&	22.1	&	125.1	&	MIRRORA	&	2017-09-06	\\
-ldozbbm6q&	14857	&	WAVE	&	TT	&	WAVECAL	&	26	&	P2	&	Low	&	WCA	&	22.1	&	125.1	&	MIRRORA	&	2017-09-06	\\
-ldozbbm8q&	14857	&	WAVE	&	TT	&	WAVECAL	&	32	&	P1	&	Low	&	WCA	&	22.1	&	125.1	&	MIRRORB	&	2017-09-06	\\
-ldozbbmaq&	14857	&	WAVE	&	TT	&	WAVECAL	&	26	&	P2	&	Med	&	WCA	&	22.1	&	125.1	&	MIRRORB	&	2017-09-06	\\
-ldozpbf5q	&	14857	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	20	&	P2	&	Low	&	PSA	&	22.1	&	125.1	&	MIRRORA	&	2017-09-10	\\
-ldozpbf7q	&	14857	&	206W3	&	TT	&	EXT/SCI	&	20	&	P2	&	Low	&	PSA	&	22.1	&	125.1	&	MIRRORA	&	2017-09-10	\\
-ldozpbf9q	&	14857	&	206W3	&	TT	&	EXT/SCI	&	220	&	P2	&	Med	&	PSA	&	22.1	&	125.1	&	MIRRORB	&	2017-09-10	\\
-ldozpbfbq	&	14857	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	220	&	P2	&	Med	&	PSA	&	22.1	&	125.1	&	MIRRORB	&	2017-09-10	\\
-ldozpbfdq	&	14857	&	206W3	&	TT	&	EXT/SCI	&	220	&	P2	&	Med	&	PSA	&	22.1	&	125.1	&	MIRRORB	&	2017-09-10	\\
-ldozpbffq	&	14857	&	206W3	&	TT	&	EXT/SCI	&	20	&	P2	&	Low	&	PSA	&	22.1	&	125.1	&	MIRRORA	&	2017-09-10	\\
-ldozpbfhq	&	14857	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	20	&	P2	&	Low	&	PSA	&	22.1	&	125.1	&	MIRRORA	&	2017-09-10	\\
+lc6ka1i1q	&	13171	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRA	&	2013-03-02	\\
+lc6ka1i3q	&	13171	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRB	&	2013-03-02	\\
+lc6ka2imq	&	13171	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRA	&	2013-09-01	\\
+lc6ka2ioq	&	13171	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRB	&	2013-09-01	\\
+lcgp01bpq	&	13523	&	WAVE	&	TT	&	WAVECAL	&	40	&	P2	&	Low	&	WCA	&	22.1	&	127.1	&	MIRB	&	2013-11-11	\\
+lcgp01bsq	&	13523	&	WAVE	&	TT	&	WAVECAL	&	40	&	P1	&	Low	&	WCA	&	22.1	&	127.1	&	MIRB	&	2013-11-11	\\
+lcgp01byq	&	13523	&	WAVE	&	TT	&	WAVECAL	&	20	&	P2	&	Low	&	WCA	&	22.1	&	127.1	&	MIRA	&	2013-11-11	\\
+lcgp01c3q	&	13523	&	WAVE	&	TT	&	WAVECAL	&	20	&	P1	&	Low	&	WCA	&	22.1	&	127.1	&	MIRA	&	2013-11-11	\\
+lci4a1dcq	&	13616	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRA	&	2014-04-03	\\
+lci4a1deq	&	13616	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRB	&	2014-04-03	\\
+lci4a2e3q	&	13616	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRA	&	2014-10-27	\\
+lci4a2e5q	&	13616	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	P2	&	Med	&	PSA	&	22.1	&	127.1	&	MIRB	&	2014-10-27	\\
+lcgq01q5q	&	13526	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	12	&	P2	&	Med	&	PSA	&	22.1	&	127.1	&	MIRB	&	2014-11-19	\\
+lcgq01q7q	&	13526	&	WD-1657+343	&	TT	&	EXT/SCI	&	16	&	P2	&	Med	&	PSA	&	22.1	&	127.1	&	MIRB	&	2014-11-19	\\
+lcgq01q9q	&	13526	&	WD-1657+343	&	TT	&	EXT/SCI	&	150	&	P2	&	Med	&	BOA	&	22.1	&	-153.1	&	MIRA	&	2014-11-19	\\
+lcgq01qbq	&	13526	&	WAVE	&	TT	&	WAVECAL	&	7	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRA	&	2014-11-19	\\
+lcgq01qdq	&	13526	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	150	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRA	&	2014-11-19	\\
+lcgq01qfq	&	13526	&	WAVE	&	TT	&	WAVECAL	&	7	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRA	&	2014-11-19	\\
+lcgq01qhq	&	13526	&	WD-1657+343	&	TT	&	EXT/SCI	&	12	&	P2	&	Med	&	PSA	&	22.1	&	126.1	&	MIRB	&	2014-11-19	\\
+lcgq01qjq	&	13526	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	12	&	P2	&	Med	&	PSA	&	22.1	&	126.1	&	MIRB	&	2014-11-19	\\
+lcgq02hmq	&	13526	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	12	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRA	&	2014-11-17	\\
+lcgq02hoq	&	13526	&	WAVE	&	TT	&	WAVECAL	&	7	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRA	&	2014-11-17	\\
+lcgq02hqq	&	13526	&	HIP66578	&	TT	&	EXT/SCI	&	181	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRB	&	2014-11-17	\\
+lcgq02hsq	&	13526	&	WAVE	&	TT	&	WAVECAL	&	12	&	P2	&	Med	&	WCA	&	22.1	&	126.1	&	MIRB	&	2014-11-17	\\
+lcgq02huq	&	13526	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	181	&	P2	&	Med	&	BOA	&	22.1	&	-153.1	&	MIRB	&	2014-11-17	\\
+lcgq02hwq	&	13526	&	WAVE	&	TT	&	WAVECAL	&	12	&	P2	&	Med	&	WCA	&	22.1	&	126.1	&	MIRB	&	2014-11-17	\\
+lcgq02hyq	&	13526	&	WAVE	&	TT	&	WAVECAL	&	10	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRA	&	2014-11-17	\\
+lcgq02i0q	&	13526	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	12	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRA	&	2014-11-17	\\
+lcgq02icq	&	13526	&	WAVE	&	TT	&	WAVECAL	&	10	&	P1	&	Low	&	WCA	&	22.1	&	127.1	&	MIRA	&	2014-11-17	\\
+lcgq02ieq	&	13526	&	WAVE	&	TT	&	WAVECAL	&	10	&	P2	&	Low	&	WCA	&	22.1	&	127.1	&	MIRA	&	2014-11-17	\\
+lcgq02igq	&	13526	&	WAVE	&	TT	&	WAVECAL	&	30	&	P1	&	Low	&	WCA	&	22.1	&	127.1	&	MIRB	&	2014-11-17	\\
+lcgq02iiq	&	13526	&	WAVE	&	TT	&	WAVECAL	&	20	&	P2	&	Med	&	WCA	&	22.1	&	127.1	&	MIRB	&	2014-11-17	\\
+lcgq03dbq	&	13526	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	15	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRA	&	2014-10-06	\\
+lcgq03ddq	&	13526	&	206W3	&	TT	&	EXT/SCI	&	15	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRA	&	2014-10-06	\\
+lcgq03dfq	&	13526	&	206W3	&	TT	&	EXT/SCI	&	160	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRB	&	2014-10-06	\\
+lcgq03dhq	&	13526	&	206W3	&	TT	&	EXT/SCI	&	180	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRB	&	2014-10-06	\\
+lcgq03djq	&	13526	&	206W3	&	TT	&	EXT/SCI	&	180	&	P2	&	Med	&	PSA	&	22.1	&	127.1	&	MIRB	&	2014-10-06	\\
+lcgq03dlq	&	13526	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	160	&	P2	&	Med	&	PSA	&	22.1	&	127.1	&	MIRB	&	2014-10-06	\\
+lcgq03dnq	&	13526	&	206W3	&	TT	&	EXT/SCI	&	180	&	P2	&	Med	&	PSA	&	22.1	&	127.1	&	MIRB	&	2014-10-06	\\
+lcgq03dpq	&	13526	&	206W3	&	TT	&	EXT/SCI	&	160	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRB	&	2014-10-06	\\
+lcgq03drq	&	13526	&	206W3	&	TT	&	EXT/SCI	&	12	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRA	&	2014-10-06	\\
+lcgq03dtq	&	13526	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	12	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRA	&	2014-10-06	\\
+lcri01fzq	&	13972	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	12	&	P2	&	Med	&	PSA	&	22.1	&	125.1	&	MIRB	&	2015-10-06	\\
+lcri01g1q	&	13972	&	WD-1657+343	&	TT	&	EXT/SCI	&	12	&	P2	&	Med	&	PSA	&	22.1	&	125.1	&	MIRB	&	2015-10-06	\\
+lcri01g3q	&	13972	&	WD-1657+343	&	TT	&	EXT/SCI	&	150	&	P2	&	Med	&	BOA	&	22.1	&	-153.1	&	MIRA	&	2015-10-06	\\
+lcri01g5q	&	13972	&	WAVE	&	TT	&	WAVECAL	&	10	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRA	&	2015-10-06	\\
+lcri01g7q	&	13972	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	150	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRA	&	2015-10-06	\\
+lcri01g9q	&	13972	&	WAVE	&	TT	&	WAVECAL	&	10	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRA	&	2015-10-06	\\
+lcri01gcq	&	13972	&	WD-1657+343	&	TT	&	EXT/SCI	&	14	&	P2	&	Med	&	PSA	&	22.1	&	126.1	&	MIRB	&	2015-10-06	\\
+lcri01geq	&	13972	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	12	&	P2	&	Med	&	PSA	&	22.1	&	126.1	&	MIRB	&	2015-10-06	\\
+lcri02h8q	&	13972	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	12	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRA	&	2015-10-06	\\
+lcri02haq	&	13972	&	WAVE	&	TT	&	WAVECAL	&	14	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRA	&	2015-10-06	\\
+lcri02hcq	&	13972	&	HIP66578	&	TT	&	EXT/SCI	&	181	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRB	&	2015-10-06	\\
+lcri02heq	&	13972	&	WAVE	&	TT	&	WAVECAL	&	24	&	P2	&	Med	&	WCA	&	22.1	&	126.1	&	MIRB	&	2015-10-06	\\
+lcri02hgq	&	13972	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	181	&	P2	&	Med	&	BOA	&	22.1	&	-153.1	&	MIRB	&	2015-10-06	\\
+lcri02hiq	&	13972	&	WAVE	&	TT	&	WAVECAL	&	24	&	P2	&	Med	&	WCA	&	22.1	&	126.1	&	MIRB	&	2015-10-06	\\
+lcri02hkq	&	13972	&	WAVE	&	TT	&	WAVECAL	&	14	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRA	&	2015-10-06	\\
+lcri02hmq	&	13972	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	12	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRA	&	2015-10-06	\\
+lcri02hyq	&	13972	&	WAVE	&	TT	&	WAVECAL	&	14	&	P1	&	Low	&	WCA	&	22.1	&	125.1	&	MIRA	&	2015-10-06	\\
+lcri02i0q	&	13972	&	WAVE	&	TT	&	WAVECAL	&	24	&	P2	&	Low	&	WCA	&	22.1	&	125.1	&	MIRA	&	2015-10-06	\\
+lcri02i2q	&	13972	&	WAVE	&	TT	&	WAVECAL	&	30	&	P1	&	Low	&	WCA	&	22.1	&	125.1	&	MIRB	&	2015-10-06	\\
+lcri02i4q	&	13972	&	WAVE	&	TT	&	WAVECAL	&	24	&	P2	&	Med	&	WCA	&	22.1	&	125.1	&	MIRB	&	2015-10-06	\\
+lcsla1i4q	&	14035	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	P2	&	Low	&	PSA	&	22.1	&	125.1	&	MIRA	&	2015-04-14	\\
+lcsla1i6q	&	14035	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	P2	&	Med	&	PSA	&	22.1	&	125.1	&	MIRB	&	2015-04-14	\\
+lcsla2bhq	&	14035	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	P2	&	Low	&	PSA	&	22.1	&	125.1	&	MIRA	&	2015-10-02	\\
+lcsla2bjq	&	14035	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	P2	&	Med	&	PSA	&	22.1	&	125.1	&	MIRB	&	2015-10-02	\\
+ld3701gtq	&	14440	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	13	&	P2	&	Med	&	PSA	&	22.1	&	125.1	&	MIRB	&	2016-10-18	\\
+ld3701gvq	&	14440	&	WD-1657+343	&	TT	&	EXT/SCI	&	16	&	P2	&	Med	&	PSA	&	22.1	&	125.1	&	MIRB	&	2016-10-18	\\
+ld3701gxq	&	14440	&	WD-1657+343	&	TT	&	EXT/SCI	&	150	&	P2	&	Med	&	BOA	&	22.1	&	-153.1	&	MIRA	&	2016-10-18	\\
+ld3701gzq	&	14440	&	WAVE	&	TT	&	WAVECAL	&	9	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRA	&	2016-10-18	\\
+ld3701h1q	&	14440	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	150	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRA	&	2016-10-18	\\
+ld3701h3q	&	14440	&	WAVE	&	TT	&	WAVECAL	&	10	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRA	&	2016-10-18	\\
+ld3701h5q	&	14440	&	WD-1657+343	&	TT	&	EXT/SCI	&	16	&	P2	&	Med	&	PSA	&	22.1	&	126.1	&	MIRB	&	2016-10-18	\\
+ld3701h7q	&	14440	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	13	&	P2	&	Med	&	PSA	&	22.1	&	126.1	&	MIRB	&	2016-10-18	\\
+ld3702mzq&	14440	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	16	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRA	&	2016-10-19	\\
+ld3702n1q	&	14440	&	WAVE	&	TT	&	WAVECAL	&	14	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRA	&	2016-10-19	\\
+ld3702n4q	&	14440	&	HIP66578	&	TT	&	EXT/SCI	&	183	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRB	&	2016-10-19	\\
+ld3702n7q	&	14440	&	WAVE	&	TT	&	WAVECAL	&	24	&	P2	&	Med	&	WCA	&	22.1	&	126.1	&	MIRB	&	2016-10-19	\\
+ld3702n9q	&	14440	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	183	&	P2	&	Med	&	BOA	&	22.1	&	-153.1	&	MIRB	&	2016-10-19	\\
+ld3702nbq	&	14440	&	WAVE	&	TT	&	WAVECAL	&	24	&	P2	&	Med	&	WCA	&	22.1	&	126.1	&	MIRB	&	2016-10-19	\\
+ld3702neq	&	14440	&	WAVE	&	TT	&	WAVECAL	&	14	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRA	&	2016-10-19	\\
+ld3702nhq	&	14440	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	16	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRA	&	2016-10-19	\\
+ld3702o1q	&	14440	&	WAVE	&	TT	&	WAVECAL	&	14	&	P1	&	Low	&	WCA	&	22.1	&	125.1	&	MIRA	&	2016-10-19	\\
+ld3702o3q	&	14440	&	WAVE	&	TT	&	WAVECAL	&	24	&	P2	&	Low	&	WCA	&	22.1	&	125.1	&	MIRA	&	2016-10-19	\\
+ld3702o5q	&	14440	&	WAVE	&	TT	&	WAVECAL	&	30	&	P1	&	Low	&	WCA	&	22.1	&	125.1	&	MIRB	&	2016-10-19	\\
+ld3702o7q	&	14440	&	WAVE	&	TT	&	WAVECAL	&	24	&	P2	&	Med	&	WCA	&	22.1	&	125.1	&	MIRB	&	2016-10-19	\\
+ldozbadhq	&	14857	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	13	&	P2	&	Med	&	PSA	&	22.1	&	125.1	&	MIRB	&	2017-09-04	\\
+ldozbadjs	&	14857	&	WD-1657+343	&	TT	&	EXT/SCI	&	16	&	P2	&	Med	&	PSA	&	22.1	&	125.1	&	MIRB	&	2017-09-04	\\
+ldozbadlq	&	14857	&	WD-1657+343	&	TT	&	EXT/SCI	&	150	&	P2	&	Med	&	BOA	&	22.1	&	-153.1	&	MIRA	&	2017-09-04	\\
+ldozbadnq	&	14857	&	WAVE	&	TT	&	WAVECAL	&	9	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRA	&	2017-09-04	\\
+ldozbadpq	&	14857	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	150	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRA	&	2017-09-04	\\
+ldozbadrq	&	14857	&	WAVE	&	TT	&	WAVECAL	&	10	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRA	&	2017-09-04	\\
+ldozbadtq	&	14857	&	WD-1657+343	&	TT	&	EXT/SCI	&	16	&	P2	&	Med	&	PSA	&	22.1	&	126.1	&	MIRB	&	2017-09-04	\\
+ldozbadvq	&	14857	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	13	&	P2	&	Med	&	PSA	&	22.1	&	126.1	&	MIRB	&	2017-09-04	\\
+ldozbbleq	&	14857	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	16	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRA	&	2017-09-06	\\
+ldozbblgq	&	14857	&	WAVE	&	TT	&	WAVECAL	&	14	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRA	&	2017-09-06	\\
+ldozbbliq	&	14857	&	HIP66578	&	TT	&	EXT/SCI	&	183	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRB	&	2017-09-06	\\
+ldozbblkq	&	14857	&	WAVE	&	TT	&	WAVECAL	&	24	&	P2	&	Med	&	WCA	&	22.1	&	126.1	&	MIRB	&	2017-09-06	\\
+ldozbblmq	&	14857	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	183	&	P2	&	Med	&	BOA	&	22.1	&	-153.1	&	MIRB	&	2017-09-06	\\
+ldozbbloq	&	14857	&	WAVE	&	TT	&	WAVECAL	&	24	&	P2	&	Med	&	WCA	&	22.1	&	126.1	&	MIRB	&	2017-09-06	\\
+ldozbblqq	&	14857	&	WAVE	&	TT	&	WAVECAL	&	14	&	P2	&	Low	&	WCA	&	22.1	&	126.1	&	MIRA	&	2017-09-06	\\
+ldozbblsq	&	14857	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	16	&	P2	&	Low	&	BOA	&	22.1	&	-153.1	&	MIRA	&	2017-09-06	\\
+ldozbbm4q&	14857	&	WAVE	&	TT	&	WAVECAL	&	16	&	P1	&	Low	&	WCA	&	22.1	&	125.1	&	MIRA	&	2017-09-06	\\
+ldozbbm6q&	14857	&	WAVE	&	TT	&	WAVECAL	&	26	&	P2	&	Low	&	WCA	&	22.1	&	125.1	&	MIRA	&	2017-09-06	\\
+ldozbbm8q&	14857	&	WAVE	&	TT	&	WAVECAL	&	32	&	P1	&	Low	&	WCA	&	22.1	&	125.1	&	MIRB	&	2017-09-06	\\
+ldozbbmaq&	14857	&	WAVE	&	TT	&	WAVECAL	&	26	&	P2	&	Med	&	WCA	&	22.1	&	125.1	&	MIRB	&	2017-09-06	\\
+ldozpbf5q	&	14857	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	20	&	P2	&	Low	&	PSA	&	22.1	&	125.1	&	MIRA	&	2017-09-10	\\
+ldozpbf7q	&	14857	&	206W3	&	TT	&	EXT/SCI	&	20	&	P2	&	Low	&	PSA	&	22.1	&	125.1	&	MIRA	&	2017-09-10	\\
+ldozpbf9q	&	14857	&	206W3	&	TT	&	EXT/SCI	&	220	&	P2	&	Med	&	PSA	&	22.1	&	125.1	&	MIRB	&	2017-09-10	\\
+ldozpbfbq	&	14857	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	220	&	P2	&	Med	&	PSA	&	22.1	&	125.1	&	MIRB	&	2017-09-10	\\
+ldozpbfdq	&	14857	&	206W3	&	TT	&	EXT/SCI	&	220	&	P2	&	Med	&	PSA	&	22.1	&	125.1	&	MIRB	&	2017-09-10	\\
+ldozpbffq	&	14857	&	206W3	&	TT	&	EXT/SCI	&	20	&	P2	&	Low	&	PSA	&	22.1	&	125.1	&	MIRA	&	2017-09-10	\\
+ldozpbfhq	&	14857	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	20	&	P2	&	Low	&	PSA	&	22.1	&	125.1	&	MIRA	&	2017-09-10
 \hline
 \enddata
 %\end{center}
+\tablenotetext{c}{For the P1 lamp, the three current settings are LOW ( mA), MED (10mA) and HIGH ( mA). For the P2 lamp, the current settings are LOW ( mA), MED (10mA) and HIGH ( mA).}
+\tablenotetext{t}{TT = TIME-TAG.}
 \tablecomments{Exposures listed as \textsc{EXPTYPE}=EXT/SCI contain coeval target and PtNe lamp (P1 or P2) images taken in time-tag (\textsc{OBSTYPE}=TT) mode.
 Exposures listed as \textsc{EXPTYPE}=WAVECAL (target = WAVE) contain only TT PtNe lamp (WCA) images.  \tacq{IMAGE} exposures return before and after target images in \textsc{OBSTYPE}=ACCUM, but do not return  lamp images.}
 \end{deluxetable}
+%   740	const SHORT pcmech_ApMXDispPosition[TA_NUM_APERTURES][MIE_NUM_DETECTORS] =
+%   741	{
+%   742	   /*  FUV   NUV  */
+%   743	   /*  ---   ---  */
+%   744	      { 126,  126 }, /* PSA_LP1 */
+%   745	      {-153, -153 }, /* BOA_LP1 */
+%   746	      {-153, -153 }, /* FCA_LP1 */
+%   747	      { 126,  126 }, /* WCA_LP1 */
+%   748	      {  53,  126 }, /* PSA_LP2 */
+%   749	      {-226, -153 }, /* BOA_LP2 */
+%   750	      {-226, -153 }, /* FCA_LP2 */
+%   751	      {  53,  126 }, /* WCA_LP2 */
+%   752	      { 181,  126 }, /* PSA_LP3 */
+%   753	      { -98, -153 }, /* BOA_LP3 */
+%   754	      { -98, -153 }, /* FCA_LP3 */
+%   755	      { 181,  126 }, /* WCA_LP3 */
+%   756	      { 234,  126 }, /* PSA_LP4 */
+%   757	      { -45, -153 }, /* BOA_LP4 */
+%   758	      { -45, -153 }, /* FCA_LP4 */
+%   759	      { 234,  126 }, /* WCA_LP4 */
+%   760	      { 181,  126 }, /* PSA_LP5 */
+%   761	      { -98, -153 }, /* BOA_LP5 */
+%   762	      { -98, -153 }, /* FCA_LP5 */
+%   763	      { 181,  126 }, /* WCA_LP5 */
+%   764	      { 181,  126 }, /* PSA_LP6 */
+%   765	      { -98, -153 }, /* BOA_LP6 */
+%   766	      { -98, -153 }, /* FCA_LP6 */
+%   767	      { 181,  126 }, /* WCA_LP6 */
+%   768	      { 181,  126 }, /* PSA_LP7 */
+%   769	      { -98, -153 }, /* BOA_LP7 */
+%   770	      { -98, -153 }, /* FCA_LP7 */
+%   771	      { 181,  126 }, /* WCA_LP7 */
+%   772	      { 181,  126 }, /* PSA_LP8 */
+%   773	      { -98, -153 }, /* BOA_LP8 */
+%   774	      { -98, -153 }, /* FCA_LP8 */
+%   775	      { 181,  126 }  /* WCA_LP8 */
+%   776	};

@@ -1,0 +1,288 @@
+head	1.5;
+access;
+symbols;
+locks
+	penton:1.5; strict;
+comment	@% @;
+
+
+1.5
+date	2018.03.30.20.22.12;	author penton;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2018.03.30.15.20.58;	author penton;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2018.03.29.19.16.24;	author penton;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2018.03.27.18.32.49;	author penton;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2018.03.22.18.08.39;	author penton;	state Exp;
+branches;
+next	;
+
+
+desc
+@Spectroscopy Verification
+@
+
+
+1.5
+log
+@More
+@
+text
+@% $Id: spVER.tex,v 1.3 2018/03/29 19:16:24 penton Exp penton $
+\section{Spectroscopic TA Verification}\label{sec:spVER}
+
+After the series of \texttt{ACQ/IMAGE}s that start each visit, the target should be accurately centered.
+We take advantage of this to monitor certain aspects of COS spectroscopic TAs.
+
+COS spectroscopic TAs consist of up to three stages \texttt{ACQ/SEARCH}, \texttt{PEAKD}, and \texttt{PEAKXD}.
+The COS spectroscopic \texttt{ACQ/SEARCH} and \texttt{PEAKD} algorithms do not use any FSW patchable constants, and do not flash the
+internal calibration lamps. The only monitoring required for these TA phases is to ensure that the mechanisms were in their proper
+positions and that the TA subarrays defined in the HST ground commanding are proper for the mechanism positions used during the acquisitions.
+As discussed in \S~\ref{sec:subarray}, the majority of the details will be addressed for each FUV LP in its enabling ISR, or have already been verified
+for the NUV and FUV LP1 positions in Penton \& Keyes (2011).
+
+COS NUV (LP1) and FUV LP2--4 spectroscopic TA in the XD direction uses \texttt{ACQ/PEAKXD} and requires the use of the XD WCA-to-PSA offsets with the nominal \numposone~ algorithm.
+These offsets are contained for both the NUV and FUV channels in the FSW patchable constant table \textsc{pcta\_CalTargetOffset}, and are provided for reference for all COS LPs in Table~\ref{tab:wcatopsa}.
+This ISR only attempts to verify that these offsets were appropriate for all data obtained during the annual monitoring programs.
+
+Each FUV central wavelength setting (\cenwave) uses a unique OSM1 rotation, whereas all NUV TAs use the same OSM1 rotation independent of \cenwave.
+However, each NUV \cenwave uses a different OSM2 rotation during TA. Each FUV \cenwave has it's own set of TA subarrays (up to four per segment), while the NUV TA subarrays are not \cenwave
+specific, but are grating specific.\footnote{{\bf Note to reviewer: Do you think it is worthwhile to include the entire \textsc{pcmech\_osmtbl} in the appendix? If so, i would add a reference to the table and some
+explanatory text here.}}
+
+The verification process is for \texttt{ACQ/PEAKXD} is simple, take a normal spectrum with a target signal-to-noise ratio of least 50 for the entire spectrum (2500 target counts),
+and directly measure the WCA-to-PSA offset and compare it the FSW value. For NUV exposures, this is almost always \texttt{STRIPE=B}, and for the FUV, only events from FUVA are used at LP2--4.
+TA subarrays are used to mask out any detector hot-spots or Geocoronal light that could interfere with the centering process. These spectra are also compared to the TA subarrays to
+verify that they satisfactory.
+
+\input{pctaWCA2SA.tex}
+@
+
+
+1.4
+log
+@updated for 3/30 update
+@
+text
+@d14 1
+a14 1
+COS NUV (LP1) and FUV LP2--4 spectroscopic TA in the XD direction uses \texttt{ACQ/PEAKXD} and requires the use of the XD WCA-to-PSA offsets with the nominal \numpos1~ algorithm.
+d20 2
+a21 2
+specific, but are grating specific.\footnote{Note To Reviewer: Do You Think It Is Worthwhile To Include The Entire \textsc{pcmech\_OSMTbl} In The Appendix? If So, I Would Add A Reference To The Table And Some
+Explanatory Text Here.}
+a28 142
+
+\subsection{NUV Spectroscopic TA verification}\label{subsec:NspVER}
+The P2 WCA lamp and target XD locations for all NUV spectroscopic exposures is given in Table~\ref{tab:XDdataNUV}.
+As shown in the two rightmost ``$\Delta$'' columns of Table~\ref{tab:XDdataNUV}, all measured WCA-to-PSA offsets were within 3p in XD there FSW values. This equates to a $<$ 0.07\arcsec XD offset due to TA
+for all NUV monitoring exposures over C21--24.
+
+A visual inspection of the spectra showed all NUV spectra to continue to be well centered in the \tacq{PEAKXD}, \tacq{PEAKD}, and \tacq{SEARCH} NUV spectroscopic subarrays.
+\\
+{\bf Note to reviewers: Table~\ref{tab:XDdataNUV} doesn't actually show the subarray check. This was just a visual check to
+make sure that the NUV spectrum was well contained in the subarray. If you think that a table comparing the XD line centers to
+the subarray edges is worthwhile, it can be easily incorporated.}\\
+
+\begin{deluxetable}{rrrrcrrrrrr}
+\tablecolumns{11}
+\tabcolsep 6 pt
+\tablecaption{NUV Spectroscopic \texttt{ACQ/PEAKXD} Monitoring}\label{tab:XDdataNUV}
+\tablehead{
+\colhead{\textit{PROPOSID}}&\colhead{\textit{ROOTNAME}}&\colhead{\textit{DATE-OBS}}&\colhead{\textit{OPT\_ELEM}}&\colhead{LP}&
+\colhead{WCA}&\colhead{PSA}&\colhead{WtP}\tablenotemark{a}&\colhead{eWtP}&\colhead{|$\Delta$|}&\colhead{|$\Delta$|}\\
+\colhead{}&\colhead{}&\colhead{}&\colhead{}&\colhead{(p)}&\colhead{(p)}&\colhead{(p)}&\colhead{(p)}&\colhead{(p)}&\colhead{(\arcsec))}\\
+\colhead{(1)}&\colhead{(2)} &
+\colhead{(3)}&\colhead{(4)} &
+\colhead{(5)}&\colhead{(6)} &
+\colhead{(7)}&\colhead{(8)} &
+\colhead{(9)}&\colhead{(10)} &
+\colhead{(11)}
+}
+\startdata
+\hline
+\multicolumn{11}{c}{C21}\\
+\hline
+13526& lcgq02i2q&  2014-11-17&   G185M&  1&  366.0 &  742.0 &  376.0 &  374.20&    1.80 &    0.04\\
+13526& lcgq02i4q&  2014-11-17&   G225M&  1&  370.0 &  747.0 &  377.0 &  374.60&    2.40 &    0.06\\
+13526& lcgq01r6q&  2014-11-19&   G285M&  1&  355.0 &  728.0 &  373.0 &  374.90&    1.90 &    0.04\\
+13526& lcgq01qlq&  2014-11-19&   G230L&  1&  374.0 &  748.0 &  374.0 &  373.40&    0.60 &    0.01\\
+\hline
+\multicolumn{11}{c}{C22}\\
+\hline
+13972& lcri02hqq&  2015-10-06&   G185M&  1&  367.0 &  742.0 &  375.0 &  374.20&    0.80 &    0.02\\
+13972& lcri02hoq&  2015-10-06&   G225M&  1&  371.0 &  747.0 &  376.0 &  374.60&    1.40 &    0.03\\
+13972& lcri01giq&  2015-10-06&   G285M&  1&  351.0 &  726.0 &  375.0 &  374.90&    0.10 &    $<$0.01\\
+13972& lcri01ggq&  2015-10-06&   G230L&  1&  374.0 &  747.0 &  373.0 &  373.40&    0.40 &    0.01\\
+\hline
+\multicolumn{11}{c}{C23}\\
+\hline
+14440& ld3702noq&  2016-10-19&   G185M&  1&  366.0 &  743.0 &  377.0 &  374.20&    2.80 &    0.07\\
+14440& ld3702nmq&  2016-10-19&   G225M&  1&  370.0 &  747.0 &  377.0 &  374.60&    2.40 &    0.06\\
+14440& ld3701hbq&  2016-10-18&   G285M&  1&  352.0 &  727.0 &  375.0 &  374.90&    0.10 &    $<$0.01\\
+14440& ld3701h9q&  2016-10-18&   G230L&  1&  375.0 &  748.0 &  373.0 &  373.40&    0.40 &    0.01\\
+\hline
+\multicolumn{11}{c}{C24}\\
+\hline
+14857& ldozbblwq&  2017-09-06&   G185M&  1&  366.0 &  743.0 &  377.0 &  374.20&    2.80 &    0.07\\
+14857& ldozbbluq&  2017-09-06&   G225M&  1&  370.0 &  747.0 &  377.0 &  374.60&    2.40 &    0.06\\
+14857& ldozbadzq&  2017-09-04&   G285M&  1&  352.0 &  727.0 &  375.0 &  374.90&    0.10 &    $<$0.01\\
+14857& ldozbadxq&  2017-09-04&   G230L&  1&  374.0 &  748.0 &  374.0 &  373.40&    0.60 &    0.01\\
+\hline
+\enddata
+\tablenotetext{a}{WtP = WCA-to-PSA offset}
+\tablenotetext{b}{eWtP = Expected WCA-to-PSA offset from FSW table \textsc{XimCalTargetOffset} (see Table~\ref{tab:}).}
+\tablecomments{All spectra were taken at \texttt{FP-POS=3}. All monitoring verifications (|$\Delta$| = |WtP-eWtp|) easily exceeded both the $\pm$0.3\arcsec requirement and the $\pm$0.1\arcsec goal.}
+\end{deluxetable}
+\subsection{FUV Spectroscopic TA verification}\label{subsec:FspVER}
+The P2 WCA lamp and target XD locations for all centered FUV spectroscopic exposures is given in Table~\ref{tab:XDdataFUV}.\footnote{The \texttt{POS\_TARG} offset spectra are not included in this table as
+they are beyond the scope of this ISR.}
+
+Explain the last three columns:
+All FUV monitoring verifications (|$\Delta$| = |WtP-eWtp|) exceeded both the $\pm$0.3\arcsec requirement,
+but spectra taken near the end of the LP2 lifetime, and all G140L spectra, exceeded the $\pm$0.1\arcsec goal.
+
+A visual inspection showed all FUV spectra to continue to be well centered the FUV spectroscopic subarrays.\footnote{\bf Note to reviewers:  Table~\ref{tab:XDdataFUV} doesn't actually show the subarray check. This was just a visual check to
+make sure that the FUV spectrum was well contained in the subarray. If you think that a table comparing the XD line centers to
+the subarray edges is worthwhile, it can be easily incorporated.}\\
+
+\begin{deluxetable}{rrrrcrrrrrr}
+\tablecolumns{11}
+\tabcolsep 6 pt
+\tablecaption{NUV Spectroscopic \texttt{ACQ/PEAKXD} Monitoring}\label{tab:XDdataNUV}
+\tablehead{
+\colhead{\textit{PROPOSID}}&\colhead{\textit{ROOTNAME}}&\colhead{\textit{DATE-OBS}}&\colhead{\textit{OPT\_ELEM}}&\colhead{LP}&
+\colhead{WCA}&\colhead{PSA}&\colhead{WtP}\tablenotemark{a}&\colhead{eWtP}&\colhead{|$\Delta$|}&\colhead{|$\Delta$|}\\
+\colhead{}&\colhead{}&\colhead{}&\colhead{}&\colhead{(p)}&\colhead{(p)}&\colhead{(p)}&\colhead{(p)}&\colhead{(p)}&\colhead{(\arcsec))}\\
+\hline
+\colhead{(1)}&\colhead{(2)} &
+\colhead{(3)}&\colhead{(4)} &
+\colhead{(5)}&\colhead{(6)} &
+\colhead{(7)}&\colhead{(8)} &
+\colhead{(9)}&\colhead{(10)} &
+\colhead{(11)}
+}
+\startdata
+\hline
+\multicolumn{11}{c}{C21}\\
+\hline
+13526& lcgq01r8q&  2014-11-19&   G130M&  2&  602.15&  508.31&  -93.84&  -92.80&    1.04&  0.12 \\
+13526& lcgq01r8q&  2014-11-19&   G130M&  2&  602.15&  508.31&  -93.84&  -92.80&    1.04&  0.12 \\
+13526& lcgq01raq&  2014-11-19&   G140L&  2&  608.76&  513.48&  -95.28&  -93.50&    1.78&  0.20 \\
+13526& lcgq01raq&  2014-11-19&   G140L&  2&  608.76&  513.48&  -95.28&  -93.50&    1.78&  0.20 \\
+13526& lcgq02i6q&  2014-11-17&   G160M&  2&  596.07&  503.35&  -92.71&  -91.80&    0.91&  0.11 \\
+\hline
+\multicolumn{11}{c}{C22}\\
+\hline
+13972& lcri01gkq&  2015-10-06&   G130M&  3&  537.32&  448.98&  -88.34&  -89.20&    0.86&  0.08 \\
+13972& lcri01gkq&  2015-10-06&   G130M&  3&  537.32&  448.98&  -88.34&  -89.20&    0.86&  0.08 \\
+13972& lcri01h6q&  2015-10-06&   G140L&  3&  544.55&  457.36&  -87.20&  -85.70&    1.50&  0.15 \\
+13972& lcri01h6q&  2015-10-06&   G140L&  3&  544.55&  457.36&  -87.20&  -85.70&    1.50&  0.15 \\
+13972& lcri02hsq&  2015-10-06&   G160M&  3&  531.78&  442.13&  -89.65&  -90.10&    0.45&  0.04 \\
+\hline
+\multicolumn{11}{c}{C23}\\
+\hline
+14440& ld3701hdq&  2016-10-18&   G130M&  3&  536.33&  447.41&  -88.92&  -89.20&    0.28&   0.03 \\
+14440& ld3701hdq&  2016-10-18&   G130M&  3&  536.33&  447.41&  -88.92&  -89.20&    0.28&   0.03 \\
+14440& ld3701hfq&  2016-10-18&   G140L&  3&  543.43&  455.95&  -87.48&  -85.70&    1.78&   0.17 \\
+14440& ld3701hfq&  2016-10-18&   G140L&  3&  543.43&  455.95&  -87.48&  -85.70&    1.78&   0.17 \\
+14440& ld3702nqq&  2016-10-19&   G160M&  3&  531.09&  440.96&  -90.13&  -90.10&    0.03&   0.00 \\
+\hline
+\multicolumn{11}{c}{C24}\\
+\hline
+14857& ldozbae1q&  2017-09-04&   G130M&  3&  535.26&  445.66&  -89.61&  -89.20&    0.41&   0.04 \\
+14857& ldozbae1q&  2017-09-04&   G130M&  3&  535.26&  445.66&  -89.61&  -89.20&    0.41&   0.04 \\
+14857& ldozbae3q&  2017-09-04&   G140L&  3&  541.76&  454.25&  -87.51&  -85.70&    1.81&   0.18 \\
+14857& ldozbae3q&  2017-09-04&   G140L&  3&  541.76&  454.25&  -87.51&  -85.70&    1.81&   0.18 \\
+14857& ldozbblyq&  2017-09-06&   G160M&  3&  530.84&  440.75&  -90.09&  -90.10&    0.01&   0.00 \\
+\hline
+\enddata
+\tablenotetext{a}{WtP = WCA-to-PSA offset}
+\tablenotetext{b}{eWtP = Expected WCA-to-PSA offset from FSW table \textsc{XimCalTargetOffset} (see Table~\ref{tab:}).}
+\tablecomments{All spectra were taken at \texttt{FP-POS=3}. All FUV monitoring verifications (|$\Delta$| = |WtP-eWtp|) exceeded both the $\pm$0.3\arcsec requirement,
+but spectra taken near the end of the LP2 lifetime, and all G140L spectra, exceeded the $\pm$0.1\arcsec goal.}
+\end{deluxetable}
+% Here is the +/- 0.7" table if we want to put it in
+% Note the POSTARG extra column at the end
+%13526& lcgq02i8q&  2014-11-17&   G160M&  2&  596.45&  509.80&  -86.66&  -91.80&    5.14&   0.61 &	+0.7\\
+%13526& lcgq02iaq&  2014-11-17&   G160M&  2&  596.35&  498.41&  -97.94&  -91.80&    6.14&   0.73 &	-0.7\\
+%13972& lcri02huq&  2015-10-06&   G160M&  3&  531.48&  449.64&  -81.84&  -90.10&    8.26&   0.75 &	+0.7\\
+%13972& lcri02hwq&  2015-10-06&   G160M&  3&  531.73&  434.22&  -97.51&  -90.10&    7.41&   0.67 &	-0.7\\
+%14440& ld3702nsq&  2016-10-19&   G160M&  3&  531.00&  448.43&  -82.57&  -90.10&    7.53&   0.68 &	+0.7\\
+%14440& ld3702nuq&  2016-10-19&   G160M&  3&  531.24&  433.36&  -97.88&  -90.10&    7.78&   0.70 &	-0.7\\
+%14857& ldozbbm0q&  2017-09-06&   G160M&  3&  530.70&  448.18&  -82.52&  -90.10&    7.58&   0.68 &	+0.7\\
+%14857& ldozbbm2q&  2017-09-06&   G160M&  3&  530.75&  433.39&  -97.36&  -90.10&    7.26&   0.66 &	-0.7\\
+
+\input{tamon_output.tex}
+@
+
+
+1.3
+log
+@SPEC
+@
+text
+@d1 1
+a1 1
+% $Id$
+d4 2
+a5 1
+After the series of \texttt{ACQ/IMAGE}s that start each visit, the target should be accurately centered. We take advantage of this to monitor COS spectroscopic TAs.
+d7 2
+a8 2
+COS spectroscopic TAs consist of up to three stages \texttt{ACQ/SEARCH}, \texttt{ACQ/PEAKD}, and \texttt{ACQ/PEAKXD}.
+The COS spectroscopic \texttt{ACQ/SEARCH} and \texttt{ACQ/PEAKD} algorithms do not use any FSW patchable constants, and do not flash the
+d11 6
+d20 2
+a21 1
+specific, but are grating specific.
+d23 4
+a26 7
+COS TA in the XD direction (\texttt{ACQ/PEAKXD}) requires the use of XD WCA-to-PSA offsets with the nominal {{\bf NUM$\_$POS}\rm}~=1 algorithm.
+These values are contained for both the NUV and FUV channels in the FSW patchable constant table \textsc{pcta\_CalTargetOffset}, and are provided for reference in Table~\ref{tab:wcatopsa}.
+All NUV and FUV (LP1, LP2 and LP3) \texttt{ACQ/PEAKXDs} monitored in this ISR used the original {{\bf NUM$\_$POS}\rm}~=1 algorithm).
+
+The verification process is for \texttt{ACQ/PEAKXD} is simple, take a normal spectrum with a target signal-to-noise ratio of least 50 for the entire spectrum (2500 target counts) used by \texttt{ACQ/PEAKXD}.
+For NUV exposures, this is the `B' stripe only, and for the FUV, only events on FUVA are used.
+TA subarrays are used to mask out any detector hot-spots or Geocoronal light that could interfere with the centering process.
+d29 1
+a29 1
+\input{tamon_output.tex}
+d31 60
+d92 79
+@
+
+
+1.2
+log
+@3/28
+@
+text
+@d11 2
+a12 2
+Each FUV central wavelength setting (CENWAVE) uses a unique OSM1 rotation, whereas all NUV TAs use the same OSM1 rotation independent of CENWAVE.
+However, each NUV CENWAVE uses a different OSM2 rotation during TA. Each FUV CENWAVE has it's own set of TA subarrays (up to four per segment), while the NUV TA subarrays are not CENWAVE
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d1 1
+@

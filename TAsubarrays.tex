@@ -1,371 +1,145 @@
-\section{Verifying the TA (\tacq{ }) Subarrays}\label{sec:subarray}
+% $Id: TAsubarrays.tex,v 1.4 2018/03/30 22:05:03 penton Exp $
+\section{Verifying the TA (\tacq{}) Subarrays}\label{sec:subarray}
 
 COS TA subarrays are loaded during the HST ground commanding uniquely for each TA exposure,
-and are NUV stripe, FUV segment, \texttt{ACQ} mode, and CENWAVE dependent.
-There are two stages to the TA verification, 1) ensuring that the intended subarrays were commanded and
-2) that those subarrays are valid for the entire Cycle of usage.
+and are \tacq{} mode, NUV stripe (\textit{STRIPE}), \cenwave, and FUV segment \textit{SEGMENT} and LP dependent.
+Additionally, these subarrays change with time in response to detector (e.g., increasing background or ``hot-spots)
+or mechanism (e.g., secular OSM drift) monitoring.
+There are two stages to the TA verification,
+1) ensuring that the intended subarrays were commanded as intended, and
+2) that those subarrays were valid for the entire duration of usage.
 
-Ideally, one would compare that commanded subarrays for all exposures to those
-reported in the \textsc{\_rawacq.fits}. However, due to issues with the
-COS TA subarrays\footnote{This issues should be addressed for Cycle~26 with the corrections outlined in PR\#XXXXX},
-the subarrays were inferred from the telemetry reported in the \textsc{\_spt.fits} files.
+Ideally, one would compare that commanded subarrays for all exposures to those reported in the \textsf{\_rawacq.fits}.
+However, due to issues with the COS TA subarrays\footnote{This issues should be addressed for C26 with the corrections outlined in STScI PRs\#64849, 64874, 66840, , },
+in this ISR, the subarrays were inferred from the telemetry reported in the \textsf{\_spt.fits} files.
 
-Table~\ref{tab:NUVimsubs} gives the TA subarrays for all imaging modes,
-Table~\ref{tab:NUVspecsubs} gives the TA subarrays for all NUV spectroscopic modes,
-and Table~\ref{tab:FUVspecsubs} gives the TA all FUV CENWAVEs. Note that TA has not
-been enabled for all CENWAVES, so only the TA subarrays that are in use are listed.
-The FUV table includes subarrays for all four COS LPs even though only the LP2 and LP3
-subarrys were used in this ISR.
+Tables~\ref{tab:TAnuvIMAGEsmov}, \ref{TAnuvIMAGEpost}, \ref{tab:TAnuvSEARCH}, \ref{tab:TAnuvIMAGEmirB} gives the TA subarrays for all imaging modes
+as it has evolved since SMOV.
+Table~\ref{tab:NUVspSUBSsad2} gives the TA subarrays for all NUV spectroscopic \tacq{SEARCH} and \tacq{PEAKKD} that have executed use since SMOV, and
+Table~\ref{tab:NUVspSUBSxd} gives the TA subarrays for all NUV \tacq{PEAKXD}s since SMOV.
+Table~\ref{tab:TAsubWCAfuv} gives the TA subarrays for the WCA portion of all FUV \tacq{PEAKXD}s separated by LP and \cenwave.
+Table~\ref{tab:TAsubWCAfuv} gives the TA subarrays for the WCA portion of all FUV \tacq{PEAKXD}s separated by LP and \cenwave.
+
+Table~\ref{tab:FUVsubA} gives the TA subarrays for the PSA/BOA portion of all FUVA \tacq{}s separated by LP and \cenwave,
+and Table~\ref{tab:FUVsubB} gives the TA subarrays for all LPs and \cenwaves for FUVB.
+Note that TA has not been enabled for all FUV \cenwaves, so only the TA subarrays that are in use are listed.
+The FUV table includes subarrays for all four COS LPs even though only the LP2 and LP3 subarrays were monitored in this ISR.
 
 All values indicate that the intended subarrays are being used for all TA and science exposures. All FUV spectra were visually
 inspected to verify that the TA subarrays were successfully excluding all known detector hot-spots and the
 bright Geocoronal emission lines that can negatively affect TAs.  No action is required based upon this
-analysis of the TA and science sub-arrays used in HST Cycle 21.
+analysis of the TA and science subarrays used in C21.
 
 COS TA subarrays are defined in detector coordinates, and are specified by giving the [X,Y] corners ([XC,YC]) and sizes ([XS,YS]).
 Table~\ref{tab:NUVsubs} below gives the NUV spectroscopic TA subarrays used for \tacq{SEARCH} and \tacq{PEAKD}, which have not changed since SMOV.
 Table~\ref{tab:NUVsubsXD} below gives the NUV spectroscopic TA subarrays used for \tacq{PEAKXD}, which include subarrays to measure the
-calibration lamp XD location (Cal) as well as the target spectral location of the "B" (WAVELENGTH=MEDIUM) stripe.
+calibration lamp XD location (WCA) as well as the target spectral location of \textit{STRIPE=B (MEDIUM)}).
 These have not changed there updated in 2010 as STScI PR\#{}.
 
 In this section, we describe the various subarrays used in COS TA.
 These subarrays are defined by giving the detector coordinate of the lowest valued corner (C) and the full size (S) for both X and Y.
 A subarray is fully specified by giving its XC, XS, YC, and YS. Unless noted, coordinates are in detector coordinates as this is the system in which COS TAs are performed.
 
+TA subarrays are necessary to remove unwanted detector background or spectral or detector features not associated with the target, such as detector
+``hot-spots'' or Geocoronal emission (see Penton \& Keyes, 2011). All COS \tacq{} modes use subarrays, but they different for each mode, detector or detector segment,
+and \cenwave.  The explanation for the sizes and locations of the TA subarrays are beyond the scope of this ISR, but can be found in the TIR COS-2010-03 (Penton \& Keyes, 2011),
+the pre-launch estimates (driven by ray-trace predictions; COS-11-0024A (Penton, 2001), COS-11-0014B (Penton, 2002), \& COS-11-0016A (Penton, 2001)) and for
+FUV LP2--4 in their respective enabling ISRs (Penton 2018 (LP2), Penton 2018 (LP3) and Penton \& White 2018 (LP4).)
+The programs discussed in this ISR do not contain any FUV or NUV spectroscopic \tacq{} exposures, therefore, the bulk of the discussion for the TA subarrays for
+spectroscopic TAs are contained in the respective enabling ISRs. The spectroscopic exposures discussed in this ISR will, however, be used to verify
+the appropriateness of the XD locations of the subarrays in \S~\ref{subsec:NspVER} (NUV) and \S~\ref{subsec:FspVER}.
+
 \subsection{NUV Imaging TA subarrays}\label{subsec:NUVimSUBS}
-The NUV imaging TA subarrays are given in Table~\ref{tab:TAnuvIMAGEsmov}.
-These subarrays are used for both the \tacq{IMAGE} and \tacq{SEARCH} TA phases.
-This table includes entries for the WCA and PSA and both
-MIRRORA and MIRRORB. The COS FSW uses the same subarrays for the PSA
-and BOA as the offset between the apertures is small ($\Delta$~[AD,XD]$\sim$[11.0,0.4]p).
-As discussed in \S~\ref{sec:TAback}, the rising NUV detector background necessitates a reduction
-in the TA subarray size for WCA+MIRRORB (\texttt{LTAIMCAL}).
-The OSM positions, and hence the WCA \texttt{LTAIMCAL} MIRRORA and MIRROB image placements (see Figure~\ref{LTAIMCALpos}), are fairly repeatable and
-it is recommended that both WCA TA subarrays be reduced by 50p in XD and 100p in AD as outlined in Table~\ref{tab:TAnuvIMAGEupdate}.
+The original (2009) NUV imaging \tacq{IMAGE} and \tacq{SEARCH} TA subarrays are given in Table~\ref{tab:TAnuvIMAGEsmov}.
+This table includes entries for the WCA and PSA and both MIRA and MIRB.
+The COS FSW uses the same subarrays for the PSA and BOA as the offset on the detector between the aperture locationss is small ($\Delta$~[AD,XD]$\sim$[11.0,0.4]p).
 
-During \tacq{IMAGE}, the region of the detector used to determine the source location is small,
-and is given by the square of the TA parameter \textsc{pcta\_CheckboxSize}, which is currently set to 9p (81 total pixels).
-However, during \tacq{SEARCH}, the counts in the full subarray are used (currently $345 \times 816$=19,376p).
-NUV \tacq{SEARCH} TAs are therefore much more vulnerable (by a factor of 3500)
-to contamination from background events and SAA passages as described in \S~\ref{sec:TAback}.
-
-\begin{deluxetable}{|l|l|r|r|r|r|}
-\tabcolsep 14pt
-\tabletypesize{\footnotesize}
+Due to rising NUV detector background, and supported by an analysis of OSM repeatability, reductions to the PSA/BOA \tacq{SEARCH}  and
+WCA \tacq{IMAGE} subarrays sizes were implemented on 2011.017 (STScI PR\#67139)\footnote{On-orbit analysis of the OSM positions showed that the the WCA \texttt{LTAIMCAL} MIRA and MIRB lamp image detector
+locatians were fairly repeatable (usually with $\pm$ 50 AD p and $\pm$ 10 XDp). As discussed in Penton \& Keyes (2011), the WCA TA \tacq{IMAGE} subarrays were reduced by $\pm$ 50p in XD and $\pm$ 180p in AD,
+and \tacq{SEARCH} subarrays were reduced by 125 AD p and 346 XD p.}.
+During \tacq{IMAGE}, the region of the detector used to determine the source location is small, and is given by the square of the TA parameter \textsc{pcta\_CheckboxSize}, which is currently set to 9p (81 total pixels).
+There no adjustment was warranted for the PSA/BOA \tacq{IMAGE} subarrays. However, during \tacq{SEARCH}, the counts in the full subarray are used (currently $345 \times 816$=19,376p).
+NUV \tacq{SEARCH} TAs are therefore much more vulnerable (by a factor of 3500) to contamination from background events and SAA passages (Penton \& Keyes, 2011).
+The updated \tacq{SEARCH} values are given in Table~\ref{tab:TAnuvSEARCH}, and the updated \tacq{IMAGE} subarrays are given in Table~\ref{tab:TAnuvIMAGEpost}.
+\begin{center}
+\begin{deluxetable}{llrrrr}
+\tabcolsep 8 pt
+%\tabletypesize{\footnotesize}
 \tablecolumns{6}
-\tablewidth{0 pt}
-\tablecaption{2009-20XX Imaging NUV \tacq{IMAGE} and \tacq{SEARCH} TA Subarrays\label{tab:TAnuvIMAGEsmov}.}
+\tablewidth{4.5 in}
+\tablecaption{2009--2011.016 COS \tacq{IMAGE} and \tacq{SEARCH} TA Subarrays\label{tab:TAnuvIMAGEsmov}.}
 \tablehead{\colhead{Aperture}&\colhead{MIRROR}&\colhead{XC}&\colhead{YC}&\colhead{XS}&\colhead{YS}}
 \startdata
-WCA & MIRRORA & CHECK THESE  & 324 & 50 & 300\\
-WCA & MIRRORB & 184 & 539 & 50 & 300\\
-PSA/BOA & MIRRORA & 630 & 284 & 220 & 470\\
-PSA/BOA & MIRRORB & 469 & 499 & 220 & 470
+WCA & MIRA & 268 & 95 & 200 & 660\\
+WCA & MIRB & 103 & 361 & 200 & 660\\
+PSA/BOA & MIRA & 572 & 108 & 345 & 816\\
+PSA/BOA & MIRB & 410 & 200 & 345 & 816
 \enddata
-\tablecomments{Updated on SMOV-SMS201 with PR\#63095 and PR\#67139.}
+\footnotesize
+\tablecomments{Due to increased detector background, these were updated on 2011.017 (PR\#67139) as described in Penton \& Keyes (2011). }
+\normalsize
 \end{deluxetable}
+\end{center}
 
-\begin{deluxetable}{|l|l|r|r|r|r|}
-\tabcolsep 14pt
-\tabletypesize{\footnotesize}
+\begin{center}
+\begin{deluxetable}{llrrrr}
+\tabcolsep  8 pt
+%\tabletypesize{\footnotesize}
 \tablecolumns{6}
-\tablewidth{0 pt}
-\tablecaption{Cycle~24 Imaging NUV \tacq{IMAGE} and \tacq{SEARCH} TA Subarrays\label{tab:TAimage09}.}
+\tablewidth{4.5 in}
+\tablecaption{2011.017--2014.299 COS \tacq{IMAGE} TA Subarrays\label{tab:TAnuvIMAGEpost}.}
 \tablehead{\colhead{Aperture}&\colhead{MIRROR}&\colhead{XC}&\colhead{YC}&\colhead{XS}&\colhead{YS}}
 \startdata
-WCA & MIRRORA & 345 & 324 & 50 & 300\\
-WCA & MIRRORB & 184 & 539 & 50 & 300\\
-PSA/BOA & MIRRORA & 630 & 284 & 220 & 470\\
-PSA/BOA & MIRRORB & 469 & 499 & 220 & 470
+WCA & MIRA & {\bf 345} & {\bf 324} & {\bf 50} & {\bf 300}\\
+WCA & MIRB & {\bf 184} & {\bf 539} & {\bf 50} & {\bf 300}\\
+PSA/BOA & MIRA & 572 & 108 & 345 & 816\\
+PSA/BOA & MIRB & 410 & 200 & 345 & 816
 \enddata
-\tablecomments{Updated on SMOV-SMS201 with PR\#63095 and PR\#67139.}
+\footnotesize
+\tablecomments{{\bf Bold} values in this table were updated on 2011.017 (PR\#67139) due to increased detector background, as described in Penton \& Keyes (2011). }
+\normalsize
 \end{deluxetable}
-
-Need to insert new MIRRORB TABLE here.
-
-\begin{deluxetable}{|l|l|r|r|r|r|}
-\tabcolsep 14pt
-\tabletypesize{\footnotesize}
+\end{center}
+\begin{center}
+\begin{deluxetable}{llrrrr}
+\tabcolsep 5pt
+%\tabletypesize{\footnotesize}
 \tablecolumns{6}
-\tablewidth{150 pt}
-\tablecaption{2017 Imaging NUV \tacq{IMAGE} and \tacq{SEARCH} TA Subarrays\label{tab:TAnuvIMAGEpost}.}
+\tablewidth{4.5 in}
+\tablecaption{2011.017--Present COS \tacq{SEARCH} TA Subarrays\label{tab:TAnuvSEARCH}.}
 \tablehead{\colhead{Aperture}&\colhead{MIRROR}&\colhead{XC}&\colhead{YC}&\colhead{XS}&\colhead{YS}}
 \startdata
-%WCA &MIRRORA&268&95&200&660\\
-%WCA &MIRRORB&108&200&200&660\\
-WCA &MIRRORA&268&95&200&660\\
-WCA &MIRRORB&103&361&200&660\\
-PSA/BOA &MIRRORA&572&108&345&816\\
-PSA/BOA &MIRRORB&411&200&345&816\\
+PSA/BOA & MIRA & 630 & 284 & 220 & 470\\
+PSA/BOA & MIRB & 469 & 499 & 220 & 470
 \enddata
-\tablecomments{Updated on SMOV-SMS201 with PR\#63095.}
+\footnotesize
+\tablecomments{Updated on 2011.017 (PR\#67139), as described in Penton \& Keyes (2011).}
+\normalsize
 \end{deluxetable}
+\end{center}
 
-\begin{deluxetable}{|l|l|r|r|r|r|}
-\tabcolsep 14pt
-\tabletypesize{\footnotesize}
+
+\begin{center}
+\begin{deluxetable}{llrrrr}
+\tabcolsep 5pt
+%\tabletypesize{\footnotesize}
 \tablecolumns{6}
-\tablewidth{200 pt}
-\tablecaption{Imaging NUV \tacq{SEARCH} TA Subarrays\label{tab:TAnuvIMAGEupdate}.}
+\tablewidth{5 in}
+\tablecaption{2014.300--Present NUV COS \tacq{IMAGE} TA Subarrays\label{tab:TAnuvIMAGEmirB}.}
 \tablehead{\colhead{Aperture}&\colhead{MIRROR}&\colhead{XC}&\colhead{YC}&\colhead{XS}&\colhead{YS}}
 \startdata
-%WCA &MIRRORA&\textbf{293}&\textbf{195}&\textbf{150}&\textbf{560}\\
-%WCA &MIRRORB&\textbf{133}&\textbf{300}&\textbf{150}&\textbf{560}\\
-%PSA &MIRRORA&570&60&345&816\\
-%PSA &MIRRORB&410&200&345&816\\
-%\hline
-%WCA &MIRRORA&\textbf{320} & \textbf{274} & \textbf{100} & \textbf{400}\\
-%WCA &MIRRORB&\textbf{159} & \textbf{486} & \textbf{100} & \textbf{400}\\
-%PSA/BOA &MIRRORA&\textbf{605} & \textbf{234} & \textbf{270} & \textbf{570}\\
-%PSA/BOA &MIRRORB&\textbf{444} & \textbf{446} & \textbf{270} & \textbf{570}\\
-WCA &MIRRORA&\textbf{345} & \textbf{324} & \textbf{50} & \textbf{300}\\
-WCA &MIRRORB&\textbf{184} & \textbf{539} & \textbf{50} & \textbf{300}\\
-PSA/BOA &MIRRORA&\textbf{630} & \textbf{284} & \textbf{220} & \textbf{470}\\
-PSA/BOA &MIRRORB&\textbf{469} & \textbf{499} & \textbf{220} & \textbf{470}\\
+WCA & MIRA & 345 & 324 & 50 & 300\\
+WCA & MIRB & {\bf 187} & {\bf 566} & 50 & 300\\
+PSA/BOA & MIRA & 572 & 108 & 345 & 816\\
+PSA/BOA & MIRB & 410 & 200 & 345 & 816
 \enddata
-%Updated April 14, 2010
-\tablecomments{To be updated in PR\#67139 (2011.017). New values are in \textbf{bold}.
-These subarrays are the dashed ones displayed in Figure~\ref{LTAIMCALpos}.
-Before this PR, the NUV \tacq{IMAGE} subarrays were identical to the NUV \tacq{SEARCH} subarrays.}
+\footnotesize
+\tablecomments{Due to errors in determining the WCA AD position due to increased NUV detector background, the {\bf bold} subarrays values were updated on Oct. 6, 2014 (2014.279) with PR\#78749. Simultaneously, the MIRB \tacq{} lamp exposure time and current settings (for the P2 lamp)
+were changed from 17s @ LOW current to 12s @ MED current (PR\#78749). The FSW WCA-to-SA offsets (\textsc{[X,Y]imCalTargetOffset}) were adjusted accordingly (PR\#79116) on October 16, 2014 (2014.289),
+prior to use by HST users on Nov. 10, 2014 (2014.314). The default exposure time and current for the P1 lamp image ``TAGFLASH''s were changed later with PR\#84463.}
+\normalsize
 \end{deluxetable}
+\end{center}
 
-\section{COS Spectroscopic TA subarrays}\label{sec:taSUBS}
-\subsection{COS NUV Spectroscopic TA Subarrays}\label{subsec:NUVspSUBS}
-%\vspace{-0.3cm}
-The NUV spectroscopic TA subarrays for the \tacq{SEARCH} and \tacq{PEAKD} phases are identical, and are given in Table~\ref{tab:NUVspSUBSsad}.
-These subarrays are not grating-specific and are large enough to capture the flux from all three stripes (two for G230L, stripe C is not used).
-The COS FSW uses the same subarrays for the PSA and BOA as the offset between the NUV spectra is small ($\Delta$~XD$\sim$5p).
-
-The NUV spectroscopic TA subarrays for the \tacq{PEAKXD} are given in Table~\ref{tab:NUVspSUBSxd}.
-These subarrays are large enough to only capture the flux from a single stripe.
-Stripe-specific subarrays are defined for both the WCA and PSA.
-The COS FSW uses the same subarrays for the PSA
-and BOA as the offset between the apertures is small.
-If used with an extended source, these subarrays are vulnerable to
-cross-contamination of stripe light. In this table, only the values
-of XC are listed, for all NUV \tacq{PEAKXD} YC=0, YS=1024, and XS=81.
-
-\begin{deluxetable}{|r|r|r|r|r|}
-\tabcolsep 10pt
-\tabletypesize{\footnotesize}
-\tablecolumns{5}
-\tablewidth{0 pt}
-\tablecaption{NUV \tacq{SEARCH} and \tacq{PEAKD} Spectroscopic TA subarrays \label{tab:NUVspSUBSsad}}
-\tablehead{\colhead{GRating}&\colhead{XC}&\colhead{YC}&\colhead{XS}&\colhead{YS}\\
-}
-\startdata
-\hline
-G185M&509&0&420&1024\\
-G225M&512&0&420&1024\\
-G285M&499&0&420&1024\\
-G230L&659&0&275&1024\\
-\hline
-\enddata
-\tablecomments{These NUV TA subarrays were installed in HST commanding in PR\#{}.}
-\end{deluxetable}
-
-NEED TO DETERMINE WHICH OF THESE NUV PEAKXD tables is CORRECT !
-\begin{deluxetable}{|l|r|r|r|r|r|r|}
-\tablewidth{0pt}
-\tabcolsep 8pt
-\tabletypesize{\footnotesize}
-\tablecolumns{7}
-\tablecaption{XC Values for NUV \tacq{PEAKXD} TA Subarrays\label{tab:TAnuvPEAKXDxc}.}
-\tablehead{\colhead{Grating}&\colhead{WCA-A}& \colhead{WCA-B} & \colhead{WCA-C} & \colhead{PSA-A} &\colhead{PSA-B}& \colhead{PSA-C}
-}
-\startdata
-G185M&418&327&192&794&740&565\\
-G225M&440&327&186&804&743&560\\
-G285M&417&333&180&782&728&545\\
-G230L&443&344&194&807&747&564\\
-\enddata
-\tablecomments{Updated after SMOV with PR \#63095. For all NUV \tacq{PEAKXD} TA subarrays: YC=0, YS=1024, and XS=81.}
-\end{deluxetable}
-
-\begin{deluxetable}{|r|r|r|r|r|r|r|}
-\tabcolsep 10pt
-\tabletypesize{\footnotesize}
-\tablecolumns{7}
-\tablewidth{0 pt}
-\tablecaption{NUV \tacq{PEAKXD} WCA and PSA/BOA TA Subarrays \label{tab:NUVspSUBSxd}}
-\tablehead{\colhead{OPT\_ELEM}&\colhead{CAL-A}&\colhead{CAL-B}&\colhead{CAL-C} &\colhead{SCI-A}&\colhead{SCI-B}&\colhead{SCI-C}
-}
-\startdata
-\hline
-G185M	&	418	&	327	&	192	&	794	&	\bf{700}	&	565	\\
-G225M	&	430	&	327	&	186	&	804	&	703	&	560	\\
-G285M	&	407	&	313	&	180	&	782	&	688	&	555	\\
-G230L	&	433	&	334	&	194	&	807	&	707	&	564	\\
-\hline
-\enddata
-\tablecomments{Updated after SMOV with PR \#63095. For all NUV \tacq{PEAKXD} TA subarrays: YC=0, YS=1024, and XS=81.}
-\end{deluxetable}
-
-\subsection{COS FUV Spectroscopic TA Subarrays}\label{subsec:FUVsupSUBS}
-The FUV spectroscopic TA subarrays for the WCA are the same for \tacq{SEARCH},  \tacq{PEAKD}, and \tacq{PEAKXD}
-and are given in Table~\ref{tab:TAsubWCAfuv} for both FUVA and FUVB.
-Only one subarray is used for each FUV segment, these are labeled `A1' and `B1'.
-As the data are taken in ``detector'' coordinates, all FUV TA subarrays values are valid only for the normal operating temperature range of COS. FUVB is not used in G140L TAs.
-
-The FUV spectroscopic subarrays used for all exposures at LP1, LP2, and LP3 for FUVA are given in Table~\ref{tab:FUVsubA} and for FUVB in Table~\ref{tab:FUVsubB}.
-There are two subarrays used for each FUV segment, these are labeled `A1', `A2', `B1', and `B1'.
-The COS FSW uses the same subarrays for the PSA and BOA as the offset between the FUV spectra is small ($\Delta$~XD$\sim$3p).
-As with the other HST spectrographs, FUV TA is susceptible to contamination from geocoronal light as outlined in
-Table~\ref{tab:GEO}, particularly Ly$\alpha$ 1216\AA, {\rm O}\textsc{I} 1302\AA, and {\rm Si}{\sc II}1304\AA.
-The FUV TA subarrays outlined in tables~\ref{tab:FUVsubA} and \ref{tab:FUVsubB} have been tailored to remove regions
-of the target spectrum that may contain Geocoronal light.
-The Geocoronal light fills the aperture and has a very different XD profile which could cause problems with FUV TAs.
-
-%The FUV spectroscopic TA subarrays for LP2 are given for FUVA in Table~\ref{tab:FUVsubA2} and for FUVB in Table~\ref{tab:FUVsubB2}.
-%The initial FUV spectroscopic TA subarrays for LP3 are given for FUVA in Table~\ref{tab:FUVsubA3} and for FUVB in Table~\ref{tab:FUVsubB3}.
-In 201X, several ``hot-spots'' appeared during solar maximum.
-On XX,YY/201X (PR\#XXXXX) the FUV LP3 subarrays were adjusted to avoid these hotspots.
-Details are given in \S~\ref{sec:hotspots}, and the adjusted FUVB subarrays are given in Table~\ref{tab:FUVsubB3hs}.
-
-\begin{deluxetable}{|r|rrrr|rrrr|}
-\tablewidth{0pt}
-\tabcolsep 8pt
-\tabletypesize{\footnotesize}
-\tablecolumns{9}
-\tablecaption{FUV WCA Subarrays\label{tab:TAsubWCAfuv}.}
-\tablehead{
-\colhead{} &
-\colhead{XS} & \colhead{YS} & \colhead{XC} & \colhead{YC} &
-\colhead{XS} & \colhead{YS} & \colhead{XC} & \colhead{YC}\\
-
-\colhead{Grating} &
-\colhead{A1} & \colhead{A1} & \colhead{A1} & \colhead{A1} &
-\colhead{B1} & \colhead{B1} & \colhead{B1} & \colhead{B1}
-}
-\startdata
-\multicolumn{9}{|c|}{LP1}\\ \hline
-G130M & 13799 & 44 & 1201 & 541\tablenotemark{a} & 13799 & 44 & 1501 & 585 \\
-G160M & 13799 & 44 & 1201 & 535\tablenotemark{a} & 13799 & 44 & 1501 & 579\tablenotemark{a} \\ \hline
-G140L & 13799 & 44 & 1201 & 547\tablenotemark{a} & NA  & NA & NA & NA    \\ \hline
-\multicolumn{9}{|c|}{LP2}\\ \hline
-\multicolumn{9}{|c|}{LP3}\\ \hline
-\enddata
-\tablenotetext{a}{Updated for SMOV--SMS201 with PR\#63095.}
-\end{deluxetable}
-
-\begin{deluxetable}{|l|r||rrrr|rrrr||rrrr|rrrr||}
-\tablewidth{0pt}
-\tabletypesize{\footnotesize}
-\tabcolsep 10pt
-\tablecolumns{10}
-\tablecaption{PSA/BOA FUVA TA Subarrays\label{tab:FUVsubA}}
-\tablehead{
-\colhead{Grating} & \colhead{Cenwave} &
-\colhead{XS} & \colhead{YS} & \colhead{XC} & \colhead{YC} &
-\colhead{XS} & \colhead{YS} & \colhead{XC} & \colhead{YC} \\
-
-\colhead{} & \colhead{(\AA)} &
-\colhead{A1} & \colhead{A1} & \colhead{A1} & \colhead{A1} &
-\colhead{A2} & \colhead{A2} & \colhead{A2} & \colhead{A2}
-}
-\startdata
-\multicolumn{10}{c}{LP1}\\ \hline
-G130M & 1291 & 6555\tablenotemark{b}  & 76 & 1201 & 437\tablenotemark{a} & 4078 & 76 & 8896\tablenotemark{b} & 437\tablenotemark{a} \\
-G130M & 1300 & 7559\tablenotemark{b}  & 76 & 1201 & 437\tablenotemark{a} & 4078 & 76 & 9900\tablenotemark{b} & 437\tablenotemark{a} \\
-G130M & 1309 & 8562\tablenotemark{b}  & 76 & 1201 & 437\tablenotemark{a} & 4097\tablenotemark{b} & 76 & 10903\tablenotemark{b} & 437\tablenotemark{a}\\
-G130M & 1318 & 9465\tablenotemark{b}  & 76 & 1201 & 437\tablenotemark{a} & 3194\tablenotemark{b} & 76 & 11806\tablenotemark{b} & 437\tablenotemark{a} \\
-G130M & 1327 & 10489\tablenotemark{b} & 76 & 1201 & 437\tablenotemark{a} & 2170\tablenotemark{b} & 76 & 12830\tablenotemark{b} & 437\tablenotemark{a} \\ \hline
-G160M & ALL     & 13799 & 76 & 1201 & 432\tablenotemark{a,b} & \dots & \dots & \dots & \dots \\ \hline
-G140L & 1105 & 10458 & 76 & 1201 & 445\tablenotemark{a,b} & 457 & 76 & 14543 & 445\tablenotemark{a,b} \\
-G140L & 1230 & 12216 & 76 & 1201 & 445\tablenotemark{a,b} & \dots & \dots & \dots & \dots \\ \hline
-\multicolumn{10}{c}{LP2}\\ \hline
-G130M & 1291 & 6555\tablenotemark{b}  & 76 & 1201 & 437\tablenotemark{a} & 4078 & 76 & 8896\tablenotemark{b} & 437\tablenotemark{a} \\
-G130M & 1300 & 7559\tablenotemark{b}  & 76 & 1201 & 437\tablenotemark{a} & 4078 & 76 & 9900\tablenotemark{b} & 437\tablenotemark{a} \\
-G130M & 1309 & 8562\tablenotemark{b}  & 76 & 1201 & 437\tablenotemark{a} & 4097\tablenotemark{b} & 76 & 10903\tablenotemark{b} & 437\tablenotemark{a}\\
-G130M & 1318 & 9465\tablenotemark{b}  & 76 & 1201 & 437\tablenotemark{a} & 3194\tablenotemark{b} & 76 & 11806\tablenotemark{b} & 437\tablenotemark{a} \\
-G130M & 1327 & 10489\tablenotemark{b} & 76 & 1201 & 437\tablenotemark{a} & 2170\tablenotemark{b} & 76 & 12830\tablenotemark{b} & 437\tablenotemark{a} \\ \hline
-G160M & ALL     & 13799 & 76 & 1201 & 432\tablenotemark{a,b} & \dots & \dots & \dots & \dots \\ \hline
-G140L & 1105 & 10458 & 76 & 1201 & 445\tablenotemark{a,b} & 457 & 76 & 14543 & 445\tablenotemark{a,b} \\
-G140L & 1230 & 12216 & 76 & 1201 & 445\tablenotemark{a,b} & \dots & \dots & \dots & \dots \\ \hline
-\multicolumn{10}{|c|}{LP3}\\
-\enddata
-\tablenotetext{a}{Updated during SMOV (2009.201) with PR\#63095.}
-\tablenotetext{b}{Updated for LP2 operations (201X.215) with PR\#63378.}
-\tablenotetext{c}{Updated for LP3 operations on 20xx with PR\#63095.}
-\end{deluxetable}
-
-\begin{deluxetable}{|l|r||rrrr|rrrr||}
-\tablewidth{0pt}
-\tabcolsep 10pt
-\tablecolumns{10}
-\tabletypesize{\footnotesize}
-\tablecaption{PSA/BOA FUVB TA Subarrays\label{tab:FUVsubB}.}
-\tablehead{
-\colhead{Grating} & \colhead{Cenwave} &
-\colhead{XS} & \colhead{YS} & \colhead{XC} & \colhead{YC} &
-\colhead{XS} & \colhead{YS} & \colhead{XC} & \colhead{YC}\\
-
-\colhead{} & \colhead{(\AA)} &
-\colhead{B1} & \colhead{B1} & \colhead{B1} & \colhead{B1} &
-\colhead{B2} & \colhead{B2} & \colhead{B2} & \colhead{B2}
-}
-\startdata
-\multicolumn{9}{|c|}{LP1}\\
-\hline
-G130M & 1291 & 5036\tablenotemark{b} & 76 & 1501 & 483 & 7477\tablenotemark{b} & 76 & 7773\tablenotemark{b} & 483\tablenotemark{a,b} \\
-G130M & 1300 & 6039\tablenotemark{b} & 76 & 1501 & 483 & 6474\tablenotemark{b} & 76 & 8776\tablenotemark{b} & 483\tablenotemark{a,b} \\
-G130M & 1309 & 7023\tablenotemark{b} & 76 & 1501 & 483 & 5490\tablenotemark{a} & 76 & 9760\tablenotemark{a} & 483\tablenotemark{a,b} \\
-G130M & 1318 & 7977\tablenotemark{b} & 76 & 1501 & 483 & 4536\tablenotemark{b} & 76 & 10714\tablenotemark{b} & 483\tablenotemark{a,b} \\
-G130M & 1327 & 7629\tablenotemark{b} & 76 & 2792\tablenotemark{b} & 483 & 3593\tablenotemark{b} & 76 & 11657\tablenotemark{b} & 483\tablenotemark{a,b} \\ \hline
-G160M & ALL  & 13749 & 76 & 1501 & 477\tablenotemark{a,b} & \dots & \dots & \dots & \dots \\ \hline
-G140L & 1105 & \dots & \dots & \dots & \dots & \dots & \dots & \dots & \dots \\
-G140L & 1230 & \dots & \dots & \dots & \dots & \dots & \dots & \dots & \dots \\ \hline
-\hline
-\multicolumn{9}{|c|}{LP2}\\
-\hline
-G130M & 1291 & 5036\tablenotemark{b} & 76 & 1501 & 483 & 7477\tablenotemark{b} & 76 & 7773\tablenotemark{b} & 483\tablenotemark{a,b} \\
-G130M & 1300 & 6039\tablenotemark{b} & 76 & 1501 & 483 & 6474\tablenotemark{b} & 76 & 8776\tablenotemark{b} & 483\tablenotemark{a,b} \\
-G130M & 1309 & 7023\tablenotemark{b} & 76 & 1501 & 483 & 5490\tablenotemark{a} & 76 & 9760\tablenotemark{a} & 483\tablenotemark{a,b} \\
-G130M & 1318 & 7977\tablenotemark{b} & 76 & 1501 & 483 & 4536\tablenotemark{b} & 76 & 10714\tablenotemark{b} & 483\tablenotemark{a,b} \\
-G130M & 1327 & 7629\tablenotemark{b} & 76 & 2792\tablenotemark{b} & 483 & 3593\tablenotemark{b} & 76 & 11657\tablenotemark{b} & 483\tablenotemark{a,b} \\ \hline
-G160M & ALL  & 13749 & 76 & 1501 & 477\tablenotemark{a,b} & \dots & \dots & \dots & \dots \\ \hline
-G140L & 1105 & \dots & \dots & \dots & \dots & \dots & \dots & \dots & \dots \\
-G140L & 1230 & \dots & \dots & \dots & \dots & \dots & \dots & \dots & \dots \\ \hline
-\hline
-\multicolumn{9}{|c|}{LP3 (Pre Hot-Spot)}\\
-\hline
-G130M & 1291 & 5036 & 76 & 1501 & 460 & 5036 & 76 & 7773 & 460 \\
-G130M & 1300 & 6039 & 76 & 1501 & 460 & 6039 & 76 & 8776 & 460 \\
-G130M & 1309 & 7023 & 76 & 1501 & 460 & 7023 & 76 & 9760 & 460 \\
-G130M & 1318 & 7977 & 76 & 1501 & 460 & 7977 & 76 & 10714 & 460 \\
-G130M & 1327 & 7629 & 76 & 2792 & 460 & 7629 & 76 & 11657 & 460 \\ \hline
-G160M & ALL  & 13749 & 76 & 1501 & 453 & \dots & \dots & \dots & \dots \\ \hline
-G140L & 1105 & \dots & \dots & \dots & \dots & \dots & \dots & \dots & \dots \\
-G140L & 1230 & \dots & \dots & \dots & \dots & \dots & \dots & \dots & \dots \\ \hline
-\hline
-\multicolumn{9}{|c|}{LP3 (Post Hot-Spot) -- CHECK THESE}\\
-\hline
-G130M & 1291 & 5036\tablenotemark{d} & 76 & 1501 & 483 & 7477\tablenotemark{d} & 76 & 7773\tablenotemark{d} & 483 \\
-G130M & 1300 & 6039\tablenotemark{d} & 76 & 1501 & 483 & 6474\tablenotemark{d} & 76 & 8776\tablenotemark{d} & 483 \\
-G130M & 1309 & 7023\tablenotemark{d} & 76 & 1501 & 483 & 5490\tablenotemark{d} & 76 & 9760\tablenotemark{d} & 483 \\
-G130M & 1318 & 7977\tablenotemark{d} & 76 & 1501 & 483 & 4536\tablenotemark{d} & 76 & 10714\tablenotemark{d} & 483 \\
-G130M & 1327 & 7629\tablenotemark{d} & 76 & 2792\tablenotemark{b} & 483 & 3593\tablenotemark{d} & 76 & 11657\tablenotemark{d} & 483\tablenotemark{a,b} \\ \hline
-G160M & ALL  & 13332 & 76 & 1501 & 477\tablenotemark{a,b} & \dots & \dots & \dots & \dots \\ \hline
-G140L & 1105 & \dots & \dots & \dots & \dots & \dots & \dots & \dots & \dots \\
-G140L & 1230 & \dots & \dots & \dots & \dots & \dots & \dots & \dots & \dots \\ \hline
-\enddata
-\tablenotetext{a}{Updated during SMOV (2009.201) with PR\#63095.}
-\tablenotetext{b}{Updated for LP2 operations (201X.215) with PR\#63378.}
-\tablenotetext{c}{Updated for LP3 operations on 20xx.YYY with PR\#63095.}
-\tablenotetext{d}{Updated for continuing LP3 operations on 20xx.YYY with PR\#80571.}
-\end{deluxetable}
-
-\subsection{Trimming of FUV-B TA subarrays due to FUVB ``Hot-Spot''.}\label{subsec:hotspot}
-A ``Hot Spot'' appeared on the COS FUV-B segment coincident with the solar maximum of 20XX.
-This spot produced enough counts that it could cause mis-centering during all phases of the FUV LP3 spectroscopic TAs.
-This mis-centerings could be in significant in either the AD or XD. On 201X\footnote{STScI PR\#{}.}, all affected
-LP3 FUV subarrays were changed.
-
-In raw FUV-B detector coordinates, the approximate location of the `Hot Spot' is at [X,Y]=[14895,482].
-As this is near the detector edge, we are able to avoid this hotspot by stopping the last subarray of the FUVB subarrays at X=14833.
-For the COS FUV gratings and the FUVB TA subarrays, the impacts were
-\begin{enumerate}
-	\item[G140L:]{NOT affected as no FUVB TA subarrays are used for G140L }
-	\item[G160M:]{One subarray is used, all have XC1=1501, XS1=13749. These will all change to XS1=13332. (no change in Y)}
-	\item[G130M:]{Two subarrays are used to avoid Geocoronal Ly$\alpha$. The X-size of the second subarray (XS2) will be trimmed to avoid the hotspot (XC1, XS1, XC2 and all the Y definitions do not change).}
-\end{enumerate}
+\input{tamon_ai_table.tex}

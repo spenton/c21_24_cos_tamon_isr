@@ -1,0 +1,121 @@
+head	1.3;
+access;
+symbols;
+locks
+	penton:1.3; strict;
+comment	@% @;
+
+
+1.3
+date	2018.03.30.15.20.58;	author penton;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2018.03.27.18.32.49;	author penton;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2018.03.22.18.08.39;	author penton;	state Exp;
+branches;
+next	;
+
+
+desc
+@TAacc
+@
+
+
+1.3
+log
+@updated for 3/30 update
+@
+text
+@% $Id: TAaccuracy.tex,v 1.2 2018/03/27 18:32:49 penton Exp $
+\begin{deluxetable}{cccc}
+\tabletypesize{\footnotesize}
+\tablewidth{5.5 in}
+%\tabcolsep 10pt
+\tablecolumns{4}
+\tablecaption{COS TA Centering Requirements}\label{tab:TAaccuracy}
+\tablehead{\colhead{COS Grating} & \colhead{Total AD Error Budget} & \colhead{AD TA Requirement\tablenotemark{a}} & \colhead{XD TA Requirement\tablenotemark{x}}\\
+}
+\startdata
+	\hline
+	\multicolumn{4}{c}{NUV}\\
+	\hline
+	G185M & 0.058\arcsec\ & 0.041\arcsec & 0.3(0.1)\arcsec\\
+	G225M & 0.076\arcsec\ & 0.054\arcsec & 0.3(0.1)\arcsec\\
+	G285M & 0.084\arcsec\ & 0.059\arcsec & 0.3(0.1)\arcsec\\
+	G230L & 0.086\arcsec\ & 0.061\arcsec & 0.3(0.1)\arcsec\\
+	\hline
+	\multicolumn{4}{c}{FUV}\\
+	\hline
+	G130M & 0.150\arcsec\ & 0.106\arcsec & 0.3(0.1)\arcsec\\
+	G160M & 0.153\arcsec\ & 0.108\arcsec & 0.3(0.1)\arcsec\\
+	G140L & 0.247\arcsec\ & 0.175\arcsec & 0.3(0.1)\arcsec\\
+\enddata
+\tablenotetext{a}{Assuming the total AD error budget (column~2) is split equally between TA centering and wavelength scale accuracy,
+the AD TA requirements (column~3) are 1/$\sqrt{2}$ of the total AD error budget (equations~\ref{eq:TAcenter}--\ref{eq:TAcenterL}).}
+\tablenotetext{x}{The XD requirement is 0.3\arcsec, but our 1$\sigma$ goal is 0.1\arcsec.}
+\end{deluxetable}
+@
+
+
+1.2
+log
+@3/28.
+@
+text
+@d1 1
+a1 1
+% $Id$
+d11 13
+a23 13
+\hline
+\multicolumn{4}{c}{NUV}\\
+\hline
+G185M & 0.058\arcsec\ & 0.041\arcsec & 0.3(0.1)\arcsec\\
+G225M & 0.076\arcsec\ & 0.054\arcsec & 0.3(0.1)\arcsec\\
+G285M & 0.084\arcsec\ & 0.059\arcsec & 0.3(0.1)\arcsec\\
+G230L & 0.086\arcsec\ & 0.061\arcsec & 0.3(0.1)\arcsec\\
+\hline
+\multicolumn{4}{c}{FUV}\\
+\hline
+G130M & 0.150\arcsec\ & 0.106\arcsec & 0.3(0.1)\arcsec\\
+G160M & 0.153\arcsec\ & 0.108\arcsec & 0.3(0.1)\arcsec\\
+G140L & 0.247\arcsec\ & 0.175\arcsec & 0.3(0.1)\arcsec\\
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d1 8
+a8 8
+\begin{deluxetable}{rrr}
+%\tablewidth{0pt}
+\tabcolsep 18pt
+\tablecolumns{3}
+\tablecaption{COS Along-Dispersion (AD) Centering Requirements}\label{tab:TAaccuracy}
+\tablehead{	\colhead{COS Grating} &
+			\colhead{Total Error Budget} &
+			\colhead{AD TA Requirement}
+a10 4
+G185M & 0.058\arcsec\ & 0.041\arcsec\\
+G225M & 0.076\arcsec\ & 0.054\arcsec\\
+G285M & 0.084\arcsec\ & 0.059\arcsec\\
+G230L & 0.086\arcsec\ & 0.061\arcsec\\
+d12 12
+a23 3
+G130M & 0.150\arcsec\ & 0.106\arcsec\\
+G160M & 0.153\arcsec\ & 0.108\arcsec\\
+G140L & 0.247\arcsec\ & 0.175\arcsec\\
+d25 3
+a27 2
+\tablecomments{Assuming the total error budget (column 2) is split equally between TA AD centering and wavelength scale accuracy,
+the AD TA requirements (column 3) are 1/$\sqrt{2}$ of the total error budget (equations~\ref{eq:TAcenter}--\ref{eq:TAcenterL}).}
+@

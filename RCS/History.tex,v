@@ -1,0 +1,194 @@
+head	1.4;
+access;
+symbols;
+locks
+	penton:1.4; strict;
+comment	@% @;
+
+
+1.4
+date	2018.03.30.20.22.12;	author penton;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2018.03.29.19.16.24;	author penton;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2018.03.27.18.32.49;	author penton;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2018.03.22.18.08.39;	author penton;	state Exp;
+branches;
+next	;
+
+
+desc
+@History
+@
+
+
+1.4
+log
+@FUV
+@
+text
+@% $Id: History.tex,v 1.3 2018/03/29 19:16:24 penton Exp $
+\subsection{COS TA Monitoring Program History}\label{subsec:History}
+After the installation of COS into HST in 2009 (STS-125), and the
+servicing mission orbital verification (SMOV) phase,
+a series of calibration programs in NUV imaging mode carefully determined the two-dimensional offset from the COS WCA to the center of the PSA when observed with MIRA.
+These X and Y offsets were loaded in the FSW TA parameters \textsc{XImCalTargetOffset} and \textsc{YImCalTargetOffset}.
+A target was then centered using a PSA$\times$MIRA \texttt{ACQ/IMAGE}, then a target image was taken along with a MIRB image
+of the WCA image. These images were used to determine the AD (Y) and XD (X) offsets of the image target and WCA centroids.
+These values were uploaded in the FSW paramaters. This bootstrapping procedure was repeated with the BOA$\times$MIRA
+and BOA$\times$MIRB \texttt{ACQ/IMAGE} modes until all four \texttt{ACQ/IMAGE} modes were co-aligned.
+
+The FGS-to-SI program (\pid{14035}) performs a PSA$\times$MIRA \texttt{ACQ/IMAGE} on a target that should be centered in the aperture.
+The PSA$\times$MIRA \texttt{ACQ/IMAGE} in Visit `A2' of \pid{14035} can be used to verify the COS NUV PSA aperture position in the SIAF.
+This exposure shows that the COS NUV PSA SIAF entry combined with the PSA$\times$MIRA WCA-to-PSA offsets are
+accurate to within [AD,XD] = [-0.020,0.105]\arcsec\ (the distance that the \texttt{ACQ/IMAGE} slewed to center the target).
+The COS aperture is only repeatable in the XD direction to $\pm$ one motor step (0.05\arcsec). In addition, the WCA location
+cannot be measured to better than 1/2 pixel as the  median integer pixel location is reported as the lamp location.
+On the NUV detector, 1 pixel is $\sim$ 0.023\arcsec.
+
+\footnote{On November 6, 2014, the MIRB \texttt{ACQ/IMAGE} wavelength calibration lamp (P2) exposure was changed from a 30 second exposure
+at LOW current (3 mA) to a 12 second exposure at MED current (10 mA). At this point the \textsc{pcta\_XImCalTargetOffset} and \textsc{pcta\_YImCalTargetOffset}
+FSW parameters were also updated to reflect a small change in the WCA-to-SA imaging MIRB offsets.}
+
+\subsection{COS centroid measurements}
+	The COS FSW uses either a mean or a median to calculate spectral or imaging centers.
+On the NUV channel, medians are always used, while for FUV, a mean is always used. This
+behavior is controlled by the following FSW patchable constants\footnote{Current Value indicates the LV60 value. These values have worked
+well and there is no reason to consider changing these values at this time.} :
+
+\item{\textsc{\bf pcta\_UseMedian4CAL4FUV}}
+	\begin{description}
+	\item[\underline{\rm Description}:]Flag to indicate whether to use ``median'' or ``mean'' for the calculation of the cross-dispersion coordinate of the wavelength calibration lamp spectrum in the phase \texttt{LTACAL} for the FUV detector.
+	\item[\underline{\rm Format}:]    Boolean
+	\item[\underline{\rm Units}:]     None
+	\item[\underline{\rm Limits/Ranges}:]  TRUE = use median;  FALSE = use mean
+	\item[\underline{\rm Scaling}:]   None
+	\item[\underline{\rm Current Value }:]   FALSE (use mean)
+\end{description}
+
+\item{\textsc{\bf pcta\_UseMedian4CAL4NUV}}
+	\begin{description}
+	\item[\underline{\rm Description}:]Flag to indicate whether to use 'median' or 'mean' for the calculation of the cross-dispersion coordinate of the cal lamp spectrum in the phase \texttt{LTACAL} for the NUV detector.
+	\item[\underline{\rm Format}:]    Boolean
+	\item[\underline{\rm Units}:]     None
+	\item[\underline{\rm Limits/Ranges}:]  TRUE = use median;  FALSE = use mean
+	\item[\underline{\rm Scaling}:]   None
+	\item[\underline{\rm Current Value }:]   TRUE (use median)
+\end{description}
+
+\item{\textsc{\bf pcta\_UseMedian4PKXD4FUV}}
+	\begin{description}
+	\item[\underline{\rm Description}:]Flag to indicate whether to use 'median' or 'mean' for the calculation of the cross-dispersion coordinate of the target spectrum in the phase \texttt{LTAPKXD} for the FUV detector.
+	\item[\underline{\rm Format}:]    Boolean
+	\item[\underline{\rm Units}:]     None
+	\item[\underline{\rm Limits/Ranges}:]  TRUE = use median;  FALSE = use mean
+	\item[\underline{\rm Scaling}:]   None
+	\item[\underline{\rm Current Value }:]   FALSE (use mean)
+\end{description}
+
+\item{\textsc{\bf pcta\_UseMedian4PKXD4NUV}}
+	\begin{description}
+	\item[\underline{\rm Description}:]Flag to indicate whether to use 'median' or 'mean' for the calculation of the cross-dispersion coordinate of the target spectrum in the phase \texttt{LTAPKXD} for the NUV detector.
+	\item[\underline{\rm Format}:]    Boolean
+	\item[\underline{\rm Units}:]     None
+	\item[\underline{\rm Limits/Ranges}:]  TRUE = use median;  FALSE = use mean
+	\item[\underline{\rm Scaling}:]   None
+	\item[\underline{\rm Current Value }:]   TRUE (use median)
+\end{description}
+
+During TA, all \tacq{} procedures operate in ACCUM mode (no individual photon events, no pulse-height information, and no calibrations available) and operate using integer values only.
+For \tacq{IMAGE}, the WCA lamp image location is determined using a median in each coordinate. Therefore, a $\pm$ 0.5p uncertainty is present during each \texttt{LTAIMCAL} measurement when determining the center of the SA position for the
+\texttt{LTAIMAGE} portion of the \tacq{IMAGE}. For NUV \tacq{PEAKXD}, the same $\pm$ 0.5p uncertainty is present in both the spectral and target locations portions of the \texttt{LTAPKXD}. Combined in quadrature, this implies that
+an \textt{LTAPKXD} has an inherent XD centering accuracy of no less than $\sqrt(2)$ 0.5 p = 0.7p = 0.017\arcsec. For FUV \texttt{LTAPKXD}, a mean is used to measure both the WCA lamp spectrum XD location and the target XD location.
+For FUV LP1--3, uncorrected geometric and thermal distortions can cause targets with different spectral energy distributions (SEDs) to center differently. This effect has been measured (Penton \& Keyes, 2010) to be as large at $\pm$ 2 DE (rows) or
+$\sim 0.2$\arcsec.\footnote{At FUV LP4 this effect is even more pronounced and prohibits \texttt{LTAPKXD} (\numposonenumposone \tacq{PEAKXD}) from achieving the centering requirement of $\pm$ 0.3\arcsec. For this reason, the \tacq{PEAKD} FSW routine \texttt{LTAPKD} was enabled
+for XD usage in FSW version LV58 (installed 2014.132).}
+@
+
+
+1.3
+log
+@updated
+@
+text
+@d1 1
+a1 1
+% $Id: History.tex,v 1.2 2018/03/27 18:32:49 penton Exp penton $
+d23 54
+@
+
+
+1.2
+log
+@3/28.
+@
+text
+@d1 1
+a1 1
+% $Id$
+a11 7
+
+In this program (\pid{13972}) we use this bootstrapping strategy to test the co-alignment of all four \texttt{ACQ/IMAGE} modes.
+\footnote{On November 6, 2014, the MIRB \texttt{ACQ/IMAGE} wavelength calibration lamp exposure was changed from a 30 second exposure
+at LOW current (3mA) to a 12 second exposure at MEDIUM current. At this point the \textsc{pcta\_XImCalTargetOffset} and \textsc{pcta\_YImCalTargetOffset}
+FSW parameters were also updated to reflect a small change in the WCA-to-SA imaging MIRB offsets. This program is the first to monitor the updated offsets.}
+To accomplish this in only two orbits, this project leverages observations taken in FGS-to-SI alignment verification program (14035).
+
+d15 1
+a15 1
+accurate to within [AD,XD] = [-0.020,0.105]\arcsec\ (this is the distance that the \texttt{ACQ/IMAGE} slewed to center the target).
+d17 6
+a22 3
+cannot be measured to better than 1/2 pixel as the pixel used to determine the median location in an integer.
+On the NUV detector, 1 pixel is $\sim$ 0.023\arcsec. Based upon this information, the COS NUV PSA definition
+in the SIAF file appears to meet our accuracy requirements for C22.
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d1 1
+d3 8
+a10 6
+In the 2009 (STS-125) servicing mision orbital verification (SMOV) phase, a series of programs in NUV imaging mode carefully determined the two-dimensional offset from the WCA to the center of the PSA when observed with MIRRORA.
+These X and Y offsets were loaded in the FSW parameters \textsc{pcta\_XImCalTargetOffset} and \textsc{pcta\_YImCalTargetOffset}.
+A target was then centered using a PSA+MIRRORA \texttt{ACQ/IMAGE}, then a target image was taken along with a MIRRORB image
+of the WCA image. These images were used to determine the X and Y offsets of the image target and WCA centroids.
+These values were uploaded in the FSW paramaters. This bootstrapping procedure was repeated with the BOA+MIRRORA
+and BOA+MIRRORB \texttt{ACQ/IMAGE} modes until all four \texttt{ACQ/IMAGE} modes were co-aligned.
+d12 3
+a14 2
+In this program (13972) we use this bootstrapping strategy to test the co-alignment of all four \texttt{ACQ/IMAGE} modes.
+\footnote{On November 6, 2014, the MIRRORB \texttt{ACQ/IMAGE} wavelength calibration lamp exposure was changed from a 30 second exposure
+d16 1
+a16 1
+FSW parameters were also updated to reflect a small change in the WCA-to-SA imaging MIRRORB offsets. This program is the first to monitor the updated offsets.}
+d19 3
+a21 3
+The FGS-to-SI program (P14035) performs a PSA/MIRRORA \texttt{ACQ/IMAGE} on a target that should be centered in the aperture.
+The PSA+MIRRORA \texttt{ACQ/IMAGE} in Visit `A2' of P14035 can be used to verify the COS NUV PSA aperture position in the SIAF.
+This exposure shows that the COS NUV PSA SIAF entry combined with the PSA+MIRRORA WCA-to-PSA offsets are
+d26 1
+a26 8
+in the SIAF file appears to meet our accuracy requirements for Cycle 22.
+
+After the P14035 Visit `A2' PSA+MIRRORA \texttt{ACQ/IMAGE}, a PSA+MIRRORB \texttt{ACQ/IMAGE} is performed.
+This exposure bootstraps the PSA+MIRRORB centering to the PSA+MIRRORA + SIAF verification.
+This allows us to monitor the properties of the PSA+MIRRORB image in a controlled way on a centered target. No spectra or images are taken in P14035 due to time constraints.
+Visits 01 and 02 of P13972 extend the COS SIAF/FGS-to-SI verification of Visit 02 of P14035 to the other two \texttt{ACQ/IMAGE} combinations (BOA+MIRRORA and BOA+MIRRORB) by bootstraping from the PSA+MIRRORB verification to co-align all the COS TA imaging modes. The details of the observations are given is the observing section.
+Visit 01 of P13972 bootstraps off Visit 02 of P14035 to co-align the PSA+MIRRORB \texttt{ACQ/IMAGE} mode to the BOA+MIRRORA. Visit 01 of P13972 executed within 45 days of Visit 02 of P14035, to ensure that no long term instrument or telescope focus changes impact our results.
+Visit 02 of P13972 follows the style of Visit 01, and bootstraps from the BOA+MIRRORA mode to the BOA+MIRRORB TA imaging mode. Visit 02 should also occur within 45 days of visit 02 of P14035 and within 45 days of Visit 01 of P13972.
+@

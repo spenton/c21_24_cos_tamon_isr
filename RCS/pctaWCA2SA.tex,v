@@ -1,0 +1,137 @@
+head	1.5;
+access;
+symbols;
+locks
+	penton:1.5; strict;
+comment	@% @;
+
+
+1.5
+date	2018.03.30.20.22.12;	author penton;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2018.03.30.15.20.58;	author penton;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2018.03.27.18.32.49;	author penton;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2018.03.22.18.08.39;	author penton;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2018.03.22.16.46.32;	author penton;	state Exp;
+branches;
+next	;
+
+
+desc
+@pcta table
+@
+
+
+1.5
+log
+@More
+@
+text
+@% $Id: pctaWCA2SA.tex,v 1.4 2018/03/30 15:20:58 penton Exp penton $
+\begin{deluxetable}{lrrr}
+%\tablewidth{0pt}
+\tabcolsep 10 pt
+%\tabletypesize{\footnotesize}
+\tablecolumns{4}
+\tablecaption{\texttt{ACQ/PEAKXD} WCA-to-PSA offsets \label{tab:wcatopsa}}
+\tablehead{
+\colhead{\texttt{OPT\_ELEM}}&\colhead{LP1}&\colhead{LP2}&\colhead{LP3}\\
+}
+
+\startdata
+\hline
+\multicolumn{4}{c}{FUV\tablenotemark{f}}\\
+\hline
+G130M	&	 -898	&	-943	&	-892 \\
+G140L	&	 -884	&	-950	&	-857 \\
+G160M	&	 -898	&	-933	&	-901 \\
+\hline
+\multicolumn{4}{c}{NUV\tablenotemark{n}}\\
+\hline
+G185M	&	3742	&	\dots	&	\dots \\
+G225M	&	3746	&	\dots	&	\dots \\
+G230L	&	3734	&	\dots	&	\dots \\
+G285M	&	3749	&	\dots	&	\dots \\
+\hline
+\enddata
+\tablenotetext{f}{Divide the FUV numbers by -10 to get the number of XD rows between the PSA and WCA spectra for a target centered in the aperture.}
+\tablenotetext{n}{Divide the NUV numbers by 10 to get the NUV WCA-to-PSA offset. }
+\tablecomments{The FSW patchable constant \textsc{pcta\_CalTargetOffsetScale} determines the FSW scaling (currently set to 10).
+FUV scalings are "negative" due to parity of HST slews relative to the COS coordinate system. {\bf Note to reviewers: Do you think I should keep the numbers in their FSW
+values (not scaled), or should I go ahead and scale them ?}}
+\end{deluxetable}
+@
+
+
+1.4
+log
+@updated for 3/30 update
+@
+text
+@d1 2
+a2 2
+% $Id$
+\begin{deluxetable}{lclcccr}
+d31 2
+a32 1
+FUV scalings are "negative" due to parity of HST slews relative to the COS coordinate system.}
+@
+
+
+1.3
+log
+@3/28
+@
+text
+@d7 1
+a7 1
+\tablecaption{\texttt{ACQ/PEAKXD} WCA-to-PSA offsets} \label{tab:wcatopsa}
+d9 1
+a9 1
+\colhead{\textit{OPT\_ELEM}}&\colhead{LP1}&\colhead{LP2}&\colhead{LP3}\\
+@
+
+
+1.2
+log
+@pcta table
+@
+text
+@d1 1
+d4 2
+a5 2
+%\tabcolsep 10pt
+\tabletypesize{\footnotesize}
+d9 1
+a9 1
+\colhead{OPT\_ELEM}&\colhead{LP1}&\colhead{LP2}&\colhead{LP3}\\
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d3 1
+a3 1
+\tabcolsep 10pt
+d6 1
+a6 1
+\tablecaption{\tacq{PEAKXD} WCA-to-PSA offsets} \label{tab:wcatopsa}
+@

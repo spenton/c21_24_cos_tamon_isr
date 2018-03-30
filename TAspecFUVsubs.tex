@@ -1,0 +1,248 @@
+\subsection{COS FUV Spectroscopic TA Subarrays}\label{subsec:FUVsupSUBS}
+The FUV spectroscopic TA subarrays for the WCA are the same for \tacq{SEARCH},  \tacq{PEAKD}, and \tacq{PEAKXD}
+and are given in Table~\ref{tab:TAsubWCAfuv} for both FUVA and FUVB.
+Only one subarray is used for the WCA for each FUV segment, these are labeled `A1' and `B1'.
+As the data are taken in ``detector'' coordinates, all FUV TA subarrays values are valid only for the normal operating temperature range of COS. FUVB is not used in G140L TAs.
+
+The FUV spectroscopic subarrays used for all external targets at LP1--4 for FUVA are given in Table~\ref{tab:FUVsubA} and for FUVB in Table~\ref{tab:FUVsubB}.
+There are two subarrays used for each FUV segment, these are labeled `A1', `A2', `B1', and `B2'.
+The COS FSW uses the same subarrays for the PSA and BOA as the offset between the FUV spectra is small ($\Delta$~XD$\sim$3p).
+As with the other HST spectrographs, FUV TAs are susceptible to contamination from geocoronal light , particularly Ly$\alpha$ 1216\AA, {\rm O}\textsc{I} 1302\AA, and {\rm Si}{\sc II}1304\AA\ (Penton \& Keyes, 2010).
+The FUV TA subarrays outlined in tables~\ref{tab:FUVsubA} and \ref{tab:FUVsubB} have been tailored to remove regions
+of the target spectrum that may contain Geocoronal light.
+The Geocoronal light fills the aperture and has a very different XD profile which could cause problems with FUV TAs.
+
+In 2014--5, several ``hot-spots'' appeared during solar maximum. On April 20, 2015 (2015.110) with STScI PR\#80571, the FUV LP3 subarrays were adjusted to avoid these hot-spots.
+Details are given in \S~\ref{subsec:hotspots}, and the adjusted FUVB subarrays are also given in Table~\ref{tab:FUVsubB}.
+
+\begin{deluxetable}{r|rrrr|rrrr}
+\tablewidth{6 in}
+\tabcolsep 9 pt
+\tabletypesize{\scriptsize}
+\tablecolumns{9}
+\tablecaption{FUV WCA TA Subarrays for LP1--4\label{tab:TAsubWCAfuv}.}
+\tablehead{
+\colhead{} & \multicolumn{4}{c|}{A1} & \multicolumn{4}{c}{B1} \\
+\colhead{\textit{OPT\_ELEM}} & \multicolumn{1}{|r}{XC} & \colhead{YC} & \colhead{XS} & \colhead{YS} & \multicolumn{1}{|r}{XC} & \colhead{YC} & \colhead{XS} & \colhead{YS}\\
+\hline
+\colhead{(1)}&\colhead{(2)} &
+\colhead{(3)}&\colhead{(4)} &
+\colhead{(5)}&\colhead{(6)} &
+\colhead{(7)}&\colhead{(8)} &
+\colhead{(9)}
+}
+\startdata
+	\hline
+	\multicolumn{9}{c}{LP1}\\
+	\hline
+	G130M & 1201 & 541\tablenotemark{a} & 13799                   & 44 & 1501  & 585                 & 13799 & 44\\
+	G160M & 1201 & 535\tablenotemark{a} & 13799                   & 44 & 1501  & 579\tablenotemark{a}& 13799 & 44\\
+	G140L & 1201 & 547\tablenotemark{a} & 13799                   & 44 & \dots & \dots & \dots & \dots \\
+	G140L & 4701 & 547\tablenotemark{b} & 10299\tablenotemark{b}  & 44 & \dots & \dots & \dots & \dots \\
+	\hline
+	\multicolumn{9}{c}{LP2\tablenotemark{c}}\\
+	\hline
+	G130M & 1201 & 581 & 13799  & 44 & 1501 & 630 & 13799  & 44 \\
+	G160M & 1201 & 568 & 13799  & 44 & 1501 & 617 & 13799  & 44 \\
+	G140L & 4701 & 587 & 10299  & 44 & \dots & \dots & \dots & \dots \\
+	\hline
+	\multicolumn{9}{c}{LP3\tablenotemark{d}}\\
+	\hline
+	G130M & 1201  & 515 & 13799 & 44 & 1501  & 567 & 13799 & 44\\
+	G160M & 1201  & 504 & 13799 & 44 & 1501  & 559 & 13799 & 44\\
+	G140L & 4701  & 521 & 10299 & 44 & \dots & \dots & \dots & \dots \\
+	\hline
+	\multicolumn{9}{c}{LP4\tablenotemark{e}}\\
+	\hline
+	G130M & 1201 & 483 & 13799 & 52 & 1501 &  539 & 13799 & 52 \\
+	G160M & 1201 & 475 & 13799 & 52 & 1501 &  534 & 13799 & 52 \\
+	G140L & 4701 & 491 & 10299 & 52 & \dots & \dots & \dots & \dots \\
+\enddata
+\tablenotetext{a}{These values were updated on 2009.201 (July 20, 2009) with STScI PR\#63095, some very early COS calibration and ERO datasets used slightly different TA subarrays.}
+\tablenotetext{b}{Additional G140L updates were made on Dec. 4, 2012 (2012.339) with STScI PR\#72193 to futher optimize the G140L subarrays.}
+\tablenotetext{c}{Updated for LP2 operations on July 18, 2012 (2012.200) with STScI PR\#70548.}
+\tablenotetext{d}{Updated for LP3 operations on Aug. 26, 2014 (2014.238) with STScI PR\#78747.}
+\tablenotetext{e}{Updated for LP4 operations on Feb. 20, 2017 (2017.051) with STScI PR\#86945.}
+\end{deluxetable}
+
+\begin{deluxetable}{l|r|rrrr|rrrr|}
+%\tablewidth{6 in}
+\tabletypesize{\scriptsize}
+\tabcolsep 4 pt
+\tablecolumns{10}
+\tablecaption{FUVA PSA/BOA TA Subarrays for LP1--4\label{tab:FUVsubA}}
+\tablehead{
+\colhead{\textit{OPT\_ELEM}} & \colhead{\cenwave} & \multicolumn{4}{c}{A1} & \multicolumn{4}{c}{A2}\\
+\colhead{} & \multicolumn{1}{|r}{(\AA)} &
+\multicolumn{1}{|r}{XC} & \colhead{YC} & \colhead{XS} & \colhead{YS} & \multicolumn{1}{|r}{XC} & \colhead{YC} &\colhead{XS} & \multicolumn{1}{r|}{YS}\\
+\hline
+\colhead{(1)}&\colhead{(2)} &
+\colhead{(3)}&\colhead{(4)} &
+\colhead{(5)}&\colhead{(6)} &
+\colhead{(7)}&\colhead{(8)} &
+\colhead{(9)}&\colhead{(10)}
+}
+\startdata
+\hline
+\multicolumn{10}{c}{LP1}\\
+\hline
+G130M & 1291 & 1201& 6555\tablenotemark{b}   & 437\tablenotemark{a}& 76  & 4078 & 8896\tablenotemark{b} & 437\tablenotemark{a} & 76\\
+G130M & 1300 & 1201& 7559\tablenotemark{b}   & 437\tablenotemark{a}& 76  & 4078 & 9900\tablenotemark{b} & 437\tablenotemark{a} & 76\\
+G130M & 1309 & 1201& 8562\tablenotemark{b}   & 437\tablenotemark{a}& 76  & 4097\tablenotemark{b}  & 10903\tablenotemark{b} & 437\tablenotemark{a} & 76 \\
+G130M & 1318 & 1201& 9465\tablenotemark{b}   & 437\tablenotemark{a}& 76  & 3194\tablenotemark{b}  & 11806\tablenotemark{b} & 437\tablenotemark{a} & 76 \\
+G130M & 1327 & 1201& 10489\tablenotemark{b}  & 437\tablenotemark{a}& 76  & 2170\tablenotemark{b}  & 12830\tablenotemark{b} & 437\tablenotemark{a} & 76 \\
+G160M & ALL  & 1201& 13799 & 432\tablenotemark{a,b} & 76 & \dots & \dots & \dots & \dots \\
+G140L & 1105 & 1201& 10458\tablenotemark{c} & 445\tablenotemark{a,b}& 76  & 457  & 14543 & 445\tablenotemark{a,b} & 76\\
+G140L & 1230\tablenotemark{g} & 1201& 12216\tablenotemark{c} & 445\tablenotemark{a,b}& 76  & \dots & \dots & \dots & \dots \\
+G140L & 1280 & 1201& 12216\tablenotemark{c} & 445\tablenotemark{a,b}& 76  & \dots & \dots & \dots & \dots \\
+\hline
+G140L & 1105 & 4701\tablenotemark{c}& 445\tablenotemark{a,b} &6958\tablenotemark{c}  & 76  & 457 & 14543 & 445\tablenotemark{a,b} & 76\\
+G140L & 1230\tablenotemark{g} & 4701\tablenotemark{c}& 445\tablenotemark{a,b} &8716\tablenotemark{c}  & 76  & \dots & \dots & \dots & \dots \\
+G140L & 1280 & 6201\tablenotemark{c}& 445\tablenotemark{a,b} &7400\tablenotemark{c}  & 76  & \dots & \dots & \dots & \dots \\
+\hline
+\multicolumn{10}{c}{LP2\tablenotemark{d}}\\
+\hline
+G130M & 1291 & 1201 & 472 & 6555 & 76 & 8896 & 472 & 4078 & 76\\
+G130M & 1300 & 1201 & 472 & 7559 & 76 & 9900 & 472 & 4078 & 76\\
+G130M & 1309 & 1201 & 472 & 8562 & 76 & 10903 & 472 & 4097 & 76\\
+G130M & 1318 & 1201 & 472 & 9465 & 76 & 11806 & 472 & 3194 & 76\\
+G130M & 1327 & 1201 & 472 & 10489 & 76 & 12830 & 472 & 2170 & 76\\
+G160M & ALL & 1201 & 466 & 13799 & 76 & \dots & \dots & \dots & \dots\\
+G140L & 1105 & 4701 & 479 & 6958 & 76 & 14543 & 479 & 457 & 76\\
+G140L & 1280 & 6201 & 479 & 7400 & 76 & \dots & 34 & \dots & \dots \\
+G140L & 1105 & 4701 & 479 & 6958 & 76 & 14543 & 479 & 457 & 76\\
+G140L & 1280 & 6201 & 479 & 7400 & 76 & \dots & \dots & \dots & \dots \\
+\hline
+\multicolumn{10}{c}{LP3\tablenotemark{e}}\\
+\hline
+G130M & 1291 & 1201 & 409 & 6555 & 76 & 8896 & 409 & 4078 & 76\\
+G130M & 1300 & 1201 & 409 & 7559 & 76 & 9900 & 409 & 4078 & 76\\
+G130M & 1309 & 1201 & 409 & 8562 & 76 & 10903 & 409 & 4097 & 76\\
+G130M & 1318 & 1201 & 409 & 9465 & 76 & 11806 & 409 & 3194 & 76\\
+G130M & 1327 & 1201 & 409 & 10489 & 76 & 12830 & 409 & 2170 & 76\\
+G160M & ALL & 1201 & 403 & 13799 & 76 & \dots & \dots & \dots & \dots\\
+G140L & 1105 & 4701 & 418 & 6958 & 76 & 14543 & 418 & 457 & 76\\
+G140L & 1280 & 6201 & 418 & 7400 & 76 & \dots & \dots & \dots & \dots\\
+\hline
+\multicolumn{10}{c}{LP4\tablenotemark{f}}\\
+\hline
+G130M & 1291 & 1201 & 362 & 6555 & 112 & 8896 & 362 & 4078 & 112\\
+G130M & 1300 & 1201 & 362 & 7559 & 112 & 9900 & 362 & 4078 & 112\\
+G130M & 1309 & 1201 & 362 & 8562 & 112 & 10903 & 362 & 4097 & 112\\
+G130M & 1318 & 1201 & 362 & 9465 & 112 & 11806 & 362 & 3194 & 112\\
+G130M & 1327 & 1201 & 362 & 10489 & 112 & 12830 & 362 & 2170 & 112\\
+G160M & ALL  & 1201 & 356 & 13799 & 112 & \dots & \dots & \dots & \dots \\
+G140L & 1105 & 4701 & 372 & 6958 & 112 & 14543 & 372 & 457 & 112\\
+G140L & 1280 & 6201 & 372 & 7400 & 112 & \dots & \dots & \dots & \dots
+\enddata
+\tablenotetext{a}{These values were updated on 2009.201 (July 20, 2009) with STScI PR\#63095, some very early COS calibration and ERO datasets used slightly different TA subarrays.}
+\tablenotetext{b}{Updated early in LP1 on Aug 27, 2009 (2009.2239) with STScI PR\#63378.}
+\tablenotetext{c}{Additional G140L updates were made on Dec. 4, 2012 (2012.339) with STScI PR\#72193 to futher optimize the G140L subarrays.}
+\tablenotetext{d}{Updated for LP2 July 18, 2012 (2012.200) with STScI PR\#70548.}
+\tablenotetext{e}{Updated for LP3 operations on Aug. 26, 2014 (2014.238) with STScI PR\#78747.}
+\tablenotetext{f}{Updated for LP4 operations on Feb. 20, 2017 (2017.051) with STScI PR\#86945.}
+\tablenotetext{g}{Starting with C18, the C1230 \textit{CENWAVE} was replaced with C1280 due to first-order light issues.
+For further details see the C18 COS Instrument Handbook (Dixon et al., 2010) (STScI PR\#64041 and \#64659).}
+\end{deluxetable}
+
+\begin{deluxetable}{l|r|rrrr|rrrr|}
+%\tablewidth{6 in}
+\tabcolsep 9pt
+\tablecolumns{10}
+\tabletypesize{\scriptsize}
+\tablecaption{FUVB PSA/BOA TA Subarrays for LP1--4\label{tab:FUVsubB}.}
+\tablehead{
+\colhead{\textit{OPT\_ELEM}} & \colhead{\cenwave} & \multicolumn{4}{c}{B1} & \multicolumn{4}{c}{B2} \\
+\colhead{ } & \colhead{(\AA)} &
+\multicolumn{1}{r}{XC} & \colhead{YC} & \colhead{XS} & \colhead{YS} & \multicolumn{1}{|r}{XC} & \colhead{YC} & \colhead{XS} & \multicolumn{1}{r}{YS}\\
+\hline
+\colhead{(1)}&\colhead{(2)} &
+\colhead{(3)}&\colhead{(4)} &
+\colhead{(5)}&\colhead{(6)} &
+\colhead{(7)}&\colhead{(8)} &
+\colhead{(9)}&\colhead{(10)}
+}
+\startdata
+\multicolumn{10}{c}{LP1\tablenotemark{c}}\\
+\hline
+G130M & 1291 & 5036\tablenotemark{b} & 76 & 1501 & 483 & 7477\tablenotemark{b} & 76 & 7773\tablenotemark{b} & 483\tablenotemark{a,b} \\
+G130M & 1300 & 6039\tablenotemark{b} & 76 & 1501 & 483 & 6474\tablenotemark{b} & 76 & 8776\tablenotemark{b} & 483\tablenotemark{a,b} \\
+G130M & 1309 & 7023\tablenotemark{b} & 76 & 1501 & 483 & 5490\tablenotemark{a} & 76 & 9760\tablenotemark{a} & 483\tablenotemark{a,b} \\
+G130M & 1318 & 7977\tablenotemark{b} & 76 & 1501 & 483 & 4536\tablenotemark{b} & 76 & 10714\tablenotemark{b} & 483\tablenotemark{a,b} \\
+G130M & 1327 & 7629\tablenotemark{b} & 76 & 2792\tablenotemark{b} & 483 & 3593\tablenotemark{b} & 76 & 11657\tablenotemark{b} & 483\tablenotemark{a,b} \\
+G160M & ALL  & 13749 & 76 & 1501 & 477\tablenotemark{a,b} & \dots & \dots & \dots & \dots \\
+G140L & 1105 & \dots & \dots & \dots & \dots & \dots & \dots & \dots & \dots \\
+G140L & 1230\tablenotemark{g} & \dots & \dots & \dots & \dots & \dots & \dots & \dots & \dots \\
+G140L & 1280 & \dots & \dots & \dots & \dots & \dots & \dots & \dots & \dots \\
+\hline
+\multicolumn{10}{c}{LP2\tablenotemark{c}}\\
+\hline
+G130M & 1291 & 1501 & 522 & 5036 & 76 & 7773 & 522 & 7477 & 76\\
+G130M & 1300 & 1501 & 522 & 6039 & 76 & 8776 & 522 & 6474 & 76\\
+G130M & 1309 & 1501 & 522 & 7023 & 76 & 9760 & 522 & 5490 & 76\\
+G130M & 1318 & 1501 & 522 & 7977 & 76 & 10714 & 522 & 4536 & 76\\
+G130M & 1327 & 2792 & 522 & 7629 & 76 & 11657 & 522 & 3593 & 76\\
+G160M & ALL & 1501 & 515 & 13749 & 76        & \dots & \dots & \dots & \dots \\
+G140L & 1105 & \dots & \dots & \dots & \dots & \dots & \dots & \dots & \dots \\
+G140L & 1280 & \dots & \dots & \dots & \dots & \dots & \dots & \dots & \dots \\
+\hline
+\multicolumn{10}{c}{LP3\tablenotemark{d}~~(Pre FUVB ``Hot-Spot'')}\\
+\hline
+G130M & 1291 & 1501 & 460 & 5036 & 76 & 7773 & 460 & 7477 & 76\\
+G130M & 1300 & 1501 & 460 & 6039 & 76 & 8776 & 460 & 6474 & 76\\
+G130M & 1309 & 1501 & 460 & 7023 & 76 & 9760 & 460 & 5490 & 76\\
+G130M & 1318 & 1501 & 460 & 7977 & 76 & 10714 & 460 & 4536 & 76\\
+G130M & 1327 & 2792 & 460 & 7629 & 76 & 11657 & 460 & 3593 & 76\\
+G160M & ALL & 1501 & 453 & 13749 & 76        & \dots & \dots & \dots & \dots \\
+G140L & 1105 & \dots & \dots & \dots & \dots & \dots & \dots & \dots & \dots \\
+G140L & 1280 & \dots & \dots & \dots & \dots & \dots & \dots & \dots & \dots \\
+\hline
+\multicolumn{10}{c}{LP3\tablenotemark{e}~~(Post FUVB ``Hot-Spot'')\tablenotemark{d}}\\
+\hline
+G130M & 1291 & 1501 & 460 & 5036 & 76 & 7773 & 460 & 7060\tablenotemark{e} & 76\\
+G130M & 1300 & 1501 & 460 & 6039 & 76 & 8776 & 460 & 6057\tablenotemark{e} & 76\\
+G130M & 1309 & 1501 & 460 & 7023 & 76 & 9760 & 460 & 5073\tablenotemark{e} & 76\\
+G130M & 1318 & 1501 & 460 & 7977 & 76 & 10714 & 460 & 4119\tablenotemark{e} & 76\\
+G130M & 1327 & 2792 & 460 & 7629 & 76 & 11657 & 460 & 3176\tablenotemark{e} & 76\\
+G160M & ALL & 1501 & 453 & 13332 & 76        & \dots & \dots & \dots & \dots \\
+G140L & 1105 & \dots & \dots & \dots & \dots & \dots & \dots & \dots & \dots \\
+G140L & 1280 & \dots & \dots & \dots & \dots & \dots & \dots & \dots & \dots \\
+\hline
+\multicolumn{10}{c}{LP4\tablenotemark{f}}\\
+\hline
+G130M & 1291 & 1501 & 419 &  5036 & 112 &  7773 & 419 & 7060 & 112 \\
+G130M & 1300 & 1501 & 419 &  6039 & 112 &  8776 & 419 & 6057 & 112 \\
+G130M & 1309 & 1501 & 419 &  7023 & 112 &  9760 & 419 & 5073 & 112 \\
+G130M & 1318 & 1501 & 419 &  7977 & 112 & 10714 & 419 & 4119 & 112 \\
+G130M & 1327 & 2792 & 419 &  7629 & 112 & 11657 & 419 & 3176 & 112 \\
+G160M &  ALL & 1501 & 416 & 13332 & 112      & \dots & \dots & \dots & \dots \\
+G140L & 1105 & \dots & \dots & \dots & \dots & \dots & \dots & \dots & \dots \\
+G140L & 1280 & \dots & \dots & \dots & \dots & \dots & \dots & \dots & \dots \\
+\enddata
+\tablenotetext{a}{Updated during SMOV (2009.201) with STScI PR\#63095.}
+\tablenotetext{b}{Updated for LP2 operations on July 18, 2012 (2012.200) with STScI PR\#70548.}
+\tablenotetext{c}{Due to gain sag induced 'Y-walk', the use of the FUVB segment for \tacq{PEAKXD} (\texttt{NUM\_POS=1})
+TAs was deprecated on April 8, 2011 (2011.098) with STScI PR\#67985. FUVB is still used for \tacq{SEARCH} and \tacq{PEAKD} TA exposures.}
+\tablenotetext{d}{Updated for LP3 operations on Aug. 26, 2014 (2014.238) with STScI PR\#78747.}
+\tablenotetext{e}{Updated for post ``Hot-Spot'' LP3 TA operations on April 20, 2015 (2015.110) with STScI PR\#80571.}
+\tablenotetext{f}{Updated for LP4 operations on Feb. 20, 2017 (2017.051) with STScI PR\#86945. At LP4, both FUVA and FUVB are supported for all \tacq{PEAKXD} (\textit{NUM\_POS$>1$}) TA exposures. These subarrays also avoid the FUVB ``Hot-Spot''.}
+\tablenotetext{g}{Starting with C18, the C1230 \textit{CENWAVE} was replaced with C1280 due to first-order light issues.
+For further details see the C18 COS Instrument Handbook (Dixon et al., 2010) (STScI PR\#64041 and \#64659).}
+\end{deluxetable}
+
+\subsection{Trimming of COS FUV TA subarrays due to FUVB ``Hot-Spot''.}\label{subsec:hotspots}
+A ``hot-spot'' appeared on the COS FUVB segment coincident with increased solar activity in 2014--15.
+This spot produced enough counts that it could cause mis-centering during all phases of the FUV LP3 (\& LP4) spectroscopic TAs.
+This mis-centerings could be in significant in either the AD or XD. All affected
+LP3 FUVB TA subarrays were adjusted on April 20, 2015 (2015.110)\footnote{See STScI PR\#80571 for futher details.}.
+
+In FUVB detector coordinates, the approximate location of the hot-spot is at [X,Y]=[14895,482]. As this is near the detector edge, we are able to avoid this hotspot by stopping the last subarray of the FUVB subarrays at X=14833.
+For the COS FUV gratings and the FUVB TA subarrays, the impacts were:\\
+\begin{description}
+	\item[G140L:] Not affected as no FUVB TA subarrays are used for G140L
+	\item[G160M:] One FUVB subarray is used for each \textit{CENWAVE} with XC1=1501, XS1=13749. These were all changed to XS=13332 (no change in Y).
+	\item[G130M:] Two \textit{CENWAVE}-specific FUVB subarrays are used to avoid Geocoronal Ly$\alpha$. The X-size (XS) of the second subarray (XS2) will be trimmed to avoid the hotspot (XC1, XS1, XC2 and all the Y definitions do not change).
+\end{description}
+
+As of March 2018, no additional hot-spots have appeared on either FUVA or FUVB that required adjustment of the TA subarrays.\footnote{{\bf NOTE TO REVIEWER: IF YOU THINK THAT ADDITIONAL DETAILS ARE WARRANTED HERE, I CAN ADD MORE DETAILS.}}
+Due to the possibility of future hot-spots, the number of allow FUV TA subarrays per segment was increased from two to four on  Sept 21, 2015 (2015.264) with STScI PR\#81263.

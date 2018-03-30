@@ -1,0 +1,151 @@
+head	1.2;
+access;
+symbols;
+locks
+	penton:1.2; strict;
+comment	@% @;
+
+
+1.2
+date	2018.03.30.15.20.58;	author penton;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2018.03.29.19.16.24;	author penton;	state Exp;
+branches;
+next	;
+
+
+desc
+@subs
+@
+
+
+1.2
+log
+@updated for 3/30 update
+@
+text
+@%\section{COS Spectroscopic TA subarrays}\label{sec:specSUBS}
+\subsection{COS NUV Spectroscopic TA Subarrays}\label{subsec:NUVspSUBS}
+%\vspace{-0.3cm}
+The NUV spectroscopic TA subarrays for the \tacq{SEARCH} and \tacq{PEAKD} phases are identical, and are given in Table~\ref{tab:NUVspSUBSsad}.
+These subarrays are not grating-specific and are large enough to capture the flux from all three stripes (two for G230L; \textit{STRIPE=C (LONG)} is not used for G230L TA).
+COS uses the same NUV TA subarrays for the PSA and BOA as the XD offset between the NUV spectra is small ($\Delta$XD$\sim$5p).
+\begin{table}
+\centering
+	\begin{threeparttable}[tbc]
+		\caption[NUV Spectroscopic \tacq{SEARCH} and \tacq{PEAKD} TA subarrays\tnote{1}]{NUV \tacq{SEARCH} and \tacq{PEAKD} Spectroscopic Target TA subarrays}
+		\begin{tabular*}{.6\linewidth}{@@{\extracolsep{\fill}}|c|rrrr|}
+			\\
+			\hline
+			\textit{OPT\_ELEM}& XC & YC & XS & YS \\
+			\hline
+			G185M&509&0&420&1024\\
+			G225M&512&0&420&1024\\
+			G285M&499&0&420&1024\\
+			G230L&659&0&275&1024\\
+			\hline
+		\end{tabular*}
+		\footnotesize
+		\begin{tablenotes}[para]
+			\item [1] These are the NUV \tacq{SEARCH} and \tacq{PEAKD} external target subarrays.
+			 The NUV \tacq{PEAKXD} lamp and target subarrays are given in \ref{tab:NUVspSUBSxd}.
+			\item [2] Installed by HST commanding on 2009.201 (PR\#63095).
+		   \end{tablenotes}
+		\label{tab:NUVspSUBSsad2}
+		\normalsize
+	\end{threeparttable}
+\end{table}
+%\begin{center}
+%\begin{deluxetable}{rrrrr}
+%\tabcolsep 10 pt
+%\tabletypesize{\footnotesize}
+%\tablecolumns{5}
+%\tablewidth{5.5 in}
+%\tablecaption{NUV \tacq{SEARCH} and \tacq{PEAKD} Spectroscopic Target TA subarrays \label{tab:NUVspSUBSsad}}
+%\tablehead{
+%\colhead{\textit{OPT\_ELEM}}&\colhead{XC}&\colhead{YC}&\colhead{XS}&\colhead{YS}
+%}
+%\startdata
+%\hline
+%G185M&509&0&420&1024\\
+%G225M&512&0&420&1024\\
+%G285M&499&0&420&1024\\
+%G230L&659&0&275&1024\\
+%\hline
+%\enddata
+%\tablecomments{These subarrays are used for NUV \tacq{SEARCH} and \tacq{PEAKD} TA only, and were installed in HST commanding on 2009.201 (PR\#63095).}
+%\end{deluxetable}
+%\end{center}
+
+The NUV spectroscopic TA subarrays for the \tacq{PEAKXD} are given in Table~\ref{tab:NUVspSUBSxd}.
+These subarrays are large enough to only capture the flux from a single NUV stripe.
+Stripe-specific subarrays are defined for both the WCA and PSA.
+If used with an extended source, these subarrays are vulnerable to cross-contamination of stripe light. In this table, only the values of XC are listed.
+For all NUV \tacq{PEAKXD}s, YC=0, YS=1024, and XS=81.
+
+\begin{table}
+\centering
+	\begin{threeparttable}[tbc]
+		\caption{NUV \tacq{PEAKXD} WCA and PSA/BOA TA Subarrays ``XC'' Values\tnote{1}}
+			\begin{tabular*}{.75\linewidth}{@@{\extracolsep{\fill}}ccccccc}
+			\\
+			\hline
+			\textit{OPT\_ELEM}&WCA-A & WCA-B &WCA-C &SCI-A&SCI-B&SCI-C\\
+			\hline
+			G185M	&	418	&	327	&	192	&	794	&	700	&	565	\\
+			G225M	&	430	&	327	&	186	&	804	&	703	&	560	\\
+			G285M	&	407	&	313	&	180	&	782	&	688	&	555	\\
+			G230L	&	433	&	334	&	194	&	807	&	707	&	564 \\
+			\hline
+		\end{tabular*}
+		\footnotesize
+			\begin{tablenotes}
+				\item[1] These are the `XC' (X-Corner) values. For all NUV \tacq{PEAKXD} TA subarrays: YC=0, YS=1024, and XS=81; where S=Size. Updated on July 19, 2009 (2009.200) with STScI PR\#63095. Some early calibration observations used slightly different values.
+			\end{tablenotes}
+			\label{tab:NUVspSUBSxd}
+		\normalsize
+	\end{threeparttable}
+\end{table}
+%\begin{center}
+%\begin{deluxetable}{rrrrrrr}
+%\tabcolsep 10 pt
+%\tabletypesize{\footnotesize}
+%\tablecolumns{7}
+%\tablewidth{5.5 in}
+%\tablecaption{NUV \tacq{PEAKXD} WCA and PSA/BOA TA Subarrays ``XC'' Values\tablenotemark{a} \label{tab:NUVspSUBSxd}}
+%\tablehead{
+%\colhead{\textit{OPT\_ELEM}}&\colhead{WCA-A}&\colhead{WCA-B}&\colhead{WCA-C} &\colhead{SCI-A}&\colhead{SCI-B}&\colhead{SCI-C}
+%}
+%\startdata
+%\hline
+%G185M	&	418	&	327	&	192	&	794	&	700	&	565	\\
+%G225M	&	430	&	327	&	186	&	804	&	703	&	560	\\
+%G285M	&	407	&	313	&	180	&	782	&	688	&	555	\\
+%G230L	&	433	&	334	&	194	&	807	&	707	&	564 \\
+%\hline
+%\enddata
+%\tablenotetext{a}{Updated on July 19, 2009 (2009.200) with STScI PR\#63095. Some early calibration observations used slightly different values.}
+%\tablecomments{These are the `XC' (X-Corner) values. For all NUV \tacq{PEAKXD} TA subarrays: YC=0, YS=1024, and XS=81; where S=Size.}
+%\end{deluxetable}
+%\end{center}
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@a6 1
+
+a31 1
+
+a82 1
+
+a104 2
+
+\input{TAspecFUVsubs.tex}
+@

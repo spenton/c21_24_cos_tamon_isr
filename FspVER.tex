@@ -1,0 +1,82 @@
+% $Id: FspVER.tex,v 1.3 2018/03/30 22:05:03 penton Exp $
+\subsection{FUV Spectroscopic TA verification}\label{subsec:FspVER}
+The P2 WCA lamp and target XD locations for all centered FUV spectroscopic exposures is given in Table~\ref{tab:XDdataFUV}.\footnote{The \texttt{POS\_TARG} offset spectra are not included in this table as
+they are beyond the scope of this ISR.}
+Explain the last three columns:
+All FUV monitoring verifications ($|\Delta| = |WtP-eWtp|$) exceeded both the $\pm$0.3\arcsec\ requirement,
+but spectra taken near the end of the LP2 lifetime, and all G140L spectra, exceeded the $\pm$0.1\arcsec\ goal.
+
+A visual inspection showed all FUV spectra to continue to be well centered in the FUV spectroscopic subarrays.\footnote{\bf Note to reviewers:  Table~\ref{tab:XDdataFUV} doesn't actually show the subarray check. This was just a visual check to
+make sure that the FUV spectra were well contained in the subarray. If you think that a table comparing the XD line centers to
+the subarray edges is worthwhile, it can be easily incorporated.}\\
+
+
+%\begin{deluxetable}{rrrrrrrrrrr}
+%\tabcolsep 8 pt
+%\tabletypesize{\footnotesize}
+%\tablecolumns{11}
+%\tablewidth{6 in}
+%\tablecaption{ACQ/PEAKXD Verification: WCA-to-PSA offsets\label{table:peakxd}}
+%\tablehead{
+%\colhead{IPPPSSOOT}&
+%\colhead{\textit{OPT\_ELEM}}&\colhead{\cenwave\tablenotemark{a}}&\colhead{Exptime\tablenotemark{b}}&
+%\colhead{SN\tablenotemark{c}} &
+%\colhead{WCA\tablenotemark{d}}&\colhead{PSA\tablenotemark{e}} &
+%\colhead{WtP\tablenotemark{f}}&\colhead{eWtP\tablenotemark{g}} &
+%\colhead{Offset\tablenotemark{h}}&\colhead{Offset\tablenotemark{i}}\\
+%\colhead{(1)}&\colhead{(2)} &
+%\colhead{(3)}&\colhead{(4)} &
+%\colhead{(5)}&\colhead{(6)} &
+%\colhead{(7)}&\colhead{(8)} &
+%\colhead{(9)}&\colhead{(10)} &
+%\colhead{(11)}
+%%
+%%\colhead{}&\colhead{}&\colhead{(\AA)}&\colhead{(sec)}&
+%%\colhead{}&\colhead{(XD)}&\colhead{(XD)} &
+%%\colhead{(rows)}&\colhead{(rows)} &
+%%\colhead{(rows)}&\colhead{(\arcsec)}
+%}
+%\startdata
+%\hline
+%\multicolumn{11}{c}{Cycle~21 (\pid{13XXX})}\\
+%\hline
+%\hline
+%\multicolumn{11}{c}{Cycle~22 (\pid{13XXX})}\\
+%\hline
+%\hline
+%\multicolumn{11}{c}{Cycle~23 (\pid{13XXX})}\\
+%\hline
+%\hline
+%\multicolumn{11}{c}{Cycle~24 (\pid{14440})}\\
+%\hline
+%\multicolumn{11}{c}{Visit 01 : Target = WD1657+343}\\
+%\hline
+%lcri01ggq & G230L & 3000 &  20&  55 & 374.00 & 747.00 & 373.00 & 373.40 &  -0.40 &  -0.01\\
+%lcri01giq & G285M & 2676 & 151&  94 & 351.00 & 726.00 & 375.00 & 374.90 &  0.10 &  0.00\\
+%lcri01gkq & G130M & 1309 &  20& 175 & 537.32 & 448.98 & -88.34 & -89.20 &  0.86 &  -0.08\\
+%lcri01h6q & G140L & 1280 &  7&  82 & 544.55 & 457.36 & -87.20 & -85.70 &  -1.50 &  -0.15\\
+%\hline
+%\multicolumn{11}{|c|}{Visit 02 : Target = HIP6657}\\
+%\hline
+%lcri02hoq&G225M&2306&  52& 178& 371.00& 747.00& 376.00& 374.60&  1.40&  0.03 \\
+%lcri02hqq&G185M&1913&  40& 205& 367.00& 742.00& 375.00& 374.20&  0.80&  0.02 \\
+%lcri02hsq&G160M&1600&  22& 281& 531.78& 442.13& -89.65& -90.10&  0.45&  -0.04 \\
+%lcri02huq&G160M&1600&  25& 272& 531.48& 449.64& -81.84& -90.10&  8.26&  -0.75 \\
+%lcri02hwq&G160M&1600&  25& 278& 531.73& 434.22& -97.51& -90.10&  -7.41&  0.67 \\
+%\multicolumn{11}{|c|}{Cycle~25 (\pid{14857})}\\
+%\hline
+%\enddata
+%
+%\tablenotetext{a}{Central wavelength setting.}
+%\tablenotetext{b}{Exposure time in seconds.}
+%\tablenotetext{c}{Total Signal-to-Noise in Target sqectrum ($\sqrt{\rm Target Counts}$.}
+%\tablenotetext{d}{XD centroid of the WCA spectrum. For NUV spectra, this is the median wavelength calibration
+%lamp photon 'Y'. For FUV spectra, this is mean 'Y' lamp photon location.}
+%\tablenotetext{e}{XD centroid of the target spectrum taken through the PSA. For NUV spectra, this is the median target photon 'Y'.
+%For FUV spectra, this is mean 'Y' target photon location.}
+%\tablenotetext{f}{The difference in the Y locations of the measured WCA and PSA spectra ($PSA - WCA$).}
+%\tablenotetext{g}{The expected (PSA-WCA) value. This is the value in the FSW used by ACQ/PEAKXD to center the target in the XD.}
+%\tablenotetext{h}{Offset of (PSA-WCA) from a perfectly centered measured in 'Y' rows.}
+%\tablenotetext{i}{Offset of (PSA-WCA) in arcseconds (\arcsec). Note that the platescales are different for each grating and LP.
+%Our goal is to always center the target in the XD to within 0.3\arcsec, with the 1$\sigma$ goal of 0.1\arcsec.}
+%\end{deluxetable}

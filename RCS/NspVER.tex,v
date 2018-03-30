@@ -1,0 +1,328 @@
+head	1.4;
+access;
+symbols;
+locks
+	penton:1.4; strict;
+comment	@% @;
+
+
+1.4
+date	2018.03.30.22.12.34;	author penton;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2018.03.30.22.05.03;	author penton;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2018.03.30.20.22.12;	author penton;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2018.03.30.15.20.58;	author penton;	state Exp;
+branches;
+next	;
+
+
+desc
+@NUV Spectral verification
+@
+
+
+1.4
+log
+@V0.1
+@
+text
+@\subsection{NUV Spectroscopic TA verification}\label{subsec:NspVER}
+The P2 WCA lamp and target XD locations for all NUV spectroscopic exposures is given in Table~\ref{tab:XDdataNUV}.
+As shown in the two rightmost ``$| \Delta |$'' columns of Table~\ref{tab:XDdataNUV}, all measured WCA-to-PSA offsets were within 3p in XD there FSW values. This equates to a $<$ 0.07\arcsec\ XD offset due to TA
+for all NUV monitoring exposures over C21--24.
+
+A visual inspection of the spectra showed all NUV spectra to continue to be well centered in the \tacq{PEAKXD}, \tacq{PEAKD}, and \tacq{SEARCH} NUV spectroscopic subarrays.
+\\
+{\bf Note to reviewers: Table~\ref{tab:XDdataNUV} doesn't actually show the subarray check. This was just a visual check to
+make sure that the NUV spectrum was well contained in the subarray. If you think that a table comparing the XD line centers to
+the subarray edges is worthwhile, it can be easily incorporated.}\\
+
+\begin{deluxetable}{rrrcrrrrrr}
+\tablecolumns{10}
+\tabletypesize{\footnotesize}
+\tabcolsep 6 pt
+\tablecaption{NUV Spectroscopic \texttt{ACQ/PEAKXD} Monitoring}\label{tab:XDdataNUV}
+\tablehead{
+\colhead{\textit{ROOTNAME}}&\colhead{\textit{DATE-OBS}}&\colhead{\textit{OPT\_ELEM}}&\colhead{LP}&
+\colhead{WCA\tablenotemark{a}}&\colhead{PSA\tablenotemark{b}}&\colhead{WtP\tablenotemark{c}}&\colhead{eWtP\tablenotemark{d}}&\colhead{$|\Delta|$\tablenotemark{e}}&\colhead{$|\Delta|$\tablenotemark{f}}\\
+\colhead{}&\colhead{}&\colhead{}&\colhead{}&\colhead{(p)}&\colhead{(p)}&\colhead{(p)}&\colhead{(p)}&\colhead{(p)}&\colhead{(\arcsec))}\\
+\colhead{(1)}&\colhead{(2)} &
+\colhead{(3)}&\colhead{(4)} &
+\colhead{(5)}&\colhead{(6)} &
+\colhead{(7)}&\colhead{(8)} &
+\colhead{(9)}&\colhead{(10)}
+}
+\startdata
+\hline
+\multicolumn{10}{c}{C21 (\pid{13526})}\\
+\hline
+lcgq02i2q&  2014-11-17&   G185M&  1&  366.0 &  742.0 &  376.0 &  374.20&    1.80 &    0.04\\
+lcgq02i4q&  2014-11-17&   G225M&  1&  370.0 &  747.0 &  377.0 &  374.60&    2.40 &    0.06\\
+lcgq01r6q&  2014-11-19&   G285M&  1&  355.0 &  728.0 &  373.0 &  374.90&    1.90 &    0.04\\
+lcgq01qlq&  2014-11-19&   G230L&  1&  374.0 &  748.0 &  374.0 &  373.40&    0.60 &    0.01\\
+\hline
+\multicolumn{10}{c}{C22 (\pid{13972})}\\
+\hline
+lcri02hqq&  2015-10-06&   G185M&  1&  367.0 &  742.0 &  375.0 &  374.20&    0.80 &    0.02\\
+lcri02hoq&  2015-10-06&   G225M&  1&  371.0 &  747.0 &  376.0 &  374.60&    1.40 &    0.03\\
+lcri01giq&  2015-10-06&   G285M&  1&  351.0 &  726.0 &  375.0 &  374.90&    0.10 &    $<$0.01\\
+lcri01ggq&  2015-10-06&   G230L&  1&  374.0 &  747.0 &  373.0 &  373.40&    0.40 &    0.01\\
+\hline
+\multicolumn{10}{c}{C23 (\pid{14440})}\\
+\hline
+ld3702noq&  2016-10-19&   G185M&  1&  366.0 &  743.0 &  377.0 &  374.20&    2.80 &    0.07\\
+ld3702nmq&  2016-10-19&   G225M&  1&  370.0 &  747.0 &  377.0 &  374.60&    2.40 &    0.06\\
+ld3701hbq&  2016-10-18&   G285M&  1&  352.0 &  727.0 &  375.0 &  374.90&    0.10 &    $<$0.01\\
+ld3701h9q&  2016-10-18&   G230L&  1&  375.0 &  748.0 &  373.0 &  373.40&    0.40 &    0.01\\
+\hline
+\multicolumn{10}{c}{C24 (\pid{14857})}\\
+\hline
+ldozbblwq&  2017-09-06&   G185M&  1&  366.0 &  743.0 &  377.0 &  374.20&    2.80 &    0.07\\
+ldozbbluq&  2017-09-06&   G225M&  1&  370.0 &  747.0 &  377.0 &  374.60&    2.40 &    0.06\\
+ldozbadzq&  2017-09-04&   G285M&  1&  352.0 &  727.0 &  375.0 &  374.90&    0.10 &    $<$0.01\\
+ldozbadxq&  2017-09-04&   G230L&  1&  374.0 &  748.0 &  374.0 &  373.40&    0.60 &    0.01\\
+\hline
+\enddata
+\tablenotetext{a}{XD centroid of the WCA spectrum. For NUV spectra, this is the median calibration lamp location.}
+\tablenotetext{b}{XD centroid of the target spectrum taken through the PSA, using the same centroid method as the WCA.}
+\tablenotetext{c}{WtP is the absolute value of difference in the XD locations of the measured WCA and PSA spectra ($WtP = |PSA -WCA|$)}
+\tablenotetext{d}{eWtP = Expected WCA-to-PSA offset from FSW table \textsc{XimCalTargetOffset} (see Table~\ref{tab:wcatopsa}).}
+\tablenotetext{e}{Offset of WtP from a perfectly centered measured in XD rows.}
+\tablenotetext{f}{Offset of WtP in arcseconds (\arcsec). Note that the platescales are different for each grating and LP.}
+\tablecomments{All spectra were taken at \texttt{FP-POS=3}. All monitoring verifications ($|\Delta| = |WtP-eWtp|$) easily exceeded both the $\pm$0.3\arcsec\ requirement and the $\pm$0.1\arcsec\ goal.}
+\end{deluxetable}
+\begin{deluxetable}{rrrcrrrrrr}
+\tabletypesize{\footnotesize}
+\tablecolumns{10}
+\tabcolsep 6 pt
+\tablecaption{FUV Spectroscopic \texttt{ACQ/PEAKXD} Monitoring}\label{tab:XDdataFUV}
+\tablehead{
+\colhead{\textit{ROOTNAME}}&\colhead{\textit{DATE-OBS}}&\colhead{\textit{OPT\_ELEM}}&\colhead{LP}&
+\colhead{WCA\tablenotemark{a}}&\colhead{PSA\tablenotemark{b}}&\colhead{WtP\tablenotemark{c}}&\colhead{eWtP\tablenotemark{d}}&\colhead{$|\Delta|$\tablenotemark{e}}&\colhead{$|\Delta|$\tablenotemark{f}}\\
+\colhead{}&\colhead{}&\colhead{}&\colhead{}&\colhead{(p)}&\colhead{(p)}&\colhead{(p)}&\colhead{(p)}&\colhead{(p)}&\colhead{(\arcsec))}\\
+\hline
+\colhead{(1)}&\colhead{(2)} &
+\colhead{(3)}&\colhead{(4)} &
+\colhead{(5)}&\colhead{(6)} &
+\colhead{(7)}&\colhead{(8)} &
+\colhead{(9)}&\colhead{(10)}
+}
+\startdata
+\hline
+\multicolumn{10}{c}{C21 (\pid{13526})}\\
+\hline
+lcgq01r8q&  2014-11-19&   G130M&  2&  602.15&  508.31&  -93.84&  -92.80&    1.04&  0.12 \\
+lcgq01raq&  2014-11-19&   G140L&  2&  608.76&  513.48&  -95.28&  -93.50&    1.78&  0.20 \\
+lcgq02i6q&  2014-11-17&   G160M&  2&  596.07&  503.35&  -92.71&  -91.80&    0.91&  0.11 \\
+\hline
+\multicolumn{10}{c}{C22 (\pid{13972})}\\
+\hline
+lcri01gkq&  2015-10-06&   G130M&  3&  537.32&  448.98&  -88.34&  -89.20&    0.86&  0.08 \\
+lcri01h6q&  2015-10-06&   G140L&  3&  544.55&  457.36&  -87.20&  -85.70&    1.50&  0.15 \\
+lcri02hsq&  2015-10-06&   G160M&  3&  531.78&  442.13&  -89.65&  -90.10&    0.45&  0.04 \\
+\hline
+\multicolumn{10}{c}{C23 (\pid{14440})}\\
+\hline
+ld3701hdq&  2016-10-18&   G130M&  3&  536.33&  447.41&  -88.92&  -89.20&    0.28&   0.03 \\
+ld3701hfq&  2016-10-18&   G140L&  3&  543.43&  455.95&  -87.48&  -85.70&    1.78&   0.17 \\
+ld3702nqq&  2016-10-19&   G160M&  3&  531.09&  440.96&  -90.13&  -90.10&    0.03&   0.00 \\
+\hline
+\multicolumn{10}{c}{C24 (\pid{14857})}\\
+\hline
+ldozbae1q&  2017-09-04&   G130M&  3&  535.26&  445.66&  -89.61&  -89.20&    0.41&   0.04 \\
+ldozbae3q&  2017-09-04&   G140L&  3&  541.76&  454.25&  -87.51&  -85.70&    1.81&   0.18 \\
+ldozbblyq&  2017-09-06&   G160M&  3&  530.84&  440.75&  -90.09&  -90.10&    0.01&   0.00 \\
+\hline
+\enddata
+\tablenotetext{a}{XD centroid of the WCA spectrum.For FUV spectra, this is mean lamp photon location.}
+\tablenotetext{b}{XD centroid of the target spectrum taken through the PSA, using the same centroid method as the WCA.}
+\tablenotetext{c}{WtP is the absolute value of difference in the XD locations of the measured WCA and PSA spectra ($WtP = |PSA -WCA|$)}
+\tablenotetext{d}{eWtP = Expected WCA-to-PSA offset from FSW table \textsc{XimCalTargetOffset} (see Table~\ref{tab:wcatopsa}).}
+\tablenotetext{e}{Offset of WtP from a perfectly centered measured in XD rows.}
+\tablenotetext{f}{Offset of WtP in arcseconds (\arcsec). Note that the platescales are different for each grating and LP.}
+\tablecomments{All spectra were taken at \texttt{FP-POS=3}. All FUV monitoring verifications ($|\Delta|$ = $|WtP-eWtp|$) exceeded both the $\pm$0.3\arcsec\ requirement,
+but spectra taken near the end of the LP2 lifetime, and all G140L spectra, exceeded the $\pm$0.1\arcsec\ goal.}
+\end{deluxetable}
+
+% Here is the +/- 0.7" table if we want to put it in
+% Note the POSTARG extra column at the end
+%13526& lcgq02i8q&  2014-11-17&   G160M&  2&  596.45&  509.80&  -86.66&  -91.80&    5.14&   0.61 &	+0.7\\
+%13526& lcgq02iaq&  2014-11-17&   G160M&  2&  596.35&  498.41&  -97.94&  -91.80&    6.14&   0.73 &	-0.7\\
+%13972& lcri02huq&  2015-10-06&   G160M&  3&  531.48&  449.64&  -81.84&  -90.10&    8.26&   0.75 &	+0.7\\
+%13972& lcri02hwq&  2015-10-06&   G160M&  3&  531.73&  434.22&  -97.51&  -90.10&    7.41&   0.67 &	-0.7\\
+%14440& ld3702nsq&  2016-10-19&   G160M&  3&  531.00&  448.43&  -82.57&  -90.10&    7.53&   0.68 &	+0.7\\
+%14440& ld3702nuq&  2016-10-19&   G160M&  3&  531.24&  433.36&  -97.88&  -90.10&    7.78&   0.70 &	-0.7\\
+%14857& ldozbbm0q&  2017-09-06&   G160M&  3&  530.70&  448.18&  -82.52&  -90.10&    7.58&   0.68 &	+0.7\\
+%14857& ldozbbm2q&  2017-09-06&   G160M&  3&  530.75&  433.39&  -97.36&  -90.10&    7.26&   0.66 &	-0.7\\
+@
+
+
+1.3
+log
+@V0.1
+@
+text
+@d115 1
+a115 1
+\tablecomments{All spectra were taken at \texttt{FP-POS=3}. All FUV monitoring verifications ($|\Delta|$ = $|WtP-eWtp|$) exceeded both the $\pm$0.3\arcsec\requirement,
+@
+
+
+1.2
+log
+@More
+@
+text
+@d3 1
+a3 1
+As shown in the two rightmost ``$| \Delta |$'' columns of Table~\ref{tab:XDdataNUV}, all measured WCA-to-PSA offsets were within 3p in XD there FSW values. This equates to a $<$ 0.07\arcsec XD offset due to TA
+d64 1
+a64 1
+\tablecomments{All spectra were taken at \texttt{FP-POS=3}. All monitoring verifications ($|\Delta| = |WtP-eWtp|$) easily exceeded both the $\pm$0.3\arcsec requirement and the $\pm$0.1\arcsec goal.}
+d70 1
+a70 1
+\tablecaption{NUV Spectroscopic \texttt{ACQ/PEAKXD} Monitoring}\label{tab:XDdataNUV}
+d115 2
+a116 2
+\tablecomments{All spectra were taken at \texttt{FP-POS=3}. All FUV monitoring verifications ($|\Delta|$ = $|WtP-eWtp|$) exceeded both the $\pm$0.3\arcsec requirement,
+but spectra taken near the end of the LP2 lifetime, and all G140L spectra, exceeded the $\pm$0.1\arcsec goal.}
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d3 1
+a3 1
+As shown in the two rightmost ``$\Delta$'' columns of Table~\ref{tab:XDdataNUV}, all measured WCA-to-PSA offsets were within 3p in XD there FSW values. This equates to a $<$ 0.07\arcsec XD offset due to TA
+d12 3
+a14 2
+\begin{deluxetable}{rrrrcrrrrrr}
+\tablecolumns{11}
+d18 2
+a19 2
+\colhead{\textit{PROPOSID}}&\colhead{\textit{ROOTNAME}}&\colhead{\textit{DATE-OBS}}&\colhead{\textit{OPT\_ELEM}}&\colhead{LP}&
+\colhead{WCA}&\colhead{PSA}&\colhead{WtP}\tablenotemark{a}&\colhead{eWtP}&\colhead{|$\Delta$|}&\colhead{|$\Delta$|}\\
+d25 1
+a25 2
+\colhead{(9)}&\colhead{(10)} &
+\colhead{(11)}
+d29 1
+a29 1
+\multicolumn{11}{c}{C21}\\
+d31 4
+a34 4
+13526& lcgq02i2q&  2014-11-17&   G185M&  1&  366.0 &  742.0 &  376.0 &  374.20&    1.80 &    0.04\\
+13526& lcgq02i4q&  2014-11-17&   G225M&  1&  370.0 &  747.0 &  377.0 &  374.60&    2.40 &    0.06\\
+13526& lcgq01r6q&  2014-11-19&   G285M&  1&  355.0 &  728.0 &  373.0 &  374.90&    1.90 &    0.04\\
+13526& lcgq01qlq&  2014-11-19&   G230L&  1&  374.0 &  748.0 &  374.0 &  373.40&    0.60 &    0.01\\
+d36 1
+a36 1
+\multicolumn{11}{c}{C22}\\
+d38 4
+a41 4
+13972& lcri02hqq&  2015-10-06&   G185M&  1&  367.0 &  742.0 &  375.0 &  374.20&    0.80 &    0.02\\
+13972& lcri02hoq&  2015-10-06&   G225M&  1&  371.0 &  747.0 &  376.0 &  374.60&    1.40 &    0.03\\
+13972& lcri01giq&  2015-10-06&   G285M&  1&  351.0 &  726.0 &  375.0 &  374.90&    0.10 &    $<$0.01\\
+13972& lcri01ggq&  2015-10-06&   G230L&  1&  374.0 &  747.0 &  373.0 &  373.40&    0.40 &    0.01\\
+d43 1
+a43 1
+\multicolumn{11}{c}{C23}\\
+d45 4
+a48 4
+14440& ld3702noq&  2016-10-19&   G185M&  1&  366.0 &  743.0 &  377.0 &  374.20&    2.80 &    0.07\\
+14440& ld3702nmq&  2016-10-19&   G225M&  1&  370.0 &  747.0 &  377.0 &  374.60&    2.40 &    0.06\\
+14440& ld3701hbq&  2016-10-18&   G285M&  1&  352.0 &  727.0 &  375.0 &  374.90&    0.10 &    $<$0.01\\
+14440& ld3701h9q&  2016-10-18&   G230L&  1&  375.0 &  748.0 &  373.0 &  373.40&    0.40 &    0.01\\
+d50 1
+a50 1
+\multicolumn{11}{c}{C24}\\
+d52 4
+a55 4
+14857& ldozbblwq&  2017-09-06&   G185M&  1&  366.0 &  743.0 &  377.0 &  374.20&    2.80 &    0.07\\
+14857& ldozbbluq&  2017-09-06&   G225M&  1&  370.0 &  747.0 &  377.0 &  374.60&    2.40 &    0.06\\
+14857& ldozbadzq&  2017-09-04&   G285M&  1&  352.0 &  727.0 &  375.0 &  374.90&    0.10 &    $<$0.01\\
+14857& ldozbadxq&  2017-09-04&   G230L&  1&  374.0 &  748.0 &  374.0 &  373.40&    0.60 &    0.01\\
+d58 7
+a64 3
+\tablenotetext{a}{WtP = WCA-to-PSA offset}
+\tablenotetext{b}{eWtP = Expected WCA-to-PSA offset from FSW table \textsc{XimCalTargetOffset} (see Table~\ref{tab:}).}
+\tablecomments{All spectra were taken at \texttt{FP-POS=3}. All monitoring verifications (|$\Delta$| = |WtP-eWtp|) easily exceeded both the $\pm$0.3\arcsec requirement and the $\pm$0.1\arcsec goal.}
+d66 3
+a68 14
+\subsection{FUV Spectroscopic TA verification}\label{subsec:FspVER}
+The P2 WCA lamp and target XD locations for all centered FUV spectroscopic exposures is given in Table~\ref{tab:XDdataFUV}.\footnote{The \texttt{POS\_TARG} offset spectra are not included in this table as
+they are beyond the scope of this ISR.}
+
+Explain the last three columns:
+All FUV monitoring verifications (|$\Delta$| = |WtP-eWtp|) exceeded both the $\pm$0.3\arcsec requirement,
+but spectra taken near the end of the LP2 lifetime, and all G140L spectra, exceeded the $\pm$0.1\arcsec goal.
+
+A visual inspection showed all FUV spectra to continue to be well centered the FUV spectroscopic subarrays.\footnote{\bf Note to reviewers:  Table~\ref{tab:XDdataFUV} doesn't actually show the subarray check. This was just a visual check to
+make sure that the FUV spectra were well contained in the subarray. If you think that a table comparing the XD line centers to
+the subarray edges is worthwhile, it can be easily incorporated.}\\
+
+\begin{deluxetable}{rrrrcrrrrrr}
+\tablecolumns{11}
+d72 2
+a73 2
+\colhead{\textit{PROPOSID}}&\colhead{\textit{ROOTNAME}}&\colhead{\textit{DATE-OBS}}&\colhead{\textit{OPT\_ELEM}}&\colhead{LP}&
+\colhead{WCA}&\colhead{PSA}&\colhead{WtP}\tablenotemark{a}&\colhead{eWtP}&\colhead{|$\Delta$|}&\colhead{|$\Delta$|}\\
+d80 1
+a80 2
+\colhead{(9)}&\colhead{(10)} &
+\colhead{(11)}
+d84 7
+a90 1
+\multicolumn{11}{c}{C21}\\
+d92 15
+a106 29
+13526& lcgq01r8q&  2014-11-19&   G130M&  2&  602.15&  508.31&  -93.84&  -92.80&    1.04&  0.12 \\
+13526& lcgq01r8q&  2014-11-19&   G130M&  2&  602.15&  508.31&  -93.84&  -92.80&    1.04&  0.12 \\
+13526& lcgq01raq&  2014-11-19&   G140L&  2&  608.76&  513.48&  -95.28&  -93.50&    1.78&  0.20 \\
+13526& lcgq01raq&  2014-11-19&   G140L&  2&  608.76&  513.48&  -95.28&  -93.50&    1.78&  0.20 \\
+13526& lcgq02i6q&  2014-11-17&   G160M&  2&  596.07&  503.35&  -92.71&  -91.80&    0.91&  0.11 \\
+\hline
+\multicolumn{11}{c}{C22}\\
+\hline
+13972& lcri01gkq&  2015-10-06&   G130M&  3&  537.32&  448.98&  -88.34&  -89.20&    0.86&  0.08 \\
+13972& lcri01gkq&  2015-10-06&   G130M&  3&  537.32&  448.98&  -88.34&  -89.20&    0.86&  0.08 \\
+13972& lcri01h6q&  2015-10-06&   G140L&  3&  544.55&  457.36&  -87.20&  -85.70&    1.50&  0.15 \\
+13972& lcri01h6q&  2015-10-06&   G140L&  3&  544.55&  457.36&  -87.20&  -85.70&    1.50&  0.15 \\
+13972& lcri02hsq&  2015-10-06&   G160M&  3&  531.78&  442.13&  -89.65&  -90.10&    0.45&  0.04 \\
+\hline
+\multicolumn{11}{c}{C23}\\
+\hline
+14440& ld3701hdq&  2016-10-18&   G130M&  3&  536.33&  447.41&  -88.92&  -89.20&    0.28&   0.03 \\
+14440& ld3701hdq&  2016-10-18&   G130M&  3&  536.33&  447.41&  -88.92&  -89.20&    0.28&   0.03 \\
+14440& ld3701hfq&  2016-10-18&   G140L&  3&  543.43&  455.95&  -87.48&  -85.70&    1.78&   0.17 \\
+14440& ld3701hfq&  2016-10-18&   G140L&  3&  543.43&  455.95&  -87.48&  -85.70&    1.78&   0.17 \\
+14440& ld3702nqq&  2016-10-19&   G160M&  3&  531.09&  440.96&  -90.13&  -90.10&    0.03&   0.00 \\
+\hline
+\multicolumn{11}{c}{C24}\\
+\hline
+14857& ldozbae1q&  2017-09-04&   G130M&  3&  535.26&  445.66&  -89.61&  -89.20&    0.41&   0.04 \\
+14857& ldozbae1q&  2017-09-04&   G130M&  3&  535.26&  445.66&  -89.61&  -89.20&    0.41&   0.04 \\
+14857& ldozbae3q&  2017-09-04&   G140L&  3&  541.76&  454.25&  -87.51&  -85.70&    1.81&   0.18 \\
+14857& ldozbae3q&  2017-09-04&   G140L&  3&  541.76&  454.25&  -87.51&  -85.70&    1.81&   0.18 \\
+14857& ldozbblyq&  2017-09-06&   G160M&  3&  530.84&  440.75&  -90.09&  -90.10&    0.01&   0.00 \\
+d109 7
+a115 3
+\tablenotetext{a}{WtP = WCA-to-PSA offset}
+\tablenotetext{b}{eWtP = Expected WCA-to-PSA offset from FSW table \textsc{XimCalTargetOffset} (see Table~\ref{tab:}).}
+\tablecomments{All spectra were taken at \texttt{FP-POS=3}. All FUV monitoring verifications (|$\Delta$| = |WtP-eWtp|) exceeded both the $\pm$0.3\arcsec requirement,
+d118 1
+@

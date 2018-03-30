@@ -1,3 +1,4 @@
+% $Id: intro.tex,v 1.5 2018/03/30 20:22:12 penton Exp $
 \section{Introduction}\label{sec:Introduction}
 
 Preliminary results of the Hubble Space Telescopes' (HST) Cosmic Origins Spectrograph (COS) target acquisition (TA) programs reviewed here were previously reported in the following COS ISRs:
@@ -16,11 +17,11 @@ The information in this ISR supercedes any previous preliminary results or concl
 This ISR provides the full details of the following HST+COS calibration {\bf P}rograms:
 \small
 \begin{itemize}
-\item{{\bf P}13124 (COS Imaging TA and Spectroscopic WCA-PSA/BOA offset verifications, Cycle 20)}
-\item{{\bf P}13526 (COS Imaging TA and Spectroscopic WCA-PSA/BOA offset verifications, Cycle 21)}
-\item{{\bf P}13972 (COS Imaging TA and Spectroscopic WCA-PSA/BOA offset verifications, Cycle 22)}
-\item{{\bf P}14440 (COS Imaging TA and Spectroscopic WCA-PSA/BOA offset verifications, Cycle 23)}
-\item{{\bf P}14857 (COS Imaging TA and Spectroscopic WCA-PSA/BOA offset verifications, Cycle 24)}
+\item{\pid{13124} (COS Imaging TA and Spectroscopic WCA-PSA/BOA offset verifications, Cycle 20)}
+\item{\pid{13526} (COS Imaging TA and Spectroscopic WCA-PSA/BOA offset verifications, Cycle 21)}
+\item{\pid{13972} (COS Imaging TA and Spectroscopic WCA-PSA/BOA offset verifications, Cycle 22)}
+\item{\pid{14440} (COS Imaging TA and Spectroscopic WCA-PSA/BOA offset verifications, Cycle 23)}
+\item{\pid{14857} (COS Imaging TA and Spectroscopic WCA-PSA/BOA offset verifications, Cycle 24)}
 \end{itemize}
 \normalsize
 
@@ -30,21 +31,22 @@ There are a few COS conventions to be established before discussing the TA monit
 \begin{enumerate}
 	\item{COS TAs are performed in raw or ``detector'' coordinates, not the ``user'' coordinate system of calibrated
 		COS files. To avoid confusion over the different coordinate systems, we will use along-dispersion (AD) and cross-dispersion (XD) whenever possible.
-		{\ul All references to the coordinates ``X'' and ``Y'' are in the detector coordinate system unless otherwise specified.}
+		\dotuline{All references to the coordinates ``X'' and ``Y'' are in the detector coordinate system unless otherwise specified.}
 		In raw NUV coordinates, +X is -XD and +Y is -AD. In raw FUV coordinates, +X is -AD and +Y is +XD.
 		The transformations between user and detector coordinates are :
 		\begin{equation} NUV: X_{user} = 1023 - Y_{detector} \ ; Y_{user} = 1023 - X_{detector} \end{equation}
 		\begin{equation} FUV: X_{user} = 16383 - X_{detector} \ ; Y_{user} = Y_{detector} \end{equation}
 		}
-	\item{When referencing NUV pixels, we will abbreviate pixel as p. For the FUV, we use DE to reference the FUV digital elements.}
+	\item{When referencing NUV pixels, we will abbreviate pixel as p. For the FUV, we use DE (or rows/columens) to reference the FUV digital elements.}
 	\item{When discussing the various subarrays used during COS TA, boxes will be specified by giving the lowest
 		valued corner (C) and full size (S) for both X and Y. A box is fully specified by giving its XC, XS, YC, \& YS. In this TIR, these will always be given in detector coordinates.}
 	\item{To clarify the names and locations of various TA parameters, the following convention will be used :
 		\begin{itemize}
 			\item{COS TA modes and their optional parameters will be in \texttt{Courier} (e.g., \tacq{IMAGE} and \numpos).}
-			\item{Keywords in FITS headers will be in \textit{ITALICIZED ALL CAPITALS} (e.g., \textit{ACQYSLEW}).}
-			\item{Flight SoftWare parameters (FSW) will be in \textsc{small capitals} (e.g., \textsc{pcta\_CalTargetOffset}).
-All TA FSW patchable constants begin with ``\textsc{pcta\_}''. In this ISR, this prefix is considered implied after the initial introduction of a paramater, and will not always be included.}
+			\item{Keywords in FITS headers will be in \textit{ITALICIZED ALL CAPITALS} (e.g., \textit{ACQSLEWY}).}
+			\item{Flight SoftWare parameters (FSW) will be in \textsc{small capitals}.
+All TA FSW patchable constants begin with ``\textsc{pcta\_}'' (e.g., \textsc{pcta\_CalTargetOffset}). In this ISR, this prefix is considered implied after the initial introduction of a paramater, and will not always be included.
+FSW patchable constants relating to mechanism positions begin with \textsc{pcmech\_} and will always be included in references.}
 			\item{Archived COS files are in FITS (.fits) format. FITS filenames, or portions of a filename, will be in {\sf sans-serif} (e.g., {\sf ld9mg2nrq\_rawtag.fits} or {\sf \_spt.fits}).
 			COS filenames are in the form {\sf IPPPSSOOT\_{\it extension}.fits}.
 			The HST naming convention breaks down for COS as I=Instrument=``L'', PPP=Program ID, SS=Visit ID, OO=Exposure ID,
@@ -59,23 +61,48 @@ All TA FSW patchable constants begin with ``\textsc{pcta\_}''. In this ISR, this
 %		These parameters have slightly different names in the IHB, the FITS keywords, and the FSW.
 %		In this ISR, we will refer to the centering options as \texttt{CENTER}=\texttt{Flux-Weighted (FW)}, \texttt{Flux-Weighted-Floor (FWF)}, and \texttt{Return-To-Brightest (RTB)}.
 %	}
-	\item{Milli-arcseconds (0.001\arcsec) will be abbreviated as mas.}
-	\item{Milli-amperes (0.001A) will be abbreviated as mA.}
-	\item{Counts per second will be abbreviated as cps.}
 	\item{COS contains numerous FUV and NUV central wavelength settings, which are defined in the FSW by the OSM1 or OSM2 rotation positions.
-	In this ISR, the term CENWAVE will be used to mean any of the pre-defined OSM1 + OSM2 rotation settings that uniquely define a central wavelength setting.}
-	\item{COS CENWAVEs are named for the (predicted) lowest wavelength that lands on the FUVA detector segment for FP-POS=3. For convienence, when referring to
-	a specific CENWAVE we will either call out the grating and CENWAVE is use as GRATING/CENWAVE (e.g. G130M/1222), or just use a leading ``C" to identify a particular CENWAVE (e.g., C1222) in the same manor as ``G" is used for GRATING (e.g., G130M).}
-	\item{When referring to an HST program number, we will use either ``HST PID" or a leading ``{\bf P}" in a similar fashion an "C=CENWAVE" and "G=GRATING", but using a {\bf bold} font.}
-	\item{The COS FUV detector has two independent segments, Segment-A and Segment-B. In this ISR, they will be referred to as FUVA and FUVB.}
+	In this ISR, the term \cenwaveno, which is also the FITS keyword name, will be used to mean any of the pre-defined OSM1 + OSM2 rotation settings that uniquely define a central wavelength setting.}
+	\item{COS \cenwaves are named for the (predicted) lowest wavelength that lands on the FUVA detector segment for \textit{FP-POS}=3. For convienence, when referring to
+	a specific \cenwave we will either call out the grating and \cenwave is use as GRATING/\cenwave  (e.g. G130M/1222), or just use a leading ``C'' to identify a particular \cenwave (e.g., C1222) in the same manor as ``G" is used for GRATING (e.g., G130M).
+	Note that the FITS header keyword equivalent of GRATING is \textit{OPT\_ELEM}.}
+	\item{Unless specified, all spectroscopic exposures were taken at \textit{FP-POS}=3.}
+	\item{When referring to an HST program number, we will use either ``HST PID" or a leading ``{\bf P}" in a similar fashion an ``C=\cenwave'' and ``G=GRATING'', but using a {\bf bold} font.}
+	\item{The COS FUV detector has two independent segments, Segment-A and Segment-B. In this ISR, they will be referred to as FUVA \& FUVB.}
+	\item{\tacq{IMAGE} can use either of two ``MIRROR'' modes, MIRRORA or MIRRORB. In this ISR, they will be referred to as MIRA \& MIRB.}
+	\item{Following the conventions used in APT and the Phase~II Proposal Instructions (Rose et al., 2017), NUV \tacq{PEAKXD} exposures will specify which \texttt{STRIPE}\footnote{\texttt{STRIPE} is the optional parameter name in APT, therefore the \texttt{Courier} font is used.} is used during TA. In this ISR, we will always use
+	the default (\texttt{STRIPE=DEF}) for a given \cenwave. This default is \texttt{STRIPE=MEDIUM} (or STRIPE=B) for all \cenwaves, except G230L/3360 where it is \texttt{STRIPE=SHORT} (STRIPE=A).}
 	\item{When referring to a particular day, we will use YEAR.DAY. For example, day 60 of 2010 will be referred to as \psiafdate. We will also occasionally use decimal years. In these cases, there will only be a single digit in the fractional part (e.g., 2009.9).}
-	\item{HST observations are grouped in $\sim$ annual ``cycles.'' A leading `C' will be used as shorthand for ``HST Cycle''.}
+	\item{HST observations are grouped in approximately annual ``cycles''. `C\#\#' will be used as shorthand for ``HST Cycle \#\#'' (e.g., Cycle~19~=~C19).}
+	\item{Unit abbreviations:
+		\begin{itemize}
+		\item{Milli-arcseconds (0.001\arcsec) will be abbreviated as mas.}
+		\item{Milli-amperes (0.001A) will be abbreviated as mA.}
+		\item{Counts per second will be abbreviated as cps.}
+		\end{itemize}
+	}
+	\item{COS has two internal PtNe wavelength calibrations lamps that send light through the Wavelength Calibration Aperture (WCA) and onto the detectors.The two PtNe lamps are referred to in this ISR
+	as P1 and P2. Each lamp has three current settings, LOW, MEDIUM (MED) or HIGH. The P1 lamp is used for spectroscopic lamp flashes during science exposures (``TAGFLASH''es), while the P2 lamp is used for all TA exposures.
+	Both lamps have MED current settings of 10 mA, but the P1 lamp has LOW/HIGH current setting of 6/18~mA. The P2 lamp
+	has LOW/HIGH current settings of 3/14 mA. COS Lamp output generally scales as current$^{2}$ ($P=I^2 R$).}
+	\item{{\bf Note to reviewers: I often switch back and forth between the APT TA routine names (ACQ/) and the FSW equivalents (LTA..). If you find this confusing, I can put in a conversion table and establish a convention for
+	when I use each flavor. Please advise.}}
 \end{enumerate}
 
 \subsection{ISR Organization}\label{subsec:org}
-{\bf COME BACK AND COMPLETE THIS SECTION LATER}
-In \S~\ref{subsec:acqimage} we will discuss the verification of the FSW parameters, lamp operations, and subarrays associated with COS \tacq{image}s.
-As outlined in \S~\ref{subsec:fgs2si}, data from outside the COS calibration programs listed above will be used in this analysis.
-As part of this process, we will verify the active COS NUV SIAF (Science Instrument Aperture File) entries. In ~\S~\ref{sec:spVER},
-we will discuss the verification of the FSW parameters, lamp operations, and subarrays associated with COS spectroscopic TAs.
-In the FUV sub-section we will discuss and the verification of COS FUV SIAF entries.
+In \S~\ref{sec:TAoperations} we will discuss the concepts involved
+in the TA monitoring strategy along with a basic review of COS TA operations and
+centering requirements (\S~\ref{subsec:requirements}).
+In \S~\ref{sec:structure} we will discuss the details of the individual
+COS TA monitoring programs and, in \S~\ref{subsec:elists} list the individual exposures.
+Also in this section, we will discuss the annual HST FGS-to-SI alignment programs and there
+connection to the COS TA monitoring programs (\S~\ref{subsec:fgs2si}).
+
+In \S~\ref{sec:subarray}, we discuss the numerous detector subarrays used in COS TA, and their verification by the programs in this ISR.
+
+In \S~\ref{subsec:acqimage} we will discuss the verification of the FSW parameters, lamp operations, and subarrays associated with COS \tacq{IMAGE}s.
+
+In ~\S~\ref{sec:spVER}, we will discuss the verification of the FSW parameters, lamp operations, and subarrays associated with COS spectroscopic TAs.
+%As part of this process, we will verify the active COS NUV SIAF (Science Instrument Aperture File) entries.
+%In the FUV sub-section we will discuss and the verification of COS FUV SIAF entries.
+
