@@ -1,10 +1,10 @@
 \begin{deluxetable}{rrrrrrrrrr}
-\tablecaption{FGS-to-SI Program Initial Pointing Determinations\label{table:fgs2siInit}}
+\tablecaption{FGS-to-SI Program Initial Pointing Determinations\label{tab:fgs2siInit}}
 \tablecolumns{10}
 \tabletypesize{\footnotesize}
 \tablehead{
-\colhead{HST} & \colhead{YEAR.DAY} & \colhead{DATE-OBS} & \multicolumn{2}{c}{Initial Pointing} & \multicolumn{2}{c}{Miss-Distance} & {SIAF} & \multicolumn{2}{c}{Active SIAF Entry}\\
-\colhead{PID} & \colhead{} & \colhead{} & \colhead{V2 (\arcsec)} & \colhead{V3 (\arcsec)} & \colhead{V2 (\arcsec)} & \colhead{V3 (\arcsec)} & \colhead{V2 (\arcsec)} & \colhead{Dates\tablenotemark{a}} & \colhead{V3 (\arcsec)}\\
+\colhead{PID} & \colhead{YEAR.DAY} & \colhead{DATE-OBS} & \multicolumn{2}{c}{Initial Pointing} & \multicolumn{2}{c}{Miss-Distance} & \colhead{SIAF} & \multicolumn{2}{c}{Active SIAF Entry}\\
+\colhead{ } & \colhead{} & \colhead{} & \colhead{V2 (\arcsec)} & \colhead{V3 (\arcsec)} & \colhead{V2 (\arcsec)} & \colhead{V3 (\arcsec)} & \colhead{V2 (\arcsec)} & \colhead{Dates\tablenotemark{a}} & \colhead{V3 (\arcsec)}\\
 \colhead{(1)}&\colhead{(2)} & \colhead{(3)}&\colhead{(4)} & \colhead{(5)}&\colhead{(6)} & \colhead{(7)}&\colhead{(8)} & \colhead{(9)}&\colhead{(10)}
 }
 \startdata
@@ -18,16 +18,17 @@
 \pid{12399} & 2011.255 & 12-Sep-2011 & 232.737 & -237.507 & 0.091 & -0.062 & 21-Jun-2011 & 232.646 & -237.445\\
 \pid{12781} & 2012.087 & 27-Mar-2012 & 232.622 & -237.515 & -0.024 & -0.070 & \dots & 232.646 & -237.445\\
 \pid{12781} & 2012.268 & 24-Sep-2012 & 232.713 & -237.578 & 0.067 & -0.133 & \dots &232.646 & -237.445\\
-\pid{13171} & 2013.061 & 02-Mar-2013 & 232.647 & -237.590 & 0.001 & -0.145 & 23-Feb-2014 & 232.646 & -237.445\\
+\pid{13171} & 2013.061 & 02-Mar-2013 & 232.647 & -237.590 & 0.001 & -0.145 & \dots & 232.646 & -237.445\\
+\pid{13171} & 2013.244 & 01-Sep-2013 & 232.723 & -237.515 & {\bf 0.077}\tablenotemark{b} & {\bf -0.070}\tablenotemark{b} & 23-Feb-2014 & 232.646 & -237.445\\
 \hline
-\pid{13171} & 2013.244 & 01-Sep-2013 & 232.723 & -237.515 & 0.077 & -0.070 & 24-Feb-2014 & 232.723 & -237.515\\
-\pid{13616} & 2014.055 & 06-Apr-2014 & 232.535 & -237.497 & -0.188 & 0.018 & \dots & 232.723 & -237.515\\
-\pid{13616} & 2014.300 & 27-Oct-2014 & 232.841 & -237.465 & 0.118 & 0.050 & \dots & 232.723 & -237.515\\
+\pid{13616} & 2014.055 & 06-Apr-2014 & 232.535 & -237.497 & -0.188 & 0.018 & 24-Feb-2014 & 232.723 & -237.515\\
+\pid{13616} & 2014.300 & 27-Oct-2014 & 232.841 & -237.465 & {\bf 0.118} & {\bf 0.050} & \dots & 232.723 & -237.515\\
 \pid{14035} & 2015.104 & 14-May-2015 & 232.617 & -237.464 & -0.106 & 0.051 & \dots & 232.723 & -237.515\\
-\pid{14035} & 2015.275 & 02-Oct-2015 & 232.788 & -237.462 & 0.065 & 0.053 & \dots & 232.723 & -237.515\\
+\pid{14035} & 2015.275 & 02-Oct-2015 & 232.788 & -237.462 & {\bf 0.065} & {\bf0.053} & \dots & 232.723 & -237.515\\
 \pid{14452} & 2016.092 & 01-Apr-2016 & 232.742 & -237.485 & 0.019 & 0.030 & \dots & 232.723 & -237.515\\
 \hline
 \enddata
 \tablenotetext{a}{Dates in this column show the dates that the [V2,V3] SIAF entries in the this and the following rows were active.}
-\tablecomments{Comments to be added here.}
+\tablenotetext{b}{These exposures, and the offsets measured here, were used to adjust the COS SIAF entries on 2014.055 (STScI PR\#76982).}
+\tablecomments{Items in {\bf bold} are used in the analysis of this ISR.}
 \end{deluxetable}
