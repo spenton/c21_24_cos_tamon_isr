@@ -1,18 +1,46 @@
 % $Id: elists.tex,v 1.3 2018/03/30 15:20:58 penton Exp $
 \subsection{Exposure Lists}\label{subsec:elists}
 
-In Visit 01, we take spectra that meet these requirements with the G130M/1309, G140L/1280, G285M/2676, and G230L/3000, and in Visit 02,
-we take spectra with the G160M/1600, G185M/1913, G225M/2306. Table ~\ref{tab:peakxd} the results of these exposures are summarized.
-The rightmost column gives the WCA-to-PSA offsets measured in \pid{13972}, in arcseconds (\arcsec).
-All exposures, except {\sf lcri01h6q}, the G140L/1280 measurement, which showed an offset of 0.15\arcsec\ exceed our $\pm 0.1$\arcsec\ goal.
-All exposures exceed our $\pm 0.33$\arcsec\ requirement. The XD profile of G140L spectra is wider that the medium
-resolution gratings (G130M and G160M), making in more susceptible to detector `Y-walk' (Penton \& Keyes, 2010).
-No action is required at this time as the measured offset is 1/2 of our 0.3\arcsec\ requirement.
+Table~\ref{tab:NUVtamonimage} gives the operational details of all NUV imaging exposures which opened the
+external shutter used in this ISR. Table~\ref{tab:NUVtamonimage} gives the operational details of all NUV imaging WAVECAL
+exposures
+Tables~\ref{tab:NUVtamonspec} and ~\ref{tab:FUVtamonspec} give the details of all spectroscopic exposures used in this ISR.
+All tables follow the convention that if an entry was extracted from a FITS header, then the column name will appear in \textit{ITALICIZED ALL CAPITALS}.
 
-The final two exposures of the 02 visit intentionally offset the target by $\pm$ 0.7\arcsec\ to test the effects
-of `Y-walk' on G160M \tacq{PEAKXD}s. All three G160M exposures in Visit 02 show offsets from the expected position
-of $\le 0.05$\arcsec\ within our 0.1\arcsec\ goal. No action (e.g., updating the \textsc{pcta\_CalTargetOffset} in the FSW)
-is required at this time.
+The columns of the Table~\ref{tab:NUVtamonimage} give:
+\footnotesize
+\begin{enumerate}
+\item \textit{ROOTNAME} gives the IPPPSSOOT of the COS exposure,
+\item \textit{PROPOSID} gives the HST program id (PID),
+\item \textit{TARNMAME} gives the target name as present in the MAST archive,
+\item \textit{OBSMODE} gives the observation mode, where ``TT'' is used for Time-Tag observations,
+\item \textit{EXPTYPE} gives the exposure type, which is either \tacq{IMAGE} or EXT/SCI. \textit{APERTURE} = PSA EXT/SCI images allow co-eval target and lamp images for
+direct measurement of their WCA-to-SA offset. \tacq{IMAGE} exposures return before and after target images in \textsc{OBSTYPE}=ACCUM, but do not return lamp images.
+\item \textit{EXPTIME} gives the exposure time in seconds. For EXT/SCI PSA images, the lamp time may be different. These lamp times are given in Table~\ref{tab:lamptimes}.
+\item PtNe Lamp\# gives the wavelength calibration lamp name, P1 or P2.
+\item Lamp Current gives the lamp current setting. The conversion from current setting to current in milli-amps (mA) is given in \S~\ref{subsec:intro}.
+\item \textit{APERTURE} gives the COS SA (PSA or BOA).
+\item \textit{APERXPOS} gives the AD (X in detector coordinates) aperture position. The default position is \textit{APERXPOS=$22$} for all FUV and NUV science and TA exposures.\footnote{The trailing "0.1" reported in the FITS headers is a conversion anomaly that is present in all aperture positions (\textit{APERXPOS} \& \textit{APERYPOS}).}
+\item \textit{APERYPOS} gives the XD (Y in detector coordinates) aperture position. It is not uncommon that the XD aperture location (\textit{APERYPOS}) is $\pm$ one step off from its nominal position. Each \textit{APERYPOS} step is $\approx0.05\arcsec$, or about 1/6 of
+our XD centering requirement, and 1/2 of our $1\sigma$ XD centering goal. The default NUV and FUV LP1 PSA/BOA positions are \textit{APERYPOS=$126/-153$}, where the WCA has the same XD (\textit{APERYPOS}) position as the PSA.
+As shown in Table~\ref{tab:ApMXDispPosition} the nominal PSA \& WCA \textit{APERYPOS} position for LP2, LP3, and LP4 are +53, +181, and +234, respectively.\footnote{As explained in the TA enabling ISRs for each FUV LP, due
+to known behavior of the COS aperture mechanism to miss by one step in \textit{APERYPOS}, entries in the \textsc{pcmech\_ApMXDispPosition} FSW table were intentionally offset by $\pm$ on step, depending on travel direction from NUV/FUV LP1, which
+shared the common \textsc{pcmech\_ApMXDispPosition} (\textit{APERYPOS}) entry of +126.}
+\item \textit{OPT\_ELEM} gives the grating or MIRROR used as the primary optic.
+\item \textit{DATE-OBS} gives the date of the observation in YEAR-MOnth-DAy format.
+\end{enumerate}
+\normalsize
+
+The columns of the spectroscopic NUV (Table~\ref{tab:NUVtamonspec}) and FUV (Table~\ref{tab:FUVtamonspec})
+tables are identical to the columns listed above for Table~\ref{tab:NUVtamonimage}, with the exception that
+the ``Lamp\#''  and ``Lamp Current'' columns are not present. In the programs of this ISR,
+the default P1 lamp usage for spectroscopic observations was overridden with the use of the \textsc{USELAMP=LINE2} and \textsc{CURRENT=MEDIUM} special commanding
+in APT to simulate the lamp exposures obtained in \numpos1 \tacq{PEAKXD} (\texttt{LTAPKXD}) exposures.
+In addition, the APT optional parameter \textsc{FLASH} was used to set P2 exposures times that
+provided counts in excess of those expected during the TA exposures.  Since all spectra were taken in TT mode,
+if required, an exact replica of the counts received in an actual \texttt{LTAPKXD} WCA spectrum could be re-produced.
+The additional counts allow for a better determination of the WCA-to-PSA XD offsets discussed in \S~\ref{sec:sec:spVER} and \S~\ref{subsec:subsec:FspVER}.
+\normalsize
 \input{NUVimagetamonfiles2.tex}
 \input{NUVspectamonfiles.tex}
 \input{FUVtamonfiles.tex}

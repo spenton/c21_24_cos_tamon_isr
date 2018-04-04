@@ -6,12 +6,15 @@
 %\tablewidth{5.5 in}
 \tablecaption{COS/NUV TA Spectroscopic Monitoring Exposures\label{tab:NUVtamonspec}}
 \tablehead{
-\colhead{\textit{ROOTNAME}}&\colhead{PID}&\colhead{TARGNAME}&
+\colhead{\textit{ROOTNAME}}&\colhead{\textit{PROPOSID}}&\colhead{TARGNAME}&
 \colhead{\textit{EXPTIME}}&\colhead{LAMP}&\colhead{\textit{OPT\_ELEM}}&\colhead{\cenwave}&
-\colhead{LP}&\colhead{\textit{APERXPOS}}&\colhead{\textit{APERYPOS}}&\colhead{\textit{DATE-OBS}}\\
+\colhead{\textit{LIFE\_ADJ}}&\colhead{\textit{APERXPOS}}&\colhead{\textit{APERYPOS}}&\colhead{\textit{DATE-OBS}}\\
 \colhead{}&\colhead{}&\colhead{}&
 \colhead{(s)}&\colhead{USED}&\colhead{}&
-\colhead{}&\colhead{}&\colhead{}&\colhead{}&\colhead{}
+\colhead{}    & \colhead{}     & \colhead{}     & \colhead{}    &\colhead{}\\
+\colhead{(1)} & \colhead{(2)}  & \colhead{(3)}  & \colhead{(4)} &
+\colhead{(5)} & \colhead{(6)}  & \colhead{(7)}  & \colhead{(8)} &
+\colhead{(9)} & \colhead{(10)} & \colhead{(11)}
 }
 \startdata
 lcgq01qlq	&	13526	&	WD-1657+343	&	20	&	P2	&	G230L	&	3000	&	1	&	22.1	&	126.1	&	2014-11-19	\\
@@ -32,6 +35,6 @@ ldozbbluq	&	14857	&	HIP66578	&	53	&	P2	&	G225M	&	2306	&	1	&	22.1	&	126.1	&	2017-
 ldozbblwq	&	14857	&	HIP66578	&	40	&	P2	&	G185M	&	1913	&	1	&	22.1	&	126.1	&	2017-09-06	\\
 \hline
 \enddata
-\tablenotemark{y}{The NUV (LP1) XD location of the aperture (\texttt{APERYPOS}) is 126 in the FSW table \texttt{pcmech\_ApMXDispPosition}.).}
-\tablecomments{All exposures were taken with the PSA at \texttt{FP-POS=3}. All exposures executed at the expected aperture position (\texttt{APERXPOS} \& \texttt{APERYPOS}).}
+\tablenotemark{y}{The NUV (LP1) XD location of the aperture (\textit{APERYPOS}) is 126 in the FSW table \texttt{pcmech\_ApMXDispPosition}.).}
+\tablecomments{All exposures were taken with the PSA at \texttt{FP-POS=3}. All exposures executed at the expected aperture position (\textit{APERXPOS} \& \textit{APERYPOS}).}
 \end{deluxetable}

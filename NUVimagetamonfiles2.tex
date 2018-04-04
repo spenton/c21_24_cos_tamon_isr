@@ -6,14 +6,11 @@
 %\tablewidth{0 pt}
 \tablecaption{COS/NUV TA Monitoring Imaging Exposures - PSA or BOA\label{tab:NUVtamonimageSA}}
 \tablehead{
-\colhead{\textit{ROOTNAME}}&\colhead{PROP}&\colhead{TARGNAME}&\colhead{\textit{OBSMODE}\tablenotemark{t}} &\colhead{\textit{EXPTYPE}}   &\colhead{\textit{EXPTIME}}  &\colhead{PtNe}&\colhead{Lamp}   &\colhead{\textit{APERTURE}}&\colhead{\textit{APERXPOS\tablenotemark{x}}}&\colhead{\textit{APERYPOS}\tablenotemark{y}}&\colhead{\textit{OPT\_ELEM}}&\colhead{\textit{DATE-OBS}}\\
-\colhead{}                 &\colhead{ID}  &\colhead{}        &\colhead{}&\colhead{}&\colhead{(s)}&\colhead{Lamp \#}&\colhead{Current}\tablenotemark{c}&\colhead{}&\colhead{}&\colhead{ }&\colhead{}&\colhead{}\\
-\colhead{(1)}&\colhead{(2)} &
-\colhead{(3)}&\colhead{(4)} &
-\colhead{(5)}&\colhead{(6)} &
-\colhead{(7)}&\colhead{(8)} &
-\colhead{(9)}&\colhead{(10)} &
-\colhead{(11)} & \colhead{(12)}&\colhead{(13)}
+\colhead{\textit{ROOTNAME}}&\colhead{\textit{PROPOSID}}&\colhead{\textit{TARGNAME}}&\colhead{\textit{OBSMODE\tablenotemark{t}}} &\colhead{\textit{EXPTYPE}}   &\colhead{\textit{EXPTIME}}  &\colhead{PtNe}&\colhead{Lamp}   &\colhead{\textit{APERTURE}}&\colhead{\textit{APERXPOS\tablenotemark{x}}}&\colhead{\textit{APERYPOS}\tablenotemark{y}}&\colhead{\textit{OPT\_ELEM}}&\colhead{\textit{DATE-OBS}}\\
+\colhead{}                 &\colhead{}  &\colhead{}        &\colhead{}&\colhead{}&\colhead{(s)}&\colhead{Lamp \#}&\colhead{Current\tablenotemark{c}}&\colhead{}&\colhead{}&\colhead{ }&\colhead{}&\colhead{}\\
+\colhead{(1)}&\colhead{(2)} & \colhead{(3)}&\colhead{(4)} &
+\colhead{(5)}&\colhead{(6)} & \colhead{(7)}&\colhead{(8)} &
+\colhead{(9)}&\colhead{(10)} & \colhead{(11)} & \colhead{(12)}&\colhead{(13)}
 }
 \startdata
 \hline
@@ -99,17 +96,15 @@ ldozbbliq	&	14857	&	HIP66578	&	TT	&	EXT/SCI	&	183	&	P2	&	Low	&	BOA	&	22.1	&	-153
 ldozbblmq	&	14857	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	183	&	P2	&	Med	&	BOA	&	22.1	&	-153.1	&	MIRB	&	2017-09-06	\\
 \hline
 \enddata
-%\end{center}
-\tablenotetext{c}{For the P1 lamp, the three current settings are LOW (6~mA), MED (10~mA) and HIGH (18~mA). For the P2 lamp, the current settings are LOW (3~mA), MED (10~mA) and HIGH (14~mA).}
-%\tablenotetext{t}{TT = TIME-TAG.}
-%\tablenotetext{x}{The AD aperture mechanism positions are stored in the FSW in \textsc{pcmech\_pcmech_ApMDispPosition} and is 26 for all FUV and NUV science and TA exposures.
-%The trailing "0.1" reported in the FITS headers is a conversion anomaly that is present in all aperture positions (\texttt{APERXPOS} \& \texttt{APERYPOS}).}
-%\tablenotetext{y}{As discussed in the text, it is not uncommon that the XD aperture location
-%(\texttt{APERYPOS}, stored in the FSW in \textsc{pcmech\_pcmech_ApMXDispPosition}) is $\pm$ one step off from its nominal position.}
-%\tablecomments{Exposures listed as \textsc{EXPTYPE}=EXT/SCI contain coeval target and PtNe lamp (P1 or P2) images taken in time-tag (\textsc{OBSTYPE}=TT) mode.
-%\tacq{IMAGE} exposures return before and after target images in \textsc{OBSTYPE}=ACCUM, but do not return  lamp images.}
-
+\tablenotetext{c}{The P2 wavelength calibration lamp current settings are LOW (3~mA), MED (10~mA) and HIGH (14~mA).}
+\tablenotetext{t}{TT = TIME-TAG.}
+\tablenotetext{x}{\textit{APERYPOS}, the AD aperture mechanism positions, are stored in the FSW in \textsc{pcmech\_ApMDispPosition}.
+The trailing "0.1" reported in the FITS headers is a conversion anomaly that is present in all aperture positions (\textit{APERXPOS} \& \textit{APERYPOS}).}
+\tablenotetext{y}{It is not uncommon that the XD aperture location (\textit{APERXPOS}) is $\pm$ one step off from its nominal position.
+The XD aperture mechanism positions are stored in the FSW in \textsc{pcmech\_ApMXDispPosition} (see Table~\ref{tab:ApMXDispPosition}).}
+\tablecomments{PSA \textsc{EXPTYPE}=EXT/SCI exposures contain coeval target and PtNe lamp TT images.}
 \end{deluxetable}
+
 \begin{deluxetable}{rrrrrrrrrrrrr}
 \tabcolsep 4 pt
 \tabletypesize{\tiny}
@@ -117,14 +112,11 @@ ldozbblmq	&	14857	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	183	&	P2	&	Med	&	BOA	&	22.1	&
 %\tablewidth{0 pt}
 \tablecaption{COS/NUV TA Monitoring Imaging Exposures - WCA only\label{tab:NUVtamonimageWCA}}
 \tablehead{
-\colhead{\textit{ROOTNAME}}&\colhead{PROP}&\colhead{TARGNAME}&\colhead{\textit{OBSMODE}\tablenotemark{t}} &\colhead{\textit{EXPTYPE}}   &\colhead{\textit{EXPTIME}}  &\colhead{PtNe}&\colhead{Lamp}   &\colhead{\textit{APERTURE}}&\colhead{\textit{APERXPOS}}&\colhead{\textit{APERYPOS}\tablenotemark{y}}&\colhead{\textit{OPT\_ELEM}}&\colhead{\textit{DATE-OBS}}\\
-\colhead{}                 &\colhead{ID}  &\colhead{}        &\colhead{}&\colhead{}&\colhead{(s)}&\colhead{Lamp \#}&\colhead{Current}\tablenotemark{c}&\colhead{}&\colhead{}&\colhead{ }&\colhead{}&\colhead{}\\
-\colhead{(1)}&\colhead{(2)} &
-\colhead{(3)}&\colhead{(4)} &
-\colhead{(5)}&\colhead{(6)} &
-\colhead{(7)}&\colhead{(8)} &
-\colhead{(9)}&\colhead{(10)} &
-\colhead{(11)} & \colhead{(12)}&\colhead{(13)}
+\colhead{\textit{ROOTNAME}}&\colhead{\textit{PROPOSID}}&\colhead{\textit{TARGNAME}}&\colhead{\textit{OBSMODE\tablenotemark{t}}} &\colhead{\textit{EXPTYPE}}   &\colhead{\textit{EXPTIME}}  &\colhead{PtNe}&\colhead{Lamp}   &\colhead{\textit{APERTURE}}&\colhead{\textit{APERXPOS\tablenotemark{x}}}&\colhead{\textit{APERYPOS}\tablenotemark{y}}&\colhead{\textit{OPT\_ELEM}}&\colhead{\textit{DATE-OBS}}\\
+\colhead{}                 &\colhead{}  &\colhead{}        &\colhead{}&\colhead{}&\colhead{(s)}&\colhead{Lamp \#}&\colhead{Current\tablenotemark{c}}&\colhead{}&\colhead{}&\colhead{ }&\colhead{}&\colhead{}\\
+\colhead{(1)}&\colhead{(2)} & \colhead{(3)}&\colhead{(4)} &
+\colhead{(5)}&\colhead{(6)} & \colhead{(7)}&\colhead{(8)} &
+\colhead{(9)}&\colhead{(10)} & \colhead{(11)} & \colhead{(12)}&\colhead{(13)}
 }
 \startdata
 
@@ -180,9 +172,10 @@ ldozbbm8q	&	14857	&	WAVE	&	TT	&	WAVECAL	&	32	&	P1	&	Low	&	WCA	&	22.1	&	125.1	&	M
 ldozbbmaq	&	14857	&	WAVE	&	TT	&	WAVECAL	&	26	&	P2	&	Med	&	WCA	&	22.1	&	125.1	&	MIRB	&	2017-09-06	\\
 \hline
 \enddata
-%\end{center}
-\tablenotetext{c}{For the P1 lamp, the three current settings are LOW ( mA), MED (10mA) and HIGH ( mA). For the P2 lamp, the current settings are LOW ( mA), MED (10mA) and HIGH ( mA).}
+\tablenotetext{c}{The P2 wavelength calibration lamp current settings are LOW (6mA), MED (10mA) and HIGH (18mA). The P2 wavelength calibration lamp current settings are LOW (3mA), MED (10mA) and HIGH (14mA).}
 \tablenotetext{t}{TT = TIME-TAG.}
-\tablenotetext{y}{As discussed in the text, in is not uncommon that the XD aperture location (\texttt{APERYPOS}) is $\pm$ one step off from its nominal position.}
-\tablecomments{These exposures are all \textsc{EXPTYPE}=WAVECAL (target = WAVE) and contain only TT PtNe lamp (WCA) images.}
+\tablenotetext{x}{\textit{APERYPOS}, the AD aperture mechanism positions are stored in the FSW in \textsc{pcmech\_ApMDispPosition}.
+The trailing "0.1" reported in the FITS headers is a conversion anomaly that is present in all aperture positions (\textit{APERXPOS} \& \textit{APERYPOS}).}
+\tablenotetext{y}{It is not uncommon that the XD aperture location (\textit{APERXPOS}) is $\pm$ one step off from its nominal position.}
+\tablecomments{All exposures in this table are \textit{EXPTYPE}=WAVECAL (target = WAVE) and contain only TT PtNe lamp (WCA) images, and the indicated MIRROR position (\textit{OPT\_ELEM}).}
 \end{deluxetable}
