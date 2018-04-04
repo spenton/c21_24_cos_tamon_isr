@@ -1,13 +1,13 @@
 % $Id: elists.tex,v 1.3 2018/03/30 15:20:58 penton Exp $
 \subsection{Exposure Lists}\label{subsec:elists}
 
-Table~\ref{tab:NUVtamonimage} gives the operational details of all NUV imaging exposures which opened the
-external shutter used in this ISR. Table~\ref{tab:NUVtamonimage} gives the operational details of all NUV imaging WAVECAL
+Table~\ref{tab:NUVtamonimageSA} gives the operational details of all NUV imaging exposures which opened the
+external shutter used in this ISR. Table~\ref{tab:NUVtamonimageWCA} gives the operational details of all NUV imaging WAVECAL
 exposures
-Tables~\ref{tab:NUVtamonspec} and ~\ref{tab:FUVtamonspec} give the details of all spectroscopic exposures used in this ISR.
-All tables follow the convention that if an entry was extracted from a FITS header, then the column name will appear in \textit{ITALICIZED ALL CAPITALS}.
+Tables~\ref{tab:NUVtamonspec} and ~\ref{tab:FUVtamon} give the details of all spectroscopic exposures used in this ISR.
+All tables follow the convention that if an entry was extracted from a FITS header, then the column name will appear in \textit{ITALICIZED ALL CAPITALS}.\\
 
-The columns of the Table~\ref{tab:NUVtamonimage} give:
+The columns of the Table~\ref{tab:NUVtamonimageSA} give:
 \footnotesize
 \begin{enumerate}
 \item \textit{ROOTNAME} gives the IPPPSSOOT of the COS exposure,
@@ -18,11 +18,11 @@ The columns of the Table~\ref{tab:NUVtamonimage} give:
 direct measurement of their WCA-to-SA offset. \tacq{IMAGE} exposures return before and after target images in \textsc{OBSTYPE}=ACCUM, but do not return lamp images.
 \item \textit{EXPTIME} gives the exposure time in seconds. For EXT/SCI PSA images, the lamp time may be different. These lamp times are given in Table~\ref{tab:lamptimes}.
 \item PtNe Lamp\# gives the wavelength calibration lamp name, P1 or P2.
-\item Lamp Current gives the lamp current setting. The conversion from current setting to current in milli-amps (mA) is given in \S~\ref{subsec:intro}.
+\item Lamp Current gives the lamp current setting. The conversion from current setting to current in milli-amps (mA) is given in \S~\ref{subsec:conventions}, and in the table footnotes.
 \item \textit{APERTURE} gives the COS SA (PSA or BOA).
 \item \textit{APERXPOS} gives the AD (X in detector coordinates) aperture position. The default position is \textit{APERXPOS=$22$} for all FUV and NUV science and TA exposures.\footnote{The trailing "0.1" reported in the FITS headers is a conversion anomaly that is present in all aperture positions (\textit{APERXPOS} \& \textit{APERYPOS}).}
-\item \textit{APERYPOS} gives the XD (Y in detector coordinates) aperture position. It is not uncommon that the XD aperture location (\textit{APERYPOS}) is $\pm$ one step off from its nominal position. Each \textit{APERYPOS} step is $\approx0.05\arcsec$, or about 1/6 of
-our XD centering requirement, and 1/2 of our $1\sigma$ XD centering goal. The default NUV and FUV LP1 PSA/BOA positions are \textit{APERYPOS=$126/-153$}, where the WCA has the same XD (\textit{APERYPOS}) position as the PSA.
+\item \textit{APERYPOS} gives the XD (Y in detector coordinates) aperture position. It is not uncommon that the XD aperture location (\textit{APERYPOS}) is $\pm$ one step off from its nominal position. Each \textit{APERYPOS} step is $\approx0.05\arcsec$, or about $\frac{1}{6}$ of
+our XD centering requirement, and $\frac{1}{2}$ of our $1\sigma$ XD centering goal. The default NUV and FUV LP1 PSA/BOA positions are \textit{APERYPOS=$126/-153$}, where the WCA has the same XD (\textit{APERYPOS}) position as the PSA.
 As shown in Table~\ref{tab:ApMXDispPosition} the nominal PSA \& WCA \textit{APERYPOS} position for LP2, LP3, and LP4 are +53, +181, and +234, respectively.\footnote{As explained in the TA enabling ISRs for each FUV LP, due
 to known behavior of the COS aperture mechanism to miss by one step in \textit{APERYPOS}, entries in the \textsc{pcmech\_ApMXDispPosition} FSW table were intentionally offset by $\pm$ on step, depending on travel direction from NUV/FUV LP1, which
 shared the common \textsc{pcmech\_ApMXDispPosition} (\textit{APERYPOS}) entry of +126.}
@@ -31,15 +31,15 @@ shared the common \textsc{pcmech\_ApMXDispPosition} (\textit{APERYPOS}) entry of
 \end{enumerate}
 \normalsize
 
-The columns of the spectroscopic NUV (Table~\ref{tab:NUVtamonspec}) and FUV (Table~\ref{tab:FUVtamonspec})
-tables are identical to the columns listed above for Table~\ref{tab:NUVtamonimage}, with the exception that
+The columns of the spectroscopic NUV (Table~\ref{tab:NUVtamonspec}) and FUV (Table~\ref{tab:FUVtamon})
+tables are identical to the columns listed above for Table~\ref{tab:NUVtamonimageSA}, with the exception that
 the ``Lamp\#''  and ``Lamp Current'' columns are not present. In the programs of this ISR,
 the default P1 lamp usage for spectroscopic observations was overridden with the use of the \textsc{USELAMP=LINE2} and \textsc{CURRENT=MEDIUM} special commanding
-in APT to simulate the lamp exposures obtained in \numpos1 \tacq{PEAKXD} (\texttt{LTAPKXD}) exposures.
+in APT to simulate the lamp exposures obtained in \numposone \tacq{PEAKXD} (\texttt{LTAPKXD}) exposures.
 In addition, the APT optional parameter \textsc{FLASH} was used to set P2 exposures times that
 provided counts in excess of those expected during the TA exposures.  Since all spectra were taken in TT mode,
 if required, an exact replica of the counts received in an actual \texttt{LTAPKXD} WCA spectrum could be re-produced.
-The additional counts allow for a better determination of the WCA-to-PSA XD offsets discussed in \S~\ref{sec:sec:spVER} and \S~\ref{subsec:subsec:FspVER}.
+The additional counts allow for a better determination of the WCA-to-PSA XD offsets discussed in \S~\ref{sec:spVER} and \S~\ref{subsec:FspVER}.
 \normalsize
 \input{NUVimagetamonfiles2.tex}
 \input{NUVspectamonfiles.tex}

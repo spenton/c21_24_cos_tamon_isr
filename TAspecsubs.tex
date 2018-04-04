@@ -7,9 +7,8 @@ COS uses the same NUV TA subarrays for the PSA and BOA as the XD offset between 
 \begin{table}
 \centering
 	\begin{threeparttable}[tbc]
-		\caption[NUV Spectroscopic \tacq{SEARCH} and \tacq{PEAKD} TA subarrays\tnote{1}]{NUV \tacq{SEARCH} and \tacq{PEAKD} Spectroscopic Target TA subarrays}
-		\begin{tabular*}{.6\linewidth}{@{\extracolsep{\fill}}|c|rrrr|}
-			\\
+		\caption[NUV Spectroscopic \tacq{SEARCH} and \tacq{PEAKD} SA Subarrays\tnote{1}]{NUV Spectroscopic \tacq{SEARCH} and \tacq{PEAKD} SA Subarrays}
+		\begin{tabular*}{.7\linewidth}{@{\extracolsep{\fill}}|c|rrrr|}
 			\hline
 			\textit{OPT\_ELEM}& XC & YC & XS & YS \\
 			\hline
@@ -21,11 +20,11 @@ COS uses the same NUV TA subarrays for the PSA and BOA as the XD offset between 
 		\end{tabular*}
 		\footnotesize
 		\begin{tablenotes}[para]
-			\item [1] These are the NUV \tacq{SEARCH} and \tacq{PEAKD} external target subarrays.
-			 The NUV \tacq{PEAKXD} lamp and target subarrays are given in \ref{tab:NUVspSUBSxd}.
+			\item [1] These are the NUV \tacq{SEARCH} and \tacq{PEAKD} external target (SA) subarrays.
+			 The NUV \tacq{PEAKXD} lamp and SA subarrays are given in \ref{tab:NUVspSUBSxd}.
 			\item [2] Installed by HST commanding on 2009.201 (PR\#63095).
 		   \end{tablenotes}
-		\label{tab:NUVspSUBSsad2}
+		\label{tab:NUVspSUBSsad}
 		\normalsize
 	\end{threeparttable}
 \end{table}
@@ -34,8 +33,7 @@ COS uses the same NUV TA subarrays for the PSA and BOA as the XD offset between 
 %\tabcolsep 10 pt
 %\tabletypesize{\footnotesize}
 %\tablecolumns{5}
-%\tablewidth{5.5 in}
-%\tablecaption{NUV \tacq{SEARCH} and \tacq{PEAKD} Spectroscopic Target TA subarrays \label{tab:NUVspSUBSsad}}
+%\tablecaption{NUV \tacq{SEARCH} and \tacq{PEAKD} Spectroscopic SA Subarrays \label{tab:NUVspSUBSsad2}}
 %\tablehead{
 %\colhead{\textit{OPT\_ELEM}}&\colhead{XC}&\colhead{YC}&\colhead{XS}&\colhead{YS}
 %}
@@ -51,7 +49,7 @@ COS uses the same NUV TA subarrays for the PSA and BOA as the XD offset between 
 %\end{deluxetable}
 %\end{center}
 
-The NUV spectroscopic TA subarrays for the \tacq{PEAKXD} are given in Table~\ref{tab:NUVspSUBSxd}.
+The NUV spectroscopic TA SA subarrays for the \tacq{PEAKXD} are given in Table~\ref{tab:NUVspSUBSxd}.
 These subarrays are large enough to only capture the flux from a single NUV stripe.
 Stripe-specific subarrays are defined for both the WCA and PSA.
 If used with an extended source, these subarrays are vulnerable to cross-contamination of stripe light. In this table, only the values of XC are listed.
@@ -60,7 +58,7 @@ For all NUV \tacq{PEAKXD}s, YC=0, YS=1024, and XS=81.
 \begin{table}
 \centering
 	\begin{threeparttable}[tbc]
-		\caption{NUV \tacq{PEAKXD} WCA and PSA/BOA TA Subarrays ``XC'' Values\tnote{1}}
+		\caption{NUV \tacq{PEAKXD} WCA and PSA/BOA Subarray ``XC''s\tnote{1}}
 			\begin{tabular*}{.75\linewidth}{@{\extracolsep{\fill}}ccccccc}
 			\\
 			\hline
@@ -74,7 +72,7 @@ For all NUV \tacq{PEAKXD}s, YC=0, YS=1024, and XS=81.
 		\end{tabular*}
 		\footnotesize
 			\begin{tablenotes}
-				\item[1] These are the `XC' (X-Corner) values. For all NUV \tacq{PEAKXD} TA subarrays: YC=0, YS=1024, and XS=81; where S=Size. Updated on July 19, 2009 (2009.200) with STScI PR\#63095. Some early calibration observations used slightly different values.
+				\item[1] XC = X-Corner. For all NUV \tacq{PEAKXD} TA subarrays: YC=0, YS=1024, and XS=81; where S=Size. Updated on July 19, 2009 (2009.200) with STScI PR\#63095. Some early calibration observations used slightly different values.
 			\end{tablenotes}
 			\label{tab:NUVspSUBSxd}
 		\normalsize
@@ -86,7 +84,7 @@ For all NUV \tacq{PEAKXD}s, YC=0, YS=1024, and XS=81.
 %\tabletypesize{\footnotesize}
 %\tablecolumns{7}
 %\tablewidth{5.5 in}
-%\tablecaption{NUV \tacq{PEAKXD} WCA and PSA/BOA TA Subarrays ``XC'' Values\tablenotemark{a} \label{tab:NUVspSUBSxd}}
+%\tablecaption{NUV \tacq{PEAKXD} WCA and PSA/BOA Subarray ``XC''s\tablenotemark{a} \label{tab:NUVspSUBSxd}}
 %\tablehead{
 %\colhead{\textit{OPT\_ELEM}}&\colhead{WCA-A}&\colhead{WCA-B}&\colhead{WCA-C} &\colhead{SCI-A}&\colhead{SCI-B}&\colhead{SCI-C}
 %}

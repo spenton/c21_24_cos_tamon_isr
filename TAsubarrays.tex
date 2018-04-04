@@ -13,7 +13,7 @@ Ideally, one would compare that commanded subarrays for all exposures to those r
 However, due to issues with the COS TA subarrays\footnote{This issues should be addressed for C26 with the corrections outlined in STScI PRs\#64849, 64874, 66840, , },
 in this ISR, the subarrays were inferred from the telemetry reported in the \textsf{\_spt.fits} files.
 
-Tables~\ref{tab:TAnuvIMAGEsmov}, \ref{TAnuvIMAGEpost}, \ref{tab:TAnuvSEARCH}, \ref{tab:TAnuvIMAGEmirB} gives the TA subarrays for all imaging modes
+Tables~\ref{tab:TAnuvIMAGEsmov}, \ref{tab:TAnuvIMAGEpost}, \ref{tab:TAnuvSEARCH}, \ref{tab:TAnuvIMAGEmirB} give the TA subarrays for all imaging modes
 as it has evolved since SMOV.
 Table~\ref{tab:NUVspSUBSsad2} gives the TA subarrays for all NUV spectroscopic \tacq{SEARCH} and \tacq{PEAKKD} that have executed use since SMOV, and
 Table~\ref{tab:NUVspSUBSxd} gives the TA subarrays for all NUV \tacq{PEAKXD}s since SMOV.
@@ -43,7 +43,7 @@ A subarray is fully specified by giving its XC, XS, YC, and YS. Unless noted, co
 TA subarrays are necessary to remove unwanted detector background or spectral or detector features not associated with the target, such as detector
 ``hot-spots'' or Geocoronal emission (see Penton \& Keyes, 2011). All COS \tacq{} modes use subarrays, but they different for each mode, detector or detector segment,
 and \cenwave.  The explanation for the sizes and locations of the TA subarrays are beyond the scope of this ISR, but can be found in the TIR COS-2010-03 (Penton \& Keyes, 2011),
-the pre-launch estimates (driven by ray-trace predictions; COS-11-0024A (Penton, 2001), COS-11-0014B (Penton, 2002), \& COS-11-0016A (Penton, 2001)) and for
+the pre-launch estimates (driven by ray-trace predictions; COS-11-0024A (Penton, 2001), COS-11-0014B (Penton, 2002), \& COS-11-0016A (Penton, 2001) and for
 FUV LP2--4 in their respective enabling ISRs (Penton 2018 (LP2), Penton 2018 (LP3) and Penton \& White 2018 (LP4).)
 The programs discussed in this ISR do not contain any FUV or NUV spectroscopic \tacq{} exposures, therefore, the bulk of the discussion for the TA subarrays for
 spectroscopic TAs are contained in the respective enabling ISRs. The spectroscopic exposures discussed in this ISR will, however, be used to verify
