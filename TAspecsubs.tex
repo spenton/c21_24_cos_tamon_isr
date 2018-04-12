@@ -7,22 +7,22 @@ COS uses the same NUV TA subarrays for the PSA and BOA as the XD offset between 
 \begin{table}
 \centering
 	\begin{threeparttable}[tbc]
-		\caption[NUV Spectroscopic \tacq{SEARCH} and \tacq{PEAKD} SA Subarrays\tnote{1}]{NUV Spectroscopic \tacq{SEARCH} and \tacq{PEAKD} SA Subarrays}
-		\begin{tabular*}{.7\linewidth}{@{\extracolsep{\fill}}|c|rrrr|}
-			\hline
+		\caption[NUV Spectroscopic \tacq{SEARCH} and \tacq{PEAKD} Subarrays\tnote{1}]{NUV Spectroscopic \tacq{SEARCH} and \tacq{PEAKD} Subarrays}
+		\begin{tabular*}{.7\linewidth}{@{\extracolsep{\fill}}c|rrrr}
+			\toprule
 			\textit{OPT\_ELEM}& XC & YC & XS & YS \\
-			\hline
+			\midrule
 			G185M&509&0&420&1024\\
 			G225M&512&0&420&1024\\
 			G285M&499&0&420&1024\\
 			G230L&659&0&275&1024\\
-			\hline
+			\bottomrule
 		\end{tabular*}
 		\footnotesize
 		\begin{tablenotes}[para]
-			\item [1] These are the NUV \tacq{SEARCH} and \tacq{PEAKD} external target (SA) subarrays.
-			 The NUV \tacq{PEAKXD} lamp and SA subarrays are given in \ref{tab:NUVspSUBSxd}.
-			\item [2] Installed by HST commanding on 2009.201 (PR\#63095).
+			\item [1] NUV \tacq{SEARCH} and \tacq{PEAKD} external target (SA) subarrays.
+			 NUV \tacq{PEAKXD} lamp and SA subarrays are given in \ref{tab:NUVspSUBSxd}.
+			\item [2] Installed by HST commanding on 2009.201 (\pr{63095}).
 		   \end{tablenotes}
 		\label{tab:NUVspSUBSsad}
 		\normalsize
@@ -45,7 +45,7 @@ COS uses the same NUV TA subarrays for the PSA and BOA as the XD offset between 
 %G230L&659&0&275&1024\\
 %\hline
 %\enddata
-%\tablecomments{These subarrays are used for NUV \tacq{SEARCH} and \tacq{PEAKD} TA only, and were installed in HST commanding on 2009.201 (PR\#63095).}
+%\tablecomments{These subarrays are used for NUV \tacq{SEARCH} and \tacq{PEAKD} TA only, and were installed in HST commanding on 2009.201 \pr{63095}.}
 %\end{deluxetable}
 %\end{center}
 
@@ -58,21 +58,20 @@ For all NUV \tacq{PEAKXD}s, YC=0, YS=1024, and XS=81.
 \begin{table}
 \centering
 	\begin{threeparttable}[tbc]
-		\caption{NUV \tacq{PEAKXD} WCA and PSA/BOA Subarray ``XC''s\tnote{1}}
-			\begin{tabular*}{.75\linewidth}{@{\extracolsep{\fill}}ccccccc}
-			\\
-			\hline
+		\caption{NUV \tacq{PEAKXD} Subarray ``XC''s\tnote{1}}
+			\begin{tabular*}{.75\linewidth}{@{\extracolsep{\fill}}c|ccc|ccc}
+			\toprule
 			\textit{OPT\_ELEM}&WCA-A & WCA-B &WCA-C &SCI-A&SCI-B&SCI-C\\
-			\hline
+			\midrule
 			G185M	&	418	&	327	&	192	&	794	&	700	&	565	\\
 			G225M	&	430	&	327	&	186	&	804	&	703	&	560	\\
 			G285M	&	407	&	313	&	180	&	782	&	688	&	555	\\
 			G230L	&	433	&	334	&	194	&	807	&	707	&	564 \\
-			\hline
+			\bottomrule
 		\end{tabular*}
 		\footnotesize
 			\begin{tablenotes}
-				\item[1] XC = X-Corner. For all NUV \tacq{PEAKXD} TA subarrays: YC=0, YS=1024, and XS=81; where S=Size. Updated on July 19, 2009 (2009.200) with STScI PR\#63095. Some early calibration observations used slightly different values.
+				\item[1] XC = X-Corner. For all NUV \tacq{PEAKXD} TA subarrays: YC=0, YS=1024, and XS=81; where S=Size. Updated on July 19, 2009 (2009.200) with \pr{63095}. Some early calibration observations used slightly different values.
 			\end{tablenotes}
 			\label{tab:NUVspSUBSxd}
 		\normalsize
@@ -96,7 +95,7 @@ For all NUV \tacq{PEAKXD}s, YC=0, YS=1024, and XS=81.
 %G230L	&	433	&	334	&	194	&	807	&	707	&	564 \\
 %\hline
 %\enddata
-%\tablenotetext{a}{Updated on July 19, 2009 (2009.200) with STScI PR\#63095. Some early calibration observations used slightly different values.}
+%\tablenotetext{a}{Updated on July 19, 2009 (2009.200) with \pr{63095}. Some early calibration observations used slightly different values.}
 %\tablecomments{These are the `XC' (X-Corner) values. For all NUV \tacq{PEAKXD} TA subarrays: YC=0, YS=1024, and XS=81; where S=Size.}
 %\end{deluxetable}
 %\end{center}

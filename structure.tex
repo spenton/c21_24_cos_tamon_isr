@@ -17,14 +17,17 @@ However, this exact combination of \tacq{IMAGE}s occurs at the end of each semi-
 This visit was usually treated as an on-hold contingency visit in case, for whatever reason, the fall visit of the program did not execute in a given cycle.\footnote{Beginning with Cycle 23, this program
 was replaced with an improved process for aligning the FGSs. Accordingly,  we activated this contingency visit to obtain the necessary PSA$\times$MIRA and PSA$\times$MIRB exposures.}
 The target for this contigency visit is 206W3, the same target as the Fall visit of the FGS-to-SI alignment program.
-As discussed further in \S~\ref{sec:newMIRB}, in one case, (C22, \pid{13972}), this visit was re-purposed to verify a change to the MIRB\tacq{IMAGE} configuration required due to the increasing background (see \S~\ref{subsec:MIRB}).}
+As discussed further in \S~\ref{sec:MIRB}, in one case, (C22, \pid{13972}), this visit was re-purposed to verify a change to the MIRB\tacq{IMAGE} configuration required due to the increasing background (see \S~\ref{sec:MIRB}).}
 	\item{The second orbit of each program takes back-to-back PSA$\times$MIRB and BOA$\times$MIRA \tacq{IMAGE}s~and target (WD1657+343) TIME-TAG images (with lamp flashes).
+	A second PSA$\times$MIRB \tacq{IMAGE} is then performed to provide a second measurement of the offset.
 	Additionally, NUV and FUV spectra are acquired to test their WCA-to-PSA offsets.}
-	\item{The third orbit of each program takes back-to-back BOA$\times$MIRA and BOA$\times$MIRB \tacq{IMAGE}s~and target (HIP66578) TIME-TAG images (with lamp flashes). Additional NUV and FUV spectra are acquired to the remaining WCA-to-PSA offsets not tested in the second orbit.}
-	\item{All visis were executed with in the APT 3-Gyro mode (\texttt{3GOBAD}) with the \texttt{BASE1B3} guide star requirement set in APT.}
+	\item{The third orbit of each program takes back-to-back BOA$\times$MIRA and BOA$\times$MIRB \tacq{IMAGE}s~and target (HIP66578) TIME-TAG images (with lamp flashes).
+	As in the second orbit, a second BOA$\times$MIRA \tacq{IMAGE} is then performed to provide a second measurement of the offset.
+	Additional NUV and FUV spectra are acquired to the remaining WCA-to-PSA offsets not tested in the second orbit.}
+	\item{All visits were executed in APT 3-Gyro mode (\texttt{3GOBAD}) with the \texttt{BASE1B3} guide star requirement set in APT.}
 \end{itemize}
 The exact configuration of which gratings and which \cenwaves were spectroscopically tested varied with each cycle as the programs evolved.
-Specifically, with the 2015 change in OSM2 home position\footnote{In May 2015, the ``home'' position of the COS Optic Select Mechanism \#2 (OSM2, the NUV grating wheel) was changed from G185M/1850 to the MIRA position to reduce wear on the OSM, increase observing efficiency, and reduce mechanism drift and position offsets during \tacq{IMAGE} TAs. (see HST PR\#80893 and PR\#80894).}, NUV spectra were re-ordered for efficiency and some NUV \cenwaves were changed to those
+Specifically, with the 2015 change in OSM2 home position\footnote{In May 2015, the ``home'' position of the COS Optic Select Mechanism \#2 (OSM2, the NUV grating wheel) was changed from G185M/1850 to the MIRA position to reduce wear on the OSM, increase observing efficiency, and reduce mechanism drift and position offsets during \tacq{IMAGE} TAs. (see HST \pr{80893} and \pr{80894}).}, NUV spectra were re-ordered for efficiency and some NUV \cenwaves were changed to those
 that are known to have strong \textit{STRIPE}=B WCA spectra against the increasing detector background (Fix, 2018) and declining NUV sensitivity (Taylor, 2017).
 In C23--C24, we took G160M/1600 exposures offset in XD by $\pm 0.7$\arcsec\footnote{Offsets set by using APT exposure level \texttt{{\it POS$\_$TARG}s}.} to test for the effects of Ywalk on FUV spectra at LP3.
 In addition, one visit of each program, usually the second visit, performed an annual "family portrait"  of all the P1/P2 MIRA/B WCA lamp images to track any drifting of the centroids, or changes in the lamps with time.

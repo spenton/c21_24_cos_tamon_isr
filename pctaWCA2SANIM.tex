@@ -1,36 +1,44 @@
 % rcs_id = "$Id: pctaWCA2SANIM.tex,v 1.2 2018/03/30 20:22:12 penton Exp $"
 \begin{center}
 \begin{table}
-	\begin{threeparttable}
-	\caption{COS NUV Imaging (\tacq{IMAGE}) WCA-to-SA FSW Target Offsets}
+\footnotesize
 	\centering
-		\begin{tabular*}{14cm}{ccrrr}
-		Direction & Detector & MIR  &	PSA	&	BOA\\
-		(AD or XD) & Coordinate &	&	&	\\
-		\hline
-		\hline
-		\multicolumn{5}{c}{MIRA}\\
-		\hline
-		AD	&	Y	&	MIRA	&	45.3	&	45.5 \\
-		XD	&	X	&	MIRA	&	372.7	&	368.4 \\
-		\hline
-		\multicolumn{5}{c}{MIRB {\bf prior} to Oct-20-2014 (2014.283)}\\
-		\hline
-		AD	&	Y	&	MIRB	&	45.0	&	45.5 \\
-		XD	&	X	&	MIRB	&	374.1	&	366.3 \\
-		\hline
-		\multicolumn{5}{c}{MIRB {\bf after}$^{a}$ to Oct-20-2014 (2014.283)}\\
-		\hline
-		AD	&	Y	&	MIRB	&	46.0	&	46.5 \\
-		XD	&	X	&	MIRB	&	374.0	&	366.2 \\
-		\hline
+	\begin{threeparttable}
+	\caption[\textsc{pcta\_[X,Y]ImCalTargetOffset} Values]{\tacq{IMAGE} WCA-to-SA FSW Target Offsets}
+		\begin{tabular*}{.895\linewidth}{@{\extracolsep{\fill}}ccccrr}
+		\toprule
+		Direction & DETector & USER$^{a}$ & \textit{OPT\_ELEM}  &	PSA	&	BOA\\
+		(AD or XD) & Coordinate &	Coordinate &	&	\\
+		\bottomrule
+		\midrule
+		\multicolumn{6}{c}{MIRRORA}\\
+		\midrule
+		AD$^c$	&	Y	&	-X	&	MIRA	&	45.3	&	45.5 \\
+		XD$^d$	&	X	&	-Y	&	MIRA	&	372.7	&	368.4 \\
+		\midrule
+		\multicolumn{6}{c}{MIRRORB {\bf prior} to Oct-20-2014 (2014.283)}\\
+		\midrule
+		AD	&	Y	&	-X	&	MIRB	&	45.0	&	45.5 \\
+		XD	&	X	&	-Y	&	MIRB	&	374.1	&	366.3 \\
+		\midrule
+		\multicolumn{6}{c}{MIRRORB {\bf after}$^{b}$ to Oct-20-2014 (2014.283)}\\
+		\midrule
+		AD	&	Y	&	-X	&	MIRB	&	46.0	&	46.5 \\
+		XD	&	X	&	-Y	&	MIRB	&	374.0	&	366.2 \\
+		\bottomrule
 		\end{tabular*}
 		\label{tab:pctaWCA2SANIM}
+		\footnotesize
 		\begin{tablenotes}
-			\item[a] Installed 2014.283 (STScI PR\#79116, "Update MIRB Cal Target Offsets").
-			\item[x] X (XD) direction offsets are measured from the median calibration lamp image event to the center of the specified aperture (\textsc{pcta\_XImCalTargetOffset}).
-			\item[y] Y (AD) direction offsets are measured from the median calibration lamp image event to the center of the specified aperture (\textsc{pcta\_YImCalTargetOffset}).
+			\item[a] COS DETector and USER coordinates are related by equations~\ref{eq:NUVuserX} \& \ref{eq:NUVuserY}. A consequence of
+			these definitions, a given \textit{APERTURE}$\times$\textit{OPT\_ELEM} configurations' AD or XD WCA-to-SA offset in one coordinate system is equal to the SA-to-WCA offset in the other.
+			For example, the AD PSA$\times$MIRA WCA-to-PSA offset is +45.3 in detector coordinates (Y$_{DET}$), as is the SA-to-WCA AD offset in USER coordinates (X$_{USER}$).
+			\item[b] Installed 2014.283 (\pr{79116}, "Update MIRRORB Cal Target Offsets").
+			\item[c] XD direction offsets, measured from WCA lamp median to the SA center, stored in the FSW \textsc{pcta\_XImCalTargetOffset} table.
+			\item[d] AD direction offsets, measured from WCA lamp median to the SA center, stored in the FSW \textsc{pcta\_YImCalTargetOffset} table.
 		\end{tablenotes}
+		\normalsize
 	\end{threeparttable}
+\normalsize
 \end{table}
 \end{center}

@@ -34,8 +34,10 @@ There are a few COS conventions to be established before discussing the TA monit
 		\dotuline{All references to the coordinates ``X'' and ``Y'' are in the detector coordinate system unless otherwise specified.}
 		In raw NUV coordinates, +X is -XD and +Y is -AD. In raw FUV coordinates, +X is -AD and +Y is +XD.
 		The transformations between user and detector coordinates are :
-		\begin{equation} NUV: X_{user} = 1023 - Y_{detector} \ ; Y_{user} = 1023 - X_{detector} \end{equation}
-		\begin{equation} FUV: X_{user} = 16383 - X_{detector} \ ; Y_{user} = Y_{detector} \end{equation}
+		\begin{equation} NUV: X_{user} = 1023 - Y_{detector} \label{eq:NUVuserX}\end{equation}
+		\begin{equation} NUV: Y_{user} = 1023 - X_{detector} \label{eq:NUVuserY}\end{equation}
+		\begin{equation} FUV: X_{user} = 16383 - X_{detector} \label{eq:FUVuserX}\end{equation}
+		\begin{equation} FUV: Y_{user} = Y_{detector} \label{eq:FUVuserY}\end{equation}
 		}
 	\item{When referencing NUV pixels, we will abbreviate pixel as p. For the FUV, we use DE (or rows/columens) to reference the FUV digital elements.}
 	\item{When discussing the various subarrays used during COS TA, boxes will be specified by giving the lowest
@@ -44,7 +46,7 @@ There are a few COS conventions to be established before discussing the TA monit
 		\begin{itemize}
 			\item{COS TA modes and their optional parameters will be in \texttt{Courier} (e.g., \tacq{IMAGE} and \numpos).}
 			\item{Keywords in FITS headers will be in \textit{ITALICIZED ALL CAPITALS} (e.g., \textit{ACQSLEWY}).}
-			\item{Flight SoftWare parameters (FSW) will be in \textsc{small capitals}.
+			\item{Flight SoftWare (FSW) parameters and routines will be in \textsc{small capitals}.
 All TA FSW patchable constants begin with ``\textsc{pcta\_}'' (e.g., \textsc{pcta\_CalTargetOffset}). In this ISR, this prefix is considered implied after the initial introduction of a paramater, and will not always be included.
 FSW patchable constants relating to mechanism positions begin with \textsc{pcmech\_} and will always be included in references.}
 			\item{Archived COS files are in FITS (.fits) format. FITS filenames, or portions of a filename, will be in {\sf sans-serif} (e.g., {\sf ld9mg2nrq\_rawtag.fits} or {\sf \_spt.fits}).
@@ -52,7 +54,7 @@ FSW patchable constants relating to mechanism positions begin with \textsc{pcmec
 			The HST naming convention breaks down for COS as I=Instrument=``L'', PPP=Program ID, SS=Visit ID, OO=Exposure ID,
 			and T=``Q'' for nominally recorded observations. See the COS DHB for a full breakdown of the HST IPPPSSOOT naming conventions.
 			COS TA files have the {\it extension} of {\sf rawacq}, and additional
-			information useful for TA analysis is contained in the {\sf IPPPSSOOT\_{\it spt}.fits} file known as the support file,
+			information useful for TA analysis is contained in the {\sf IPPPSSOOT\_{\it spt}.fits} files known as the support file,
 			and in the {\sf IPPPSSOOT\_{\it jit/f}.fits} file known as the jitter files.}
 		\end{itemize}
 	}
@@ -77,17 +79,51 @@ FSW patchable constants relating to mechanism positions begin with \textsc{pcmec
 	\item{Unit abbreviations:
 		\begin{itemize}
 		\item{Milli-arcseconds (0.001\arcsec) will be abbreviated as mas.}
-		\item{Milli-amperes (0.001A) will be abbreviated as mA.}
+		\item{Milli-amperes (0.001~A) will be abbreviated as mA.}
 		\item{Counts per second will be abbreviated as cps.}
 		\end{itemize}
 	}
 	\item{COS has two internal PtNe wavelength calibrations lamps that send light through the Wavelength Calibration Aperture (WCA) and onto the detectors.The two PtNe lamps are referred to in this ISR
 	as P1 and P2. Each lamp has three current settings, LOW, MEDIUM (MED) or HIGH. The P1 lamp is used for spectroscopic lamp flashes during science exposures (``TAGFLASH''es), while the P2 lamp is used for all TA exposures.
-	Both lamps have MED current settings of 10 mA, but the P1 lamp has LOW/HIGH current setting of 6/18~mA. The P2 lamp
-	has LOW/HIGH current settings of 3/14 mA. COS Lamp output generally scales as current$^{2}$ ($P=I^2 R$).}
-	\item{{\bf Note to reviewers: I often switch back and forth between the APT TA routine names (ACQ/) and the FSW equivalents (LTA..). If you find this confusing, I can put in a conversion table and establish a convention for
-	when I use each flavor. Please advise.}}
+	Both lamps have MED current settings of 10~mA, but the P1 lamp has LOW/HIGH current setting of 6/18~mA. The P2 lamp
+	has LOW/HIGH current settings of 3/14~mA. COS Lamp output generally scales as current$^{2}$ ($P=I^2 R$).}
+	\item{STScI uses a problem reporting (PR) system to track HST changes.
+		Where applicable, these STScI PR identifying numbers will be included with \pr{\#}.}
+	\item{Each COS \tacq{} mode calls one or more FSW routines which interact with HST+COS to perform the TA.
+		The FSW routine names begin with \fsw{LTA}.
+		The FSW routines called by each \tacq{} mode are given in Table~\ref{tab:fsw}.
+		}
+	\item{We use the FSW NUV imaging plate scales values of 0.02352\arcsec/p (AD) and 0.02362\arcsec/p (XD)\footnote{The C25 COS IHB (Fox et al., 2017) does not differentiate between AD and XD NUM imaging plate scales, and lists 0.0235 "/p for both AD and XD.} as these
+	are in agreement with the SMOV results of Goudfrooij et al., 2010. We also assume
+	the NUV detector orientation as described in Goudfrooij et al., 2010 (a 0.52$\degree$ rotation between the
+	NUV detector coordinates and the APT \textsc{POS\_TARG} system). }
 \end{enumerate}
+
+\begin{deluxetable}{lll}
+	\tablecolumns{3}
+	\tablecaption{\tacq{} to \textsc{LTA} Conversion Table\label{tab:fsw}}
+	\tablehead{
+	\colhead{\tacq{} Mode}	&	\colhead{FSW}	& \colhead{Comments}\\
+%	\colhead{\tacq{} Mode} & \colhead{FSW routine (\textsc{LTA})} & \colhead{Comments} \\
+	}
+	\startdata
+	\toprule
+	\tacq{IMAGE} & \fsw{IMCAL}  & Calibrate Aperture Location for NUV Image Acq \\
+				 & \fsw{IMAGE}  & NUV Image Acquisition \\
+	\midrule
+	\tacq{SEARCH} & \fsw{SEARCH} & Spiral Target Search\\
+	\midrule
+	\tacq{PEAKD}  & \fsw{PKD} & Peakup in the Dispersion (AD)Direction\\
+	\midrule
+	\tacq{PEAKXD} (\numposone) & \fsw{CAL}  & Calibrate Aperture Location \\
+							   & \fsw{PKXD} & Peakup in the Cross-Dispersion (XD) Direction\\
+	\tacq{PEAKXD} (\numposgtone)    & \fsw{PKD}  & Peakup in the Dispersion  Direction\\
+								 &  			 & Modified in LV54 for Cross-Dispersion (XD)\\
+	\bottomrule
+	\enddata
+	\tablecomments{LV54 is the COS FSW Version 4.16 update. GSFC \textsc{SCRC\#352} adapted \textsc{LTAPKD} for XD use in LV54 and
+	was installed on HST on 2014.133.}
+\end{deluxetable}
 
 \subsection{ISR Organization}\label{subsec:org}
 In \S~\ref{sec:TAoperations} we will discuss the concepts involved
@@ -103,6 +139,7 @@ In \S~\ref{sec:subarray}, we discuss the numerous detector subarrays used in COS
 In \S~\ref{subsec:acqimage} we will discuss the verification of the FSW parameters, lamp operations, and subarrays associated with COS \tacq{IMAGE}s.
 
 In ~\S~\ref{sec:spVER}, we will discuss the verification of the FSW parameters, lamp operations, and subarrays associated with COS spectroscopic TAs.
+% Not sure if we are acutally going to be able to do the SIAF VER in this document
 %As part of this process, we will verify the active COS NUV SIAF (Science Instrument Aperture File) entries.
 %In the FUV sub-section we will discuss and the verification of COS FUV SIAF entries.
 

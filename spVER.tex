@@ -17,8 +17,7 @@ This ISR only attempts to verify that these offsets were appropriate for all dat
 
 Each FUV central wavelength setting (\cenwave) uses a unique OSM1 rotation, whereas all NUV TAs use the same OSM1 rotation independent of \cenwave.
 However, each NUV \cenwave uses a different OSM2 rotation during TA. Each FUV \cenwave has it's own set of TA subarrays (up to four per segment), while the NUV TA subarrays are not \cenwave
-specific, but are grating specific.\footnote{{\bf Note to reviewer: Do you think it is worthwhile to include the entire \textsc{pcmech\_osmtbl} in the appendix? If so, i would add a reference to the table and some
-explanatory text here.}}
+specific, but are grating specific.
 
 The verification process is for \texttt{ACQ/PEAKXD} is simple, take a normal spectrum with a target signal-to-noise ratio of least 50 for the entire spectrum (2500 target counts),
 and directly measure the WCA-to-PSA offset and compare it the FSW value. For NUV exposures, this is almost always \texttt{STRIPE=B}, and for the FUV, only events from FUVA are used at LP2--4.

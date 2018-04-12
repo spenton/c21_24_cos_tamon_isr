@@ -10,7 +10,7 @@ There are two stages to the TA verification,
 2) that those subarrays were valid for the entire duration of usage.
 
 Ideally, one would compare that commanded subarrays for all exposures to those reported in the \textsf{\_rawacq.fits}.
-However, due to issues with the COS TA subarrays\footnote{This issues should be addressed for C26 with the corrections outlined in STScI PRs\#64849, 64874, 66840, , },
+However, due to issues with the COS TA subarrays\footnote{This issues should be addressed for C26 with the corrections outlined in \pr{64849}, \pr{64874}, \& \pr{66840}},
 in this ISR, the subarrays were inferred from the telemetry reported in the \textsf{\_spt.fits} files.
 
 Tables~\ref{tab:TAnuvIMAGEsmov}, \ref{tab:TAnuvIMAGEpost}, \ref{tab:TAnuvSEARCH}, \ref{tab:TAnuvIMAGEmirB} give the TA subarrays for all imaging modes
@@ -34,7 +34,7 @@ COS TA subarrays are defined in detector coordinates, and are specified by givin
 Table~\ref{tab:NUVsubs} below gives the NUV spectroscopic TA subarrays used for \tacq{SEARCH} and \tacq{PEAKD}, which have not changed since SMOV.
 Table~\ref{tab:NUVsubsXD} below gives the NUV spectroscopic TA subarrays used for \tacq{PEAKXD}, which include subarrays to measure the
 calibration lamp XD location (WCA) as well as the target spectral location of \textit{STRIPE=B (MEDIUM)}).
-These have not changed there updated in 2010 as STScI PR\#{}.
+These have not changed there updated in 2010 as \pr{XXX}.
 
 In this section, we describe the various subarrays used in COS TA.
 These subarrays are defined by giving the detector coordinate of the lowest valued corner (C) and the full size (S) for both X and Y.
@@ -55,7 +55,7 @@ This table includes entries for the WCA and PSA and both MIRA and MIRB.
 The COS FSW uses the same subarrays for the PSA and BOA as the offset on the detector between the aperture locationss is small ($\Delta$~[AD,XD]$\sim$[11.0,0.4]p).
 
 Due to rising NUV detector background, and supported by an analysis of OSM repeatability, reductions to the PSA/BOA \tacq{SEARCH}  and
-WCA \tacq{IMAGE} subarrays sizes were implemented on 2011.017 (STScI PR\#67139)\footnote{On-orbit analysis of the OSM positions showed that the the WCA \texttt{LTAIMCAL} MIRA and MIRB lamp image detector
+WCA \tacq{IMAGE} subarrays sizes were implemented on 2011.017 (STScI \pr{67139})\footnote{On-orbit analysis of the OSM positions showed that the the WCA \textsc{LTAIMCAL} MIRA and MIRB lamp image detector
 locatians were fairly repeatable (usually with $\pm$ 50 AD p and $\pm$ 10 XDp). As discussed in Penton \& Keyes (2011), the WCA TA \tacq{IMAGE} subarrays were reduced by $\pm$ 50p in XD and $\pm$ 180p in AD,
 and \tacq{SEARCH} subarrays were reduced by 125 AD p and 346 XD p.}.
 During \tacq{IMAGE}, the region of the detector used to determine the source location is small, and is given by the square of the TA parameter \textsc{pcta\_CheckboxSize}, which is currently set to 9p (81 total pixels).
@@ -64,11 +64,11 @@ NUV \tacq{SEARCH} TAs are therefore much more vulnerable (by a factor of 3500) t
 The updated \tacq{SEARCH} values are given in Table~\ref{tab:TAnuvSEARCH}, and the updated \tacq{IMAGE} subarrays are given in Table~\ref{tab:TAnuvIMAGEpost}.
 \begin{center}
 \begin{deluxetable}{llrrrr}
-\tabcolsep 8 pt
+\tabcolsep 12 pt
 %\tabletypesize{\footnotesize}
 \tablecolumns{6}
 \tablewidth{4.5 in}
-\tablecaption{2009--2011.016 COS \tacq{IMAGE} and \tacq{SEARCH} TA Subarrays\label{tab:TAnuvIMAGEsmov}.}
+\tablecaption{2009--2011.016 \tacq{IMAGE} and \tacq{SEARCH} Subarrays\label{tab:TAnuvIMAGEsmov}.}
 \tablehead{\colhead{Aperture}&\colhead{MIRROR}&\colhead{XC}&\colhead{YC}&\colhead{XS}&\colhead{YS}}
 \startdata
 WCA & MIRA & 268 & 95 & 200 & 660\\
@@ -77,18 +77,18 @@ PSA/BOA & MIRA & 572 & 108 & 345 & 816\\
 PSA/BOA & MIRB & 410 & 200 & 345 & 816
 \enddata
 \footnotesize
-\tablecomments{Due to increased detector background, these were updated on 2011.017 (PR\#67139) as described in Penton \& Keyes (2011). }
+\tablecomments{Due to increased detector background, these were updated on 2011.017 (\pr{67139}) as described in Penton \& Keyes (2011). }
 \normalsize
 \end{deluxetable}
 \end{center}
 
 \begin{center}
 \begin{deluxetable}{llrrrr}
-\tabcolsep  8 pt
+\tabcolsep  12 pt
 %\tabletypesize{\footnotesize}
 \tablecolumns{6}
 \tablewidth{4.5 in}
-\tablecaption{2011.017--2014.299 COS \tacq{IMAGE} TA Subarrays\label{tab:TAnuvIMAGEpost}.}
+\tablecaption{2011.017--2014.299 \tacq{IMAGE} Subarrays\label{tab:TAnuvIMAGEpost}.}
 \tablehead{\colhead{Aperture}&\colhead{MIRROR}&\colhead{XC}&\colhead{YC}&\colhead{XS}&\colhead{YS}}
 \startdata
 WCA & MIRA & {\bf 345} & {\bf 324} & {\bf 50} & {\bf 300}\\
@@ -97,13 +97,13 @@ PSA/BOA & MIRA & 572 & 108 & 345 & 816\\
 PSA/BOA & MIRB & 410 & 200 & 345 & 816
 \enddata
 \footnotesize
-\tablecomments{{\bf Bold} values in this table were updated on 2011.017 (PR\#67139) due to increased detector background, as described in Penton \& Keyes (2011). }
+\tablecomments{{\bf Bold} values in this table were updated on 2011.017 (\pr{67139}) due to increased detector background, as described in Penton \& Keyes (2011). }
 \normalsize
 \end{deluxetable}
 \end{center}
 \begin{center}
 \begin{deluxetable}{llrrrr}
-\tabcolsep 5pt
+\tabcolsep 12 pt
 %\tabletypesize{\footnotesize}
 \tablecolumns{6}
 \tablewidth{4.5 in}
@@ -114,7 +114,7 @@ PSA/BOA & MIRA & 630 & 284 & 220 & 470\\
 PSA/BOA & MIRB & 469 & 499 & 220 & 470
 \enddata
 \footnotesize
-\tablecomments{Updated on 2011.017 (PR\#67139), as described in Penton \& Keyes (2011).}
+\tablecomments{Updated on 2011.017 (\pr{67139}), as described in Penton \& Keyes (2011).}
 \normalsize
 \end{deluxetable}
 \end{center}
@@ -122,11 +122,11 @@ PSA/BOA & MIRB & 469 & 499 & 220 & 470
 
 \begin{center}
 \begin{deluxetable}{llrrrr}
-\tabcolsep 5pt
+\tabcolsep 12 pt
 %\tabletypesize{\footnotesize}
 \tablecolumns{6}
 \tablewidth{5 in}
-\tablecaption{2014.300--Present NUV COS \tacq{IMAGE} TA Subarrays\label{tab:TAnuvIMAGEmirB}.}
+\tablecaption{2014.300--Present \tacq{IMAGE} Subarrays\label{tab:TAnuvIMAGEmirB}.}
 \tablehead{\colhead{\textit{APERTURE}}&\colhead{MIRROR}&\colhead{XC}&\colhead{YC}&\colhead{XS}&\colhead{YS}}
 \startdata
 WCA & MIRA & 345 & 324 & 50 & 300\\
@@ -135,9 +135,9 @@ PSA/BOA & MIRA & 572 & 108 & 345 & 816\\
 PSA/BOA & MIRB & 410 & 200 & 345 & 816
 \enddata
 \footnotesize
-\tablecomments{Due to errors in determining the WCA AD position due to increased NUV detector background, the {\bf bold} subarrays values were updated on Oct. 6, 2014 (2014.279) with PR\#78749. Simultaneously, the MIRB \tacq{} lamp exposure time and current settings (for the P2 lamp)
-were changed from 17s @ LOW current to 12s @ MED current (PR\#78749). The FSW WCA-to-SA offsets (\textsc{[X,Y]imCalTargetOffset}) were adjusted accordingly (PR\#79116) on October 16, 2014 (2014.289),
-prior to use by HST users on Nov. 10, 2014 (2014.314). The default exposure time and current for the P1 lamp image ``TAGFLASH''s were changed later with PR\#84463.}
+\tablecomments{Due to errors in determining the WCA AD position due to increased NUV detector background, the {\bf bold} subarrays values were updated on Oct. 6, 2014 (2014.279) with \pr{78749}. Simultaneously, the MIRB \tacq{} lamp exposure time and current settings (for the P2 lamp)
+were changed from 17s @ LOW current to 12s @ MED current (\pr{78749}). The FSW WCA-to-SA offsets (\textsc{[X,Y]imCalTargetOffset}) were adjusted accordingly (\pr{79116}) on October 16, 2014 (2014.289),
+prior to use by HST users on Nov. 10, 2014 (2014.314). The default exposure time and current for the P1 lamp image ``TAGFLASH''s were changed later with \pr{84463}.}
 \normalsize
 \end{deluxetable}
 \end{center}

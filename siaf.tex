@@ -1,12 +1,44 @@
+\subsection{SIAF Verification} \label{sec:siaf}\label{subsec:siafextra}
+The pre-SM4 COS Science Instrument Aperture File is described in detail in Mallo 2008. The changes
+since SMOV to the COS SIAF, and the continuing Fine Guidance Sensor (FGS) re-alignment efforts are
+documented it Table~\ref{tab:siafhistory}. The COS entries in the 2018 SIAF, and the [V2,V3] positions are given in Table~\ref{tab:activesiaf}.
+
+The COS SIAF ``Aperture Names''  start with the ``L"", and are followed by either an ``N'' (NUV), ``F'' (FUV), or
+``APT''' indicating that the aperture is only used in APT and not for observations.
+``APT'' in the APT entries are immediately followed by an ``N'' or ``F''.
+The SA (BOA or PSA) or MAC then follows. MAC represents the APT/SPSS MACro aperture used for bright object checking.
+Finally, FUV entries end in a number giving the LP\#, while the NUV ''offset'' aperturens end with ``OF''.
+An illustration of the active COS SIAF entries is given in Figure~\ref{fig:SIAF1}. As described in the individual
+FUV LP enabling ISRs (Penton, 201X (LP2), Penton 201Y(LP3), and Penton 201Z (LP4)), the location of each LP aperture
+is determined by first selecting the desired XD location on the FUV detector segments. After this selection,
+an AD aperture scan, using \textit{POS\_TARGs} in APT, determines the SIAF entry adjustment corresponding to
+the desired LP [V2,V3] aperture center. As shown in Figure~\ref{fig;SIAF1}, this alignment procedure produces
+a series of aperture locations that are at an $\approx$ 44.2$\degree$ angle to the -V3 (U3) axis.
+
+The orientation of the COS AD and XD directions in relation to the HST mechanical [V2,V3] coordinates
+and U-frame are shown in Figure~\ref{fig:ADXDV23}. The HST U-frame of [U2,U3]=[-V2,-V3] and is used by APT
+and SPSS\footnote{SPSS=Science Planning and Scheduling System}.  Converting the orientation shown in Figure~\ref{fig:SIAF1} to
+the nomenclature of the SIAF, the COS FUV apertures are aligned as follows:
+$\beta_{x}=135.8\degree$, $\beta_y=45.8\degree$, and parity=+1. As shown in Figure~\ref{fig:SIAF1}, the COS AD direction is [+V2,-V3],
+while XD is [+V2,+V3].
+
 \begin{figure}[htb]
-\noindent\includegraphics*[width=0.795\linewidth]{extrasiaf/LP4_SIAF_positions.png}
-\caption[OPTIONAL:SIAF1]{COS SIAF APERTURES \label{fig:SIAF1}.
-{\bf Note to reviewers, sample SIAF figure1} }
+\noindent\includegraphics*[width=0.485\linewidth]{png/LP4_SIAF_positions.png}
+\noindent\includegraphics*[width=0.485\linewidth]{png/LP4_SIAF_positions_sname.png}
+\caption[Illustration of COS SIAF Entries]{
+Illustration of the COS SIAF Entries.  All FUV LP1 entries are shown in \textcolor{RED}{RED},
+LP2 entries are shown in \textcolor{GREEN}{GREEN}, LP3 entries are shown in \textcolor{BLUE}{BLUE},
+and the LP4 entries are shown in \textcolor{MAGENTA}{MAGENTA}.
+The NUV SIAF entries are coincident with the \textcolor{RED}{LP1} FUV entries.
+The left panel shows the actual SIAF entry names, while the right panel gives a more readable translation.\label{fig:SIAF1}}
 \end{figure}
+
 \begin{figure}[htb]
-\noindent\includegraphics*[width=0.795\linewidth]{extrasiaf/LP4_SIAF_positions.png}
-\caption[OPTIONAL:SIAF2]{COS SIAF APERTURES \label{fig:SIAF2}.
-{\bf Note to reviewers, sample SIAF figure2} }
+\noindent\includegraphics*[width=0.795\linewidth]{png/ADXD_V23.png}
+\caption[Illustration of COS Aperture Orientation]{Illustration of COS aperture orientation versus the [V2,V3] telescope coordinate system (Lallo 2008).
+The U ([U2,U3]=[-V2,-V3]) frame is used during the proposal process in APT and SPSS.\label{fig:ADXDV23}}
 \end{figure}
+
 \input{extrasiaf/activesiaf.tex}
 \input{extrasiaf/colinsiaf.tex}
+\input{extrasiaf/siafhistory.tex}

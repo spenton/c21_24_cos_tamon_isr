@@ -20,27 +20,37 @@ direct measurement of their WCA-to-SA offset. \tacq{IMAGE} exposures return befo
 \item PtNe Lamp\# gives the wavelength calibration lamp name, P1 or P2.
 \item Lamp Current gives the lamp current setting. The conversion from current setting to current in milli-amps (mA) is given in \S~\ref{subsec:conventions}, and in the table footnotes.
 \item \textit{APERTURE} gives the COS SA (PSA or BOA).
+\item \textit{OPT\_ELEM} gives the grating or MIRROR used as the primary optic.
 \item \textit{APERXPOS} gives the AD (X in detector coordinates) aperture position. The default position is \textit{APERXPOS=$22$} for all FUV and NUV science and TA exposures.\footnote{The trailing "0.1" reported in the FITS headers is a conversion anomaly that is present in all aperture positions (\textit{APERXPOS} \& \textit{APERYPOS}).}
 \item \textit{APERYPOS} gives the XD (Y in detector coordinates) aperture position. It is not uncommon that the XD aperture location (\textit{APERYPOS}) is $\pm$ one step off from its nominal position. Each \textit{APERYPOS} step is $\approx0.05\arcsec$, or about $\frac{1}{6}$ of
 our XD centering requirement, and $\frac{1}{2}$ of our $1\sigma$ XD centering goal. The default NUV and FUV LP1 PSA/BOA positions are \textit{APERYPOS=$126/-153$}, where the WCA has the same XD (\textit{APERYPOS}) position as the PSA.
 As shown in Table~\ref{tab:ApMXDispPosition} the nominal PSA \& WCA \textit{APERYPOS} position for LP2, LP3, and LP4 are +53, +181, and +234, respectively.\footnote{As explained in the TA enabling ISRs for each FUV LP, due
 to known behavior of the COS aperture mechanism to miss by one step in \textit{APERYPOS}, entries in the \textsc{pcmech\_ApMXDispPosition} FSW table were intentionally offset by $\pm$ on step, depending on travel direction from NUV/FUV LP1, which
 shared the common \textsc{pcmech\_ApMXDispPosition} (\textit{APERYPOS}) entry of +126.}
-\item \textit{OPT\_ELEM} gives the grating or MIRROR used as the primary optic.
 \item \textit{DATE-OBS} gives the date of the observation in YEAR-MOnth-DAy format.
 \end{enumerate}
 \normalsize
 
 The columns of the spectroscopic NUV (Table~\ref{tab:NUVtamonspec}) and FUV (Table~\ref{tab:FUVtamon})
-tables are identical to the columns listed above for Table~\ref{tab:NUVtamonimageSA}, with the exception that
-the ``Lamp\#''  and ``Lamp Current'' columns are not present. In the programs of this ISR,
+tables are similar to the columns listed above for Table~\ref{tab:NUVtamonimageSA}, with the following exceptions:
+\begin{itemize}
+\item All spectroscopic exposures are with the PSA, so the \textit{APERTURE} column has been removed.
+\item The ``Lamp\#''  and ``Lamp Current'' columns are not present. In the programs of this ISR,
 the default P1 lamp usage for spectroscopic observations was overridden with the use of the \textsc{USELAMP=LINE2} and \textsc{CURRENT=MEDIUM} special commanding
-in APT to simulate the lamp exposures obtained in \numposone \tacq{PEAKXD} (\texttt{LTAPKXD}) exposures.
+in APT to simulate the lamp exposures obtained in \numposone \tacq{PEAKXD} (\textsc{LTAPKXD}) exposures.
 In addition, the APT optional parameter \textsc{FLASH} was used to set P2 exposures times that
 provided counts in excess of those expected during the TA exposures.  Since all spectra were taken in TT mode,
-if required, an exact replica of the counts received in an actual \texttt{LTAPKXD} WCA spectrum could be re-produced.
+if required, an exact replica of the counts received in an actual \textsc{LTAPKXD} WCA spectrum could be re-produced.
 The additional counts allow for a better determination of the WCA-to-PSA XD offsets discussed in \S~\ref{sec:spVER} and \S~\ref{subsec:FspVER}.
+\item The \textit{OPT\_ELEM} column shows the grating in use, as this in now the primary optic.
+\item The column \cenwave now follows the \textit{OPT\_ELEM} column, and gives the central wavelength setting of the exposure.
+\item The \textit{LIFE\_ADJ} column (LP) gives the lifetime position of the observation. Note that there is only one NUV LP, so all observations are LP1.
+\end{itemize}
 \normalsize
+
+The nominal focus value for \tacq{IMAGE} exposures is \textit{LOMFSTP=-88}. Minor deviations from this value are expected, and should not impact any results presented in this ISR.
+For the exposures in this ISR, the $-91 \leq \textit{LOMFSTP} \leq -86 $. For all exposures in this ISR, OSM1 reported the nominal \tacq{IMAGE} position of \textit{LOM1STP}, OSM2
+also reported all nominal values of \textit{LOM2STP}=8964 for MIRA and  9424 for MIRB.
 \input{NUVimagetamonfiles2.tex}
 \input{NUVspectamonfiles.tex}
 \input{FUVtamonfiles.tex}

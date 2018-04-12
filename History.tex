@@ -4,32 +4,33 @@ After the installation of COS into HST in 2009 (STS-125), and the
 servicing mission orbital verification (SMOV) phase,
 a series of calibration programs in NUV imaging mode carefully determined the two-dimensional offset from the COS WCA to the center of the PSA when observed with MIRA.
 These X and Y offsets were loaded in the FSW TA parameters \textsc{XImCalTargetOffset} and \textsc{YImCalTargetOffset}.
-A target was then centered using a PSA$\times$MIRA \texttt{ACQ/IMAGE}, then a target image was taken along with a MIRB image
+A target was then centered using a PSA$\times$MIRA \texttt{ACQ/IMAGE}, and a target image was taken along with a MIRB image
 of the WCA image. These images were used to determine the AD (Y) and XD (X) offsets of the image target and WCA centroids.
 These values were uploaded in the FSW paramaters. This bootstrapping procedure was repeated with the BOA$\times$MIRA
 and BOA$\times$MIRB \texttt{ACQ/IMAGE} modes until all four \texttt{ACQ/IMAGE} modes were co-aligned.
 
-The FGS-to-SI program (\pid{14035}) performs a PSA$\times$MIRA \texttt{ACQ/IMAGE} on a target that should be centered in the aperture.
-The PSA$\times$MIRA \texttt{ACQ/IMAGE} in Visit `A2' of \pid{14035} can be used to verify the COS NUV PSA aperture position in the SIAF.
-This exposure shows that the COS NUV PSA SIAF entry combined with the PSA$\times$MIRA WCA-to-PSA offsets are
-accurate to within [AD,XD] = [-0.020,0.105]\arcsec\ (the distance that the \texttt{ACQ/IMAGE} slewed to center the target).
-The COS aperture is only repeatable in the XD direction to $\pm$ one motor step (0.05\arcsec). In addition, the WCA location
-cannot be measured to better than 1/2 pixel as the  median integer pixel location is reported as the lamp location.
-On the NUV detector, 1 pixel is $\sim$ 0.023\arcsec.
+The FGS-to-SI programs perform a PSA$\times$MIRA \texttt{ACQ/IMAGE} on a target that should be $\approx$ centered in the aperture.
+After some post-processing analysis of the spacecraft telemetry, the PSA$\times$MIRA \texttt{ACQ/IMAGE} can be used to estimate the accuracy of the NUV PSA aperture position in the SIAF\footnote{Science Instrument Aperture File (Mallo, 2008)}.
 
-\footnote{On November 6, 2014, the MIRB \texttt{ACQ/IMAGE} wavelength calibration lamp (P2) exposure was changed from a 30 second exposure
-at LOW current (3 mA) to a 12 second exposure at MED current (10 mA). At this point the \textsc{pcta\_XImCalTargetOffset} and \textsc{pcta\_YImCalTargetOffset}
-FSW parameters were also updated to reflect a small change in the WCA-to-SA imaging MIRB offsets.}
+%\footnote{On November 6, 2014, the MIRB \texttt{ACQ/IMAGE} wavelength calibration lamp (P2) exposure was changed from a 30 second exposure
+%at LOW current (3~mA) to a 12 second exposure at MED current (10~mA). At this point the \textsc{pcta\_XImCalTargetOffset} and \textsc{pcta\_YImCalTargetOffset}
+%FSW parameters were also updated to reflect a small change in the WCA-to-SA imaging MIRB offsets.}
 
 \subsection{COS centroid measurements}
-	The COS FSW uses either a mean or a median to calculate spectral or imaging centers.
+	The COS FSW uses either a mean or a median to calculate spectral XD locations and imaging wavelength lamp center centers.
 On the NUV channel, medians are always used, while for FUV, a mean is always used. This
-behavior is controlled by the following FSW patchable constants\footnote{Current Value indicates the LV60 value. These values have worked
-well and there is no reason to consider changing these values at this time.} :
+behavior is controlled by the following FSW patchable constants\footnote{``Current Value'' indicates the LV61 value. These values have worked
+well and there is no reason to consider changing these values at this time.} :\\
+
+\footnotesize
+\begin{enumerate}
+ \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
 
 \item{\textsc{\bf pcta\_UseMedian4CAL4FUV}}
 	\begin{description}
-	\item[\underline{\rm Description}:]Flag to indicate whether to use ``median'' or ``mean'' for the calculation of the cross-dispersion coordinate of the wavelength calibration lamp spectrum in the phase \texttt{LTACAL} for the FUV detector.
+	\item[\underline{\rm Description}:]Flag to indicate whether to use ``median'' or ``mean'' for the calculation of the cross-dispersion coordinate of the wavelength calibration lamp spectrum in the phase \textsc{LTACAL} for the FUV detector.
 	\item[\underline{\rm Format}:]    Boolean
 	\item[\underline{\rm Units}:]     None
 	\item[\underline{\rm Limits/Ranges}:]  TRUE = use median;  FALSE = use mean
@@ -39,7 +40,7 @@ well and there is no reason to consider changing these values at this time.} :
 
 \item{\textsc{\bf pcta\_UseMedian4CAL4NUV}}
 	\begin{description}
-	\item[\underline{\rm Description}:]Flag to indicate whether to use 'median' or 'mean' for the calculation of the cross-dispersion coordinate of the cal lamp spectrum in the phase \texttt{LTACAL} for the NUV detector.
+	\item[\underline{\rm Description}:]Flag to indicate whether to use 'median' or 'mean' for the calculation of the cross-dispersion coordinate of the cal lamp spectrum in the phase \textsc{LTACAL} for the NUV detector.
 	\item[\underline{\rm Format}:]    Boolean
 	\item[\underline{\rm Units}:]     None
 	\item[\underline{\rm Limits/Ranges}:]  TRUE = use median;  FALSE = use mean
@@ -49,7 +50,7 @@ well and there is no reason to consider changing these values at this time.} :
 
 \item{\textsc{\bf pcta\_UseMedian4PKXD4FUV}}
 	\begin{description}
-	\item[\underline{\rm Description}:]Flag to indicate whether to use 'median' or 'mean' for the calculation of the cross-dispersion coordinate of the target spectrum in the phase \texttt{LTAPKXD} for the FUV detector.
+	\item[\underline{\rm Description}:]Flag to indicate whether to use 'median' or 'mean' for the calculation of the cross-dispersion coordinate of the target spectrum in the phase \textsc{LTAPKXD} for the FUV detector.
 	\item[\underline{\rm Format}:]    Boolean
 	\item[\underline{\rm Units}:]     None
 	\item[\underline{\rm Limits/Ranges}:]  TRUE = use median;  FALSE = use mean
@@ -59,18 +60,51 @@ well and there is no reason to consider changing these values at this time.} :
 
 \item{\textsc{\bf pcta\_UseMedian4PKXD4NUV}}
 	\begin{description}
-	\item[\underline{\rm Description}:]Flag to indicate whether to use 'median' or 'mean' for the calculation of the cross-dispersion coordinate of the target spectrum in the phase \texttt{LTAPKXD} for the NUV detector.
+	\item[\underline{\rm Description}:]Flag to indicate whether to use 'median' or 'mean' for the calculation of the cross-dispersion coordinate of the target spectrum in the phase \textsc{LTAPKXD} for the NUV detector.
 	\item[\underline{\rm Format}:]    Boolean
 	\item[\underline{\rm Units}:]     None
 	\item[\underline{\rm Limits/Ranges}:]  TRUE = use median;  FALSE = use mean
 	\item[\underline{\rm Scaling}:]   None
 	\item[\underline{\rm Current Value }:]   TRUE (use median)
 \end{description}
+\end{enumerate}
+\normalsize
+
+The COS aperture mechanism is only repeatable in the XD direction to $\pm 1$ motor step (0.053\arcsec). In addition, the WCA location
+phase of the \tacq{IMAGE} (\textsc{LTAIMCAL}), which uses the median integer pixel location as the lamp location, cannot measure the WCA position to better than $\frac{1}{2}$ pixel in either AD or XD.
+On the NUV detector, an imaging pixel is $\sim$ 0.02352\arcsec (AD) and $\sim$ 0.02362\arcsec (XD), so there is an intrinsic radial uncertainty of $\sim$0.017\arcsec after each \textsc{LTAIMCAL}.
+
 
 During TA, all \tacq{} procedures operate in ACCUM mode (no individual photon events, no pulse-height information, and no calibrations available) and operate using integer values only.
-For \tacq{IMAGE}, the WCA lamp image location is determined using a median in each coordinate. Therefore, a $\pm$ 0.5p uncertainty is present during each \texttt{LTAIMCAL} measurement when determining the center of the SA position for the
-\texttt{LTAIMAGE} portion of the \tacq{IMAGE}. For NUV \tacq{PEAKXD}, the same $\pm$ 0.5p uncertainty is present in both the spectral and target locations portions of the \texttt{LTAPKXD}. Combined in quadrature, this implies that
-an \textt{LTAPKXD} has an inherent XD centering accuracy of no less than $\sqrt(2)$ 0.5 p = 0.7p = 0.017\arcsec. For FUV \texttt{LTAPKXD}, a mean is used to measure both the WCA lamp spectrum XD location and the target XD location.
-For FUV LP1--3, uncorrected geometric and thermal distortions can cause targets with different spectral energy distributions (SEDs) to center differently. This effect has been measured (Penton \& Keyes, 2010) to be as large at $\pm$ 2 DE (rows) or
-$\sim 0.2$\arcsec.\footnote{At FUV LP4 this effect is even more pronounced and prohibits \texttt{LTAPKXD} (\numposonenumposone \tacq{PEAKXD}) from achieving the centering requirement of $\pm$ 0.3\arcsec. For this reason, the \tacq{PEAKD} FSW routine \texttt{LTAPKD} was enabled
-for XD usage in FSW version LV58 (installed 2014.132).}
+For \tacq{IMAGE}, the WCA lamp image location is determined using a median in each coordinate. Therefore, a $\pm$ 0.5p uncertainty is present during each \textsc{LTAIMCAL} measurement when determining the center of the SA position for the
+\textsc{LTAIMAGE} portion of the \tacq{IMAGE}. The target location phase of \tacq{IMAGE} (\textsc{LTAIMAGE}) uses a flux-weighted centroid over a 9$\times$9 checkbox, which is described in detail in the COS IHB (C25, Fox et al., 2017: Section 8.4, ``ACQ/IMAGE Acquisition Mode'') and in \S~4.2
+of COS TIR 2010-03 (Penton \& Keyes, 2010). A point source in a PSA$\times$MIRA image produces an approximately Gaussian image with a FWHM of ~2.5p.
+The 9$\times$9 checkbox considers the majority of the target ($>70\%$\footnote{The PSA$\times$MIRB, BOA$\times$MIRA, and BOA$\times$MIRB 9$\times$9 checkbox fractions are $\approx$ 51\%, 38\%, and 28\%, respectively.})
+light while minimizing background contamination,\footnote{As of April, 2018, the average NUV detector background was $\approx$ 8.2E-4 counts/s/p.} and should find the target center to within $\pm \frac{1}{3}$~p.
+Combined \textsc{LTAIMCAL} and \textsc{LTAIMAGE} TA stages have a combined uncertainty of $\sqrt( \frac{1}{2}^2 + \frac{1}{3}^2 )~p = 0.6$~p.
+\tacq{IMAGE} relies upon the WCA-to-SA offset, which was measured in a similar way and has the same uncertainty. Therefore, the total uncertainty
+of a PSA$\times$MIRA \tacq{IMAGE} is $sqrt(2) 0.6$~p = 0.85~p in each direction($\sim$0.020\arcsec). As the
+\tacq{IMAGE} configurations were bootstrapped from the PSA$\times$MIRA configuration, there uncertianties
+are given in Table~\ref{tab:unc}.
+
+\begin{table}[htb]
+	\caption{\tacq{IMAGE} Measurement Uncertainties\label{tab:unc}}
+	\begin{tabular}{lcrc}
+	\toprule
+	Configuration &	  WCA-to-SA     	& \tacq{IMAGE}  & Total \\
+				  &    offset           & Measurement   & \tacq{IMAGE} \\
+				  &  Uncertainty      &  Uncertainty   & Uncertainty \\
+	\midrule
+	PSA$\times$MIRA &	$\sqrt(\frac{1}{2}^2 + \frac{1}{3}^2 )~p = 0.6$~p	& 0.6~p	& $\sqrt(2) * 0.6$p = 0.85p ($\sim$ 0.020\arcsec) \\
+	PSA$\times$MIRB &	$\sqrt(2) * 0.6$~p =	0.85p		& 0.6~p & $\sqrt(3) * 0.6$p = 1.04 p ($\sim$ 0.024\arcsec) \\
+	BOA$\times$MIRA &	$\sqrt(3) * 0.6$~p =	1.04p		& 0.6~p & $\sqrt(4) * 0.6$p = 1.20 p ($\sim$ 0.028\arcsec) \\
+	BOA$\times$MIRB &	$\sqrt(4) * 0.6$~p =	1.20p		& 0.6~p & $\sqrt(5) * 0.6$p = 1.34 p ($\sim$ 0.032\arcsec) \\
+	\bottomrule
+	\end{tabular}
+\end{table}
+
+For NUV \tacq{PEAKXD}, the same $\pm$ 0.5p uncertainty is present in both the spectral and target locations portions of the \textsc{LTAPKXD}. Combined in quadrature, this implies that
+an \textsc{LTAPKXD} has an inherent XD centering accuracy of no less than $\sqrt(2)$ 0.5 p = 0.7p = 0.017\arcsec. For FUV \textsc{LTAPKXD}, a mean is used to measure both the WCA lamp spectrum XD location and the target XD location.
+For FUV LP1--3, uncorrected geometric and thermal distortions can cause targets with different spectral energy distributions (SEDs) to center differently. This effect has been measured (Penton \& Keyes, 2010) to be as large at $\pm 2$ DE (rows) or
+$\sim 0.2$\arcsec.\footnote{At FUV LP4 this effect is even more pronounced and prohibits \textsc{LTAPKXD} (\numposone~\tacq{PEAKXD}) from achieving the centering requirement of $\pm 0.3$\arcsec. For this reason, the \tacq{PEAKD} FSW routine \textsc{LTAPKD} was enabled
+for XD usage in FSW version LV58 (installed 2014.132 and initially tested on-orbit on 2014.300 in \pid{13636}).}

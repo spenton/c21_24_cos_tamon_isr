@@ -4,10 +4,10 @@ As shown in the two rightmost ``$| \Delta |$'' columns of Table~\ref{tab:XDdataN
 for all NUV monitoring exposures over C21--24.
 
 A visual inspection of the spectra showed all NUV spectra to continue to be well centered in the \tacq{PEAKXD}, \tacq{PEAKD}, and \tacq{SEARCH} NUV spectroscopic subarrays.
-\\
-{\bf Note to reviewers: Table~\ref{tab:XDdataNUV} doesn't actually show the subarray check. This was just a visual check to
-make sure that the NUV spectrum was well contained in the subarray. If you think that a table comparing the XD line centers to
-the subarray edges is worthwhile, it can be easily incorporated.}\\
+%\\
+%{\bf Note to reviewers: Table~\ref{tab:XDdataNUV} doesn't actually show the subarray check. This was just a visual check to
+%make sure that the NUV spectrum was well contained in the subarray. If you think that a table comparing the XD line centers to
+%the subarray edges is worthwhile, it can be easily incorporated.}\\
 
 \begin{deluxetable}{rrrcrrrrrr}
 \tablecolumns{10}
@@ -18,42 +18,40 @@ the subarray edges is worthwhile, it can be easily incorporated.}\\
 \colhead{\textit{ROOTNAME}}&\colhead{\textit{DATE-OBS}}&\colhead{\textit{OPT\_ELEM}}&\colhead{LP}&
 \colhead{WCA\tablenotemark{a}}&\colhead{PSA\tablenotemark{b}}&\colhead{WtP\tablenotemark{c}}&\colhead{eWtP\tablenotemark{d}}&\colhead{$|\Delta|$\tablenotemark{e}}&\colhead{$|\Delta|$\tablenotemark{f}}\\
 \colhead{}&\colhead{}&\colhead{}&\colhead{}&\colhead{(p)}&\colhead{(p)}&\colhead{(p)}&\colhead{(p)}&\colhead{(p)}&\colhead{(\arcsec))}\\
-\colhead{(1)}&\colhead{(2)} &
-\colhead{(3)}&\colhead{(4)} &
-\colhead{(5)}&\colhead{(6)} &
-\colhead{(7)}&\colhead{(8)} &
+\colhead{(1)}&\colhead{(2)} & \colhead{(3)}&\colhead{(4)} &
+\colhead{(5)}&\colhead{(6)} & \colhead{(7)}&\colhead{(8)} &
 \colhead{(9)}&\colhead{(10)}
 }
 \startdata
-\hline
+\toprule
 \multicolumn{10}{c}{C21 (\pid{13526})}\\
-\hline
+\midrule
 lcgq02i2q&  2014-11-17&   G185M&  1&  366.0 &  742.0 &  376.0 &  374.20&    1.80 &    0.04\\
 lcgq02i4q&  2014-11-17&   G225M&  1&  370.0 &  747.0 &  377.0 &  374.60&    2.40 &    0.06\\
 lcgq01r6q&  2014-11-19&   G285M&  1&  355.0 &  728.0 &  373.0 &  374.90&    1.90 &    0.04\\
 lcgq01qlq&  2014-11-19&   G230L&  1&  374.0 &  748.0 &  374.0 &  373.40&    0.60 &    0.01\\
-\hline
+\midrule
 \multicolumn{10}{c}{C22 (\pid{13972})}\\
-\hline
+\midrule
 lcri02hqq&  2015-10-06&   G185M&  1&  367.0 &  742.0 &  375.0 &  374.20&    0.80 &    0.02\\
 lcri02hoq&  2015-10-06&   G225M&  1&  371.0 &  747.0 &  376.0 &  374.60&    1.40 &    0.03\\
 lcri01giq&  2015-10-06&   G285M&  1&  351.0 &  726.0 &  375.0 &  374.90&    0.10 &    $<$0.01\\
 lcri01ggq&  2015-10-06&   G230L&  1&  374.0 &  747.0 &  373.0 &  373.40&    0.40 &    0.01\\
-\hline
+\midrule
 \multicolumn{10}{c}{C23 (\pid{14440})}\\
-\hline
+\midrule
 ld3702noq&  2016-10-19&   G185M&  1&  366.0 &  743.0 &  377.0 &  374.20&    2.80 &    0.07\\
 ld3702nmq&  2016-10-19&   G225M&  1&  370.0 &  747.0 &  377.0 &  374.60&    2.40 &    0.06\\
 ld3701hbq&  2016-10-18&   G285M&  1&  352.0 &  727.0 &  375.0 &  374.90&    0.10 &    $<$0.01\\
 ld3701h9q&  2016-10-18&   G230L&  1&  375.0 &  748.0 &  373.0 &  373.40&    0.40 &    0.01\\
-\hline
+\midrule
 \multicolumn{10}{c}{C24 (\pid{14857})}\\
-\hline
+\midrule
 ldozbblwq&  2017-09-06&   G185M&  1&  366.0 &  743.0 &  377.0 &  374.20&    2.80 &    0.07\\
 ldozbbluq&  2017-09-06&   G225M&  1&  370.0 &  747.0 &  377.0 &  374.60&    2.40 &    0.06\\
 ldozbadzq&  2017-09-04&   G285M&  1&  352.0 &  727.0 &  375.0 &  374.90&    0.10 &    $<$0.01\\
 ldozbadxq&  2017-09-04&   G230L&  1&  374.0 &  748.0 &  374.0 &  373.40&    0.60 &    0.01\\
-\hline
+\bottomrule
 \enddata
 \tablenotetext{a}{XD centroid of the WCA spectrum. For NUV spectra, this is the median calibration lamp location.}
 \tablenotetext{b}{XD centroid of the target spectrum taken through the PSA, using the same centroid method as the WCA.}
@@ -72,7 +70,6 @@ ldozbadxq&  2017-09-04&   G230L&  1&  374.0 &  748.0 &  374.0 &  373.40&    0.60
 \colhead{\textit{ROOTNAME}}&\colhead{\textit{DATE-OBS}}&\colhead{\textit{OPT\_ELEM}}&\colhead{LP}&
 \colhead{WCA\tablenotemark{a}}&\colhead{PSA\tablenotemark{b}}&\colhead{WtP\tablenotemark{c}}&\colhead{eWtP\tablenotemark{d}}&\colhead{$|\Delta|$\tablenotemark{e}}&\colhead{$|\Delta|$\tablenotemark{f}}\\
 \colhead{}&\colhead{}&\colhead{}&\colhead{}&\colhead{(p)}&\colhead{(p)}&\colhead{(p)}&\colhead{(p)}&\colhead{(p)}&\colhead{(\arcsec))}\\
-\hline
 \colhead{(1)}&\colhead{(2)} &
 \colhead{(3)}&\colhead{(4)} &
 \colhead{(5)}&\colhead{(6)} &
@@ -80,31 +77,31 @@ ldozbadxq&  2017-09-04&   G230L&  1&  374.0 &  748.0 &  374.0 &  373.40&    0.60
 \colhead{(9)}&\colhead{(10)}
 }
 \startdata
-\hline
+\toprule
 \multicolumn{10}{c}{C21 (\pid{13526})}\\
-\hline
+\midrule
 lcgq01r8q&  2014-11-19&   G130M&  2&  602.15&  508.31&  -93.84&  -92.80&    1.04&  0.12 \\
 lcgq01raq&  2014-11-19&   G140L&  2&  608.76&  513.48&  -95.28&  -93.50&    1.78&  0.20 \\
 lcgq02i6q&  2014-11-17&   G160M&  2&  596.07&  503.35&  -92.71&  -91.80&    0.91&  0.11 \\
-\hline
+\midrule
 \multicolumn{10}{c}{C22 (\pid{13972})}\\
-\hline
+\midrule
 lcri01gkq&  2015-10-06&   G130M&  3&  537.32&  448.98&  -88.34&  -89.20&    0.86&  0.08 \\
 lcri01h6q&  2015-10-06&   G140L&  3&  544.55&  457.36&  -87.20&  -85.70&    1.50&  0.15 \\
 lcri02hsq&  2015-10-06&   G160M&  3&  531.78&  442.13&  -89.65&  -90.10&    0.45&  0.04 \\
-\hline
+\midrule
 \multicolumn{10}{c}{C23 (\pid{14440})}\\
-\hline
+\midrule
 ld3701hdq&  2016-10-18&   G130M&  3&  536.33&  447.41&  -88.92&  -89.20&    0.28&   0.03 \\
 ld3701hfq&  2016-10-18&   G140L&  3&  543.43&  455.95&  -87.48&  -85.70&    1.78&   0.17 \\
 ld3702nqq&  2016-10-19&   G160M&  3&  531.09&  440.96&  -90.13&  -90.10&    0.03&   0.00 \\
-\hline
+\midrule
 \multicolumn{10}{c}{C24 (\pid{14857})}\\
-\hline
+\midrule
 ldozbae1q&  2017-09-04&   G130M&  3&  535.26&  445.66&  -89.61&  -89.20&    0.41&   0.04 \\
 ldozbae3q&  2017-09-04&   G140L&  3&  541.76&  454.25&  -87.51&  -85.70&    1.81&   0.18 \\
 ldozbblyq&  2017-09-06&   G160M&  3&  530.84&  440.75&  -90.09&  -90.10&    0.01&   0.00 \\
-\hline
+\bottomrule
 \enddata
 \tablenotetext{a}{XD centroid of the WCA spectrum.For FUV spectra, this is mean lamp photon location.}
 \tablenotetext{b}{XD centroid of the target spectrum taken through the PSA, using the same centroid method as the WCA.}

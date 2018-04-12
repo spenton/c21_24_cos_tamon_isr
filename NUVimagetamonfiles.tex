@@ -13,7 +13,7 @@
 \colhead{(9)}&\colhead{(10)} & \colhead{(11)} &\colhead{(12)} & \colhead{(13)}
 }
 \startdata
-\hline
+\toprule
 lc6ka1i1q	&	13171	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRA	&	2013-03-02	\\
 lc6ka1i3q	&	13171	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRB	&	2013-03-02	\\
 lc6ka2imq	&	13171	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	P2	&	Low	&	PSA	&	22.1	&	127.1	&	MIRA	&	2013-09-01	\\
@@ -80,6 +80,12 @@ lcsla1i4q	&	14035	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	P2	&	Low	&	PSA	&	22.1	&	125
 lcsla1i6q	&	14035	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	P2	&	Med	&	PSA	&	22.1	&	125.1	&	MIRB	&	2015-04-14	\\
 lcsla2bhq	&	14035	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	P2	&	Low	&	PSA	&	22.1	&	125.1	&	MIRA	&	2015-10-02	\\
 lcsla2bjq	&	14035	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	P2	&	Med	&	PSA	&	22.1	&	125.1	&	MIRB	&	2015-10-02	\\
+\midrule
+lcq	&	14452	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	P2	&	Low	&	PSA	&	22.1	&	 	&	MIRA	&	2016	\\
+lcq	&	14452	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	P2	&	Med	&	PSA	&	22.1	&	 	&	MIRB	&	2016	\\
+lcq	&	14452	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	P2	&	Low	&	PSA	&	22.1	&	 	&	MIRA	&	2016	\\
+lcq	&	14452	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	P2	&	Med	&	PSA	&	22.1	&	 	&	MIRB	&	2016	\\
+\midrule
 ld3701gtq	&	14440	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	13	&	P2	&	Med	&	PSA	&	22.1	&	125.1	&	MIRB	&	2016-10-18	\\
 ld3701gvq	&	14440	&	WD-1657+343	&	TT	&	EXT/SCI	&	16	&	P2	&	Med	&	PSA	&	22.1	&	125.1	&	MIRB	&	2016-10-18	\\
 ld3701gxq	&	14440	&	WD-1657+343	&	TT	&	EXT/SCI	&	150	&	P2	&	Med	&	BOA	&	22.1	&	-153.1	&	MIRA	&	2016-10-18	\\
@@ -127,10 +133,10 @@ ldozpbfbq	&	14857	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	220	&	P2	&	Med	&	PSA	&	22.1	&	12
 ldozpbfdq	&	14857	&	206W3	&	TT	&	EXT/SCI	&	220	&	P2	&	Med	&	PSA	&	22.1	&	125.1	&	MIRB	&	2017-09-10	\\
 ldozpbffq	&	14857	&	206W3	&	TT	&	EXT/SCI	&	20	&	P2	&	Low	&	PSA	&	22.1	&	125.1	&	MIRA	&	2017-09-10	\\
 ldozpbfhq	&	14857	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	20	&	P2	&	Low	&	PSA	&	22.1	&	125.1	&	MIRA	&	2017-09-10
-\hline
+\bottomrule
 \enddata
 %\end{center}
-\tablenotetext{c}{For the P1 lamp, the three current settings are LOW ( mA), MED (10mA) and HIGH ( mA). For the P2 lamp, the current settings are LOW ( mA), MED (10mA) and HIGH ( mA).}
+\tablenotetext{c}{For the P1 lamp, the three current settings are LOW (6mA), MED (10mA) and HIGH (18mA). For the P2 lamp, the current settings are LOW (3mA), MED (10mA) and HIGH (14mA).}
 \tablenotetext{t}{TT = TIME-TAG.}
 \tablecomments{Exposures listed as \textsc{EXPTYPE}=EXT/SCI contain coeval target and PtNe lamp (P1 or P2) images taken in time-tag (\textsc{OBSTYPE}=TT) mode.
 Exposures listed as \textsc{EXPTYPE}=WAVECAL (target = WAVE) contain only TT PtNe lamp (WCA) images.  \tacq{IMAGE} exposures return before and after target images in \textsc{OBSTYPE}=ACCUM, but do not return  lamp images.}

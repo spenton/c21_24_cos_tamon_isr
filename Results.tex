@@ -3,42 +3,35 @@
 The main results of the HST Cycles~21--24 COS TA monitoring programs are as follows:
 \begin{description}
 \item{\bf SIAF:}{
-	{\bf Note to reviewers: Placeholder text pending the insertion of Colins' tweaks.}
-	All COS NUV \tacq{IMAGE}s use identically-valued SIAF entries ({\it LFPSA} \& {\it LFBOA}).
+	All COS NUV \tacq{IMAGE}s use identically-valued SIAF entries ({\it LFPSA} \& {\it LFBOA}), although these values have changed over time \dots.
 	Where available, the exposures in the FGS-to-SI Alignment programs gave good estimates of the accuracy of the existing NUV LP1 {\it LFPSA}/{\it LFBOA} SIAF entries
 	as they performed a PSA$\times$MIRA \tacq{IMAGE} on a target whose position was already determined by cross-calibration of the other HST Science Instruments (SI).
-	For C21--24, this results of this ISR indicate that the NUV SIAF entry was accurate to at least [AD,XD] = [0.XX,0.YY]$\arcsec$.\footnote{As determined from the initial pointing before the first COS PSA$\times$MIRA \tacq{IMAGE} of each Cycles program(s).}
+	For C21--24, this results of this ISR indicate that the NUV SIAF entry was accurate to at least [AD,XD] = [0.XX,0.YY]$\arcsec$.\footnote{Based on initial pointings before the first COS PSA$\times$MIRA \tacq{IMAGE} of each FGS-to-SI visit.}
 	No SIAF adjustments were identified as being needed for NUV (LP1) or FUV (LP2--3) from the programs of this ISR.
 	However, long term SIAF monitoring is used to track any mechanical drift in the location of the COS aperture mechanism or any changes to the FGS-to-SI alignment that will need adjusting.
-	The last such adjustment was in C22 (February 24, 2014; 2014.055, STScI PR\#76982), while COS FUV observations were at LP2. At this time, all COS entries (NUV and FUV) were adjusted in [V2,V3] by [0.077, -0.070]".
+	The last such adjustment was in C22 (February 24, 2014; 2014.055, STScI \pr{76982}), while COS FUV observations were at LP2. At this time, all COS entries (NUV and FUV) were adjusted in [V2,V3] by [0.077, -0.070]".
 }
 \item{\bf Spectroscopic TA Subarrays:} Visual inspection of NUV and FUV images, and a comparison of the NUV and FUV spectra XD centriods, indicate that all spectroscopic TA subarrays were appropriately defined for C21--C24.
-However, NUV PtNe lamp (WCA) monitoring should be continued, as OSM1 and OSM2 secular drift continues to move the WCA lamp images in AD direction. Combined with the increased
-detector background of the NUV channel, some of the approved NUV central wavelength settings for COS TA
-may loss effectiveness, for further details see 2.6 of the C25 COS IHB (Fox et al., 2017).
-Hot-spot monitoring must be continued for both FUVA and FUVB as COS TA is particularly
-suseptable to contamination from variable localized detector background.
+	However, NUV PtNe lamp (WCA) monitoring should be continued, as OSM1 and OSM2 secular drift continues to move the WCA lamp images in AD direction. Combined with the increased
+	detector background of the NUV channel, some of the approved NUV central wavelength settings for COS TA
+	may loss effectiveness, for further details see 2.6 of the C25 COS IHB (Fox et al., 2017).
+	Hot-spot monitoring must be continued for both FUVA and FUVB as COS TA is particularly suseptable to contamination from variable localized detector background.
 \item{\bf NUV Imaging TAs and Subarrays:}
 	The COS \tacq{IMAGE}~ tests indicate that the centering achieved with a PSA$\times$MIRB \tacq{IMAGE} is co-aligned with a PSA$\times$MIRA \tacq{IMAGE}~to within [AD,XD] $\approx [0.010,0.020]\arcsec$, with a measurement error of approximately $0.014\arcsec$.
 	\tacq{IMAGE}~ tests reveal that BOA$\times$MIRA is co-aligned with PSA$\times$MIRB to within [AD,XD] $\approx [0.015,0.100]\arcsec$,
-	\footnote{The larger XD alignment error is due to a frequent 1 aperture XD (XAPER) step mechanism position error (1 step ~ $0.048\arcsec$).}
+	\footnote{Larger XD alignment error is due to a frequent 1 aperture XD (XAPER) step mechanism position error (1 step ~ $0.048\arcsec$).}
 	and that BOA$\times$MIRB is co-aligned with BOA$\times$MIRA to within [AD,XD] $\approx [0.007,0.062]\arcsec$.
-	As shown in the PtNe lamp `family portraits' of Figures~\ref{fig:FPC21}--~\ref{fig:FPC24} are used during the \texttt{LTAIMCAL} portion \tacq{IMAGE} TA FSW routine to locate the position of the aperture mechanism before centering the target.
+	As shown in the PtNe lamp `family portraits' of Figures~\ref{fig:FPC21}--~\ref{fig:FPC24} are used during the \textsc{LTAIMCAL} portion \tacq{IMAGE} TA FSW routine to locate the position of the aperture mechanism before centering the target.
 	While COS TAs have used the PtNe\#2 lamp for all TAs since installation, images of both lamps (P1 and P2) are taken annually with both MIRRORs
 	(MIRA and MIRB) to monitor the observed count rates. No changes of concern were observed in the PtNe lamp count rates between C21--C24.
-	{\bf Note to reviewer: This results may change when Colins SIAF tweaks are included.}
+\item PSA$\times$MIRB was aligned with PSA$\times$MIRA to [AD, XD] $\le$ [{\bf 0.002},{\bf 0.015}] $\pm$ {\bf 0.012}\arcsec.
+\item BOA$\times$MIRA was aligned with PSA$\times$MIRA to [AD, XD] $\le$ [{\bf-0.021},{\bf 0.082}] $\pm$ {\bf 0.014}\arcsec.
+\item BOA$\times$MIRB was aligned with PSA$\times$MIRA to [AD, XD] $\le$ [{\bf-0.016},{\bf 0.047}] $\pm$ {\bf 0.016}\arcsec.
 \item{\bf NUV Spectroscopic TAs:}
-%	The G285M and G230L WCA-to-PSA offsets were measured after a PSA$\times$MIRB \tacq{IMAGE}, and were within a XD offset of $0.020\arcsec$ of the FSW value for each grating.\footnote{Spectroscopic NUV WCA-to-PSA offsets are determined using a median photon lamp and/or target XD position in the appropriate subarray. The difference between the positions is compared to the FSW value, accounting for any measured offset in the preceding \tacq{IMAGE}.}
-%	The G185M and G225M offsets were measured after a BOA$\times$MIRA \tacq{IMAGE}, and were measured to be within a XD offset of $0.070\arcsec$ and $0.060\arcsec$, respectively, of the FSW value.
 	Spectroscopic TAs for all NUV gratings in all Cycles met both the $0.3\arcsec$ requirement and the $0.1\arcsec$ goal.
 \item{\bf FUV Spectroscopic TAs:}
-%	The G130M and G140L WCA-to-PSA offsets were measured after the same PSA$\times$MIRB \tacq{IMAGE}~as the G285M and G230L observations.
-%	The measured offsets were determined to be offset from the FSW values by $\approx -0.030\arcsec$ and $-0.170\arcsec$, respectively, with a measurement error estimated at $0.070\arcsec$.
-%	The G160M offset was measured after the BOA$\times$MIRA \tacq{IMAGE} used for the G185M and G225M observations.
-%	The G160M offset was determined to have a WCA-to-PSA XD offset of $-0.020 \pm 0.070\arcsec$ of the FSW WCA-to-PSA value.
-All FUV monitoring verifications ($|\Delta| = |WtP-eWtp|$) exceeded both the $\pm$0.3\arcsec\ requirement,
-but spectra taken near the end of the LP2 lifetime, and all G140L spectra, exceeded the $\pm$0.1\arcsec\ goal.
-\footnote{Spectroscopic FUV WCA-to-PSA offsets are determined using a mean photon lamp and/or target XD position in the appropriate subarray.
+All FUV monitoring verifications ($|\Delta| = |WtP-eWtp|$) exceeded both the $\pm0.3$\arcsec\ requirement,
+but spectra taken near the end of the LP2 lifetime, and all G140L spectra, exceeded the $\pm0.1$\arcsec\ goal.\footnote{Spectroscopic FUV WCA-to-PSA offsets are determined using a mean photon lamp and/or target XD position in the appropriate subarray.
 	The difference between the positions is compared to the FSW value, accounting for any measured offset in the preceding \tacq{IMAGE}.}
 	Spectroscopic TAs for all FUV gratings met the $0.3\arcsec$ requirement and the G130M and G160M gratings achieved the $0.1\arcsec$ goal.
 \end{description}

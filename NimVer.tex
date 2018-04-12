@@ -1,70 +1,186 @@
 % $Id: NimVer.tex,v 1.5 2018/03/30 20:22:12 penton Exp $
 
-\subsection{Verifying the \tacq{IMAGE} WCA-to-SA Offsets.}\label{subsec:WCA2SAVER}
+%\subsection{Verifying the \tacq{IMAGE} WCA-to-SA Offsets.}\label{subsec:WCA2SAVER}
+%
+%The verification of the \tacq{IMAGE} WCA-to-SA (PSA or BOA) offsets is a multi-stage bootstrap
+%process similar to the one used to measure the initial offsets in the SMOV enabling program (\pid{11471}, COS FUV Target Acquisition Algorithm Verification).
+%These measurements have certain limitations, such as the $\pm 0.5p$ measurement uncertainity in both directions
+%when measuring the WCA centroid. The WCA lamp exposures of each cycles program can assist in removing
+%these limitations from the bootstrapping. The PSA \tacq{IMAGE} visits leave the shutter open when
+%taking these WCA lamp images so that a co-eval target+lamp TT image is acquired. This allows a direct
+%calculation of the WCA-to-PSA offset using any desired centroiding algoritm. The BOA \tacq{IMAGE} visits
+%take sequential lamp and BOA target images to measure the WCA-to-BOA offsets, but these are not co-eval,
+%and the aperture has been moved between the exposures, which often causes a $\pm 1$ \textit{APERYPOS} step offset.
+%Fortunately, this offset can be tracked, and accounted for, with the telemetry keywords.
+%
+%The basic steps in the verification process are:
+%\begin{enumerate}
+%\item{Step1: Perform a PSA$\times$MIRA \tacq{IMAGE} {\bf with} a separate WCA lamp image, preferably in TT mode.
+%	\begin{enumerate}
+%		\item{If the PSA$\times$MIRA \tacq{IMAGE} was taken as part of an FGS-to-SI alignment program, then use this information to estimate the
+%		accuracy of the NUV SIAF entry by comparing the slew from the \tacq{IMAGE} to the known offset inferred from evaluation of the FGS-to-SI program data (from Colin Cox).}
+%		\item{Measure the [AD,XD] median of the lamp image (as done in \textsc{LTAIMCAL}), and the center of the target (in the same image) using both the \textsc{LTAIMAGE}
+%		9$\times$9 checkbox + flux-weighted centroid algorithm,
+%		and a 2D Gaussian fitting profile.}
+%	\end{enumerate}
+%	}
+%\item {Step 2}
+%\item {Step 3}
+%\item {Step 4}
+%\item {Step 5}
+%\end{enumerate}
+\input{tamon_output.tex}
 
-The verification of the \tacq{IMAGE} WCA-to-SA (PSA or BOA) offsets is a multi-stage bootstrap
-process similar to the one used to measure the initial offsets in the SMOV enabling program (\pid{11471}, COS FUV Target Acquisition Algorithm Verification).
+\subsection{Baseline Bootstrap of \tacq{IMAGE} Modes}\label{subsec:basebootstrap}
 
 Each visit of each cycles monitoring program directly compares two \tacq{IMAGE} combinations.
 We can bootstrap these back to PSA$\times$MIRA to test the co-alignment of all four combinations.
-We call this the `baseline` bootstrapping, the results of which are shown in Table~\ref{tab:basebootstrap}
-and discussed in \S~\ref{subsec:basebootstrap}
+We call this the `baseline` bootstrapping, the results of which are shown in Table~\ref{tab:basebootstrap}.
+The values shown in this table are almost exclusively taken from the \textsc{\_rawacq.fits} FITS
+headers of the indicated \tacq{IMAGE}s. The values in these header keywords have been converted to
+COS USER coordinates as given by equations~\ref{eq:NUVuserX} \& \ref{eq:NUVuserY}. In these header keyword names, 'Y' refers to XD and 'X' to AD.\\
 
-These measurements have certain limitations, so as the $\pm 0.5p$ measurement uncertainity in both directions
-when measuring the WCA centroid. The WCA lamp exposures of each cycles program assist in removing
-these limitations from the bootstrapping. The PSA \tacq{IMAGE} visits level the shutter open when
-taking these WCA lamp images so that a co-eval target+lamp TT image is acquired. This allows a direct
-calculation of the WCA-to-PSA offset using any desired centroiding algoritm. The BOA \tacq{IMAGE} visits
-take sequential lamp and BOA target images to measure the WCA-to-BOA offsets, but these are not co-eval,
-and the aperture has been moved between the exposures, which often causes a $\pm$ one step offset.
-Fortunately, this offset can be tracked with the telemetry keywords and accounted for.
+The columns of the Table~\ref{tab:basebootstrap} give:
+\footnotesize
+\begin{enumerate}
+\item \textit{PROPOSID} gives the HST program id (PID).
+\item \textit{ROOTNAME} gives the IPPPSSOOT of the COS exposure.
+\item gives the SA$\times$MIRROR configuration (\textit{APERTURE}$\times$\textit{OPT\_ELEM}) of the \tacq{IMAGE}.
+\item gives the measured AD median (in p) of the WCA (lamp) image, as reported in the \tacq{IMAGE} \textit{LAMPMXCR} keyword.
+(The header keyword name uses the COS USER coordinate of 'X' for AD).
+\item gives the measured XD median (in p) of the WCA (lamp) image, as reported in the \textit{LAMPMXCR} keyword (The header keyword name uses the COS USER coordinate of 'Y' for XD).
+\item gives the measured AD centroid\footnote{For details of the \tacq{IMAGE} target centroiding algorithm, see the COS IHB (Fox et al., 2017 or Penton \& Keyes, 2011)} (in p) of the SA (PSA or BOA) target image. This is reported in the \textit{ACQCENTX} keyword ('X' USER coordinate is AD).
+\item gives the measured XD centroid (in p) of the SA image. This is reported in the \textit{ACQCENTY} keyword ('Y' USER coordinate is XD).
+\item gives the calculated AD centroid (in p) of the SA in use, as reported in the \textit{ACQPREFX} keyword. Calculated as the WCA measured position plus the AD component of the WCA-to-SA offset from the FSW.
+\item gives the calculated XD centroid (in p) of the SA in use, as reported in the \textit{ACQPREFY} keyword. Calculated as the WCA measured position plus the XD component of the WCA-to-SA offset from the FSW.
+\item gives the SA-to-WCA AD offset (in p) used in this \tacq{IMAGE} (calculated as \textit{ACQPREFX}-\textit{ACQCENTX}) This offset, and XD counterpart, should match that given for the corresponding configuration and date in Table~\ref{tab:pctaWCA2SANIM}.
+\item gives the SA-to-WCA XD offset (in p) used in this \tacq{IMAGE} (calculated as \textit{ACQPREFY}-\textit{ACQCENTY}).
+\item gives the AD centering slew (in \arcsec) performed by the \tacq{IMAGE}, as reported in the \textit{ACQSLEWX} keyword.
+\item gives the XD centering slew (in \arcsec) performed by the \tacq{IMAGE}, as reported in the \textit{ACQSLEWY} keyword.
+\item \textit{DATE-OBS} gives the date of the observation in YEAR-MOnth-DAy format.
+\end{enumerate}
+\normalsize
 
+\input{pctaWCA2SANIM.tex}
 
-\subsection{Baseline Bootstrap of \tacq{IMAGE modes}}\label{subsec:basebootstrap}
+The \tacq{IMAGE} monitoring results are repeated in Table~\ref{tab:bootstrapAligned}, but sorted by configuration.
+In this table, in is easier to identify that the correct SA-to-WCA offsets have been used. As noted in Table~\ref{tab:pcta_WCA2SANIM},
+due to the relationship between COS DETector and USER coordinates (equations~\ref{eq:NUVuserX} \& \ref{eq:NUVuserY}),
+a given \textit{APERTURE}$\times$\textit{OPT\_ELEM} configurations' AD or XD WCA-to-SA offset in one coordinate system is equal to the SA-to-WCA offset in the other.
+For example, the XD PSA$\times$MIRA WCA-to-PSA offset is +372.7 in detector coordinates (Y$_{DET}$), as is the SA-to-WCA XD offset in USER coordinates (X$_{USER}$).
 
-The baseline bootstrapping data is given in Table~\ref{tab:tamonbasicnimverT}.
+The SA-to-WCA offsets in the PSA$\times$MIRB section above the horizontal line were taken before
+the MIRB \tacq{IMAGE} adjustment of November 6, 2014. On this date (2014.279), the MIRB \texttt{ACQ/IMAGE} wavelength calibration lamp (P2) exposure time and current were changed
+to compensate for increasing detector background. Specifically,
+The \textsc{LTIMCAL} lamp exposure for all MIRB \tacq{IMAGE}s was changed
+from a 30 second exposure at LOW current (3~mA) to a 12 second exposure at MEDIUM current (10~mA) with \pr{78749}.
+At the same time, the \textsc{pcta\_XImCalTargetOffset} and \textsc{pcta\_YImCalTargetOffset} FSW parameters were updated from [AD,XD]=[45.0,374.1] to [46.0,374.0] for PSA$\times$MIRB
+and from [AD,XD]=[45.5,366.3] to [46.5,366.2] for BOA$\times$MIRB in the FSW (\textsc{SCRC\#365}).
+These updates were tested with Visit 03 of \pr{13526} on 2014.279, and MIRB \tacq{IMAGE}s were restored to operations on 2014.314.
+
+Non-repeatability of the OSM and aperture mechanisms, along with environmental factors, result in WCA lamp center offsets of up to 4p in AD and to 10p in XD in these exposures in Table~\ref{tab:bootstrapAligned}.
+BOA \tacq{IMAGE}s move the aperture in the XD direction to obtain the WCA lamp image. Occasionally, the aperture mechanism misses the desired location by $\pm 1 $ \textit{APERXPOS} step of $\sim0.05\arcsec$.
+In addition, short term drift is often encountered after mechanism moves in the XD. This could be up to 2p ($\approx$0.05\arcsec) or more (1p $\approx$ 0.024\arcsec), and is not correctable. These errors correspond directly to unintentional XD target offsets. However, the XD alignment requirement (0.3\arcsec) can accommodate this error.
+To date, only single-step XD offset errors have been observed in BOA \tacq{IMAGE}s.
+These single-step offset errors are discussed further in \S~\ref{sec:NIMsummary}
 
 \input{tamonbasicnimverT.tex}
 
-%\begin{deluxetable}{rrrrrrr}
-%\tablecaption{Basic \tacq{IMAGE} Bootstrapping Results\label{tab:tamonbasicnimverB}}
-%\tablecolumns{7}
-%\tablhead{
-%\colhead{\textit{ROOTNAME}} & \colhead{\textit{APERTURE}}& \colhead{\textit{OPT\_ELEM}} & \colhead{}  & \colhead{} & \colhead{}  & \colhead{}\\
-%\colhead{} & \colhead{}\colhead{} & \colhead{AD (Y)}  & \colhead{XD (X)} & \colhead{AD (Y)}  & \colhead{XD (X)}
-%}
-%\startdata
-%\hline
-%\multicolumn{7}{c}{C21 (\pid{})}\\
-%\hline
-%l	&	PSA &	MIRB	&	&	&	&	& \\
-%l	&	BOA &	MIRA	&	&	&	&	& \\
-%l	&	BOA &	MIRB	&	&	&	&	& \\
-%\hline
-%\multicolumn{7}{c}{C22 (\pid{})}\\
-%\hline
-%l	&	PSA &	MIRB	&	&	&	&	& \\
-%l	&	BOA &	MIRA	&	&	&	&	& \\
-%l	&	BOA &	MIRB	&	&	&	&	& \\
-%\hline
-%\multicolumn{7}{c}{C23 (\pid{})}\\
-%\hline
-%l	&	PSA &	MIRB	&	&	&	&	& \\
-%l	&	BOA &	MIRA	&	&	&	&	& \\
-%l	&	BOA &	MIRB	&	&	&	&	& \\
-%\hline
-%\multicolumn{7}{c}{C24 (\pid{})}\\
-%\hline
-%l	&	PSA &	MIRB	&	&	&	&	& \\
-%l	&	BOA &	MIRA	&	&	&	&	& \\
-%l	&	BOA &	MIRB	&	&	&	&	& \\
-%\hline
-%\enddata
-%\tablecomments{+AD is -Y detector, +XD is -X detector.}
-%\end{deluxetable}
+\subsection{Co-alignment of \tacq{IMAGE} Configurations \label{subsec:NIMsummary}}
+The C21--C24 results of Tables~\ref{tab:basebootstrap} and \ref{tab:bootstrapAligned} can be combined to show the measured offsets of PSA$\times$MIRB, BOA$\times$MIRA, and BOA$\times$MIRB when compared to the initial PSA$\times$MIRA \tacq{IMAGE}.
+These results are shown in Table~\ref{tab:coaligned}. The C21--23 FGS-to-SI alignment programs contain PSA$\times$MIRB alignment exposures, but consisted of only back-to-back PSA$\times$MIRA \& PSA$\times$MIRB tacq{IMAGE}s.
+The C21 and C24 TA monitoring programs used their contingency visits to obtain a pair of back-to-back \tacq{IMAGE}s for each configuration.\footnote{As previously discussed, the C21 contigency visit (\pr{13526}) was used to test the MIRB WCA lamp changes for \tacq{IMAGE},
+and the C24 contingency visit (\pr{13526}) which was actived due to changes to the FGS-to-SI alignment program.}\\
 
+The columns of Table~\ref{tab:coaligned} are:
+\footnotesize
+\begin{enumerate}
+\item \textit{PROPOSID} gives the HST program id (PID).
+\item \textit{ROOTNAME} gives the IPPPSSOOT of the COS exposure.
+\item Configuration\#1 gives the SA$\times$MIRROR configuration (\textit{APERTURE}$\times$\textit{OPT\_ELEM}) of the initial \tacq{IMAGE}.
+This \tacq{IMAGE} is used to center the target for the following \tacq{IMAGEs}.
+\item gives the [AD,XD] slew (in \arcsec)  of the \tacq{IMAGE} as reported by the \textit{ACQSLEWX} \& \textit{ACQSLEWY} header keywords.
+\item[6-10] Repeat of columns 1-5 for the configuration being tested (Configuration \#2).
+\item[11-15] Repeat of columns 1-5 for the repeat of Configuration \#1 (``$\dots$'' indicate data was not available).
+\end{enumerate}
+\normalsize
 
-% $Id: tamon_output.tex,v 1.6 2018/03/30 20:22:12 penton Exp $
+The \tacq{IMAGE} slews of the initial Configuration\#1 exposures reflect the scatter that can be expected from HST blind pointing.
+For example, the C21 Configuration\#1 \tacq{IMAGE}s show initial offsets ranging from [AD,XD] = [-0.888, 0.298]\arcsec (R=0.94\arcsec)
+to [ 0.166,-0.168]\arcsec (R=0.24\arcsec). The use of GAIA guide stars (GS), with superior astrometry, for COS began on 2017.272 (just before
+the FUV LP4 move on 2017.275). This shows promise to greatly reduce the GS contribution to the COS blind pointing.
+
+Configuration\#2 \tacq{IMAGE}s start with the target centered via the configuration\#1 exposure and
+should provide a direct measure of the co-aligment of the two configurations.
+A second configuration\#1 exposure follows configuration\#2 for all BOA configurations, and for the PSA$\times$MIRB exposures in C21 and C24.
+These offsets can be averaged to determine the approximate co-alignment of the modes for each Cycle.
+These results are shown in Table~\ref{tab:coalignedMERGE}. As previously discussed, the COS aperture does not always go back to
+the same XD positon after being moved. The keyword \textit{APERYPOS} can be used to track and correct these single step (0.0523\arcsec) offsets.\\
+
+The columns of Table~\ref{tab:coalignedMERGE} are:
+\footnotesize
+\begin{enumerate}
+\item Configuration\#1 gives the \textit{APERTURE}$\times$\textit{OPT\_ELEM} (SA$\times$MIRROR) of the initial and confirming \tacq{IMAGE} exposures.
+\item Configuration\#2 gives the \textit{APERTURE}$\times$\textit{OPT\_ELEM} of the \tacq{IMAGE} configuration being tested. The alignment of Configuration\#2 to
+Configuration\#1 is being measured.
+\item Gives the [AD,XD] slew (in \arcsec)  of the \tacq{IMAGE} as reported by the \textit{ACQSLEWX} \& \textit{ACQSLEWY} header keywords of the Configuration\#2 \tacq{IMAGE}.
+\item Gives the [AD,XD] slew (in \arcsec)  of the \tacq{IMAGE} as reported in the confirming (second) Configuration\#1 \tacq{IMAGE}. These slews should be in the opposite [AD,XD]
+direction from the Configuration\#2 slews. For C22 and C23, there is no confirming PSA$\times$MIRA Configuration\#1 exposure. These are indicated by ``\dots'' in the table.
+\item Gives the average of the Column 3 (Offset\#1) and Column 4 (Offset\#2) slews. These are calculated as Avg [AD,XD] = ([AD,XD]\#1 - [AD,XD]\#2)/2.
+\item Gives the [AD,XD] offset correction based upon knowledge of the COS AD (\textit{APERXPOS}) and X (\textit{APERYPOS}) aperture position. Each XD aperture step is 0.0523\arcsec.
+All \textit{APERXPOS} positions were nominal (22.1), but the \textit{APERYPOS} positions were nominal (126.1) $\pm 1$ step. The parity of the correction is that a change of -1 \textit{APERYPOS} step requires a positive
+\textit{ACQSLEWY} correction of +0.053\arcsec (19 \textit{APERYPOS} steps per \arcsec).
+\item Gives the estimate co-alignment of Configuration\#2 to Configuration\#1. The uncertainties associated with each \tacq{IMAGE} configuration based upon measurement errors are given in Table~\ref{tab:unc}.
+\end{enumerate}
+\normalsize
+
+Table~\ref{tab:finalcoalign} collects these results individually for C21--C24 \tacq{IMAGE}s, and as a group.
+In order to summarize the results, the table used a "From" and "To" arrangment where the co-alignment is presented
+with the "From" \tacq{IMAGE} configuration represented for the first column. This is identical to the "Configuration\#2",
+or config\#1, used in previous tables. The "TO" configurations are given by the columns 2-5 and represent the config\#1 of previous tables.
+Tables are given for each Cycle, and then as an average over C21--24. \\
+
+The columns of Table~\ref{tab:finalcoalign} are:
+\footnotesize
+\begin{enumerate}
+\item Base Configuration gives the config (\textit{APERTURE}$\times$\textit{OPT\_ELEM}, or SA$\times$MIRROR) is the "TO" configuration in the Config\#1 {\bf TO} Config\#2, or
+Config\#2 as used other tables. Columns 2-4 give the "From" or Config\#1 \tacq{IMAGE} \textit{APERTURE} and MIRROR combination.
+\item PSA$\times$MIRA as the "From" configuration (config\#1).
+\item PSA$\times$MIRB as the "From" configuration (config\#1).
+\item BOA$\times$MIRA as the "From" configuration (config\#1).
+\item BOA$\times$MIRB as the "From" configuration (config\#1).
+\item Gives the measurement uncertainty for the "TO" mode in NUV pixels as given in Table~\ref{tab:unc}.
+\item Gives the measurement uncertainty in \arcsec as given in Table~\ref{tab:unc}.
+Note that for convenience, a mean plate scale of was assumed so that this uncertainty applies both to AD and XD.
+\item Gives the estimate co-alignment of Configuration\#2 to Configuration\#1. The uncertainties associated with each \tacq{IMAGE} configuration based upon measurement errors are given in Table~\ref{tab:unc}.
+\end{enumerate}
+\normalsize
+
+The NUV AD TA requirements are as strictest as 0.041\arcsec, while the strictest FUV requirement is 0.106\arcsec.
+The co-alignment results allow us to compare the centering of all \tacq{IMAGE} configurations to PSA$\times$MIRA,
+and is therefore a measure of our NUV imaging TA precision.
+
+Averaged over C21--24:
+\footnotesize
+\begin{itemize}
+\item PSA$\times$MIRB was aligned with PSA$\times$MIRA to [AD, XD] $\le$ [{\bf 0.002},{\bf 0.015}] $\pm$ {\bf 0.012}\arcsec.
+\item BOA$\times$MIRA was aligned with PSA$\times$MIRA to [AD, XD] $\le$ [{\bf-0.021},{\bf 0.082}] $\pm$ {\bf 0.014}\arcsec.
+\item BOA$\times$MIRB was aligned with PSA$\times$MIRA to [AD, XD] $\le$ [{\bf-0.016},{\bf 0.047}] $\pm$ {\bf 0.016}\arcsec.
+\end{itemize}
+\normalsize
+In each case, C21 showed the worst co-alignment:
+\footnotesize
+\begin{itemize}
+\item PSA$\times$MIRB was aligned with PSA$\times$MIRA to [AD, XD] $\le$ [-0.031,0.016] $\pm$ 0.024\arcsec.
+\item BOA$\times$MIRA was aligned with PSA$\times$MIRA to [AD, XD] $\le$ [-0.063,0.088] $\pm$ 0.024\arcsec.
+\item BOA$\times$MIRB was aligned with PSA$\times$MIRA to [AD, XD] $\le$ [-0.074,0.030] $\pm$ 0.024\arcsec.
+\end{itemize}
+\normalsize
+As all three C21 measurements occurred in different visits, it is unlikely that this is is a simple GS issue skewed
+these results. However, as the four cycle averages are less than $\frac{1}{2}$ of the most restrictive TA requirement, and are
+all at or below the $1.5\times$ the measurement error, NUV imaging TA appears to have been functioning nominally,
+if not exceptionally, over C21--24.
+
 
 \begin{deluxetable}{rrrrrrrrrrrrrrrrrrr}
 \tabcolsep 2pt
@@ -105,122 +221,90 @@ ldozbadlq & EXT/SCI & MIRA & P2 & MED & 150 & 150 & 472 & 371 & 545.1 & 735.6 & 
 ldozbblgq & WAVECAL & MIRA & P2 & LOW &  14 &\dots& 507 & 372 & 748.6 & 911.9 & 241.6 & 539.9 & 5721.0 & 408.6 & 155 & 408.6 & 8.4 & 0.1\\
 ldozbbliq & EXT/SCI & MIRB & P2 & LOW & 183 &\dots& 713 & 213 & 776.2 & 578.7 & 63.2 & 365.7 & 2283.0 &\dots&\dots&\dots&\dots& 0.2\\
 \enddata
-\tablecomments{{\bf Note to reviewer: Some of the numbers in this table are odd, I am researching.}}
+\tablecomments{To be updated\dots}
 \end{deluxetable}
 
+\input{extrasiaf/colinsiaf.tex}
+%\begin{deluxetable}{rrrrrr}
+%\tabcolsep 8 pt
+%%\tabletypesize{\footnotesize}
+%\tablecolumns{6}
+%%\tablewidth{0 pt}
+%\tablecaption{\tacq{IMAGE} WCA-to-SA offsets from PSA$\times$MIRA\label{tab:ai}}
+%\tablehead{\colhead{Aperture}&\colhead{MIRROR}&\colhead{AD Offset} & \colhead{XD Offset} & \colhead{AD Offset}& \colhead{XD Offset}\\
+%\colhead{}&\colhead{}&\colhead{(\arcsec)} & \colhead{(\arcsec)} & \colhead{(p)} & \colhead{(p)}\\
+%}
+%\startdata
+%\midrule
+%\multicolumn{6}{c}{C21}\\
+%\midrule
+%\midrule
+%\multicolumn{6}{c}{C22}\\
+%\midrule
+%\midrule
+%\multicolumn{6}{c}{C23}\\
+%\midrule
+%\midrule
+%\multicolumn{6}{c}{C24}\\
+%\midrule
+%PSA & B & 0.021 &-0.049 & 0.298 & 0.893\\
+%BOA & A & 0.010 & 0.060 & 0.425 & 2.550\\
+%BOA & B & 0.036 & 0.070 & 1.530 & 2.975 \\
+%\midrule
+%\enddata
+%\end{deluxetable}
 
-
-
-The basic steps in the verification process are:
-\begin{enumerate}
-\item{Step1: Perform a PSA$\times$MIRA \tacq{IMAGE} {\bf with} a separate WCA lamp image, preferably in TT mode.
-	\begin{enumerate}
-		\item{If the PSA$\times$MIRA \tacq{IMAGE} was taken as part of an FGS-to-SI alignment program, then use this information to estimate the
-		accuracy of the NUV SIAF entry by comparing the slew from the \tacq{IMAGE} to the known offset inferred from evaluation of the FGS-to-SI program data (from Colin Cox).}
-		\item{Measure the [AD,XD] median of the lamp image (as done in \texttt{LTAIMCAL}), and the center of the target (in the same image) using both the \texttt{LTAIMAGE}
-		9$\times$9 checkbox + flux-weighted centroid algorithm,
-		and a 2D Gaussian fitting profile.}
-	\end{enumerate}
-	}
-\item {Step 2}
-\item {Step 3}
-\item {Step 4}
-\item {Step 5}
-\end{enumerate}
-
-These results can be combined to show the measured offsets of PSA+MIRB, BOA+MIRA, and BOA+MIRB when compared to the initial PSA+MIRA \tacq{IMAGE} of Visit `A2' of \pid{14035}. These results are shown in Table~\ref{tab:ai}.
-Combined offsets from PSA+MIRA are provided in both NUV pixels (p) and in arcseconds (\arcsec).
-\clearpage
-The results of \pid{13972} and \pid{14035} show that, for \tacq{IMAGE}s :
-\footnotesize
-\begin{itemize}
-\item PSA+MIRA is aligned with PSA+MIRB to [AD, XD] $\le$ [0.022, 0.007]\arcsec\ (14035, Visit `A2')
-\item PSA+MIRB is aligned with BOA+MIRA to [AD, XD] $\le$ [0.023, 0.100]\arcsec\ (13972, Visit `01')
-\item BOA+MIRA is aligned with BOA+MIRB to [AD, XD] $\le$ [0.022, 0.024]\arcsec\ (13972, Visit `02')
-\end{itemize}
-
-Discuss PR\#81834 : COS ACQ/IMAGE WCA2SCI[X,Y] not calculated properly
-
-\begin{deluxetable}{rrrrrr}
-\tabcolsep 8 pt
-%\tabletypesize{\footnotesize}
-\tablecolumns{6}
-%\tablewidth{0 pt}
-\tablecaption{\tacq{IMAGE} WCA-to-SA offsets from PSA+MIRA\label{tab:ai}}
-\tablehead{\colhead{Aperture}&\colhead{MIRROR}&\colhead{AD Offset} & \colhead{XD Offset} & \colhead{AD Offset}& \colhead{XD Offset}\\
-\colhead{}&\colhead{}&\colhead{(\arcsec)} & \colhead{(\arcsec)} & \colhead{(p)} & \colhead{(p)}\\
-}
-\startdata
-\hline
-\multicolumn{6}{c}{C21}\\
-\hline
-\hline
-\multicolumn{6}{c}{C22}\\
-\hline
-\hline
-\multicolumn{6}{c}{C23}\\
-\hline
-\hline
-\multicolumn{6}{c}{C24}\\
-\hline
-PSA & B & 0.021 &-0.049 & 0.298 & 0.893\\
-BOA & A & 0.010 & 0.060 & 0.425 & 2.550\\
-BOA & B & 0.036 & 0.070 & 1.530 & 2.975 \\
-\hline
-\enddata
-\end{deluxetable}
-
-\begin{deluxetable}{lclcccr}
-%\tablewidth{0pt}
-\tabcolsep 6pt
-\tablecolumns{7}
-%\tabletypesize{\footnotesize}
-\tablecaption{COS TA \tacq{IMAGE} Monitoring Results Summary\label{tab:airesults}}
-\tablehead{
-\colhead{\tacq{}} & \colhead{COS} & \colhead{Optical} & \colhead{Direction} & \colhead{Measured Offset\tablenotemark{a}} & \colhead{Requirement} & \colhead{Goal}\\
-\colhead{Mode} & \colhead{Channel} & \colhead{Configuration} & \colhead{AD or XD} & \colhead{(mas)} & \colhead{(mas)} & \colhead{(mas)}
-}
-
-\startdata
-\hline
-\multicolumn{7}{c}{C21}\\
-\hline
-
-\hline
-\multicolumn{7}{c}{C22}\\
-\hline
-
-\hline
-\multicolumn{7}{c}{C23}\\
-\hline
-
-\hline
-\multicolumn{7}{c}{C24}\\
-\hline
-IMAGE	&	NUV	&	PSA+MIRA	&	AD	&	20$\pm$14	&	41--105	&	40\\
-IMAGE	&	NUV	&	PSA+MIRB	&	AD	&	10$\pm$14	&	41--105	&	40\\
-IMAGE	&	NUV	&	BOA+MIRA	&	AD	&	20$\pm$14	&	41--105	&	40\\
-IMAGE	&	NUV	&	BOA+MIRB	&	AD	&	15$\pm$14	&	41--105	&	40\\
-\hline
-IMAGE	&	NUV	&	PSA+MIRA	&	XD	&	75$\pm$14	&	300	&	100\\
-IMAGE	&	NUV	&	PSA+MIRB	&	XD	&	20$\pm$14	&	300	&	100\\
-IMAGE	&	NUV	&	BOA+MIRA	&	XD	&	95$\pm$14	&	300	&	100\\
-IMAGE	&	NUV	&	BOA+MIRB	&	XD	&	12$\pm$14	&	300	&	100\\
-\hline
-PEAKXD	&	NUV	&	G185M	&	XD	&	 70$\pm$17	&	300	&	100\\
-PEAKXD	&	NUV	&	G225M	&	XD	&	 60$\pm$17	&	300	&	100\\
-PEAKXD	&	NUV	&	G285M	&	XD	&	 20$\pm$17	&	300	&	100\\
-PEAKXD	&	NUV	&	G230L	&	XD	&	 20$\pm$17	&	300	&	100\\
-PEAKXD	&	FUVA	&	G130M	&	XD	&	-30$\pm$71	&	300	&	100\\
-PEAKXD	&	FUVA	&	G160M	&	XD	&	-20$\pm$71	&	300	&	100\\
-PEAKXD	&	FUVA	&	G140L	&	XD	&	-170$\pm$71	&	300	&	100\\
-\hline
-\enddata
-\tablenotetext{a}{The quoted error bars are associated with a 0.5 uncertainty when measuring the integer WCA coordinate,
-and 1/3 of an NUV pixel when using the \tacq{IMAGE}~checkbox centering algorithm. Added in quadrature, the approximate
-\tacq{IMAGE}~measurement error is $\approx 0.6$ NUV pixels, or 14 (mas).
-Each \tacq{PEAKXD}~ WCA-to-SA measurement contains an error estimate of $\sqrt2 * 0.5 $ times the plate scale of the detector in use
-(one half pixel or digital-element uncertainty for each measurement of an integer quantity).
-For the NUV channel, this is 23.5 (mas)/p or $\sqrt2 * 0.5 * 23.5 = 17$ (mas).
-For the FUV channel, this is $\approx \sqrt2 * 0.5 * 100 \approx 71$ (mas).}
-\end{deluxetable}
+%\begin{deluxetable}{lclcccr}
+%%\tablewidth{0pt}
+%\tabcolsep 6pt
+%\tablecolumns{7}
+%%\tabletypesize{\footnotesize}
+%\tablecaption{COS TA \tacq{IMAGE} Monitoring Results Summary\label{tab:airesults}}
+%\tablehead{
+%\colhead{\tacq{}} & \colhead{COS} & \colhead{Optical} & \colhead{Direction} & \colhead{Measured Offset\tablenotemark{a}} & \colhead{Requirement} & \colhead{Goal}\\
+%\colhead{Mode} & \colhead{Channel} & \colhead{Configuration} & \colhead{AD or XD} & \colhead{(mas)} & \colhead{(mas)} & \colhead{(mas)}
+%}
+%
+%\startdata
+%\midrule
+%\multicolumn{7}{c}{C21}\\
+%\midrule
+%
+%\midrule
+%\multicolumn{7}{c}{C22}\\
+%\midrule
+%
+%\midrule
+%\multicolumn{7}{c}{C23}\\
+%\midrule
+%
+%\midrule
+%\multicolumn{7}{c}{C24}\\
+%\midrule
+%IMAGE	&	NUV	&	PSA$\times$MIRA	&	AD	&	20$\pm$14	&	41--105	&	40\\
+%IMAGE	&	NUV	&	PSA$\times$MIRB	&	AD	&	10$\pm$14	&	41--105	&	40\\
+%IMAGE	&	NUV	&	BOA$\times$MIRA	&	AD	&	20$\pm$14	&	41--105	&	40\\
+%IMAGE	&	NUV	&	BOA$\times$MIRB	&	AD	&	15$\pm$14	&	41--105	&	40\\
+%\midrule
+%IMAGE	&	NUV	&	PSA$\times$MIRA	&	XD	&	75$\pm$14	&	300	&	100\\
+%IMAGE	&	NUV	&	PSA$\times$MIRB	&	XD	&	20$\pm$14	&	300	&	100\\
+%IMAGE	&	NUV	&	BOA$\times$MIRA	&	XD	&	95$\pm$14	&	300	&	100\\
+%IMAGE	&	NUV	&	BOA$\times$MIRB	&	XD	&	12$\pm$14	&	300	&	100\\
+%\midrule
+%PEAKXD	&	NUV	&	G185M	&	XD	&	 70$\pm$17	&	300	&	100\\
+%PEAKXD	&	NUV	&	G225M	&	XD	&	 60$\pm$17	&	300	&	100\\
+%PEAKXD	&	NUV	&	G285M	&	XD	&	 20$\pm$17	&	300	&	100\\
+%PEAKXD	&	NUV	&	G230L	&	XD	&	 20$\pm$17	&	300	&	100\\
+%PEAKXD	&	FUVA	&	G130M	&	XD	&	-30$\pm$71	&	300	&	100\\
+%PEAKXD	&	FUVA	&	G160M	&	XD	&	-20$\pm$71	&	300	&	100\\
+%PEAKXD	&	FUVA	&	G140L	&	XD	&	-170$\pm$71	&	300	&	100\\
+%\midrule
+%\enddata
+%\tablenotetext{a}{The quoted error bars are associated with a 0.5 uncertainty when measuring the integer WCA coordinate,
+%and 1/3 of an NUV pixel when using the \tacq{IMAGE}~checkbox centering algorithm. Added in quadrature, the approximate
+%\tacq{IMAGE}~measurement error is $\approx 0.6$ NUV pixels, or 14 (mas).
+%Each \tacq{PEAKXD}~ WCA-to-SA measurement contains an error estimate of $\sqrt2 * 0.5 $ times the plate scale of the detector in use
+%(one half pixel or digital-element uncertainty for each measurement of an integer quantity).
+%For the NUV channel, this is 23.5 (mas)/p or $\sqrt2 * 0.5 * 23.5 = 17$ (mas).
+%For the FUV channel, this is $\approx \sqrt2 * 0.5 * 100 \approx 71$ (mas).}
+%\end{deluxetable}
