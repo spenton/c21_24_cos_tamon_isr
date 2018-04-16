@@ -1,0 +1,106 @@
+\subsection{Introductory Notes and Conventions}\label{subsec:conventions}
+%\vspace{-0.3cm}
+There are a few COS conventions to be established before discussing the TA monitoring in detail.
+\begin{enumerate}
+	\item{COS TAs are performed in raw or ``detector'' coordinates, not the ``user'' coordinate system of calibrated
+		COS files. To avoid confusion over the different coordinate systems, we will use along-dispersion (AD) and cross-dispersion (XD) whenever possible.
+		\dotuline{All references to the coordinates ``X$_{DET}$'' and ``Y$_{DET}$'' are in the detector coordinate system unless otherwise specified.}
+		In NUV detector coordinates, +X$_{DET}$ is -XD and +Y$_{DET}$ is -AD. In FUV detector coordinates, +X is -AD and +Y is +XD.
+		The transformations between user and detector coordinates are :
+		\begin{equation} NUV: X_{USER} = 1023 - Y_{DET} \label{eq:NUVuserX}\end{equation}
+		\begin{equation} NUV: Y_{USER} = 1023 - X_{DET} \label{eq:NUVuserY}\end{equation}
+		\begin{equation} FUV: X_{USER} = 16383 - X_{DET} \label{eq:FUVuserX}\end{equation}
+		\begin{equation} FUV: Y_{USER} = Y_{DET} \label{eq:FUVuserY}\end{equation}
+		}
+	\item{When referencing NUV pixels, we will abbreviate pixel as p. For the FUV, we use rows or columns to reference the FUV digital elements, as the FUV detector does not have physical pixels.}
+	\item{When discussing the various subarrays used during COS TA, boxes will be specified by giving the lowest
+		valued corner (C) and full size (S) for both X and Y. A box is fully specified by giving its XC, XS, YC \& YS. In this ISR, these will always be given in detector coordinates
+		as these are how they are implemented in the HST ground commanding.}
+	\item{To clarify the names and locations of TA parameters, the following convention will be used :
+		\begin{itemize}
+			\item{COS TA modes and their Astronomers Proposal Tool (APT) optional parameters will be in \texttt{Courier} (e.g., \tacq{IMAGE} and \numpos).}
+			\item{Keywords in FITS headers will be in \textit{ITALICIZED ALL CAPITALS} (e.g., \textit{ACQSLEWY}).}
+			\item{Flight SoftWare (FSW) parameters and routines will be in \textsc{small capitals}.
+All TA FSW patchable constants begin with ``\textsc{pcta\_}'' (e.g., \textsc{pcta\_CalTargetOffset}).
+In this ISR, this prefix is considered implied after the initial introduction of a \textsc{pcta\_} paramater, and will not always be included.
+FSW patchable constants relating to mechanism positions begin with \textsc{pcmech\_} and will always be included in references.}
+			\item{Archived COS files are in FITS (.fits) format. FITS filenames, or portions of a filename, will be in {\sf sans-serif} (e.g., {\sf ld9mg2nrq\_rawtag.fits} or {\sf \_spt.fits}).
+			COS filenames are in the form {\sf IPPPSSOOT\_{\it extension}.fits}.
+			The HST naming convention breaks down for COS as I=Instrument=``L'', PPP=Program ID, SS=Visit ID, OO=Exposure ID,
+			and T=``Q'' for nominally recorded observations. See the COS Data Handbook (DHB, Fox et al. 2015) for a full breakdown of the HST IPPPSSOOT naming conventions.
+			COS TA files have the {\it extension} of {\sf rawacq}, and additional
+			information useful for TA analysis is contained in the {\sf IPPPSSOOT\_{\it spt}.fits} files known as the support file,
+			and in the {\sf IPPPSSOOT\_{\it jit/f}.fits} files known as the jitter files.}
+		\end{itemize}
+	}
+%	\item{There are three centering options during \tacq{SEARCH} and \tacq{PEAKD}. In the Astronomers Proposal Tool (APT), these are
+%		referred to as \texttt{CENTER}=\texttt{FLUX-WT}, \texttt{FLUX-WT-FLR}, and \texttt{BRIGHTEST}.
+%		These parameters have slightly different names in the IHB, the FITS keywords, and the FSW.
+%		In this ISR, we will refer to the centering options as \texttt{CENTER}=\texttt{Flux-Weighted (FW)}, \texttt{Flux-Weighted-Floor (FWF)}, and \texttt{Return-To-Brightest (RTB)}.
+%	}
+	\item{COS contains numerous FUV and NUV central wavelength settings, which are defined in the FSW by the OSM1 or OSM2 rotation positions.
+	In this ISR, the term \cenwaveno, which is also the FITS keyword name, will be used to mean any of the pre-defined OSM1 + OSM2 rotation settings that uniquely define a central wavelength setting.}
+	\item{COS \cenwaves are named for the (predicted) lowest wavelength that lands on the FUVA detector segment for \textit{FP-POS}=3. For convienence, when referring to
+	a specific \cenwave we will either call out the grating and \cenwave in use as GRATING/\cenwave  (e.g. G130M/1222), or just use a leading ``C'' to identify a particular \cenwave (e.g., C1222) in the same manor as ``G" is used for GRATING (e.g., G130M).
+	Note that the FITS header keyword equivalent of GRATING is \textit{OPT\_ELEM}.}
+	\item{Unless specified, all spectroscopic exposures were taken at \textit{FP-POS}=3.}
+	\item{When referring to an HST program number, we will use either ``HST PID" or a leading ``{\bf P}" in a similar fashion an ``C=\cenwave'' and ``G=GRATING''.}
+	\item{The COS FUV detector has two independent segments, Segment-A and Segment-B. In this ISR, they will be referred to as FUVA \& FUVB.}
+	\item{\tacq{IMAGE} can use either of two ``MIRROR'' modes, MIRRORA or MIRRORB. In this ISR, they will sometimes be referred to as MIRA \& MIRB to save space, mainly in tables and captions.}
+	\item{Following the conventions used in APT and the Phase~II Proposal Instructions (Rose et al., 2017), NUV \tacq{PEAKXD} exposures will specify which \texttt{STRIPE}\footnote{\texttt{STRIPE} is the optional parameter name in APT, therefore the \texttt{Courier} font is used.} is used during TA. In this ISR, we will always use
+	the APT default (\texttt{STRIPE=DEF}) for a given \cenwave. This default is \texttt{STRIPE=MEDIUM} (or STRIPE=B) for all \cenwaves, except G230L/3360 where it is \texttt{STRIPE=SHORT} (STRIPE=A).}
+	\item{When referring to a particular day, we will use YEAR.DAY. For example, day 60 of 2010 will be referred to as \psiafdate.
+	%We will also occasionally use decimal years. In these cases, there will only be a single digit in the fractional part (e.g., 2009.9).
+	}
+	\item{HST observations are grouped in approximately annual ``cycles''. `C\#\#' will be used as shorthand for ``HST Cycle \#\#'' (e.g., Cycle~19~=~C19).}
+	\item{Unit abbreviations:
+		\begin{itemize}
+		\item{Milli-arcseconds (0.001\arcsec) will be abbreviated as mas.}
+		\item{Milli-amperes (0.001~A) will be abbreviated as mA.}
+		\item{Counts per second will be abbreviated as cps.}
+		\end{itemize}
+	}
+	\item{COS has two internal PtNe wavelength calibrations lamps that send light through the Wavelength Calibration Aperture (WCA) and onto the detectors.The two PtNe lamps are referred to in this ISR
+	as \plampone{} and \plamptwo{}. Each lamp has three current settings, LOW, MEDIUM (MED) or HIGH. The \plampone{} lamp is used for spectroscopic lamp flashes during science exposures (``TAGFLASH''es), while the \plamptwo{} lamp is used for all TA exposures.
+	Both lamps have MED current settings of 10~mA, but the \plampone{} lamp has LOW/HIGH current settings of 6/18~mA. The \plamptwo{} lamp
+	has LOW/HIGH current settings of 3/14~mA. COS lamp output generally scales as current$^{2}$ ($P=I^2 R$).}
+	\item{STScI uses a problem reporting (PR) system to track HST changes.
+		Where applicable, these STScI PR identifying numbers will be included as \pr{}.}
+	\item{Goddard Spaceflight Center (GSFC) use a Software Change Request (SCR) system to document HST FSW changes.
+	COS requests are identified by their SCRC\#. }
+	\item{Each COS \tacq{} mode calls one or more FSW routines which interact with HST+COS to perform the TA.
+		The FSW routine names begin with \fsw{}.
+		The FSW routines called by each \tacq{} mode are given in Table~\ref{tab:fsw}.
+		}
+	\item{We use the FSW NUV imaging plate scales values\footnote{The C25 COS IHB (Fox et al., 2017) does not differentiate between AD and XD NUM imaging plate scales, and lists 0.0235 "/p for both AD and XD.} of 0.02352\arcsec/p (AD) and 0.02362\arcsec/p (XD) as these
+	are in agreement with the SMOV results of Goudfrooij et al., 2010. We also assume
+	the NUV detector orientation as described in Goudfrooij et al., 2010 (a 0.52$\degree$ rotation between the
+	NUV detector coordinates and the APT \texttt{POS\_TARG} system). }
+\end{enumerate}
+
+\begin{deluxetable}{lll}
+	\tablecolumns{3}
+	\tablecaption{\tacq{} to \fsw{} Conversion Table\label{tab:fsw}}
+	\tablehead{
+	\colhead{\tacq{} Mode}	&	\colhead{FSW}	& \colhead{Comments}\\
+%	\colhead{\tacq{} Mode} & \colhead{FSW routine (\textsc{LTA})} & \colhead{Comments} \\
+	}
+	\startdata
+	\toprule
+	\tacq{IMAGE} & \fsw{IMCAL}  & Calibrate Image Aperture Location for \fsw{IMAGE} \\
+				 & \fsw{IMAGE}  & NUV Image Acquisition \\
+	\midrule
+	\tacq{SEARCH} & \fsw{SEARCH} & Spiral Target Search\\
+	\midrule
+	\tacq{PEAKD}  & \fsw{PKD} & Peakup in the Dispersion Direction (AD)\\
+	\midrule
+	\tacq{PEAKXD} (\numposone) & \fsw{CAL}  & Calibrate Aperture Location for \fsw{PKXD} \\
+							   & \fsw{PKXD} & Peakup in the Cross-Dispersion Direction  (XD) \\
+	\tacq{PEAKXD} (\numposgtone)    & \fsw{PKD}  & Peakup in the Dispersion Direction, but \\
+								 &  			 & modified in LV54 for XD \\
+	\bottomrule
+	\enddata
+	\vspace{-0.5cm}
+	\tablecomments{LV54 is the COS FSW Version 4.16 update. GSFC \textsc{SCRC\#352} adapted \textsc{LTAPKD} for XD use in LV54 and
+	was installed on HST on 2014.133.}
+\end{deluxetable}
