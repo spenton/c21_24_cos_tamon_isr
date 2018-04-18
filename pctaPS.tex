@@ -1,0 +1,63 @@
+% $Id: pctaPS.tex,v 1.1 2018/04/17 18:38:43 penton Exp $
+\begin{table}
+\footnotesize
+\centering
+	\begin{threeparttable}[tbc]
+	\caption{\fsw{PKXD} Plate Scales}
+	\begin{tabular*}{.8\linewidth}{@{\extracolsep{\fill}}lrrr}
+		\toprule
+		\textit{OPT\_ELEM} &	LP1	&	LP2	&	LP3	\\
+		\midrule
+		\multicolumn{4}{c}{FUV\tnote{1}}\\
+		\midrule
+		G130M &  -11086 &  -11400 &   -9550 \\
+		G140L &  -10549 &  -11839 &   -9800 \\
+		G160M &   -9881 &  -11178 &   -9040 \\
+		\midrule
+		\multicolumn{4}{c}{NUV\tnote{2}}\\
+		\midrule
+			ALL	&	2384	&	\dots	&	\dots \\
+		\bottomrule
+	\end{tabular*}
+	\scriptsize
+		\begin{tablenotes}
+			\item[] {The FSW patchable constant \textsc{pcta\_MilliArcsecsPerPixelScale} determines the FSW scaling (currently set to 100). FUV plate scales are ``negative'' due to the parity of HST slews relative to the COS coordinate system.\\}
+			\item[1] {Divide the FUV numbers by 100 to get the FUV plate scale in mas/row.}
+			\item[2] {Divide the NUV numbers by 100 to get the NUV plate scale in mas/p. }
+		\end{tablenotes}
+	\label{tab:platescales}
+	\normalsize
+	\end{threeparttable}
+\normalsize
+\end{table}
+%\begin{deluxetable}{lrrr}
+%\tablewidth{0pt}
+%\tabcolsep 12 pt
+%%\tabletypesize{\footnotesize}
+%\tablecolumns{4}
+%\tablecaption{\tacq{PEAKXD} WCA-to-PSA offsets \label{tab:wcatopsa}}
+%\tablehead{
+%\colhead{\textit{OPT\_ELEM}}&\colhead{LP1}&\colhead{LP2}&\colhead{LP3}\\
+%}
+%\startdata
+%\toprule
+%\multicolumn{4}{c}{FUV\tablenotemark{f}}\\
+%\midrule
+%G130M	&	 -898	&	-943	&	-892 \\
+%G140L	&	 -884	&	-950	&	-857 \\
+%G160M	&	 -898	&	-933	&	-901 \\
+%\midrule
+%\multicolumn{4}{c}{NUV\tablenotemark{n}}\\
+%\midrule
+%G185M	&	3742	&	\dots	&	\dots \\
+%G225M	&	3746	&	\dots	&	\dots \\
+%G230L	&	3734	&	\dots	&	\dots \\
+%G285M	&	3749	&	\dots	&	\dots \\
+%\bottomrule
+%\enddata
+%\tablenotetext{f}{Divide the FUV numbers by -10 to get the number of XD rows between the PSA and WCA spectra for a target centered in the aperture.}
+%\tablenotetext{n}{Divide the NUV numbers by 10 to get the NUV WCA-to-PSA offset. }
+%\tablecomments{The FSW patchable constant \textsc{pcta\_CalTargetOffsetScale} determines the FSW scaling (currently set to 10).
+%FUV scalings are "negative" due to the parity of HST slews relative to the COS coordinate system.
+%%{\bf Note to reviewers: Do you think I should keep the numbers in their FSW values (not scaled), or should I go ahead and scale them ?}}
+%\end{deluxetable}

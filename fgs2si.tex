@@ -1,20 +1,22 @@
-% $Id: fgs2si.tex,v 1.3 2018/03/29 19:16:24 penton Exp $
+% $Id: fgs2si.tex,v 1.6 2018/04/18 04:10:05 penton Exp penton $
 \subsection{FGS-to-SI Programs}\label{subsec:fgs2si}
-From C17--C23, an FGS-to-SI program executed with COS visits twice a year. These programs contained COS exposures designed to assist in the monitoring of the COS NUV alignent to HST.
+From C17--C23, an FGS-to-SI program was executed with COS visits twice a year. These programs contained COS exposures designed to assist in the monitoring of the COS NUV alignent to HST.
 These programs used the same two target stars with COS in visits spaced six months apart. Both visits observed the astrometric open cluster M35, at orientations that were 180\degree~apart.
-The two stars observed were 206W3 (in the Fall) and 427W3 (in the Spring). Due to time constraints, the exact content of the COS visits in these programs varied from year to year.
+The two stars observed were 206W3 (in the Fall) and 427W3 (in the Spring). Due to orbital time constraints, the exact content of the COS visits in these programs varied from year to year.
+The COS TA Monitoring programs were timed to execute within 45 days of the Fall observations of 206W3.
 
-However, the COS portion of each program begins with a PSA$\times$MIRA \texttt{ACQ/IMAGE} on a target should be approximately centered due to observations with other instruments earlier in the visit.
-Post-observation telemetry data, an the results of the \texttt{ACQ/IMAGE}, are used to refine this assumption.
-This process verifies the COS NUV PSA aperture position\footnote{Specifically, the \textit{LFPSAA} SIAF entry.} in the SIAF to about 0.5 pixels or (~0.012\arcsec).
+The COS portion of each program begins with a PSA$\times$MIRA \tacq{IMAGE} on a target should be approximately centered due to observations with other instruments earlier in the visit.
+Post-observation telemetry data\footnote{The [V2,V3] positions reported in the telemetry have an uncertainty of $\sim$ 10~mas (Cox, private communication).}, and the results of the \tacq{IMAGE}, are used to refine this assumption.
+This process verifies the COS NUV PSA aperture position\footnote{Specifically, the \textit{LFPSAA} SIAF entry.} as described in \S~\ref{subsec:siafalign}.
 
-After this PSA$\times$MIRA \texttt{ACQ/IMAGE}, a PSA$\times$MIRB \texttt{ACQ/IMAGE} is then performed (together, a ``set'').
-This bootstraps the PSA$\times$MIRB centering to the PSA$\times$MIRA and to the SIAF verification.
+After this PSA$\times$MIRA \tacq{IMAGE}, a PSA$\times$MIRB \tacq{IMAGE} is then performed (together, a ``set'').
+This bootstraps the PSA$\times$MIRB centering to the PSA$\times$MIRA (a measure of COS TA precision) and to the SIAF verification (a measure of its accuracy relative to HSTs' definition of the COS aperture center).
 This allows us to monitor the properties of the PSA$\times$MIRB image in a controlled way on a centered target.
+Due to the nature of the FGS-to-SI alignment program, it was not practical to place the COS exposures into ``non-interruptible' sequences.
+As discussed in \S~\ref{subsec:siafalign}, this had some minor impacts on some of the PSA$\times$MIRB \tacq{IMAGE}s.
 
 The historical list of FGS-to-SI proposals, HST cycles (C\#\#), and content are given in Table~\ref{tab:fgs2si}.
 Where possible, time-tag (TT) images of the lamps and/or targets, along with NUV G230L spectra were acquired.
-
 \begin{deluxetable}{lcl}
 \tabletypesize{\footnotesize}
 \tablecolumns{3}
@@ -24,13 +26,14 @@ Where possible, time-tag (TT) images of the lamps and/or targets, along with NUV
 }
 \startdata
 \toprule
-\pid{11878} & C17 & 2 sets of PSA \texttt{ACQ/IMAGE}s, Target+Lamp TT images, \& G230L Spectra \\
-\pid{12399} & C18 & 2 sets of PSA \texttt{ACQ/IMAGE}s, 1 set of Target+Lamp TT images + G230L Spectrum (427W3) \\
-\pid{12781} & C19 & 2 sets of PSA \texttt{ACQ/IMAGE}s \\
-\pid{13171} & C20 & 2 sets of PSA \texttt{ACQ/IMAGE}s \\
-\pid{13616} & C21 & 2 sets of PSA \texttt{ACQ/IMAGE}s \\
-\pid{14035} & C22 & 2 sets of PSA \texttt{ACQ/IMAGE}s \\
-\pid{14452} & C23 & 2 sets of PSA \texttt{ACQ/IMAGE}s,  with Lamp-Only TT images after each \texttt{ACQ/IMAGE} \\
+\pid{11878} & C17 & 2 sets of PSA \tacq{IMAGE}s, Target+Lamp TT images, \& G230L Spectra \\
+\pid{12399} & C18 & 2 sets of PSA \tacq{IMAGE}s, 1 set of Target+Lamp TT images + G230L Spectrum (427W3) \\
+\pid{12781} & C19 & 2 sets of PSA \tacq{IMAGE}s \\
+\pid{13171} & C20 & 2 sets of PSA \tacq{IMAGE}s \\
+\pid{13616} & C21 & 2 sets of PSA \tacq{IMAGE}s \\
+\pid{14035} & C22 & 2 sets of PSA \tacq{IMAGE}s \\
+\pid{14452} & C23 & 2 sets of PSA \tacq{IMAGE}s,  with Lamp-Only TT images after each \tacq{IMAGE} \\
 \bottomrule
 \enddata
 \end{deluxetable}
+

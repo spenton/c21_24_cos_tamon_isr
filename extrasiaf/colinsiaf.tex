@@ -1,34 +1,118 @@
-\begin{deluxetable}{rrrrrrrrrr}
-\tablecaption{FGS-to-SI Program Initial Pointing Determinations\label{tab:fgs2siInit}}
+\begin{deluxetable}{lccrrrrrrr}
+\tablecaption{C17--C23 FGS-to-SI Program Initial Pointing Determinations\label{tab:fgs2siInit}}
+\tabcolsep 2 pt
 \tablecolumns{10}
-\tabletypesize{\footnotesize}
+\tabletypesize{\scriptsize}
 \tablehead{
-\colhead{PID} & \colhead{YEAR.DAY} & \colhead{DATE-OBS} & \multicolumn{2}{c}{Initial Pointing} & \multicolumn{2}{c}{Miss-Distance} & \colhead{SIAF} & \multicolumn{2}{c}{Active SIAF Entry}\\
-\colhead{ } & \colhead{} & \colhead{} & \colhead{V2 (\arcsec)} & \colhead{V3 (\arcsec)} & \colhead{V2 (\arcsec)} & \colhead{V3 (\arcsec)} & \colhead{V2 (\arcsec)} & \colhead{Dates\tablenotemark{a}} & \colhead{V3 (\arcsec)}\\
-\colhead{(1)}&\colhead{(2)} & \colhead{(3)}&\colhead{(4)} & \colhead{(5)}&\colhead{(6)} & \colhead{(7)}&\colhead{(8)} & \colhead{(9)}&\colhead{(10)}
+\colhead{\textit{PROP}} & \colhead{HST}&\colhead{YEAR} & \colhead{\textit{DATE-}} &
+\colhead{Initial} & \colhead{Intermediate} & \colhead{Initial} &
+\colhead{Intermediate} & \colhead{SIAF} & \colhead{Active SIAF}\\
+\colhead{\textit{OSID}} &\colhead{Cycle}& \colhead{.DAY} & \colhead{\textit{OBS}} &
+\colhead{Pointing} & \colhead{Pointing} & \colhead{Miss-Distance} &
+\colhead{Miss-Distance} & \colhead{Dates\tablenotemark{a}} & \colhead{Entry}\\
+\colhead{PID} & \colhead{} & \colhead{} &
+\colhead{[V2,V3] (\arcsec)} & \colhead{[V2,V3] (\arcsec)} &
+\colhead{[V2,V3] (\arcsec)} & \colhead{[V2,V3] (\arcsec)} &
+\colhead{[AD,XD] (\arcsec)} & \colhead{}\\
+\colhead{(1)}&\colhead{(2)} &\colhead{(3)}&
+\colhead{(4)}&\colhead{(5)} &\colhead{(6)}&
+\colhead{(7)}&\colhead{(8)} &\colhead{(9)}&\colhead{10}
 }
 \startdata
-\hline
-\pid{11878} & 2009.338 & 04-Dec-2009 & 232.581 & -237.544 & -0.191 & -0.033 & 3-Aug-2009 & 232.772 & -237.511\\
-\pid{11878} & 2010.074 & 15-Mar-2010 & 232.488 & -237.462 & -0.284 & 0.049 & \dots & 232.772 & -237.511\\
-\pid{11878} & 2010.110 & 20-Apr-2010 & 232.481 & -237.457 & -0.291 & 0.054 & \dots & 232.772 & -237.511\\
-\pid{11878} & 2010.309 & 05-Nov-2010 & 232.604 & -237.561 & -0.168 & -0.050 & \dots & 232.772 & -237.511\\
-\pid{12399} & 2011.070 & 11-Mar-2011 & 232.645 & -237.438 & -0.127 & 0.073 & 20-Jun-2011 & 232.772 & -237.511\\
-\hline
-\pid{12399} & 2011.255 & 12-Sep-2011 & 232.737 & -237.507 & 0.091 & -0.062 & 21-Jun-2011 & 232.646 & -237.445\\
-\pid{12781} & 2012.087 & 27-Mar-2012 & 232.622 & -237.515 & -0.024 & -0.070 & \dots & 232.646 & -237.445\\
-\pid{12781} & 2012.268 & 24-Sep-2012 & 232.713 & -237.578 & 0.067 & -0.133 & \dots &232.646 & -237.445\\
-\pid{13171} & 2013.061 & 02-Mar-2013 & 232.647 & -237.590 & 0.001 & -0.145 & \dots & 232.646 & -237.445\\
-\pid{13171} & 2013.244 & 01-Sep-2013 & 232.723 & -237.515 & {\bf 0.077}\tablenotemark{b} & {\bf -0.070}\tablenotemark{b} & 23-Feb-2014 & 232.646 & -237.445\\
-\hline
-\pid{13616} & 2014.055 & 06-Apr-2014 & 232.535 & -237.497 & -0.188 & 0.018 & 24-Feb-2014 & 232.723 & -237.515\\
-\pid{13616} & 2014.300 & 27-Oct-2014 & 232.841 & -237.465 & {\bf 0.118} & {\bf 0.050} & \dots & 232.723 & -237.515\\
-\pid{14035} & 2015.104 & 14-May-2015 & 232.617 & -237.464 & -0.106 & 0.051 & \dots & 232.723 & -237.515\\
-\pid{14035} & 2015.275 & 02-Oct-2015 & 232.788 & -237.462 & {\bf 0.065} & {\bf0.053} & \dots & 232.723 & -237.515\\
-\pid{14452} & 2016.092 & 01-Apr-2016 & 232.742 & -237.485 & 0.019 & 0.030 & \dots & 232.723 & -237.515\\
-\hline
+\toprule
+\pid{11878} &	C17	& 2009.338 & 04-Dec-2009 & [232.790,-237.459]	&	[232.556,-237.544]	&	[ 0.018, 0.052]	&	[-0.216,-0.033]			&  3-Aug-2009	& [232.772,-237.511]\\
+\pid{11878} &	C17	& 2010.074 & 15-Mar-2010 & [232.316,-237.864]	&	[232.480,-237.453]	&	[-0.456,-0.353]	&	[-0.292, 0.058]			&     \dots  	& [232.772,-237.511]\\
+\pid{11878} &	C17	& 2010.110 & 20-Apr-2010 & [232.346,-237.835]	&	[232.480,-237.458]	&	[-0.426,-0.324]	&	[-0.292, 0.053]			&     \dots  	& [232.772,-237.511]\\
+\pid{11878} &	C17	& 2010.309 & 05-Nov-2010 & [232.633,-237.514]	&	[232.604,-237.561]	&	[-0.139,-0.003]	&	[-0.168,-0.050]			&     \dots  	& [232.772,-237.511]\\
+\pid{12399} &	C18	& 2011.070 & 11-Mar-2011 & [232.459,-237.857]	&	[232.645,-237.438]	&	[-0.313,-0.346]	&	[-0.127, 0.073]			&  20-Jun-2011	& [232.772,-237.511]\\
+\midrule
+\pid{12399} &	C18	& 2011.255 & 12-Sep-2011 & [232.578,-237.378]	&	[232.734,-237.507]	&	[-0.068, 0.067]	&	[ 0.088,-0.062]			&  21-Jun-2011	& [232.646,-237.445]\\
+\pid{12781} &	C19	& 2012.087 & 27-Mar-2012 & [232.489,-237.821]	&	[232.622,-237.515]	&	[-0.157,-0.376]	&	[-0.024,-0.070]			&     \dots  	& [232.646,-237.445]\\
+\pid{12781} &	C19	& 2012.268 & 24-Sep-2012 & [232.603,-237.386]	&	[232.678,-237.570]	&	[-0.043, 0.059]	&	[ 0.032,-0.125]			&     \dots  	& [232.646,-237.445]\\
+\pid{13171} &	C20	& 2013.061 & 02-Mar-2013 & [232.597,-237.554]	&	[232.647,-237.590]	&	[-0.049,-0.109]	&	[ 0.001,-0.145]			&     \dots  	& [232.646,-237.445]\\
+\pid{13171} &	C20	& 2013.244 & 01-Sep-2013 & [232.783,-237.353]	&	[232.723,-237.515]	&	[ 0.137, 0.092]	&	[ 0.077,-0.070]	\tablenotemark{b}	& 23-Feb-2014	& [232.646,-237.445]\\
+\midrule
+\pid{13616} &	C21	& 2014.055 & 06-Apr-2014 & [232.547,-237.465]	&	[232.535,-237.497]	&	[-0.176, 0.050]	&	[-0.188, 0.018]			&  24-Feb-2014	& [232.723,-237.515]\\
+\pid{13616} &	C21	& 2014.300 & 27-Oct-2014 & [232.841,-237.465]	&	[232.745,-237.558]	&	[ 0.118, 0.050]	&	[ 0.022,-0.043]			&    \dots   	& [232.723,-237.515]\\
+\pid{14035} &	C22	& 2015.104 & 14-May-2015 & [232.617,-237.464]	&	[232.519,-237.568]	&	[-0.106, 0.051]	&	[-0.204,-0.053]			&     \dots  	& [232.723,-237.515]\\
+\pid{14035} &	C22	& 2015.275 & 02-Oct-2015 & [232.865,-237.381]	&	[232.807,-237.471]	&	[ 0.142, 0.134]	&	[ 0.084, 0.044]			&     \dots  	& [232.723,-237.515]\\
+\pid{14452} &	C23	& 2016.092 & 01-Apr-2016 & [232.643,-237.512]	&	[232.742,-237.485]	&	[-0.080, 0.003]	&	[ 0.019, 0.030]			&     \dots  	& [232.723,-237.515]\\
+\pid{14452} &	C23	& 2016.277 & 03-Oct-2016 & [232.785,-237.429]	&	[232.747,-237.494]	&	[ 0.062, 0.086]	&	[ 0.024, 0.021]			&     \dots  	& [232.723,-237.515]\\
+\bottomrule
 \enddata
-\tablenotetext{a}{Dates in this column show the dates that the [V2,V3] SIAF entries in the this and the following rows were active.}
+\tablenotetext{a}{Dates in this column show the dates that the [V2,V3] SIAF entries in this and the following rows were active.}
 \tablenotetext{b}{These exposures, and the offsets measured here, were used to adjust the COS SIAF entries on 2014.055 (STScI PR\#76982).}
-\tablecomments{Items in {\bf bold} are used in the analysis of this ISR.}
+%\tablecomments{Items in {\bf bold} are used in the analysis of this ISR.}
 \end{deluxetable}
+%
+%[ 0.234, 0.085]	&	[ 0.105, 0.226]	&	[ 0.108, 0.225]	&	[-0.003, 0.001]	&
+%[-0.164,-0.411]	&	[ 0.175,-0.407]	&	[ 0.174,-0.407]	&	[ 0.001, 0.000]	&
+%[-0.134,-0.377]	&	[ 0.172,-0.361]	&	[ 0.174,-0.362]	&	[-0.002, 0.001]	&
+%[ 0.029, 0.047]	&	[-0.013, 0.054]	&	[-0.010, 0.056]	&	[-0.003,-0.002]	&
+%[-0.186,-0.419]	&	[ 0.165,-0.428]	&	[ 0.168,-0.426]	&	[-0.003,-0.002]	&
+%
+%[-0.156, 0.129]	&	[-0.202,-0.019]	&	[-0.200, 0.019]	&	[-0.002,-0.038]	&
+%[-0.133,-0.306]	&	[ 0.122,-0.310]	&	[ 0.128,-0.307]	&	[-0.006,-0.003]	&
+%[-0.075, 0.184]	&	[-0.183, 0.077]	&	[-0.183, 0.078]	&	[-0.000,-0.001]	&
+%[-0.050, 0.036]	&	[-0.061,-0.010]	&	[-0.060,-0.010]	&	[-0.001, 0.000]	&
+%[ 0.060, 0.162]	&	[-0.072, 0.157]	&	[-0.070, 0.158]	&	[-0.002,-0.001]	&
+%0.000
+%[ 0.012, 0.032]	&	[-0.014, 0.031]	&	[-0.013, 0.029]	&	[-0.001, 0.002]	&
+%[ 0.096, 0.093]	&	[ 0.002, 0.134]	&	[ 0.001, 0.133]	&	[ 0.001, 0.001]	&
+%[ 0.098, 0.104]	&	[-0.004, 0.143]	&	[-0.004, 0.141]	&	[ 0.000, 0.002]	&
+%[ 0.058, 0.090]	&	[-0.023, 0.105]	&	[-0.020, 0.105]	&	[-0.003,-0.000]	&
+%[-0.099,-0.027]	&	[-0.051,-0.089]	&	[-0.046,-0.087]	&	[-0.005,-0.002]	&
+%[ 0.038, 0.065]	&	[-0.019, 0.073]	&	[-0.017, 0.075]	&	[-0.002,-0.002]	&
+\begin{deluxetable}{lccrrrrr}
+\tablecaption{C17--C23 SIAF vs PSA$\times$MIRA \tacq{IMAGE} Residuals \label{tab:SIAFvsAI}}
+\tabcolsep 5 pt
+\tablecolumns{8}
+\tabletypesize{\scriptsize}
+\tablehead{
+\colhead{\textit{PROP}} & \colhead{HST} & \colhead{\textit{DATE-}}& \colhead{Post \tacq{IMAGE} }       & \colhead{Pre \tacq{IMAGE}}       & \colhead{Post \tacq{IMAGE}}      & \colhead{SIAF}                  & \colhead{Active SIAF}\\
+\colhead{\textit{OSID}} & \colhead{Cycle}&\colhead{\textit{OBS}}  & \colhead{SIAF Residual} & \colhead{SIAF Residual}& \colhead{SIAF Residual}& \colhead{Dates\tablenotemark{a}}& \colhead{Entry}\\
+\colhead{(PID)}         & \colhead{}              & \colhead{[V2,V3] (\arcsec)}          & \colhead{[AD,XD] (\arcsec)}         & \colhead{[AD,XD] (\arcsec)}         & \colhead{[AD,XD] (\arcsec)}            & \colhead{}\\
+\colhead{(1)}           & \colhead{(2)}           & \colhead{(3)}                        & \colhead{(4)}                       & \colhead{(5)}                       & \colhead{(6)}       & \colhead{(7)}    & \colhead{(8))}
+}
+\startdata
+\toprule
+\pid{11878} &	C17	&  04-Dec-2009 & [-0.216,-0.033]	&	[-0.024, 0.049]	&	[-0.129,-0.176]	 & 	  3-Aug-2009	& [232.772,-237.511]\\
+\pid{11878} &	C17	&  15-Mar-2010 & [-0.292, 0.058]	&	[-0.073,-0.572]	&	[-0.247,-0.165]	 & 	     \dots  	& [232.772,-237.511]\\
+\pid{11878} &	C17	&  20-Apr-2010 & [-0.292, 0.053]	&	[-0.072,-0.530]	&	[-0.244,-0.169]	 & 	     \dots  	& [232.772,-237.511]\\
+\pid{11878} &	C17	&  05-Nov-2010 & [-0.168,-0.050]	&	[-0.096,-0.100]	&	[-0.083,-0.154]	 & 	     \dots  	& [232.772,-237.511]\\
+\pid{12399} &	C18	&  11-Mar-2011 & [-0.127, 0.073]	&	[ 0.023,-0.466]	&	[-0.141,-0.038]	 & 	  20-Jun-2011   & [232.772,-237.511]\\
+\midrule
+			&		\multicolumn{3}{c}{2009.215--2011.171}			&   Avg Residual =   & 	[-0.169,-0.141] &	  			& \\
+\midrule
+\pid{12399} &  C18	&12-Sep-2011 & [ 0.088,-0.062]	&	[-0.095,-0.001]	&	[ 0.106, 0.018]	 & 	  21-Jun-2011   & [232.646,-237.445]\\
+\pid{12781} &  C19	&27-Mar-2012 & [-0.024,-0.070]	&	[ 0.155,-0.377]	&	[ 0.033,-0.066]	 & 	     \dots  	& [232.646,-237.445]\\
+\pid{12781} &  C19	&24-Sep-2012 & [ 0.032,-0.125]	&	[-0.072, 0.011]	&	[ 0.111,-0.066]	 & 	     \dots  	& [232.646,-237.445]\\
+\pid{13171} &  C20	&02-Mar-2013 & [ 0.001,-0.145]	&	[ 0.042,-0.112]	&	[ 0.103,-0.102]	 & 	     \dots  	& [232.646,-237.445]\\
+\pid{13171} &  C20	&01-Sep-2013 & [ 0.077,-0.070]	&	[ 0.032, 0.162]	&	[ 0.104, 0.005]	 & 	23-Feb-2014	& [232.646,-237.445]\\
+\midrule
+			&		\multicolumn{3}{c}{2011.172--2014.054}				&   Avg Residual =   & 	[ 0.091,-0.042]		 &	 	& \\
+\midrule
+\pid{13616} &  C21	&06-Apr-2014 & [-0.188, 0.018]	&	[-0.160,-0.089]	&	[-0.146,-0.120]	 & 	24-Feb-2014 & [232.723,-237.515]\\
+\pid{13616} &  C21	&27-Oct-2014 & [ 0.022,-0.043]	&	[ 0.048, 0.119]	&	[ 0.046,-0.015]	 & 	     \dots  	& [232.723,-237.515]\\
+\pid{14035} &  C22	&14-May-2015 & [-0.204,-0.053]	&	[-0.111,-0.039]	&	[-0.107,-0.182]	 & 	     \dots  	& [232.723,-237.515]\\
+\pid{14035} &  C22	&02-Oct-2015 & [ 0.084, 0.044]	&	[ 0.006, 0.195]	&	[ 0.028, 0.091]	 & 	     \dots  	& [232.723,-237.515]\\
+\pid{14452} &  C23	&01-Apr-2016 & [ 0.019, 0.030]	&	[-0.059,-0.054]	&	[-0.008, 0.035]	 & 	     \dots  	& [232.723,-237.515]\\
+\pid{14452} &  C23	&03-Oct-2016 & [ 0.024, 0.021]	&	[-0.017, 0.105]	&	[ 0.002, 0.032]	 & 	     \dots  & [232.723,-237.515]\\
+\midrule
+			&	\multicolumn{3}{c}{2014.055 -- 2016.276}	&   Avg Residual =   & 	[-0.031,-0.027]	 &	  		& \\
+\midrule
+\bottomrule
+\enddata
+\tablenotetext{a}{Dates in this column show the dates that the [V2,V3] SIAF entries in this and the following rows were active.}
+\tablenotetext{b}{These exposures, and the offsets measured here, were used to adjust the COS SIAF entries on 2014.055 (STScI PR\#76982).}
+%\tablecomments{Items in {\bf bold} are used in the analysis of this ISR.}
+\end{deluxetable}
+
+As shown in Table~\ref{tab:SIAFvsAI}, from 2009.215--2011.171 the average SIAF to PSA \tacq{IMAGE} pointing residual was [-0.169,-0.141]\arcsec{} in [AD,XD] ($\Delta$[V2,V3]=[-0.044,-0.215]\arcsec).
+In June 2011, an FGS re-alignment solution was uploaded to HST and a COS SIAF adjustment was performed of $\Delta$[AD,XD]=[0.136,0.139] (2011.173).
+During this time period (2011.172--2014.054) the average SIAF to PSA \tacq{IMAGE} pointing residual was	[0.091,-0.042]\arcsec{} in [AD,XD] ($\Delta$[V2,V3]=[-0.071,0.041]\arcsec).
+In Feb 2014, an new FGS re-alignment solution was uploaded to HST, and a COS SIAF abjustment of [0.070,-0.077]\arcsec{} was initiated (2014.055).
+From 2014.055--2016.276, the average SIAF to PSA \tacq{IMAGE} pointing residual was	[-0.031,-0.027]\arcsec{} in [AD,XD] ($\Delta$[V2,V3]=[0.038,0.065]\arcsec{}).
+Further details about the SIAF coordinates to COS PSA center alignment can be determined by reviewing the average \tacq{IMAGE}
+slews as a function of time and DOMinant FGS. These ``Blind Pointing'' details are beyond the scope of this ISR, but will be presented elsewhere.
+

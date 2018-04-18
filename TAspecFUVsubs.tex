@@ -1,23 +1,23 @@
 \subsection{COS FUV Spectroscopic TA Subarrays}\label{subsec:FUVsupSUBS}
-The FUV spectroscopic TA subarrays for the WCA are the same for \tacq{SEARCH},  \tacq{PEAKD}, and \tacq{PEAKXD}
+The FUV spectroscopic TA subarrays for the WCA are currently the same for \tacq{SEARCH},  \tacq{PEAKD}, and \tacq{PEAKXD}
 and are given in Table~\ref{tab:TAsubWCAfuv} for both FUVA and FUVB.
 Only one subarray is used for the WCA for each FUV segment, these are labeled `A1' and `B1'.
-As the data are taken in ``detector'' coordinates, all FUV TA subarrays values are valid only for the normal operating temperature range of COS. FUVB is not used in G140L TAs.
+As the data are taken in ``detector'' coordinates, all FUV TA subarrays values are valid only for the normal operating temperature range of COS.
+FUVB is not used in G140L TAs. Up to four TA subarrays are possible for each FUV \texttt{SEGMENT}\footnote{Increased from 2 per \texttt{SEGMENT} on 2015.258 with \pr{81263}}
 
 The FUV spectroscopic subarrays used for all external targets at LP1--4 for FUVA are given in Table~\ref{tab:FUVsubA} and for FUVB in Table~\ref{tab:FUVsubB}.
 There are two subarrays used for each FUV segment, these are labeled `A1', `A2', `B1', and `B2'.
 The COS FSW uses the same subarrays for the PSA and BOA as the offset between the FUV spectra is small ($\Delta$~XD$\sim$3p).
-As with the other HST spectrographs, FUV TAs are susceptible to contamination from geocoronal light , particularly Ly$\alpha$ 1216\AA, {\rm O}\textsc{I} 1302\AA, and {\rm Si}{\sc II}1304\AA\ (Penton \& Keyes, 2010).
-The FUV TA subarrays outlined in tables~\ref{tab:FUVsubA} and \ref{tab:FUVsubB} have been tailored to remove regions
-of the target spectrum that may contain Geocoronal light.
-The Geocoronal light fills the aperture and has a very different XD profile which could cause problems with FUV TAs.
+As with the other HST spectrographs, FUV TAs are susceptible to contamination from geocoronal light, particularly Ly$\alpha$ 1216\AA, {\rm O}\textsc{I} 1302\AA, and {\rm Si}{\sc II}1304\AA\ (Penton \& Keyes, 2010).
+The FUV TA subarrays outlined in Tables~\ref{tab:FUVsubA} and \ref{tab:FUVsubB} have been tailored to remove regions
+of the target spectrum that may contain Geocoronal light. The Geocoronal light fills the aperture and has a very different XD profile which could cause problems with FUV TAs.
 
-In 2014--5, several ``hot-spots'' appeared during solar maximum. On April 20, 2015 (2015.110) with \pr{80571}, the FUV LP3 subarrays were adjusted to avoid these hot-spots.
+In 2014--5, several ``hot-spots'' appeared during solar maximum. The FUV LP3 subarrays were adjusted to avoid these hot-spots.
 Details are given in \S~\ref{subsec:hotspots}, and the adjusted FUVB subarrays are also given in Table~\ref{tab:FUVsubB}.
 
 \begin{deluxetable}{r|rrrr|rrrr}
 \tablewidth{0pt}
-\tabcolsep 10 pt
+\tabcolsep 11 pt
 \tabletypesize{\scriptsize}
 \tablecolumns{9}
 \tablecaption{FUV WCA Subarrays for LP1--4\label{tab:TAsubWCAfuv}.}
@@ -54,7 +54,7 @@ Details are given in \S~\ref{subsec:hotspots}, and the adjusted FUVB subarrays a
 	G160M & 1201 & 475 & 13799 & 52 & 1501 &  534 & 13799 & 52 \\
 	G140L & 4701 & 491 & 10299 & 52 &\dots&\dots&\dots&\dots\\
 \enddata
-\tablenotetext{a}{These values were updated on 2009.201 (July 20, 2009) with \pr{63095}, some very early COS calibration and ERO datasets used slightly different TA subarrays.}
+\tablenotetext{a}{These values were updated on 2009.200 (July 19, 2009) with \pr{63095}, some very early COS calibration and ERO datasets used slightly different TA subarrays.}
 \tablenotetext{b}{G140L updates were made on Dec. 4, 2012 (2012.339) with \pr{72193} to futher optimize the G140L subarrays.}
 \tablenotetext{c}{Updated for LP2 operations on July 18, 2012 (2012.200) with \pr{70548}.}
 \tablenotetext{d}{Updated for LP3 operations on Aug. 26, 2014 (2014.238) with \pr{78747}.}
@@ -66,9 +66,9 @@ Details are given in \S~\ref{subsec:hotspots}, and the adjusted FUVB subarrays a
 \tabletypesize{\scriptsize}
 \tabcolsep 8 pt
 \tablecolumns{10}
-\tablecaption{FUVA PSA/BOA Subarrays for LP1--4\label{tab:FUVsubA}}
+\tablecaption{FUVA SA Subarrays for LP1--4\label{tab:FUVsubA}}
 \tablehead{
-\colhead{\textit{OPT\_ELEM}} & \colhead{\cenwave} & \multicolumn{4}{c}{A1 Subarray} & \multicolumn{4}{c}{A2 Subarray}\\
+\colhead{\textit{OPT\_ELEM}} & \colhead{\cenwave{}} & \multicolumn{4}{c}{A1 Subarray} & \multicolumn{4}{c}{A2 Subarray}\\
 \colhead{} & \colhead{(\AA)} &
 \colhead{XC} & \colhead{YC} & \colhead{XS} & \colhead{YS} & \colhead{XC} & \colhead{YC} &\colhead{XS} & \colhead{YS}\\
 \colhead{(1)}&\colhead{(2)} & \colhead{(3)}&\colhead{(4)} &
@@ -129,14 +129,13 @@ G140L & 1105 & 4701 & 372 & 6958 & 112 & 14543 & 372 & 457 & 112\\
 G140L & 1280 & 6201 & 372 & 7400 & 112 &\dots&\dots&\dots& \dots\\
 \bottomrule
 \enddata
-\tablenotetext{a}{Updated on 2009.201 (July 20, 2009) with \pr{63095}, some very early COS calibration and ERO datasets used slightly different TA subarrays.}
+\tablenotetext{a}{Updated on 2009.200 with \pr{63095}, some early ERO and calibrations used slightly different subarrays.}
 \tablenotetext{b}{Updated early in LP1 on Aug 27, 2009 (2009.2239) with \pr{63378}.}
 \tablenotetext{c}{G140L updates were made on Dec. 4, 2012 (2012.339) with \pr{72193} to futher optimize the G140L subarrays.}
 \tablenotetext{d}{Updated for LP2 July 18, 2012 (2012.200) with \pr{70548}.}
 \tablenotetext{e}{Updated for LP3 operations on Aug. 26, 2014 (2014.238) with \pr{78747}.}
 \tablenotetext{f}{Updated for LP4 operations on Feb. 20, 2017 (2017.051) with \pr{86945}.}
-\tablenotetext{g}{Starting with C18, the C1230 \textit{CENWAVE} was replaced with C1280 due to first-order light issues.
-For further details see the C18 COS Instrument Handbook (Dixon et al., 2010) (\pr{64041} and \pr{64659}.}
+\tablenotetext{g}{Starting with C18, the C1230 \textit{CENWAVE} was replaced with C1280 due to first-order light issues (see Dixon et al., 2010, \pr{64041} and \pr{64659}.}
 \end{deluxetable}
 
 \begin{deluxetable}{lc|rrrr|rrrr}
@@ -146,7 +145,7 @@ For further details see the C18 COS Instrument Handbook (Dixon et al., 2010) (\p
 \tabletypesize{\scriptsize}
 \tablecaption{FUVB PSA/BOA Subarrays for LP1--4\label{tab:FUVsubB}.}
 \tablehead{
-\colhead{\textit{OPT\_ELEM}} & \colhead{\cenwave} & \multicolumn{4}{c}{B1 Subarray} & \multicolumn{4}{c}{B2 Subarray} \\
+\colhead{\textit{OPT\_ELEM}} & \colhead{\cenwave{}} & \multicolumn{4}{c}{B1 Subarray} & \multicolumn{4}{c}{B2 Subarray} \\
 \colhead{ } & \colhead{(\AA)} &
 \colhead{XC} & \colhead{YC} & \colhead{XS} & \colhead{YS} & \colhead{XC} & \colhead{YC} & \colhead{XS} & \colhead{YS}\\
 \colhead{(1)}&\colhead{(2)} & \colhead{(3)}&\colhead{(4)} &
@@ -161,9 +160,7 @@ G130M & 1309 & 7023\tablenotemark{b} & 76 & 1501 & 483 & 5490\tablenotemark{a} &
 G130M & 1318 & 7977\tablenotemark{b} & 76 & 1501 & 483 & 4536\tablenotemark{b} & 76 & 10714\tablenotemark{b} & 483\tablenotemark{a,b} \\
 G130M & 1327 & 7629\tablenotemark{b} & 76 & 2792\tablenotemark{b} & 483 & 3593\tablenotemark{b} & 76 & 11657\tablenotemark{b} & 483\tablenotemark{a,b} \\
 G160M & ALL  & 13749 & 76 & 1501 & 477\tablenotemark{a,b} &\dots&\dots&\dots&\dots\\
-G140L & 1105 &\dots&\dots&\dots&\dots&\dots&\dots&\dots&\dots\\
-G140L & 1230\tablenotemark{g} &\dots&\dots&\dots&\dots&\dots&\dots&\dots&\dots\\
-G140L & 1280 &\dots&\dots&\dots&\dots&\dots&\dots&\dots&\dots\\
+G140L & ALL\tablenotemark{g} &\dots&\dots&\dots&\dots&\dots&\dots&\dots&\dots\\
 \midrule
 \multicolumn{10}{c}{LP2\tablenotemark{c}}\\
 \midrule
@@ -173,8 +170,7 @@ G130M & 1309 & 1501 & 522 & 7023 & 76 & 9760 & 522 & 5490 & 76\\
 G130M & 1318 & 1501 & 522 & 7977 & 76 & 10714 & 522 & 4536 & 76\\
 G130M & 1327 & 2792 & 522 & 7629 & 76 & 11657 & 522 & 3593 & 76\\
 G160M & ALL & 1501 & 515 & 13749 & 76        &\dots&\dots&\dots&\dots\\
-G140L & 1105 &\dots&\dots&\dots&\dots&\dots&\dots&\dots&\dots\\
-G140L & 1280 &\dots&\dots&\dots&\dots&\dots&\dots&\dots&\dots\\
+G140L & ALL &\dots&\dots&\dots&\dots&\dots&\dots&\dots&\dots\\
 \midrule
 \multicolumn{10}{c}{LP3\tablenotemark{d}~~(Pre FUVB ``Hot-Spot'')}\\
 \midrule
@@ -184,8 +180,7 @@ G130M & 1309 & 1501 & 460 & 7023 & 76 & 9760 & 460 & 5490 & 76\\
 G130M & 1318 & 1501 & 460 & 7977 & 76 & 10714 & 460 & 4536 & 76\\
 G130M & 1327 & 2792 & 460 & 7629 & 76 & 11657 & 460 & 3593 & 76\\
 G160M & ALL & 1501 & 453 & 13749 & 76        &\dots&\dots&\dots&\dots\\
-G140L & 1105 &\dots&\dots&\dots&\dots&\dots&\dots&\dots&\dots\\
-G140L & 1280 &\dots&\dots&\dots&\dots&\dots&\dots&\dots&\dots\\
+G140L & ALL &\dots&\dots&\dots&\dots&\dots&\dots&\dots&\dots\\
 \midrule
 \multicolumn{10}{c}{LP3\tablenotemark{e}~~(Post FUVB ``Hot-Spot'')\tablenotemark{d}}\\
 \midrule
@@ -195,8 +190,7 @@ G130M & 1309 & 1501 & 460 & 7023 & 76 & 9760 & 460 & 5073\tablenotemark{e} & 76\
 G130M & 1318 & 1501 & 460 & 7977 & 76 & 10714 & 460 & 4119\tablenotemark{e} & 76\\
 G130M & 1327 & 2792 & 460 & 7629 & 76 & 11657 & 460 & 3176\tablenotemark{e} & 76\\
 G160M & ALL & 1501 & 453 & 13332 & 76        &\dots&\dots&\dots&\dots\\
-G140L & 1105 &\dots&\dots&\dots&\dots&\dots&\dots&\dots&\dots\\
-G140L & 1280 &\dots&\dots&\dots&\dots&\dots&\dots&\dots&\dots\\
+G140L & ALL &\dots&\dots&\dots&\dots&\dots&\dots&\dots&\dots\\
 \midrule
 \multicolumn{10}{c}{LP4\tablenotemark{f}}\\
 \midrule
@@ -211,27 +205,27 @@ G140L & 1280 &\dots&\dots&\dots&\dots&\dots&\dots&\dots&\dots\\
 \enddata
 \tablenotetext{a}{Updated during SMOV (2009.201) with \pr{63095}.}
 \tablenotetext{b}{Updated for LP2 operations on July 18, 2012 (2012.200) with \pr{70548}.}
-\tablenotetext{c}{Due to gain sag induced 'Y-walk', the use of the FUVB segment for \tacq{PEAKXD} (\texttt{NUM\_POS=1})
-TAs was deprecated on April 8, 2011 (2011.098) with \pr{67985}. FUVB is still used for \tacq{SEARCH} and \tacq{PEAKD} TA exposures.}
-\tablenotetext{d}{Updated for LP3 operations on Aug. 26, 2014 (2014.238) with \pr{78747}.}
+\tablenotetext{c}{Due to gain sag induced 'Y-walk', FUVB usage for \tacq{PEAKXD} (\texttt{NUM\_POS=1})
+TAs was deprecated on 2011.098 with \pr{67985}. FUVB is still used for \tacq{SEARCH} and \tacq{PEAKD} TA exposures.}
+\tablenotetext{d}{Updated for LP3  on Aug. 26, 2014 (2014.238) with \pr{78747}.}
 \tablenotetext{e}{Updated for post ``Hot-Spot'' LP3 TA operations on April 20, 2015 (2015.110) with \pr{80571}.}
-\tablenotetext{f}{Updated for LP4 operations on Feb. 20, 2017 (2017.051) with \pr{86945}. At LP4, both FUVA and FUVB are supported for all \tacq{PEAKXD} (\textit{NUM\_POS$>1$}) TA exposures. These subarrays also avoid the FUVB ``Hot-Spot''.}
+\tablenotetext{f}{Updated for LP4  on Feb. 20, 2017 (2017.051) with \pr{86945}. Both FUVA and FUVB are used for all LP4 \tacq{PEAKXD}s (\textit{NUM\_POS$>1$}) TA exposures. These subarrays also avoid the FUVB ``Hot-Spot''.}
 \tablenotetext{g}{Starting with C18, the C1230 \textit{CENWAVE} was replaced with C1280 due to first-order light issues.
-For further details see the C18 COS Instrument Handbook (Dixon et al., 2010) (\pr{64041} and \pr{64659}.}
+(see Dixon et al., 2010, \pr{64041} and \pr{64659}.}
 \end{deluxetable}
 
 \subsection{Trimming of COS FUV TA subarrays due to FUVB ``Hot-Spot''.}\label{subsec:hotspots}
 A ``hot-spot'' appeared on the COS FUVB segment coincident with increased solar activity in 2014--15.
 This spot produced enough counts that it could cause mis-centering during all phases of the FUV LP3 (\& LP4) spectroscopic TAs.
-This mis-centerings could be in significant in either the AD or XD. All affected
-LP3 FUVB TA subarrays were adjusted on April 20, 2015 (2015.110)\footnote{See \pr{80571} for futher details.}.
+These mis-centerings could be in significant in either the AD or XD. All affected
+LP3 FUVB TA subarrays were adjusted on April 20, 2015 (2015.110). See \pr{80571} for futher details.
 
-In FUVB detector coordinates, the approximate location of the hot-spot is at [X,Y]=[14895,482]. As this is near the detector edge, we are able to avoid this hotspot by stopping the last subarray of the FUVB subarrays at X=14833.
+In FUVB detector coordinates, the approximate location of the hot-spot is at [X$_{DET}$,Y$_{DET}$]=[14895,482]. As this is near the detector edge, we are able to avoid this hotspot by stopping the last subarray of the FUVB subarrays at X$_{DET}$=14833.
 For the COS FUV gratings and the FUVB TA subarrays, the impacts were:\\
 \begin{description}
 	\item[G140L:] Not affected as no FUVB TA subarrays are used for G140L
-	\item[G160M:] One FUVB subarray is used for each \textit{CENWAVE} with XC1=1501, XS1=13749. These were all changed to XS=13332 (no change in Y).
-	\item[G130M:] Two \textit{CENWAVE}-specific FUVB subarrays are used to avoid Geocoronal Ly$\alpha$. The X-size (XS) of the second subarray (XS2) will be trimmed to avoid the hotspot (XC1, XS1, XC2 and all the Y definitions do not change).
+	\item[G160M:] One FUVB subarray is used for each \cenwave{} with XC1=1501, XS1=13749. These were all changed to XS=13332 (no change in Y).
+	\item[G130M:] Two \cenwave{}-specific FUVB subarrays are used to avoid Geocoronal Ly$\alpha$. The X-size (XS) of the second subarray (XS2) will be trimmed to avoid the hotspot (XC1, XS1, XC2 and all the Y definitions do not change).
 \end{description}
 
 As of March 2018, no additional hot-spots have appeared on either FUVA or FUVB that required adjustment of the TA subarrays.

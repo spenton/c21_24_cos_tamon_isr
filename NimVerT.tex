@@ -1,4 +1,4 @@
-% RCSID: "$Id: NimVerT.tex,v 1.1 2018/03/30 20:22:12 penton Exp $"
+% RCSID: "$Id: NimVerT.tex,v 1.3 2018/04/17 18:38:43 penton Exp $"
 
 \begin{deluxetable}{llccc|llccc|llccc}
 \tablecaption{\tacq{IMAGE} Co-alignment Measurements\label{tab:coaligned}}
@@ -19,7 +19,13 @@
 }
 \startdata
 \toprule
-\multicolumn{15}{c}{C21}\tablenotemark{b}\\
+\multicolumn{15}{c}{C20\tablenotemark{d}}\\
+\midrule
+\pid{13171} & lc6ka2imq & PSA$\times$MIRA & [-0.070, 0.158] & 127.1 &\pid{13171} & lc6ka2ioq & PSA$\times$MIRB & [-0.019,-0.009] & 127.1 & \dots & \dots & \dots & \dots & \dots  \\
+\pid{13124} & lc6601rrq & PSA$\times$MIRB & [-0.012,-0.211] & 127.1 &\pid{13124} & lc6601rvq & BOA$\times$MIRA & [ 0.012, 0.074] & 127.1 & \dots & \dots & \dots & \dots & \dots  \\
+\pid{13124} & lc6602y5q & BOA$\times$MIRA & [-0.066,-0.032] & 126.1 &\pid{13124} & lc6602y9q & BOA$\times$MIRB & [-0.019,-0.102] & 126.1 & \dots & \dots & \dots & \dots & \dots  \\
+\midrule
+\multicolumn{15}{c}{C21\tablenotemark{b}}\\
 \midrule
 \pid{13616} & lci4a2e3q & PSA$\times$MIRA & [ 0.001, 0.133] & 127.1 &\pid{13616} & lci4a2e5q & PSA$\times$MIRB & [ 0.016, 0.027] & 127.1 & \dots & \dots & \dots & \dots & \dots  \\
 \pid{13526} & lcgq03dbq & PSA$\times$MIRA & [ 0.166,-0.168] & 127.1 &\pid{13526} & lcgq03dlq & PSA$\times$MIRB & [-0.029, 0.006] & 127.1 &\pid{13526} & lcgq03dtq & PSA$\times$MIRA & [0.032,-0.026] & 127.1 \\
@@ -50,6 +56,7 @@ A second Configuration\#1 \tacq{IMAGE} provides a second co-alignment measuremen
 \tablenotetext{b}{During C21, both the FGS-to-SI (\pid{13636}) and TA monitoring program (\pid{13526}) executed PSA$\times$MIRA and PSA$\times$MIRB back-to-back \tacq{IMAGE}s.
 \tablenotetext{c}{``\dots'' indicate that there is no confirming PSA$\times$MIRA Configuration\#1 exposure.}
 \pid{13526} contained an additional PSA$\times$MIRA exposure as part of the MIRB re-enablement effort. Both programs provided consistent results, but the more complete \pid{13526} dataset is used in the analysis of this ISR. }
+\tablenotetext{d}{During C20 no confirming PSA$\times$MIRA \tacq{IMAGE}s were obtained in the COS TA monitoring program (\pid{13124}).}
 \tablecomments{FGS-to-SI alignment programs (\pid{13616}, \pid{14035}, \& \pid{14452}) contain a singe pair of \tacq{IMAGE}s, while the COS TA programs contain a third Configuration\#1 \tacq{IMAGE}. }
 \end{deluxetable}
 
@@ -95,37 +102,3 @@ BOA$\times$MIRA & BOA$\times$MIRB &	[ 0.006,-0.011]  & [-0.015, 0.060]   & [ 0.0
 \tablenotetext{a}{For C22 and C23, no confirming PSA$\times$MIRA Configuration\#1 exposures were acquired.}
 \end{deluxetable}
 \input{coaligned.tex}
-%[ 0.016, 0.027]	& [ 0.000,0.000]	& [ 0.016, 0.027]
-%[-0.033, 0.046]	& [ 0.000,0.053]	& [-0.033, 0.072]
-%[-0.011,-0.084]	& [ 0.000,0.053]	& [-0.011,-0.058]
-%
-%[ 0.022, 0.007]	& [ 0.000, 0.000]	& [ 0.022, 0.007]
-%[-0.024, 0.101]	& [ 0.000,-0.053]	& [-0.024, 0.074]
-%[ 0.022,-0.014]	& [ 0.000,-0.053]	& [ 0.022,-0.040]
-%
-%[-0.002, 0.021]	& [ 0.000, 0.000]	& [-0.002,0.021]
-%[-0.017, 0.088]	& [ 0.000,-0.053]	& [-0.017,0.062]
-%[ 0.007, 0.122]	& [ 0.000,-0.053]	& [ 0.007,0.095]
-%
-%[ 0.020, 0.017]	& [ 0.000, 0.000]	& [ 0.020,0.017]
-%[-0.021, 0.086]	& [ 0.000,-0.053]	& [-0.021,0.060]
-%[ 0.011,-0.036]	& [ 0.000,-0.05]3	& [ 0.011,-0.062]
-
-%\begin{table}
-%\caption{NUV Image Analysis\label{tab:nuvimageanal}}
-%\begin{tabular}{lcccr}
-%\toprule
-%\multirow{5}{*}{\parbox[c]{1 in}{\includegraphics[width=1in]{png/lcgq01q7q_wca.png}}} & WCA &  \textit{APERTURE} &PSA & \multirow{5}{*}{\parbox[c]{1 in}{\includegraphics[width=1in]{png/lcgq01q7q_sa.png}}} \\
-% &lcgq01q7q & \textit{ROOTNAME} & lcgq01q7q &  \\
-% &[717.0,214.0] & [AD,XD] Standard Measurement & [763.1,588.9] &   \\
-% &[717.0,214.0] & [AD,XD] Alternate Measurement & [1.0,1.0] & \\
-% &[0.0,0.0] & [AD,XD] Standard - Alternate  & [762.1,587.9] & \\
-%\midrule
-%\multirow{5}{*}{\parbox[c]{1 in}{\includegraphics[width=1in]{png/lcgq01q9q_wca.png}}} & WCA &  \textit{APERTURE} &BOA & \multirow{5}{*}{\parbox[c]{1 in}{\includegraphics[width=1in]{png/lcgq01q9q_sa.png}}} \\
-% &lcgq01q9q & \textit{ROOTNAME} & lcgq01q9q &  \\
-% &[479.0,370.0] & [AD,XD] Standard Measurement & [550.3,739.9] &   \\
-% &[479.0,368.0] & [AD,XD] Alternate Measurement & [3.6,3.7] & \\
-% &[0.0,2.0] & [AD,XD] Standard - Alternate  & [546.7,736.2] & \\
-%\bottomrule
-%\end{tabular}
-%\end{table}

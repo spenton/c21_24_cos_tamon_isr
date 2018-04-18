@@ -5,8 +5,12 @@
 \tabletypesize{\scriptsize}
 \tablecaption{FITS Reported TA \tacq{IMAGE} Subarrays\label{tab:IMsubs}}
 \tablehead{
-\colhead{\textit{PROPOSID}} & \colhead{} & \colhead{\textit{APERTURE}} & \multicolumn{4}{c}{WCA} & \multicolumn{4}{|c|}{SA (PSA or BOA)} & \colhead{\textit{DATE-OBS}}\\
-\colhead{(PID)} & \colhead{IPPPSSOOT} & \colhead{$\times$MIRROR} & \multicolumn{1}{|r}{XC} & \colhead{YC} & \colhead{XS} & \colhead{YS} & \colhead{XC} & \colhead{YC} & \colhead{XS} & \colhead{YS} & \colhead{}
+\colhead{\textit{PROP}} & \colhead{\textit{ROOT}} & \colhead{\textit{APERTURE}} & \multicolumn{4}{c}{WCA} & \multicolumn{4}{|c|}{SA (PSA or BOA)} & \colhead{\textit{DATE-OBS}}\\
+\colhead{\textit{OSID}} & \colhead{\textit{NAME}} & \colhead{$\times$MIRROR} & \multicolumn{1}{|r}{XC} & \colhead{YC} & \colhead{XS} & \colhead{YS} & \colhead{XC} & \colhead{YC} & \colhead{XS} & \colhead{YS} & \colhead{}\\
+\colhead{(1)} & \colhead{(2)} & \colhead{(3)}&
+\colhead{(4)} & \colhead{(5)} & \colhead{(6)} & \colhead{(7)} &
+\colhead{(8)} & \colhead{(9)} & \colhead{(10)} & \colhead{(11)} &
+\colhead{(12)}
 }
 \startdata
 \toprule
@@ -45,7 +49,7 @@
 13171& lc6ka2ioq & PSA$\times$MIRB & 184 & 539 & 50 & 300 & 411 & 200 & 345 & 816 & 2013-09-01 \\
 13616& lci4a1deq & PSA$\times$MIRB & 184 & 539 & 50 & 300 & 411 & 200 & 345 & 816 & 2014-04-03 \\
 \midrule
-\multicolumn{12}{c}{MIRB \tacq{IMAGE} Subarray Size Change (\pr{78749})}\\
+\multicolumn{12}{c}{MIRB \tacq{IMAGE} Subarray Size After \pr{78749} Update }\\
 \midrule
 13616& lci4a2e5q & PSA$\times$MIRB & 187 & 566 & 50 & 300 & 411 & 200 & 345 & 816 & 2014-10-27 \\
 13526& lcgq01q5q & PSA$\times$MIRB & 187 & 566 & 50 & 300 & 411 & 200 & 345 & 816 & 2014-11-19 \\
@@ -68,6 +72,6 @@
 14857& ldozpbfbq & PSA$\times$MIRB & 187 & 566 & 50 & 300 & 411 & 200 & 345 & 816 & 2017-09-10 \\
 \bottomrule
 \enddata
-\tablecomments{As correctly reported in the FITS files, the  MIRB subarrays values were updated from [XC,YC]=[184,539] to [187,566] on Oct. 6, 2014 (2014.279) with \pr{78749}. Simultaneously, the MIRB \tacq{} lamp exposure time and current settings (for the P2 lamp)
-TAsubarrays.tex:were changed from 17s @ LOW current to 12s @ MED current (\pr{78749}). The FSW WCA-to-SA offsets (\textsc{[X,Y]imCalTargetOffset}) were adjusted accordingly (\pr{79116}) on October 16, 2014 (2014.289)}
+\tablecomments{As correctly reported in the FITS files, the  MIRB subarrays values were updated from [XC,YC]=[184,539] to [187,566] on 2014.279 with \pr{78749}. Simultaneously, the MIRB \tacq{} lamp exposure time and current settings (for the \plamptwo{} lamp)
+TAsubarrays.tex:were changed from 17s @ LOW current to 12s @ MED current (\pr{78749}). The FSW WCA-to-SA offsets (\textsc{[X,Y]imCalTargetOffset}) were adjusted accordingly (\pr{79116}) on 2014.289.}
 \end{deluxetable}

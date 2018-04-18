@@ -1,4 +1,4 @@
-% $Id: cos_tamon_isr2018.tex,v 1.3 2018/03/30 21:22:16 penton Exp $
+% $Id: cos_tamon_isr2018.tex,v 1.6 2018/04/18 04:10:05 penton Exp penton $
 \documentclass{stsci_report}
 \usepackage{graphicx}
 \usepackage{threeparttable}
@@ -18,15 +18,15 @@
 %\bibliography{bibliography.bib}
 \copyrighttext{Copyright\copyright\ \the\year\ The Association of Universities for Research in Astronomy, Inc. All Rights Reserved.}
 
-\presubtitle{Instrument Science Report HST+COS 2018}
-\title{\textbf{Cycle 21-24 HST+COS\\Target Acquisition Monitoring}}
+\presubtitle{Instrument Science Report HST+COS 2018-XX}
+\title{\textbf{Cycle 20--24 HST+COS\\Target Acquisition Monitoring}}
 \author{Steven V. Penton}
 \date{\today}
 
 \DeclareGraphicsRule{.ps}{eps}{.ps}{}
 \definecolor{GREEN}{rgb}{0, 1.0, 0}
 \definecolor{RED}{rgb}{1,0,0}
-\definecolor{MAGENTA}{rgb}{1,1,0}
+\definecolor{MAGENTA}{rgb}{1,0,1}
 \definecolor{BLUE}{rgb}{0,0,1}
 \definecolor{Lblue}{rgb}{0.8,0.85,1}
 \definecolor{darkgreen}{rgb}{0.25,1.0,0.25}
@@ -46,12 +46,22 @@
 \newcommand{\kms}{~\nokmsno\ }
 \newcommand{\tacq}[1]{\texttt{ACQ/#1}}
 \newcommand{\acq}[1]{\texttt{ACQ/#1}}
-\newcommand{\pid}[1]{{\bf P}#1}
+\newcommand{\pid}[1]{{\rm P}#1}
+\newcommand{\plampone}{{\bf P1}}
+\newcommand{\plamptwo}{{\bf P2}}
 \newcommand{\pr}[1]{{\it PR\#}#1}
 \newcommand{\fsw}[1]{{\textsc LTA#1}}
-\newcommand{\cenwaveno}{\textit{CENWAVE}}
-\newcommand{\cenwave}{\cenwaveno\space}
-\def\cenwaves{\textit{CENWAVE}s }
+\newcommand{\cenwave}{\textit{CENWAVE}}
+\newcommand{\ts}{\textsuperscript}
+\def\cenwaves{\textit{CENWAVE}s}
+\let\oldsqrt\sqrt
+% Define the new \sqrt in terms of the old one
+\def\sqrt{\mathpalette\DHLhksqrt}
+\def\DHLhksqrt#1#2{%
+\setbox0=\hbox{$#1\oldsqrt{#2\,}$}\dimen0=\ht0
+\advance\dimen0-0.2\ht0
+\setbox2=\hbox{\vrule height\ht0 depth -\dimen0}%
+{\box0\lower0.4pt\box2}}
 
 \begin{document}
 \maketitle
@@ -63,7 +73,6 @@
 \listoftables
 \newpage
 \input{intro.tex}
-\input{History.tex}
 \clearpage
 \input{TAoperations}
 \input{requirements.tex}
@@ -79,7 +88,6 @@
 \input{TAspecsubs.tex}
 \input{TAspecFUVsubs.tex}
 \clearpage
-\section{NUV Imaging TA verification}\label{sec:NimVER}
 \input{NimVer.tex}
 \input{NimVerT.tex}
 \input{NimFPortrait.tex}
@@ -90,7 +98,10 @@
 %{\bf Note to Reviewers: There are additional details on the COS SIAF entries that can be inferred from the FGS-to-SI alignment program than are documented here. They mostly live in spreadsheet, that
 %should be in the directory in the repo called ``siaf\_extra''. If you feel this document would be a good place to put that information, it could be added here.
 %Also, nowhere in any ISR are our SIAF entries documented. If requested, they could be added to the ISR either here or in the appendix.}
+\clearpage
 \input{siaf.tex}
+\clearpage
+\input{slewaccuracy.tex}
 %\subsection{[OPTIONAL] Blind Pointing \tacq{IMAGE}} \label{sec:bp}
 %{\bf Note to Reviewers: We have been monitoring the ``blind pointing'' of HST for this entire time with initial offsets from \tacq{IMAGE}s. Should we include those here ? A sample figure is included as Figure~\ref{fig:BP}.}
 %\begin{figure}[htb]
@@ -116,75 +127,63 @@
 \input{fspVER.tex}
 \clearpage
 \input{Results.tex}
-\vspace{-0.3cm}
-\section{Conclusions.\label{theend} }
-\vspace{-0.3cm}
-Through constant monitoring, and periodic FSW, ground commanding, and operations updates,
-HST+COS TA has performed remarkablely well during Cycles 21--24. The STScI Team thanks the
-GSFC and STScI personal for there outstanding cooperation and contributions in these efforts
-
-NUV detector background has been the biggest source of concern
-for NUV TAs, while FUV gain-sag induced Y-walk and inherent detector geometric distortions
-were the biggest concerns of FUV TAs at LP1--3. At FUV LP4, Y-walk will not be as big a concern as
-the \numposone~\tacq{PEAKXD} is not affected by either Y-walk or geometric distortions.
-
-\clearpage
 %%%%%%%%
 %Acknowledgements
 %%%%%%%%
-\vspace{-0.3cm}
 \section{Acknowledgements}
-The author would like to thank the following GSFC and STScI personal for their contributions to supporting COS
-GFSC: Mike Kelly, Ben Teasdel, Olivia Lupie, Scott Swain,
-STScI: John Bacinski, Colin Cox, George Chapman, Joshua Goldberg, Matt Lalla, Sean Lockwood, Karla Peterson, Merle Reinhart,  David Sahnow, Alan Welty, James White, \& Brian York.
-
-\vspace{-0.3cm}
+The author would like to thank the following Instrument Development Team (IDT), GSFC and STScI personal for their contributions to supporting COS over the years:
+\begin{itemize}
+\item{GFSC : }{Larry Dunham, Mike Kelly, Olivia Lupie,  Faizan Naqvi, Beverly Serrano, Scott Swain, Ben Teasdel, \& Morgan Van Arsdell.}
+\item{STScI : }{John Bacinski, George Chapman, Colin Cox, Joshua Goldberg, Matt Lallo, Sean Lockwood, Karla Peterson, Merle Reinhart, Mary Romelfinger, David Sahnow, Alan Welty, Thomas Wheeler, James White, \& Brian York.}
+\item{IDT : }{James Green, Jason McPhate, \& Steven Osterman.}
+\end{itemize}
 %%%%%%%%
 %Change History
 %%%%%%%%
-\vspace{0.3cm}
 %Put instrument, year, and ISR number
 \section{Change History for COS ISR 2018-XX}\label{sec:History}
-\vspace{0.3cm}
 %Put publication date
-Version 0.01: 30-March-2018 Original Draft Document for Review
-Version 0.02: 04-April-2018 NUV Image Verification Section partially debuts with tweaks to tables and text (no external comments)
-Version 0.10: 08-April-2018 At direction for management, removed all notes to reviewers. All sections not complete have been removed (no external comments)
-%{\bf Note to reviewers: I will be documenting updates here, until Version 1.0 is released.}
+Version 0.01: 30-March-2018 Original Draft Document for Review \\
+Version 0.02: 04-April-2018 NUV Image Verification Section partially debuts with tweaks to tables and text (no external comments) \\
+Version 0.03: 12-April-2018 At direction for management, removed all notes to reviewers. All sections not complete have been removed (no external comments)\\
+Version 0.10: 17-April-2018 After careful re-evaluation of all FGS-to-SI telemetry, numerous errors were discovered and corrected. This allowes the SIAF and SLEW accuracy sections to become viable, and they have been re-inserted and drastically updated. This version is ready for external review.\\
+{\bf Note to reviewers: I will be documenting updates here, until Version 1.0 is released. At that time, these will be removed for the Version 1.0 declaration.}
 %%%%%%%%
 %References
 %%%%%%%%
-\vspace{0.3cm}
+\clearpage
 \section{References}\label{sec:References}
 \vspace{0.3cm}
-
 \small
 Dixon, W.~V., et al. 2010, Cosmic Origins Instrument Handbook (IHB), Version 2.0 (Baltimore, STScI)\\
-Keyes, T., \& Penton, S. 2010, COS ISR 2010-14 (v1) (HST+COS Target Acquisition Guidelines, Recommendations, and Interpretation)\\
+Keyes, T., \& Penton, S. 2010, COS ISR 2010-14 (v1), ``HST+COS Target Acquisition Guidelines, Recommendations, and Interpretation''\\
 Fix, M.~B., 2018, COS ISR 2018-03 (v1) (COS NUV Dark Monitor Summary)\\
-Fox, A., et al. 2017, Cosmic Origins Spectosgraph Instrument Handbook (IHB), Version 9.0 (Baltimore, STScI)\\
-Goudfrooij, P., Burgh, E., Aloisi, A., Hartig, G., and Penton, S., 2010, COS 2010-10(v2), "SMOV: COS NUV Imaging Performance"
+Fox, A.~J., et al. 2017, Cosmic Origins Spectrograph Instrument Handbook (IHB), Version 9.0 (Baltimore, STScI)\\
+Fox, A.~J., at al. 2015, COS Data Handbook (DHB), Version 3.0 (Baltimore, STScI)\\
+Goudfrooij, P., Burgh, E., Aloisi, A., Hartig, G., and Penton, S., 2010, COS 2010-10(v2), ``SMOV: COS NUV Imaging Performance''''\\
+Hartig, G., Delker, T., \& Keyes, T., 2010, COS ISR 2010-04 (v1) ``SMOV: COS NUV On-orbit Optical Alignment''\\'
 Holland, S. T., et al. 2014, Cosmic Origins Spectrograph Instrument Handbook (IHB), Version 6.0 (Baltimore: STScI)\\
 Lallo, M., 2008, TEL ISR 2008-02,``The COS Pre-flight Aperture Model and SIAF.dat File''
-Penton, S,, 2001, COS-11-0024A, ``TAACOS: Phase I NUV Report''\\
-Penton, S., 2001, COS-11-0014B, ``Recommended TA FSW and Operations Changes Based upon the TAACOS Phase I Reports for the FUV and NUV Channels"\\
+Osbourne, B.~J., 2004, BATC SE-02 (IN0090-903), ``COS Systems Hanbook and User's Manuel'' (Boulder, CO: BATC)\\
+Penton, S,, 2001A, COS-11-0024A, ``TAACOS: Phase I NUV Report''\\
+Penton, S., 2001B, COS-11-0014B, ``Recommended TA FSW and Operations Changes Based upon the TAACOS Phase I Reports for the FUV and NUV Channels''\\
 Penton, S., 2002, COS-11-0016A, ``TAACOS: Phase I FUV Report''\\
-Penton, S., 2010, "The 2010 STScI Calibration Workshop : COS: On-Orbit Performance of Target Acquisitions"
-Penton, S., \& Keyes, T., 2011, COS TIR 2010-03 (On-Orbit Target Acquisitions with HST+COS)\\
-Penton, S., 2016, COS ISR 2016-09 (Cycle~22 HST+COS Target Acquisition Monitoring Summary (\pid{13972})\\
-Penton, S., 2017, COS ISR 2017-18 (Cycle~23 HST+COS Target Acquisition Monitoring Summary (\pid{14440})\\
-Penton, S., COS ISR 2018-{\bf XX} (HST+COS LP2 Target Acquisition Enabling (LENA3, \pid{12797})\\
-Penton, S., COS ISR 2018-{\bf XX} (HST+COS LP3 Target Acquisition Enabling (FENA4, \pid{13636})\\
-Penton, S. \& White, J. 2018, COS ISR 2018-{\bf XX} (HST+COS LP4 Target Acquisition Enabling (\pid{14907}\\
-Proffitt, C., et al., 2013, COS ISR 2013-03 , ``Second COS FUV LP: Verification of Aperture and FUV Spectrum Placement (FENA2, \pid{12795})''\\
-Roman-Duval, J., 2015, COS ISR 2015-02 (Summary of the COS Cycle 20 Calibration Program: \pid{13124})\\
+Penton, S., 2010, ``The 2010 STScI Calibration Workshop : COS: On-Orbit Performance of Target Acquisitions''\\
+Penton, S., \& Keyes, T., 2011, COS TIR 2010-03, ``On-Orbit Target Acquisitions with HST+COS''\\
+Penton, S., 2016, COS ISR 2016-09, ``Cycle~22 HST+COS Target Acquisition Monitoring Summary'' (\pid{13972})\\
+Penton, S., 2017, COS ISR 2017-18, ``Cycle~23 HST+COS Target Acquisition Monitoring Summary'' (\pid{14440})\\
+Penton, S., COS ISR 2018-{\bf 22}, ``HST+COS LP2 Target Acquisition Enabling'' (LENA3, \pid{12797})\\
+Penton, S., COS ISR 2018-{\bf 33}, ``HST+COS LP3 Target Acquisition Enabling'' (FENA4, \pid{13636})\\
+Penton, S. \& White, J. 2018, COS ISR 2018-{\bf 44}, ``HST+COS LP4 Target Acquisition Enabling'' (\pid{14907})\\
+Proffitt, C., et al., 2013, COS ISR 2013-03  ``Second COS FUV LP: Verification of Aperture and FUV Spectrum Placement (FENA2, \pid{12795})''\\
+Roman-Duval, J., 2015, COS ISR 2015-02, ``Summary of the COS Cycle 20 Calibration Program'' (\pid{13124})\\
 Rose, S., et al., 2017, HST Cycle~25 Phase II Proposal Instructions (V25.0)\\
-Sahnow, D., \& Penton, S., COS ISR 201X-YY, ``COS Aperture and Spectrum Placement at LP3 (LENA1, \pid{13634})''\\
-Sahnow, D., \& Penton, S., COS ISR 201X-ZZ, ``COS Aperture and Spectrum Placement at LP4 (\pid{14875})''\\
-Sana, H., et. al., 2015, COS ISR 2015-06 (Summary of the COS Cycle 21 Calibration Program: \pid{13526}))\\
+Sahnow, D., \& Penton, S., COS ISR 201{\bf X-YY}, ``COS Aperture and Spectrum Placement at LP3'' (LENA1, \pid{13634})\\
+Sahnow, D., \& Penton, S., COS ISR 201{\bf X-ZZ}, ``COS Aperture and Spectrum Placement at LP4'' (\pid{14875})\\
+Sana, H., et. al., 2015, COS ISR 2015-06, ``Summary of the COS Cycle 21 Calibration Program" (\pid{13526})\\
 Smith, H., et al., 2004, ``Hubble Space Telescope Cosmic Origins Spectrograph Contract End Item (CEI) Specification'' (NASA STE-63, HST \#TM-025984) (2004)\\
-Sonnetrucker, P., et. al., 2016, COS ISR 2016-03 (Summary of the COS Cycle 22 Calibration Program : \pid{13972}) \\
-Taylor, J., 2017, COS ISR 2017-13, ``Cycle 23 COS/NUV Spectroscopic Sensitivity Monitor (\pid{14441})''\\
+Sonnetrucker, P., et. al., 2016, COS ISR 2016-03, ``Summary of the COS Cycle 22 Calibration Program'' (\pid{13972}) \\
+Taylor, J., 2017, COS ISR 2017-13, ``Cycle 23 COS/NUV Spectroscopic Sensitivity Monitor'' (\pid{14441})\\
 \normalsize
 \newpage
 \clearpage
@@ -192,8 +191,5 @@ Taylor, J., 2017, COS ISR 2017-13, ``Cycle 23 COS/NUV Spectroscopic Sensitivity 
 %Appendix
 %%%%%%%%
 %\vspace{-0.3cm}
-\input{FSWappendix.tex}
-%{\bf Note To Reviewer: If You Think That A Complete Listing Of All TA FSW Parameters And Tables Is Appropriate, I Am Willing To Include These Here.
-%Here is a sample table, that is current referenced.}
-%\vspace{-0.3cm}
+%\input{FSWappendix.tex}
 \end{document}

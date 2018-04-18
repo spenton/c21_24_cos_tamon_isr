@@ -1,10 +1,15 @@
-head	1.3;
+head	1.4;
 access;
 symbols;
 locks
-	penton:1.3; strict;
+	penton:1.4; strict;
 comment	@% @;
 
+
+1.4
+date	2018.04.17.18.39.53;	author penton;	state Exp;
+branches;
+next	1.3;
 
 1.3
 date	2018.03.30.22.08.14;	author penton;	state Exp;
@@ -26,58 +31,121 @@ desc
 @@
 
 
-1.3
+1.4
 log
-@tweaks
+@changed cenwave macro
 @
 text
 @\begin{deluxetable}{rcrr}
-\tablecaption{FGS-to-SI Program Initial Pointing Determinations\label{table:activesiaf}}
+\tablecaption{Active COS SIAF\tablenotemark{a}~~Entries\label{tab:activesiaf}}
+\tabletypesize{\footnotesize}
+\tablewidth{0pt}
+\tabcolsep 16 pt
 \tablecolumns{4}
 \tablehead{
-\colhead{APERNAME} & \colhead{YEAR.DAY Activated} &  \colhead{V2 (\arcsec)} & \colhead{V3 (\arcsec)}
+\colhead{SIAF} & \colhead{YEAR.DAY} &  \colhead{V2} & \colhead{V3}\\
+\colhead{APERNAME} & \colhead{Activated} &  \colhead{(\arcsec)} & \colhead{(\arcsec)}
 }
 \startdata
-\hline
+\toprule
 \multicolumn{4}{c}{NUV LP1}\\
-\hline
+\midrule
 LNMAC & 2014.055  & +232.7230 & -237.5150\\
 LNBOA & 2014.055  & +232.7230 & -237.5150\\
 LNPSA & 2014.055  & +232.7230 & -237.5150\\
 LAPTNBOAOF &2014.055  & +223.3488 & -246.8892\\
 LAPTNPSAOF &2014.055  & +242.0972 & -228.1408\\
-\hline
+\midrule
 \multicolumn{4}{c}{FUV LP1}\\
-\hline
+\midrule
+LFMAC      & 2014.055  & +232.7230 & -237.5150\\
 LFBOA1     & 2016.151  & +232.7230 & -237.5150\\
 LFPSA1     & 2016.151  & +232.7230 & -237.5150\\
 LAPTFBOAF1 & 2016.151  & +223.3488 & -246.8892\\
 LAPTFPSAF1 & 2016.151  & +242.0972 & -228.1408\\
-\hline
+\midrule
 \multicolumn{4}{c}{FUV LP2}\\
-\hline
-LFBOA2     & 2016.151  & +235.1580 & -235.0100\\
+\midrule
+LFBOA2      & 2016.151  & +235.1580 & -235.0100\\
 LFPSA2      & 2016.151  & +235.1580 & -235.0100\\
 LAPTFBOAF2  & 2016.151  & +225.7838 & -244.3842\\
 LAPTFPSAF2  & 2016.151  & +244.5322 & -225.6358\\
-\hline
+\midrule
 \multicolumn{4}{c}{FUV LP3}\\
-\hline
+\midrule
 LFBOA3      & 2016.151  & +230.9137 & -239.2749\\
 LFPSA3      & 2016.151  & +230.9137 & -239.2749\\
 LAPTFBOAF3  & 2016.151  & +221.5395 & -248.6491\\
 LAPTFPSAF3  & 2016.151  & +240.2879 & -229.9007\\
-\hline
+\midrule
 \multicolumn{4}{c}{FUV LP4}\\
-\hline
+\midrule
 LFBOA4      & 2017.031  & +229.1328 & -241.0575\\
 LFPSA4      & 2017.031  & +229.1328 & -241.0575\\
 LAPTFBOAF4  & 2017.031  & +219.7586 & -250.4317\\
 LAPTFPSAF4  & 2017.031  & +238.5070 & -231.6833\\
-\hline
+\bottomrule
 \enddata
-\tablecomments{Explain APERNAME and reference figures}
+\tablenotetext{a}{SIAF = Science Instrument Aperture File.}
+\tablecomments{COS SIAF ``Aperture Names'' (APERNAME) start with the ``L"", and are
+followed by either an ``N'' (NUV), ``F'' (FUV), or
+``APT''' indicating that the aperture is only used in APT and not for observations.
+``APT'' in the APT entries are immediately followed by an ``N'' or ``F''.
+The SA (BOA or PSA) or MAC then follows.
+MAC represents the APT/SPSS MACro aperture used for bright object checking.
+Finally, FUV entries end in a number giving the LP\#, while the NUV ''offset'' aperturens end with ``OF''.}
 \end{deluxetable}
+@
+
+
+1.3
+log
+@tweaks
+@
+text
+@d2 4
+a5 1
+\tablecaption{FGS-to-SI Program Initial Pointing Determinations\label{table:activesiaf}}
+d8 2
+a9 1
+\colhead{APERNAME} & \colhead{YEAR.DAY Activated} &  \colhead{V2 (\arcsec)} & \colhead{V3 (\arcsec)}
+d12 1
+a12 1
+\hline
+d14 1
+a14 1
+\hline
+d20 1
+a20 1
+\hline
+d22 2
+a23 1
+\hline
+d28 1
+a28 1
+\hline
+d30 2
+a31 2
+\hline
+LFBOA2     & 2016.151  & +235.1580 & -235.0100\\
+d35 1
+a35 1
+\hline
+d37 1
+a37 1
+\hline
+d42 1
+a42 1
+\hline
+d44 1
+a44 1
+\hline
+d49 1
+a49 1
+\hline
+d51 8
+a58 1
+\tablecomments{Explain APERNAME and reference figures}
 @
 
 

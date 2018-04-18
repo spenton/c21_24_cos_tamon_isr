@@ -1,32 +1,30 @@
-% $Id: TAoperations.tex,v 1.2 2018/03/27 18:32:49 penton Exp $
+% $Id: TAoperations.tex,v 1.5 2018/04/18 04:10:05 penton Exp penton $
 \section{COS TA Operations Summary}\label{sec:TAoperations}
 
-There are three modes of Target Acquisition (TA) for the Cosmic Origins Spectograph (COS); NUV imaging, NUV spectroscopic, and FUV spectroscopic.
+There are three modes of Target Acquisition (TA) for the Cosmic Origins Spectrograph (COS); NUV imaging, NUV spectroscopic, and FUV spectroscopic.
 There are four COS TA (\tacq{}) procedures; \tacq{IMAGE}, \tacq{PEAKD}, \tacq{PEAKXD}, and \tacq{SEARCH}.
 \tacq{PEAKD} and \tacq{SEARCH} step the telescope through dwell patterns on the sky.
-As long as the target light falls correctly within the TA detector sub-arrays, \tacq{PEAKD} and \tacq{SEARCH} will continue to nominally assist in TA (barring any unforeseen anomalies, such as detector `hot-spots').
-The \tacq{IMAGE} and \tacq{PEAKXD} procedures also rely on the sub-arrays, but also rely on numerous patchable (changeable) constants
+As long as the target light falls correctly within the TA detector subarrays, \tacq{PEAKD} and \tacq{SEARCH} will continue to nominally assist in TA (barring any unforeseen anomalies, such as detector `hot-spots').
+The \tacq{IMAGE} and \tacq{PEAKXD} procedures also rely on the subarrays, but also rely on numerous patchable (changeable) constants
 in the COS flight software (FSW) which assist in target centering.
 
 In both \tacq{IMAGE} and \tacq{PEAKXD}, the internal wavelength calibration lamp is flashed to locate the center of the wavelength calibration aperture (WCA).
 From this location, the center of the science aperture (SA) in use, which could be the PSA or BOA, can be predicted by applying the FSW constants that give the SA offset compared to the WCA center. For \tacq{IMAGE},
-the offset is in both detector `X' (along-dispersion, AD) and `Y' (cross-dispersion, XD).
-For \tacq{PEAKXD}, which uses dispersed light, this offset is only in the Y (XD) direction.
-All programs verify that the TA subarrays in use for the given cycle were proper for the \tacq modes tested, verify that the actively used WCA-to-SA offsets, and monitor, as much as possible, the performance of COS TAs.
+the offset is in both detector `X$_{DET}$' (along-dispersion, AD) and `Y$_{DET}$' (cross-dispersion, XD).
+For \tacq{PEAKXD}, which uses dispersed light, this offset is only in the XD direction.
 
-To combat the effects of FUV gain sag, the FUV \tacq{PEAKXD} algorithm was modified in C19 to only use the FUVA segment. All FUV \tacq{PEAXKD} exposures discussed in this ISR are FUVA-only.
-\footnote{The change went into effect on April 18, 2011 (2011.101).}
+To combat the effects of FUV gain sag, the FUV \tacq{PEAKXD} algorithm was modified in C19 to only use the FUVA segment. All FUV \tacq{PEAXKD} exposures discussed in this ISR are FUVA-only.\footnote{The change went into effect on April 18, 2011 (2011.101) with \pr{67985}.}
 
 BOA spectroscopic TAs were not supported during C19--C24, accordingly  the programs discussed here only verify PSA spectroscopic TAs.
-WCA-to-PSA offsets are used in \tacq{PEAKXD}s, and each COS grating has a different XD offset. These offsets are both grating (\textsc{OPT\_ELEM})
+WCA-to-PSA offsets are used in \tacq{PEAKXD}s, and each COS grating has a different XD offset. These offsets are both grating (\textit{OPT\_ELEM})
 and lifetime position (LP) dependent.\footnote{In the COS FSW, these WCA-to-SA XD offsets are stored in the \textsc{pcta\_CalTargetOffset} table.}
-The programs listed here verify the NUV LP1 as well as FUV LP2\footnote{The default COS FUV spectral location for all \cenwaves was moved from LP1 to LP2 on July 23,2012 (2012.205).} and
-LP3\footnote{The default COS FUV spectral location was moved to LP3 on February 15, 2015 (2015.046) for all \cenwaves except G130M/1055 and G130M/1096, which still operate at LP2.
+The programs listed here verify the NUV LP1 as well as FUV LP2\footnote{The default COS FUV spectral location for all \cenwaves{} was moved from LP1 to LP2 on July 23,2012 (2012.205).} and
+LP3\footnote{The default COS FUV spectral location was moved to LP3 on February 15, 2015 (2015.046) for all \cenwaves{} except G130M/1055 and G130M/1096, which still operate at LP2.
 On October 2, 2017 (2017.275), the default FUV spectral location was moved to LP4, with additional observing and TA constraints as outlined on the COS2025 website (http://www.stsci.edu/hst/cos/cos2025).}.
-The FUV LP4 uses a different \tacq{PEAKXD} algorithm ({\numpos$>1$), and, like \tacq{PEAKD}, does not use the WCA-to-SA XD offsets\footnote{All NUV and FUV LP1-3 \tacq{PEAKXD} observations use the optional parameter, \numpos=1.}.
+FUV LP4 uses a different \tacq{PEAKXD} algorithm ({\numposgtone), and, like \tacq{PEAKD}, does not use the WCA-to-SA XD offsets\footnote{All NUV and FUV LP1--3 \tacq{PEAKXD} observations use the optional parameter, \numpos=1.}.
 
 The initial HST/COS target pointing is based on definitions of the physical locations of the COS apertures in terms of [V2,V3] in the Science Instrument Aperture File (SIAF).
-All of the actively used NUV (LP1) and FUV LP2 and LP3.
-SIAF entries used for TA during C21--C24 are also verified in this program.\footnote{These entries are not really really tested that accurately, because ...\dots.}
+The NUV (LP1) SIAF entries are verified in this program (\S~\ref{subsec:siafalign}), while the FUV entries are verified in the FUV LP enabling programs and ISRs.
 
 These programs, and this ISR, do not attempt to monitor the AD accuracy of the COS spectroscopic TA modes.\footnote{For \tacq{PEAKD}, short-term fluctuations of the detector background rate due to environmental conditions remains the largest source of AD pointing error.}
+This ISR does not attempt to monitor other aspects of COS TA which require a higher than annual cadence such as lamp count rates and average GO \tacq{} slews (aka, 'Blind Pointing').

@@ -39,16 +39,16 @@ FSW patchable constants relating to mechanism positions begin with \textsc{pcmec
 %		In this ISR, we will refer to the centering options as \texttt{CENTER}=\texttt{Flux-Weighted (FW)}, \texttt{Flux-Weighted-Floor (FWF)}, and \texttt{Return-To-Brightest (RTB)}.
 %	}
 	\item{COS contains numerous FUV and NUV central wavelength settings, which are defined in the FSW by the OSM1 or OSM2 rotation positions.
-	In this ISR, the term \cenwaveno, which is also the FITS keyword name, will be used to mean any of the pre-defined OSM1 + OSM2 rotation settings that uniquely define a central wavelength setting.}
-	\item{COS \cenwaves are named for the (predicted) lowest wavelength that lands on the FUVA detector segment for \textit{FP-POS}=3. For convienence, when referring to
-	a specific \cenwave we will either call out the grating and \cenwave in use as GRATING/\cenwave  (e.g. G130M/1222), or just use a leading ``C'' to identify a particular \cenwave (e.g., C1222) in the same manor as ``G" is used for GRATING (e.g., G130M).
+	In this ISR, the term \cenwave{}, which is also the FITS keyword name, will be used to mean any of the pre-defined OSM1 + OSM2 rotation settings that uniquely define a central wavelength setting.}
+	\item{COS \cenwaves{} are named for the (predicted) lowest wavelength that lands on the FUVA detector segment for \textit{FP-POS}=3. For convienence, when referring to
+	a specific \cenwave{} we will either call out the grating and \cenwave{} in use as GRATING/\cenwave{}  (e.g. G130M/1222), or just use a leading ``C'' to identify a particular \cenwave{} (e.g., C1222) in the same manor as ``G" is used for GRATING (e.g., G130M).
 	Note that the FITS header keyword equivalent of GRATING is \textit{OPT\_ELEM}.}
 	\item{Unless specified, all spectroscopic exposures were taken at \textit{FP-POS}=3.}
-	\item{When referring to an HST program number, we will use either ``HST PID" or a leading ``{\bf P}" in a similar fashion an ``C=\cenwave'' and ``G=GRATING''.}
+	\item{When referring to an HST program number, we will use either ``HST PID" or a leading ``{\bf P}" in a similar fashion an ``C=\cenwave{}'' and ``G=GRATING''.}
 	\item{The COS FUV detector has two independent segments, Segment-A and Segment-B. In this ISR, they will be referred to as FUVA \& FUVB.}
 	\item{\tacq{IMAGE} can use either of two ``MIRROR'' modes, MIRRORA or MIRRORB. In this ISR, they will sometimes be referred to as MIRA \& MIRB to save space, mainly in tables and captions.}
 	\item{Following the conventions used in APT and the Phase~II Proposal Instructions (Rose et al., 2017), NUV \tacq{PEAKXD} exposures will specify which \texttt{STRIPE}\footnote{\texttt{STRIPE} is the optional parameter name in APT, therefore the \texttt{Courier} font is used.} is used during TA. In this ISR, we will always use
-	the APT default (\texttt{STRIPE=DEF}) for a given \cenwave. This default is \texttt{STRIPE=MEDIUM} (or STRIPE=B) for all \cenwaves, except G230L/3360 where it is \texttt{STRIPE=SHORT} (STRIPE=A).}
+	the APT default (\texttt{STRIPE=DEF}) for a given \cenwave{}. This default is \texttt{STRIPE=MEDIUM} (or STRIPE=B) for all \cenwaves{}, except G230L/3360 where it is \texttt{STRIPE=SHORT} (STRIPE=A).}
 	\item{When referring to a particular day, we will use YEAR.DAY. For example, day 60 of 2010 will be referred to as \psiafdate.
 	%We will also occasionally use decimal years. In these cases, there will only be a single digit in the fractional part (e.g., 2009.9).
 	}

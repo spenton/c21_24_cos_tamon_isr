@@ -1,11 +1,11 @@
 % tamon_basic_nimver
 %
-% RCSID="$Id$"
+% RCSID="$Id: tamonbasicnimverT.tex,v 1.2 2018/04/17 18:38:43 penton Exp $"
 %
 \begin{deluxetable}{llrccccccrrrrr}
 \tablecolumns{14}
 \tabcolsep 3pt
-\tablecaption{C17--C20 PSA \tacq{IMAGE} Co-alignment Measurements\label{tab:basebootstrap}}
+\tablecaption{C17--C20 PSA \tacq{IMAGE} Co-alignment Measurements\label{tab:basebootstrap1720}}
 \tabletypesize{\scriptsize}
 \tablehead{
 \colhead{\textit{PROP}}&\colhead{\textit{ROOT}}&\colhead{Configuration}  &
@@ -66,6 +66,10 @@
 \midrule
 \pid{13171} &lc6ka2imq&PSA$\times$MIRA&508&650&459.7&284.0&462.7&277.3& 45.3&372.7&  -0.070&   0.158&2013-09-01 \\
 \pid{13171} &lc6ka2ioq&PSA$\times$MIRB&304&811&258.2&436.5&259.0&436.9& 45.0&374.1&  -0.019&  -0.009&2013-09-01 \\
+\pid{13124} &lc6601rrq&PSA$\times$MIRB&312&810&266.5&426.9&267.0&435.9& 45.0&374.1&  -0.012&  -0.211&2013-10-24 \\
+\pid{13124} &lc6601rvq&BOA$\times$MIRA&524&650&479.0&284.8&478.5&281.6& 45.5&368.4&   0.012&   0.074&2013-10-24 \\
+\pid{13124} &lc6602y5q&BOA$\times$MIRA&533&651&484.7&281.2&487.5&282.6& 45.5&368.4&  -0.066&  -0.032&2013-11-01 \\
+\pid{13124} &lc6602y9q&BOA$\times$MIRB&326&813&279.7&442.3&280.5&446.7& 45.5&366.3&  -0.019&  -0.102&2013-11-01 \\
 \midrule
 \bottomrule
 \enddata
@@ -79,7 +83,7 @@ lamp center offsets of up to 3~p in AD and to 52~p in XD in these exposures. }
 \begin{deluxetable}{llrccccccrrrrr}
 \tablecolumns{14}
 \tabcolsep 3pt
-\tablecaption{C21--24 \tacq{IMAGE} Bootstrapping Results\label{tab:basebootstrap}}
+\tablecaption{C21--24 \tacq{IMAGE} Bootstrapping Results\label{tab:basebootstrap2124}}
 \tabletypesize{\scriptsize}
 \tablehead{
 \colhead{\textit{PROP}}&\colhead{\textit{ROOT}}&\colhead{Configuration}  &
@@ -173,7 +177,7 @@ lamp center offsets of up to 3~p in AD and to 52~p in XD in these exposures. }
 \enddata
 \tablenotetext{a}{Non-repeatability of the OSM and aperture mechanisms, along with environmental factors, result in
 lamp center offsets of up to 6~p in AD and $> 50$~p in XD in these exposures.}
-\tablenotetext{b}{BOA \tacq{IMAGE}s move the aperture in the XD direction to obtain the WCA lamp image. Occasionally, the aperture mechanism misses the desired location by $\pm 1$ \textit{APERYPOS} step of $\sim0.05\arcsec$.}
+\tablenotetext{b}{BOA \tacq{IMAGE}s move the aperture in the XD direction to obtain the WCA lamp image. Occasionally, the aperture mechanism misses the desired location by $\pm 1$ \textit{APERYPOS} step of $\sim0.053\arcsec$.}
 %\tablenotetext{c}{These PSA$\times$MIRA \tacq{IMAGE}s were part of the FGS-to-SI programs and do not have a proceeding \tacq{IMAGE}. The TA centerings presented here are to be compared to the FGS-to-SI post processing results presented in Table~\ref{tab:fgs2siInit}.}
 \tablecomments{If the table caption is in the \textit{ITALICS}, this value was taken directly from the indicated \textsc{\_rawacq.fits} header keyword. Columns 4-11 are in units of NUV pixels (p). Columns 12 \& 13 are in arcseconds (\arcsec). In DETector coordinates, +AD is -Y$_{DET}$, +XD is -X$_{DET}$, in USER coordinates, +AD is +Y$_{USER}$, +XD is +X$_{USER}$.}
 \end{deluxetable}
@@ -207,7 +211,7 @@ lamp center offsets of up to 6~p in AD and $> 50$~p in XD in these exposures.}
 \colhead{AD} &\colhead{XD}&
 \colhead{AD} &\colhead{XD}&
 \colhead{AD} &\colhead{XD}&
-\colhead{AD} &\colhead{XD}& \colhead{} \\
+\colhead{AD} &\colhead{XD}& \colhead{AD (\arcsec)} & \colhead{XD (\arcsec)} &\colhead{}\\
 \colhead{(1)}  &\colhead{(2)} & \colhead{(3)}&\colhead{(4)} &
 \colhead{(5)}  &\colhead{(6)} & \colhead{(7)}&\colhead{(8)} &
 \colhead{(9)}  &\colhead{(10)} & \colhead{(11)} &\colhead{(12)} &
@@ -233,6 +237,7 @@ lamp center offsets of up to 6~p in AD and $> 50$~p in XD in these exposures.}
 \pid{12399} &lbm7a2ajq&C18&317&813&271.2&439.3&272.0&438.9& 45.0&374.1&  -0.018&   0.008&2011-09-12 \\
 \pid{12781} &lbx1a2fhq&C19&296&811&249.8&436.0&251.0&436.9& 45.0&374.1&  -0.028&  -0.021&2012-09-24 \\
 \pid{13171} &lc6ka2ioq&C20&304&811&258.2&436.5&259.0&436.9& 45.0&374.1&  -0.019&  -0.009&2013-09-01 \\
+\pid{13124} &lc6601rrq&C20&312&810&266.5&426.9&267.0&435.9& 45.0&374.1&  -0.012&  -0.211&2013-10-24 \\
 \hline
 \pid{13616} &lci4a2e5q&C21&305&809&259.7&436.1&259.0&435.0& 46.0&374.0&   0.016&   0.027&2014-10-27 \\
 \pid{14035} &lcsla2bjq&C22&293&813&247.9&439.3&247.0&439.0& 46.0&374.0&   0.022&   0.007&2015-10-02 \\
@@ -247,6 +252,8 @@ lamp center offsets of up to 6~p in AD and $> 50$~p in XD in these exposures.}
 \midrule
 \multicolumn{14}{c}{BOA$\times$MIRRORA}\\
 \midrule
+\pid{13124} &lc6601rvq&C20&524&650&479.0&284.8&478.5&281.6& 45.5&368.4&   0.012&   0.074&2013-10-24 \\
+\pid{13124} &lc6602y5q&C20&533&651&484.7&281.2&487.5&282.6& 45.5&368.4&  -0.066&  -0.032&2013-11-01 \\
 \pid{13526} &lcgq01qdq&C21&520&651&472.9&283.2&474.5&282.6& 45.5&368.4&  -0.038&   0.013&2014-11-19 \\
 \pid{13972} &lcri01g7q&C22&517&651&471.0&287.2&471.5&282.6& 45.5&368.4&  -0.011&   0.109&2015-10-06 \\
 \pid{13972} &lcri02h8q&C22&499&654&462.0&272.2&453.5&285.6& 45.5&368.4&   0.201&  -0.315&2015-10-06 \\
@@ -260,19 +267,20 @@ lamp center offsets of up to 6~p in AD and $> 50$~p in XD in these exposures.}
 \midrule
 \multicolumn{14}{c}{BOA$\times$MIRRORB\tablenotemark{c}}\\
 \midrule
+\pid{13124} &lc6602y9q&C20&326&813&279.7&442.3&280.5&446.7& 45.5&366.3&  -0.019&  -0.102&2013-11-01 \\
+\hline
 \pid{13526} &lcgq02huq&C21&285&811&237.9&440.3&238.5&444.8& 46.5&366.2&  -0.015&  -0.105&2014-11-17 \\
 \pid{13972} &lcri02hgq&C22&286&810&240.6&444.2&239.5&443.8& 46.5&366.2&   0.026&   0.010&2015-10-06 \\
 \pid{14440} &ld3702n9q&C23&295&811&248.5&446.1&248.5&444.8& 46.5&366.2&   0.001&   0.030&2016-10-19 \\
 \pid{14857} &ldozbblmq&C24&293&811&246.7&444.3&246.5&444.8& 46.5&366.2&   0.006&  -0.011&2017-09-06 \\
 \bottomrule
 \enddata
-\tablenotetext{a}{Environmental factors, and non-repeatability of the OSM and aperture mechanisms, results in
-lamp offsets of up to 6~p in AD and $ > 50$~p in XD in these exposures. }
-\tablenotetext{b}{BOA \tacq{IMAGE}s move the aperture in the XD direction to obtain the WCA lamp image. Occasionally, the aperture mechanism misses the desired location by $\pm 1 $ \textit{APERXPOS} step of $\sim0.05\arcsec$.}
-%\tablenotetext{c}{These PSA$\times$MIRA \tacq{IMAGE}s were part of the FGS-to-SI programs and do {\bf NOT} have a proceeding TA. The TA centering adjustments presented here are to be compared to the FGS-to-SI post processing results presented in Table~\ref{tab:fgs2siInit}.}
-\tablenotetext{c}{On November 6, 2014, the MIRB \texttt{ACQ/IMAGE} lamp exposure was changed in duration and current. FSW
-tables were also updated at this time (\pr{67139}).}
-\tablecomments{If the table caption is in the \texttt{Courier} font, this value was taken directly from the indicated \textsc{\_rawacq.fits} header keyword. In DETector coordinates, +AD is -Y$_{DET}$, +XD is -X$_{DET}$, in USER coordinates, +AD is +Y$_{USER}$, +XD is +X$_{USER}$.}
+\tablenotetext{a}{Environmental factors, and non-repeatable mechanisms, results in
+lamp offsets up to 6~p in AD and $> 50$~p in XD. }
+\tablenotetext{b}{BOA \tacq{IMAGE}s move the aperture in the XD and can miss its WCA location by $\pm1$ \textit{APERXPOS} $\sim0.053\arcsec$ step.}
+%\tablenotetext{c}{These PSA$\times$MIRA \tacq{IMAGE}s were part of the FGS-to-SI programs and do {\bf NOT} have a proceeding TA. TA centering adjustments presented here are to be compared to the FGS-to-SI post processing results presented in Table~\ref{tab:fgs2siInit}.}
+\tablenotetext{c}{On 2014.310, the MIRB \texttt{ACQ/IMAGE} lamp exposure changed in duration \& current (\pr{67139}).}
+\tablecomments{Table captions in \texttt{Courier} indicated \textsc{\_rawacq.fits} header keywords.  Columns 4-11 are in units of NUV pixels (p). Columns 12 \& 13 are in arcseconds (\arcsec). In DETector coordinates, +AD is -Y$_{DET}$, +XD is -X$_{DET}$, in USER coordinates, +AD is +Y$_{USER}$, +XD is +X$_{USER}$.}
 %           FROM   TO
 %   PSA_B   3741   3740
 %   BOA_B   3663   3662

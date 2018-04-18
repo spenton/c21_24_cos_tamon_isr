@@ -1,212 +1,247 @@
-% $Id: NUVimagetamonfiles2.tex,v 1.1 2018/03/30 15:20:58 penton Exp $
-\begin{deluxetable}{rrrrrrrrrrrrr}
+% $Id: NUVimagetamonfiles2.tex,v 1.3 2018/04/17 18:38:43 penton Exp $
+\begin{deluxetable}{rcccccccrrr}
 \tabcolsep 4 pt
-\tabletypesize{\tiny}
-\tablecolumns{13}
+\tabletypesize{\scriptsize}
+\tablecolumns{11}
 %\tablewidth{0 pt}
 \tablecaption{COS/NUV TA Monitoring Imaging Exposures - PSA\label{tab:NUVtamonimagePSA}}
 \tablehead{
-\colhead{\textit{ROOTNAME}}&\colhead{\textit{PROPOSID}}&\colhead{\textit{TARGNAME}}&\colhead{\textit{OBSMODE\tablenotemark{t}}} &\colhead{\textit{EXPTYPE}}   &\colhead{\textit{EXPTIME}}  &\colhead{PtNe}&\colhead{Lamp}   &\colhead{\textit{APERTURE}}&\colhead{\textit{OPT\_ELEM}}&\colhead{\textit{APERXPOS\tablenotemark{x}}}&\colhead{\textit{APERYPOS}\tablenotemark{y}}&\colhead{\textit{DATE-OBS}}\\
-\colhead{}                 &\colhead{}  &\colhead{}        &\colhead{}&\colhead{}&\colhead{(s)}&\colhead{Lamp \#}&\colhead{Current\tablenotemark{c}}&\colhead{}&\colhead{}&\colhead{ }&\colhead{}&\colhead{}\\
+\colhead{\textit{PROP}}&\colhead{\textit{ROOT}}&\colhead{\textit{TARG}}&
+\colhead{\textit{OBS}} &\colhead{\textit{EXPTYPE}}  &
+\colhead{\textit{EXPTIME}} &\colhead{PtNe (WCA)}  &
+\colhead{\textit{APERTURE}}&
+\colhead{\textit{APER}}&\colhead{\textit{APER}}&\colhead{\textit{DATE-OBS}}\\
+\colhead{\textit{OSID}}&\colhead{\textit{NAME}}&
+\colhead{\textit{NAME}}&\colhead{\textit{MODE\tablenotemark{t}}}&\colhead{}&
+\colhead{(s)}&\colhead{Lamp\#$\times$Current}&
+\colhead{$\times$\textit{OPT\_ELEM}}&
+\colhead{\textit{XPOS\tablenotemark{x}}}&\colhead{\textit{YPOS\tablenotemark{y}}}&\colhead{}\\
 \colhead{(1)}&\colhead{(2)}	&	\colhead{(3)}&\colhead{(4)} &
 \colhead{(5)}&\colhead{(6)}	&	\colhead{(7)}&\colhead{(8)} &
-\colhead{(9)}&\colhead{(10)}	&	\colhead{(11)}	&	\colhead{(12)}&\colhead{(13)}
+\colhead{(9)}&\colhead{(10)}&	\colhead{(11)}
 }
 \startdata
 \toprule
+\multicolumn{11}{c}{PSA$\times$MIRA}\\
 \midrule
-\multicolumn{13}{c}{PSA $\times$ MIRA}\\
+\pid{13171}	&	lc6ka1i1q	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	\plamptwo{}$\times$Low	&	PSA$\times$MIRA	&	22.1	&	127.1	&	2013-03-02	\\
+\pid{13171}	&	lc6ka2imq	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	\plamptwo{}$\times$Low	&	PSA$\times$MIRA	&	22.1	&	127.1	&	2013-09-01	\\
+\pid{13616}	&	lci4a1dcq	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	\plamptwo{}$\times$Low	&	PSA$\times$MIRA	&	22.1	&	127.1	&	2014-04-03	\\
+\pid{13616}	&	lci4a2e3q	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	\plamptwo{}$\times$Low	&	PSA$\times$MIRA	&	22.1	&	127.1	&	2014-10-27	\\
+\pid{13526}	&	lcgq03dbq	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	15	&	\plamptwo{}$\times$Low	&	PSA$\times$MIRA	&	22.1	&	127.1	&	2014-10-06	\\
+\pid{13526}	&	lcgq03ddq	&	206W3	&	 TT 	&	EXT/SCI 	&	15	&	\plamptwo{}$\times$Low	&	PSA$\times$MIRA	&	22.1	&	127.1	&	2014-10-06	\\
+\pid{13526}	&	lcgq03drq	&	206W3	&	 TT 	&	EXT/SCI 	&	12	&	\plamptwo{}$\times$Low	&	PSA$\times$MIRA	&	22.1	&	127.1	&	2014-10-06	\\
+\pid{13526}	&	lcgq03dtq	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	12	&	\plamptwo{}$\times$Low	&	PSA$\times$MIRA	&	22.1	&	127.1	&	2014-10-06	\\
+\pid{14035}	&	lcsla1i4q	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	\plamptwo{}$\times$Low	&	PSA$\times$MIRA	&	22.1	&	125.1	&	2015-04-14	\\
+\pid{14035}	&	lcsla2bhq	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	\plamptwo{}$\times$Low	&	PSA$\times$MIRA	&	22.1	&	125.1	&	2015-10-02	\\
+\pid{14452}	&	ld3la1coq	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	\plamptwo{}$\times$Med	&	PSA$\times$MIRA	&	22.1	&	125.1	&	2016-04-01 \\
+\pid{14452}	&	ld3la2ojq	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	\plamptwo{}$\times$Med	&	PSA$\times$MIRA	&	22.1	&	125.1	&	2016-10-02 \\
+\pid{14857}	&	ldozpbf5q	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	20	&	\plamptwo{}$\times$Low	&	PSA$\times$MIRA	&	22.1	&	125.1	&	2017-09-10	\\
+\pid{14857}	&	ldozpbf7q	&	206W3	&	 TT 	&	EXT/SCI 	&	20	&	\plamptwo{}$\times$Low	&	PSA$\times$MIRA	&	22.1	&	125.1	&	2017-09-10	\\
+\pid{14857}	&	ldozpbffq	&	206W3	&	 TT 	&	EXT/SCI 	&	20	&	\plamptwo{}$\times$Low	&	PSA$\times$MIRA	&	22.1	&	125.1	&	2017-09-10	\\
+\pid{14857}	&	ldozpbfhq	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	20	&	\plamptwo{}$\times$Low	&	PSA$\times$MIRA	&	22.1	&	125.1	&	2017-09-10	\\
 \midrule
-lc6ka1i1q	&	13171	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	P2	&	Low	&	PSA	&	MIRA	&	22.1	&	127.1	&	2013-03-02	\\
-lc6ka2imq	&	13171	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	P2	&	Low	&	PSA	&	MIRA	&	22.1	&	127.1	&	2013-09-01	\\
-lci4a1dcq	&	13616	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	P2	&	Low	&	PSA	&	MIRA	&	22.1	&	127.1	&	2014-04-03	\\
-lci4a2e3q	&	13616	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	P2	&	Low	&	PSA	&	MIRA	&	22.1	&	127.1	&	2014-10-27	\\
-lcgq03dbq	&	13526	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	15	&	P2	&	Low	&	PSA	&	MIRA	&	22.1	&	127.1	&	2014-10-06	\\
-lcgq03ddq	&	13526	&	206W3	&	  TT 	&	EXT/SCI 	&	15	&	P2	&	Low	&	PSA	&	MIRA	&	22.1	&	127.1	&	2014-10-06	\\
-lcgq03drq	&	13526	&	206W3	&	  TT 	&	EXT/SCI 	&	12	&	P2	&	Low	&	PSA	&	MIRA	&	22.1	&	127.1	&	2014-10-06	\\
-lcgq03dtq	&	13526	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	12	&	P2	&	Low	&	PSA	&	MIRA	&	22.1	&	127.1	&	2014-10-06	\\
-lcsla1i4q	&	14035	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	P2	&	Low	&	PSA	&	MIRA	&	22.1	&	125.1	&	2015-04-14	\\
-lcsla2bhq	&	14035	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	P2	&	Low	&	PSA	&	MIRA	&	22.1	&	125.1	&	2015-10-02	\\
-ld3la1coq	&	14452	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	P2	&	Med	&	PSA	&	MIRA	&	22.1	&	125.1	&	2016-04-01 \\
-ld3la2ojq	&	14452	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	60	&	P2	&	Med	&	PSA	&	MIRA	&	22.1	&	125.1	&	2016-10-02 \\
-ldozpbf5q	&	14857	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	20	&	P2	&	Low	&	PSA	&	MIRA	&	22.1	&	125.1	&	2017-09-10	\\
-ldozpbf7q	&	14857	&	206W3	&	  TT 	&	EXT/SCI 	&	20	&	P2	&	Low	&	PSA	&	MIRA	&	22.1	&	125.1	&	2017-09-10	\\
-ldozpbffq	&	14857	&	206W3	&	  TT 	&	EXT/SCI 	&	20	&	P2	&	Low	&	PSA	&	MIRA	&	22.1	&	125.1	&	2017-09-10	\\
-ldozpbfhq	&	14857	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	20	&	P2	&	Low	&	PSA	&	MIRA	&	22.1	&	125.1	&	2017-09-10	\\
+\multicolumn{11}{c}{PSA$\times$MIRB}\\
 \midrule
-\multicolumn{13}{c}{PSA $\times$ MIRB}\\
-\midrule
-lc6ka1i3q	&	13171	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	P2	&	Low	&	PSA	&	MIRB	&22.1	&	127.1	&	2013-03-02	\\
-lc6ka2ioq	&	13171	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	P2	&	Low	&	PSA	&	MIRB	&22.1	&	127.1	&	2013-09-01	\\
-lci4a1deq	&	13616	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	P2	&	Low	&	PSA	&	MIRB	&22.1	&	127.1	&	2014-04-03	\\
-lci4a2e5q	&	13616	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	P2	&	Med	&	PSA	&	MIRB	&22.1	&	127.1	&	2014-10-27	\\
-lcgq01q5q	&	13526	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	12	&	P2	&	Med	&	PSA	&	MIRB	&22.1	&	127.1	&	2014-11-19	\\
-lcgq01q7q	&	13526	&	WD-1657+343	&	  TT 	&	EXT/SCI 	&	16	&	P2	&	Med	&	PSA	&	MIRB	&22.1	&	127.1	&	2014-11-19	\\
-lcgq01qhq	&	13526	&	WD-1657+343	&	  TT 	&	EXT/SCI 	&	12	&	P2	&	Med	&	PSA	&	MIRB	&22.1	&	126.1	&	2014-11-19	\\
-lcgq01qjq	&	13526	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	12	&	P2	&	Med	&	PSA	&	MIRB	&22.1	&	126.1	&	2014-11-19	\\
-lcgq03dfq	&	13526	&	206W3	&	  TT 	&	EXT/SCI 	&	160	&	P2	&	Low	&	PSA	&	MIRB	&22.1	&	127.1	&	2014-10-06	\\
-lcgq03dhq	&	13526	&	206W3	&	  TT 	&	EXT/SCI 	&	180	&	P2	&	Low	&	PSA	&	MIRB	&22.1	&	127.1	&	2014-10-06	\\
-lcgq03djq	&	13526	&	206W3	&	  TT 	&	EXT/SCI 	&	180	&	P2	&	Med	&	PSA	&	MIRB	&22.1	&	127.1	&	2014-10-06	\\
-lcgq03dlq	&	13526	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	160	&	P2	&	Med	&	PSA	&	MIRB	&22.1	&	127.1	&	2014-10-06	\\
-lcgq03dnq	&	13526	&	206W3	&	  TT 	&	EXT/SCI 	&	180	&	P2	&	Med	&	PSA	&	MIRB	&22.1	&	127.1	&	2014-10-06	\\
-lcgq03dpq	&	13526	&	206W3	&	  TT 	&	EXT/SCI 	&	160	&	P2	&	Low	&	PSA	&	MIRB	&22.1	&	127.1	&	2014-10-06	\\
-lcri01fzq	&	13972	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	12	&	P2	&	Med	&	PSA	&	MIRB	&22.1	&	125.1	&	2015-10-06	\\
-lcri01g1q	&	13972	&	WD-1657+343	&	  TT 	&	EXT/SCI 	&	12	&	P2	&	Med	&	PSA	&	MIRB	&22.1	&	125.1	&	2015-10-06	\\
-lcri01gcq	&	13972	&	WD-1657+343	&	  TT 	&	EXT/SCI 	&	14	&	P2	&	Med	&	PSA	&	MIRB	&22.1	&	126.1	&	2015-10-06	\\
-lcri01geq	&	13972	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	12	&	P2	&	Med	&	PSA	&	MIRB	&22.1	&	126.1	&	2015-10-06	\\
-lcsla1i6q	&	14035	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	P2	&	Med	&	PSA	&	MIRB	&22.1	&	125.1	&	2015-04-14	\\
-lcsla2bjq	&	14035	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	P2	&	Med	&	PSA	&	MIRB	&22.1	&	125.1	&	2015-10-02	\\
-ld3la1csq	&	14452	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	P2	&	Med	&	PSA	&	MIRB	&	22.1	&	125.1	&	2016-04-01 \\
-ld3la2onq	&	14452	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	P2	&	Med	&	PSA	&	MIRB	&	22.1	&	125.1	&	2016-10-02 \\
-ld3701gtq	&	14440	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	13	&	P2	&	Med	&	PSA	&	MIRB	&22.1	&	125.1	&	2016-10-18	\\
-ld3701gvq	&	14440	&	WD-1657+343	&	  TT 	&	EXT/SCI 	&	16	&	P2	&	Med	&	PSA	&	MIRB	&22.1	&	125.1	&	2016-10-18	\\
-ld3701h5q	&	14440	&	WD-1657+343	&	  TT 	&	EXT/SCI 	&	16	&	P2	&	Med	&	PSA	&	MIRB	&22.1	&	126.1	&	2016-10-18	\\
-ld3701h7q	&	14440	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	13	&	P2	&	Med	&	PSA	&	MIRB	&22.1	&	126.1	&	2016-10-18	\\
-ldozbadhq	&	14857	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	13	&	P2	&	Med	&	PSA	&	MIRB	&22.1	&	125.1	&	2017-09-04	\\
-ldozbadjs	&	14857	&	WD-1657+343	&	  TT 	&	EXT/SCI 	&	16	&	P2	&	Med	&	PSA	&	MIRB	&22.1	&	125.1	&	2017-09-04	\\
-ldozbadtq	&	14857	&	WD-1657+343	&	  TT 	&	EXT/SCI 	&	16	&	P2	&	Med	&	PSA	&	MIRB	&22.1	&	126.1	&	2017-09-04	\\
-ldozbadvq	&	14857	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	13	&	P2	&	Med	&	PSA	&	MIRB	&22.1	&	126.1	&	2017-09-04	\\
-ldozpbf9q	&	14857	&	206W3	&	  TT 	&	EXT/SCI 	&	220	&	P2	&	Med	&	PSA	&	MIRB	&22.1	&	125.1	&	2017-09-10	\\
-ldozpbfbq	&	14857	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	220	&	P2	&	Med	&	PSA	&	MIRB	&22.1	&	125.1	&	2017-09-10	\\
-ldozpbfdq	&	14857	&	206W3	&	  TT 	&	EXT/SCI 	&	220	&	P2	&	Med	&	PSA	&	MIRB	&22.1	&	125.1	&	2017-09-10	\\
+\pid{13124}	&	lc6601rrq	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	12	&	\plamptwo{}$\times$Med	&	PSA$\times$MIRB	&	22.1	&	127.1&	2013-10-24\\
+\pid{13124}	&	lc6601rtq	&	WD-1657+343	&	TT	&	EXT/SCI	&	20	&	\dots\tablenotemark{a}	&	PSA$\times$MIRB	&	22.1	&	127.1&	2013-10-24\\
+\pid{13124}	&	lc6601s0q	&	WD-1657+343	&	TT	&	EXT/SCI	&	20	&	\dots\tablenotemark{a}	&	PSA$\times$MIRB	&	22.1	&	126.1&	2013-10-24\\
+\pid{13171}	&	lc6ka1i3q	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	\plamptwo{}$\times$Low	&	PSA$\times$MIRB	&22.1	&	127.1	&	2013-03-02	\\
+\pid{13171}	&	lc6ka2ioq	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	\plamptwo{}$\times$Low	&	PSA$\times$MIRB	&22.1	&	127.1	&	2013-09-01	\\
+\pid{13616}	&	lci4a1deq	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	\plamptwo{}$\times$Low	&	PSA$\times$MIRB	&22.1	&	127.1	&	2014-04-03	\\
+\pid{13616}	&	lci4a2e5q	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	\plamptwo{}$\times$Med	&	PSA$\times$MIRB	&22.1	&	127.1	&	2014-10-27	\\
+\pid{13526}	&	lcgq01q5q	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	12	&	\plamptwo{}$\times$Med	&	PSA$\times$MIRB	&22.1	&	127.1	&	2014-11-19	\\
+\pid{13526}	&	lcgq01q7q	&	WD-1657+343	&	 TT 	&	EXT/SCI 	&	16	&	\plamptwo{}$\times$Med	&	PSA$\times$MIRB	&22.1	&	127.1	&	2014-11-19	\\
+\pid{13526}	&	lcgq01qhq	&	WD-1657+343	&	 TT 	&	EXT/SCI 	&	12	&	\plamptwo{}$\times$Med	&	PSA$\times$MIRB	&22.1	&	126.1	&	2014-11-19	\\
+\pid{13526}	&	lcgq01qjq	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	12	&	\plamptwo{}$\times$Med	&	PSA$\times$MIRB	&22.1	&	126.1	&	2014-11-19	\\
+\pid{13526}	&	lcgq03dfq	&	206W3	&	 TT 	&	EXT/SCI 	&	160	&	\plamptwo{}$\times$Low	&	PSA$\times$MIRB	&22.1	&	127.1	&	2014-10-06	\\
+\pid{13526}	&	lcgq03dhq	&	206W3	&	 TT 	&	EXT/SCI 	&	180	&	\plamptwo{}$\times$Low	&	PSA$\times$MIRB	&22.1	&	127.1	&	2014-10-06	\\
+\pid{13526}	&	lcgq03djq	&	206W3	&	 TT 	&	EXT/SCI 	&	180	&	\plamptwo{}$\times$Med	&	PSA$\times$MIRB	&22.1	&	127.1	&	2014-10-06	\\
+\pid{13526}	&	lcgq03dlq	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	160	&	\plamptwo{}$\times$Med	&	PSA$\times$MIRB	&22.1	&	127.1	&	2014-10-06	\\
+\pid{13526}	&	lcgq03dnq	&	206W3	&	 TT 	&	EXT/SCI 	&	180	&	\plamptwo{}$\times$Med	&	PSA$\times$MIRB	&22.1	&	127.1	&	2014-10-06	\\
+\pid{13526}	&	lcgq03dpq	&	206W3	&	 TT 	&	EXT/SCI 	&	160	&	\plamptwo{}$\times$Low	&	PSA$\times$MIRB	&22.1	&	127.1	&	2014-10-06	\\
+\pid{13972}	&	lcri01fzq	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	12	&	\plamptwo{}$\times$Med	&	PSA$\times$MIRB	&22.1	&	125.1	&	2015-10-06	\\
+\pid{13972}	&	lcri01g1q	&	WD-1657+343	&	 TT 	&	EXT/SCI 	&	12	&	\plamptwo{}$\times$Med	&	PSA$\times$MIRB	&22.1	&	125.1	&	2015-10-06	\\
+\pid{13972}	&	lcri01gcq	&	WD-1657+343	&	 TT 	&	EXT/SCI 	&	14	&	\plamptwo{}$\times$Med	&	PSA$\times$MIRB	&22.1	&	126.1	&	2015-10-06	\\
+\pid{13972}	&	lcri01geq	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	12	&	\plamptwo{}$\times$Med	&	PSA$\times$MIRB	&22.1	&	126.1	&	2015-10-06	\\
+\pid{14035}	&	lcsla1i6q	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	\plamptwo{}$\times$Med	&	PSA$\times$MIRB	&22.1	&	125.1	&	2015-04-14	\\
+\pid{14035}	&	lcsla2bjq	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	\plamptwo{}$\times$Med	&	PSA$\times$MIRB	&22.1	&	125.1	&	2015-10-02	\\
+\pid{14452}	&	ld3la1csq	&	427W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	\plamptwo{}$\times$Med	&	PSA$\times$MIRB	&	22.1	&	125.1	&	2016-04-01 \\
+\pid{14452}	&	ld3la2onq	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	300	&	\plamptwo{}$\times$Med	&	PSA$\times$MIRB	&	22.1	&	125.1	&	2016-10-02 \\
+\pid{14440}	&	ld3701gtq	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	13	&	\plamptwo{}$\times$Med	&	PSA$\times$MIRB	&22.1	&	125.1	&	2016-10-18	\\
+\pid{14440}	&	ld3701gvq	&	WD-1657+343	&	 TT 	&	EXT/SCI 	&	16	&	\plamptwo{}$\times$Med	&	PSA$\times$MIRB	&22.1	&	125.1	&	2016-10-18	\\
+\pid{14440}	&	ld3701h5q	&	WD-1657+343	&	 TT 	&	EXT/SCI 	&	16	&	\plamptwo{}$\times$Med	&	PSA$\times$MIRB	&22.1	&	126.1	&	2016-10-18	\\
+\pid{14440}	&	ld3701h7q	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	13	&	\plamptwo{}$\times$Med	&	PSA$\times$MIRB	&22.1	&	126.1	&	2016-10-18	\\
+\pid{14857}	&	ldozbadhq	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	13	&	\plamptwo{}$\times$Med	&	PSA$\times$MIRB	&22.1	&	125.1	&	2017-09-04	\\
+\pid{14857}	&	ldozbadjs	&	WD-1657+343	&	 TT 	&	EXT/SCI 	&	16	&	\plamptwo{}$\times$Med	&	PSA$\times$MIRB	&22.1	&	125.1	&	2017-09-04	\\
+\pid{14857}	&	ldozbadtq	&	WD-1657+343	&	 TT 	&	EXT/SCI 	&	16	&	\plamptwo{}$\times$Med	&	PSA$\times$MIRB	&22.1	&	126.1	&	2017-09-04	\\
+\pid{14857}	&	ldozbadvq	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	13	&	\plamptwo{}$\times$Med	&	PSA$\times$MIRB	&22.1	&	126.1	&	2017-09-04	\\
+\pid{14857}	&	ldozpbf9q	&	206W3	&	 TT 	&	EXT/SCI 	&	220	&	\plamptwo{}$\times$Med	&	PSA$\times$MIRB	&22.1	&	125.1	&	2017-09-10	\\
+\pid{14857}	&	ldozpbfbq	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	220	&	\plamptwo{}$\times$Med	&	PSA$\times$MIRB	&22.1	&	125.1	&	2017-09-10	\\
+\pid{14857}	&	ldozpbfdq	&	206W3	&	 TT 	&	EXT/SCI 	&	220	&	\plamptwo{}$\times$Med	&	PSA$\times$MIRB	&22.1	&	125.1	&	2017-09-10	\\
 \bottomrule
 \enddata
-\tablenotetext{c}{The P2 wavelength calibration lamp current settings are LOW (3~mA), MED (10~mA) and HIGH (14~mA).}
+\tablenotetext{a}{The intended PtNe lamp flashes of \pid{13124} did not occur as expected. This was corrected in all other programs.}
 \tablenotetext{t}{TT = TIME-TAG.}
 \tablenotetext{x}{\textit{APERYPOS}, the AD aperture mechanism positions, are stored in the FSW in \textsc{pcmech\_ApMDispPosition}.
 The trailing ``0.1'' reported in the FITS headers is a conversion anomaly that is present in all aperture positions (\textit{APERXPOS} \& \textit{APERYPOS}).}
-\tablenotetext{y}{It is not uncommon that the XD aperture location (\textit{APERXPOS}) is $\pm$ one step off from its nominal position.
+\tablenotetext{y}{It is not uncommon that the XD aperture location (\textit{APERXPOS}) is $\pm 1$ step off from its nominal position.
 The XD aperture mechanism positions are stored in the FSW in \textsc{pcmech\_ApMXDispPosition} (see Table~\ref{tab:ApMXDispPosition}).}
-\tablecomments{PSA \textsc{EXPTYPE}=EXT/SCI  exposures contain coeval target and PtNe lamp TT images.}
+\tablecomments{PSA \textsc{EXPTYPE}=EXT/SCI exposures contain coeval target and PtNe lamp TT images.}
 \end{deluxetable}
-\begin{deluxetable}{rrrrrrrrrrrrr}
+
+\begin{deluxetable}{rcccccccrrr}
 \tabcolsep 4 pt
-\tabletypesize{\tiny}
-\tablecolumns{13}
+\tabletypesize{\scriptsize}
+\tablecolumns{11}
 %\tablewidth{0 pt}
 \tablecaption{COS/NUV TA Monitoring Imaging Exposures - BOA\label{tab:NUVtamonimageBOA}}
 \tablehead{
-\colhead{\textit{ROOTNAME}}&\colhead{\textit{PROPOSID}}&\colhead{\textit{TARGNAME}}&\colhead{\textit{OBSMODE\tablenotemark{t}}} &\colhead{\textit{EXPTYPE}}   &\colhead{\textit{EXPTIME}}  &\colhead{PtNe}&\colhead{Lamp}   &\colhead{\textit{APERTURE}}&\colhead{\textit{OPT\_ELEM}}&\colhead{\textit{APERXPOS\tablenotemark{x}}}&\colhead{\textit{APERYPOS}\tablenotemark{y}}&\colhead{\textit{DATE-OBS}}\\
-\colhead{}                 &\colhead{}  &\colhead{}        &\colhead{}&\colhead{}&\colhead{(s)}&\colhead{Lamp \#}&\colhead{Current\tablenotemark{c}}&\colhead{}&\colhead{}&\colhead{ }&\colhead{}&\colhead{}\\
+\colhead{\textit{PROP}}&\colhead{\textit{ROOT}}&\colhead{\textit{TARG}}&
+\colhead{\textit{OBS}} &\colhead{\textit{EXPTYPE}}  &
+\colhead{\textit{EXPTIME}} &\colhead{PtNe (WCA)}  &
+\colhead{\textit{APERTURE}}&
+\colhead{\textit{APER}}&\colhead{\textit{APER}}&\colhead{\textit{DATE-OBS}}\\
+\colhead{\textit{OSID}}&\colhead{\textit{NAME}}&
+\colhead{\textit{NAME}}&\colhead{\textit{MODE\tablenotemark{t}}}&\colhead{}&
+\colhead{(s)}&\colhead{Lamp\#$\times$Current}&
+\colhead{$\times$\textit{OPT\_ELEM}}&
+\colhead{\textit{XPOS\tablenotemark{x}}}&\colhead{\textit{YPOS\tablenotemark{y}}}&\colhead{}\\
 \colhead{(1)}&\colhead{(2)}	&	\colhead{(3)}&\colhead{(4)} &
 \colhead{(5)}&\colhead{(6)}	&	\colhead{(7)}&\colhead{(8)} &
-\colhead{(9)}&\colhead{(10)}	&	\colhead{(11)}	&	\colhead{(12)}&\colhead{(13)}
+\colhead{(9)}&\colhead{(10)}	&	\colhead{(11)}
 }
 \startdata
 \toprule
-\multicolumn{13}{c}{BOA $\times$ MIRA}\\
+\multicolumn{11}{c}{BOA$\times$MIRRORA}\\
 \midrule
-lcgq01q9q	&	13526	&	WD-1657+343	&	  TT 	&	EXT/SCI 	&	150	&	P2	&	Med	&	BOA	&	MIRA	&22.1	&	-153.1	&	2014-11-19	\\
-lcgq01qdq	&	13526	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	150	&	P2	&	Low	&	BOA	&	MIRA	&22.1	&	-153.1	&	2014-11-19	\\
-lcgq02hmq	&	13526	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	12	&	P2	&	Low	&	BOA	&	MIRA	&22.1	&	-153.1	&	2014-11-17	\\
-lcgq02i0q	&	13526	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	12	&	P2	&	Low	&	BOA	&	MIRA	&22.1	&	-153.1	&	2014-11-17	\\
-lcri01g3q	&	13972	&	WD-1657+343	&	  TT 	&	EXT/SCI 	&	150	&	P2	&	Med	&	BOA	&	MIRA	&22.1	&	-153.1	&	2015-10-06	\\
-lcri01g7q	&	13972	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	150	&	P2	&	Low	&	BOA	&	MIRA	&22.1	&	-153.1	&	2015-10-06	\\
-lcri02h8q	&	13972	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	12	&	P2	&	Low	&	BOA	&	MIRA	&22.1	&	-153.1	&	2015-10-06	\\
-lcri02hmq	&	13972	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	12	&	P2	&	Low	&	BOA	&	MIRA	&22.1	&	-153.1	&	2015-10-06	\\
-ld3701gxq	&	14440	&	WD-1657+343	&	  TT 	&	EXT/SCI 	&	150	&	P2	&	Med	&	BOA	&	MIRA	&22.1	&	-153.1	&	2016-10-18	\\
-ld3701h1q	&	14440	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	150	&	P2	&	Low	&	BOA	&	MIRA	&22.1	&	-153.1	&	2016-10-18	\\
-ld3702mzq	&	14440	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	16	&	P2	&	Low	&	BOA	&	MIRA	&22.1	&	-153.1	&	2016-10-19	\\
-ld3702nhq	&	14440	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	16	&	P2	&	Low	&	BOA	&	MIRA	&22.1	&	-153.1	&	2016-10-19	\\
-ldozbadlq	&	14857	&	WD-1657+343	&	  TT 	&	EXT/SCI 	&	150	&	P2	&	Med	&	BOA	&	MIRA	&22.1	&	-153.1	&	2017-09-04	\\
-ldozbadpq	&	14857	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	150	&	P2	&	Low	&	BOA	&	MIRA	&22.1	&	-153.1	&	2017-09-04	\\
-ldozbbleq	&	14857	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	16	&	P2	&	Low	&	BOA	&	MIRA	&22.1	&	-153.1	&	2017-09-06	\\
-ldozbblsq	&	14857	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	16	&	P2	&	Low	&	BOA	&	MIRA	&22.1	&	-153.1	&	2017-09-06	\\
+\pid{13124}	&	lc6601rvq	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	150	&	\plamptwo{}$\times$Med	&	BOA$\times$MIRA	&22.1	&	-153.1	&	2013-10-24\\
+\pid{13124}	&	lc6601ryq	&	WD-1657+343	&	TT	&	EXT/SCI	&	150	&	\dots\tablenotemark{a}	&	BOA$\times$MIRA	&	22.1	&	-153.1&	2013-10-24\\
+\pid{13124}	&	lc6602y5q	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	12	&	\plamptwo{}$\times$Med	&	BOA$\times$MIRA	&22.1	&	-153.1	&	2013-11-01\\
+\pid{13124}	&	lc6602y7q	&	HIP66578	&	TT	&	EXT/SCI	&	12	&	\dots\tablenotemark{a}	&	BOA$\times$MIRA	&	22.1	&	-153.1&	2013-11-01\\
+\pid{13526}	&	lcgq02hmq	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	12	&	\plamptwo{}$\times$Low	&	BOA$\times$MIRA	&22.1	&	-153.1	&	2014-11-17	\\
+\pid{13526}	&	lcgq02i0q	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	12	&	\plamptwo{}$\times$Low	&	BOA$\times$MIRA	&22.1	&	-153.1	&	2014-11-17	\\
+\pid{13526}	&	lcgq01q9q	&	WD-1657+343	&	 TT 	&	EXT/SCI 	&	150	&	\plamptwo{}$\times$Med	&	BOA$\times$MIRA	&22.1	&	-153.1	&	2014-11-19	\\
+\pid{13526}	&	lcgq01qdq	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	150	&	\plamptwo{}$\times$Low	&	BOA$\times$MIRA	&22.1	&	-153.1	&	2014-11-19	\\
+\pid{13972}	&	lcri01g3q	&	WD-1657+343	&	 TT 	&	EXT/SCI 	&	150	&	\plamptwo{}$\times$Med	&	BOA$\times$MIRA	&22.1	&	-153.1	&	2015-10-06	\\
+\pid{13972}	&	lcri01g7q	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	150	&	\plamptwo{}$\times$Low	&	BOA$\times$MIRA	&22.1	&	-153.1	&	2015-10-06	\\
+\pid{13972}	&	lcri02h8q	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	12	&	\plamptwo{}$\times$Low	&	BOA$\times$MIRA	&22.1	&	-153.1	&	2015-10-06	\\
+\pid{13972}	&	lcri02hmq	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	12	&	\plamptwo{}$\times$Low	&	BOA$\times$MIRA	&22.1	&	-153.1	&	2015-10-06	\\
+\pid{14440}	&	ld3701gxq	&	WD-1657+343	&	 TT 	&	EXT/SCI 	&	150	&	\plamptwo{}$\times$Med	&	BOA$\times$MIRA	&22.1	&	-153.1	&	2016-10-18	\\
+\pid{14440}	&	ld3701h1q	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	150	&	\plamptwo{}$\times$Low	&	BOA$\times$MIRA	&22.1	&	-153.1	&	2016-10-18	\\
+\pid{14440}	&	ld3702mzq	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	16	&	\plamptwo{}$\times$Low	&	BOA$\times$MIRA	&22.1	&	-153.1	&	2016-10-19	\\
+\pid{14440}	&	ld3702nhq	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	16	&	\plamptwo{}$\times$Low	&	BOA$\times$MIRA	&22.1	&	-153.1	&	2016-10-19	\\
+\pid{14857}	&	ldozbadlq	&	WD-1657+343	&	 TT 	&	EXT/SCI 	&	150	&	\plamptwo{}$\times$Med	&	BOA$\times$MIRA	&22.1	&	-153.1	&	2017-09-04	\\
+\pid{14857}	&	ldozbadpq	&	WD-1657+343	&	ACCUM	&	ACQ/IMAGE	&	150	&	\plamptwo{}$\times$Low	&	BOA$\times$MIRA	&22.1	&	-153.1	&	2017-09-04	\\
+\pid{14857}	&	ldozbbleq	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	16	&	\plamptwo{}$\times$Low	&	BOA$\times$MIRA	&22.1	&	-153.1	&	2017-09-06	\\
+\pid{14857}	&	ldozbblsq	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	16	&	\plamptwo{}$\times$Low	&	BOA$\times$MIRA	&22.1	&	-153.1	&	2017-09-06	\\
 \midrule
-\multicolumn{13}{c}{BOA $\times$ MIRA}\\
+\multicolumn{11}{c}{BOA$\times$MIRRORA}\\
 \midrule
-lcgq02hqq	&	13526	&	HIP66578	&	  TT 	&	EXT/SCI 	&	181	&	P2	&	Low	&	BOA	&	MIRB	&22.1	&	-153.1	&	2014-11-17	\\
-lcgq02huq	&	13526	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	181	&	P2	&	Med	&	BOA	&	MIRB	&22.1	&	-153.1	&	2014-11-17	\\
-lcri02hcq	&	13972	&	HIP66578	&	  TT 	&	EXT/SCI 	&	181	&	P2	&	Low	&	BOA	&	MIRB	&22.1	&	-153.1	&	2015-10-06	\\
-lcri02hgq	&	13972	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	181	&	P2	&	Med	&	BOA	&	MIRB	&22.1	&	-153.1	&	2015-10-06	\\
-ld3702n4q	&	14440	&	HIP66578	&	  TT 	&	EXT/SCI 	&	183	&	P2	&	Low	&	BOA	&	MIRB	&22.1	&	-153.1	&	2016-10-19	\\
-ld3702n9q	&	14440	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	183	&	P2	&	Med	&	BOA	&	MIRB	&22.1	&	-153.1	&	2016-10-19	\\
-ldozbbliq	&	14857	&	HIP66578	&	  TT 	&	EXT/SCI 	&	183	&	P2	&	Low	&	BOA	&	MIRB	&22.1	&	-153.1	&	2017-09-06	\\
-ldozbblmq	&	14857	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	183	&	P2	&	Med	&	BOA	&	MIRB	&22.1	&	-153.1	&	2017-09-06	\\
+\pid{13124}	&	lc6602y9q	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	175	&	\plamptwo{}$\times$Med	&	BOA$\times$MIRB	&22.1	&	-153.1	&	2013-11-01\\
+\pid{13124}	&	lc6602ycq	&	HIP66578	&	TT	&	EXT/SCI	&	175	&	\dots\tablenotemark{a}	&	BOA$\times$MIRB	&	22.1	&	-153.1&	2013-11-01\\
+\pid{13124}	&	lc6602yxq	&	HIP66578	&	TT	&	EXT/SCI	&	12	&	\dots\tablenotemark{a}	&	BOA$\times$MIRA	&	22.1	&	-153.1&	2013-11-01\\
+\pid{13526}	&	lcgq02hqq	&	HIP66578	&	 TT 	&	EXT/SCI 	&	181	&	\plamptwo{}$\times$Low	&	BOA$\times$MIRB	&22.1	&	-153.1	&	2014-11-17	\\
+\pid{13526}	&	lcgq02huq	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	181	&	\plamptwo{}$\times$Med	&	BOA$\times$MIRB	&22.1	&	-153.1	&	2014-11-17	\\
+\pid{13972}	&	lcri02hcq	&	HIP66578	&	 TT 	&	EXT/SCI 	&	181	&	\plamptwo{}$\times$Low	&	BOA$\times$MIRB	&22.1	&	-153.1	&	2015-10-06	\\
+\pid{13972}	&	lcri02hgq	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	181	&	\plamptwo{}$\times$Med	&	BOA$\times$MIRB	&22.1	&	-153.1	&	2015-10-06	\\
+\pid{14440}	&	ld3702n4q	&	HIP66578	&	 TT 	&	EXT/SCI 	&	183	&	\plamptwo{}$\times$Low	&	BOA$\times$MIRB	&22.1	&	-153.1	&	2016-10-19	\\
+\pid{14440}	&	ld3702n9q	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	183	&	\plamptwo{}$\times$Med	&	BOA$\times$MIRB	&22.1	&	-153.1	&	2016-10-19	\\
+\pid{14857}	&	ldozbbliq	&	HIP66578	&	 TT 	&	EXT/SCI 	&	183	&	\plamptwo{}$\times$Low	&	BOA$\times$MIRB	&22.1	&	-153.1	&	2017-09-06	\\
+\pid{14857}	&	ldozbblmq	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	183	&	\plamptwo{}$\times$Med	&	BOA$\times$MIRB	&22.1	&	-153.1	&	2017-09-06	\\
 \bottomrule
 \enddata
-\tablenotetext{c}{The P2 wavelength calibration lamp current settings are LOW (3~mA), MED (10~mA) and HIGH (14~mA).}
+\tablenotetext{a}{The intended PtNe lamp flashes of \pid{13124} did not occur as expected. This was corrected in all other programs.}
+%\tablenotetext{c}{The \plamptwo{}wavelength calibration lamp current settings are LOW (3~mA), Med (10~mA) and HIGH (14~mA).}
 \tablenotetext{t}{TT = TIME-TAG.}
 \tablenotetext{x}{\textit{APERYPOS}, the AD aperture mechanism positions, are stored in the FSW in \textsc{pcmech\_ApMDispPosition}.
 The trailing "0.1" reported in the FITS headers is a conversion anomaly that is present in all aperture positions (\textit{APERXPOS} \& \textit{APERYPOS}).}
-\tablenotetext{y}{It is not uncommon that the XD aperture location (\textit{APERXPOS}) is $\pm$ one step off from its nominal position.
+\tablenotetext{y}{It is not uncommon that the XD aperture location (\textit{APERXPOS}) is $\pm 1$ step off from its nominal position.
 The XD aperture mechanism positions are stored in the FSW in \textsc{pcmech\_ApMXDispPosition} (see Table~\ref{tab:ApMXDispPosition}).}
-\tablecomments{PSA \textsc{EXPTYPE}=EXT/SCI  exposures contain coeval target and PtNe lamp TT images.}
+\tablecomments{PSA \textsc{EXPTYPE}=EXT/SCI exposures contain coeval target and PtNe lamp TT images.}
 \end{deluxetable}
 
-\begin{deluxetable}{rrrcrrrrrrrrr}
-\tabcolsep 4 pt
-\tabletypesize{\tiny}
-\tablecolumns{13}
+\begin{deluxetable}{rccccrrr}
+%\tabcolsep 8pt
+\tabletypesize{\scriptsize}
+\tablecolumns{8}
 %\tablewidth{0 pt}
 \tablecaption{COS/NUV TA Monitoring Imaging Exposures - WCA only\label{tab:NUVtamonimageWCA}}
 \tablehead{
-\colhead{\textit{ROOTNAME}}&\colhead{\textit{PROPOSID}}&\colhead{\textit{TARGNAME}}&\colhead{\textit{OBSMODE\tablenotemark{t}}} &\colhead{\textit{EXPTYPE}}   &\colhead{\textit{EXPTIME}}  &\colhead{PtNe}&\colhead{Lamp}   &\colhead{\textit{APERTURE}}&\colhead{\textit{OPT\_ELEM}}&\colhead{\textit{APERXPOS\tablenotemark{x}}}&\colhead{\textit{APERYPOS}\tablenotemark{y}}&\colhead{\textit{DATE-OBS}}\\
-\colhead{}                 &\colhead{}  &\colhead{}        &\colhead{}&\colhead{}&\colhead{(s)}&\colhead{Lamp \#}&\colhead{Current\tablenotemark{c}}&\colhead{}&\colhead{}&\colhead{ }&\colhead{}&\colhead{}\\
+\colhead{\textit{PROP}}&\colhead{\textit{ROOT}} &
+%\colhead{\textit{TARG}}&
+%\colhead{\textit{OBS}} &\colhead{\textit{EXPTYPE}}  &
+\colhead{\textit{EXPTIME}} &\colhead{PtNe (WCA)}  &
+\colhead{\textit{APERTURE}}&
+\colhead{\textit{APER}}&\colhead{\textit{APER}}&\colhead{\textit{DATE-OBS}}\\
+\colhead{\textit{OSID}}&\colhead{\textit{NAME}}&
+%\colhead{\textit{NAME}}&
+%\colhead{\textit{MODE\tablenotemark{t}}}&\colhead{}&
+\colhead{(s)}&\colhead{Lamp\#$\times$Current}&
+\colhead{$\times$\textit{OPT\_ELEM}}&
+\colhead{\textit{XPOS\tablenotemark{x}}}&\colhead{\textit{YPOS\tablenotemark{y}}}&\colhead{}\\
 \colhead{(1)}&\colhead{(2)}	&	\colhead{(3)}&\colhead{(4)} &
-\colhead{(5)}&\colhead{(6)}	&	\colhead{(7)}&\colhead{(8)} &
-\colhead{(9)}&\colhead{(10)}	&	\colhead{(11)}	&	\colhead{(12)}&\colhead{(13)}
+\colhead{(5)}&\colhead{(6)}	&	\colhead{(7)}&\colhead{(8)}
 }
 \startdata
-\multicolumn{13}{c}{WCA$\times$MIRA}\\
+\multicolumn{8}{c}{WCA$\times$MIRRORA}\\
 \midrule
-lcgp01byq	&	13523	&	WAVE	&	  TT 	&	WAVECAL	&	20	&	P2	&	Low	&	WCA&	MIRA	&	22.1	&	127.1	&	2013-11-11	\\
-lcgp01c3q	&	13523	&	WAVE	&	  TT 	&	WAVECAL	&	20	&	P1	&	Low	&	WCA&	MIRA	&	22.1	&	127.1	&	2013-11-11	\\
-lcgq01qbq	&	13526	&	WAVE	&	  TT 	&	WAVECAL	&	7	&	P2	&	Low	&	WCA&	MIRA	&	22.1	&	126.1	&	2014-11-19	\\
-lcgq01qfq	&	13526	&	WAVE	&	  TT 	&	WAVECAL	&	7	&	P2	&	Low	&	WCA&	MIRA	&	22.1	&	126.1	&	2014-11-19	\\
-lcgq02hoq	&	13526	&	WAVE	&	  TT 	&	WAVECAL	&	7	&	P2	&	Low	&	WCA&	MIRA	&	22.1	&	126.1	&	2014-11-17	\\
-lcgq02hyq	&	13526	&	WAVE	&	  TT 	&	WAVECAL	&	10	&	P2	&	Low	&	WCA&	MIRA	&	22.1	&	126.1	&	2014-11-17	\\
-lcgq02icq	&	13526	&	WAVE	&	  TT 	&	WAVECAL	&	10	&	P1	&	Low	&	WCA&	MIRA	&	22.1	&	127.1	&	2014-11-17	\\
-lcgq02ieq	&	13526	&	WAVE	&	  TT 	&	WAVECAL	&	10	&	P2	&	Low	&	WCA&	MIRA	&	22.1	&	127.1	&	2014-11-17	\\
-lcri01g5q	&	13972	&	WAVE	&	  TT 	&	WAVECAL	&	10	&	P2	&	Low	&	WCA&	MIRA	&	22.1	&	126.1	&	2015-10-06	\\
-lcri01g9q	&	13972	&	WAVE	&	  TT 	&	WAVECAL	&	10	&	P2	&	Low	&	WCA&	MIRA	&	22.1	&	126.1	&	2015-10-06	\\
-lcri02haq	&	13972	&	WAVE	&	  TT 	&	WAVECAL	&	14	&	P2	&	Low	&	WCA&	MIRA	&	22.1	&	126.1	&	2015-10-06	\\
-lcri02hkq	&	13972	&	WAVE	&	  TT 	&	WAVECAL	&	14	&	P2	&	Low	&	WCA&	MIRA	&	22.1	&	126.1	&	2015-10-06	\\
-lcri02hyq	&	13972	&	WAVE	&	  TT 	&	WAVECAL	&	14	&	P1	&	Low	&	WCA&	MIRA	&	22.1	&	125.1	&	2015-10-06	\\
-lcri02i0q	&	13972	&	WAVE	&	  TT 	&	WAVECAL	&	24	&	P2	&	Low	&	WCA&	MIRA	&	22.1	&	125.1	&	2015-10-06	\\
-ld3la1cqq	&	14452	&	WAVE	&	  TT 	&	WAVECAL	&	10	&	P2	&	Low	&	WCA&	MIRA	&	22.1 	&	125.1 	&	2016-04-01 \\
-ld3la2olq	&	14452	&	WAVE	&	  TT 	&	WAVECAL	&	10	&	P2	&	Low	&	WCA&	MIRA	&	22.1 	&	125.1 	&	2016-10-02 \\
-ld3701gzq	&	14440	&	WAVE	&	  TT 	&	WAVECAL	&	9	&	P2	&	Low	&	WCA&	MIRA	&	22.1	&	126.1	&	2016-10-18	\\
-ld3701h3q	&	14440	&	WAVE	&	  TT 	&	WAVECAL	&	10	&	P2	&	Low	&	WCA&	MIRA	&	22.1	&	126.1	&	2016-10-18	\\
-ld3702n1q	&	14440	&	WAVE	&	  TT 	&	WAVECAL	&	14	&	P2	&	Low	&	WCA&	MIRA	&	22.1	&	126.1	&	2016-10-19	\\
-ld3702neq	&	14440	&	WAVE	&	  TT 	&	WAVECAL	&	14	&	P2	&	Low	&	WCA&	MIRA	&	22.1	&	126.1	&	2016-10-19	\\
-ld3702o1q	&	14440	&	WAVE	&	  TT 	&	WAVECAL	&	14	&	P1	&	Low	&	WCA&	MIRA	&	22.1	&	125.1	&	2016-10-19	\\
-ld3702o3q	&	14440	&	WAVE	&	  TT 	&	WAVECAL	&	24	&	P2	&	Low	&	WCA&	MIRA	&	22.1	&	125.1	&	2016-10-19	\\
-ldozbadnq	&	14857	&	WAVE	&	  TT 	&	WAVECAL	&	9	&	P2	&	Low	&	WCA&	MIRA	&	22.1	&	126.1	&	2017-09-04	\\
-ldozbadrq	&	14857	&	WAVE	&	  TT 	&	WAVECAL	&	10	&	P2	&	Low	&	WCA&	MIRA	&	22.1	&	126.1	&	2017-09-04	\\
-ldozbblgq	&	14857	&	WAVE	&	  TT 	&	WAVECAL	&	14	&	P2	&	Low	&	WCA&	MIRA	&	22.1	&	126.1	&	2017-09-06	\\
-ldozbblqq	&	14857	&	WAVE	&	  TT 	&	WAVECAL	&	14	&	P2	&	Low	&	WCA&	MIRA	&	22.1	&	126.1	&	2017-09-06	\\
-ldozbbm4q	&	14857	&	WAVE	&	  TT 	&	WAVECAL	&	16	&	P1	&	Low	&	WCA&	MIRA	&	22.1	&	125.1	&	2017-09-06	\\
-ldozbbm6q	&	14857	&	WAVE	&	  TT 	&	WAVECAL	&	26	&	P2	&	Low	&	WCA&	MIRA	&	22.1	&	125.1	&	2017-09-06	\\
+\pid{13523}	&	lcgp01byq	&	20	&	\plamptwo{}$\times$Low	&	WCA$\times$MIRA	&	22.1	&	127.1	&	2013-11-11	\\
+\pid{13523}	&	lcgp01c3q	&	20	&	\plampone{}$\times$Low	&	WCA$\times$MIRA	&	22.1	&	127.1	&	2013-11-11	\\
+\pid{13526}	&	lcgq01qbq	&	7	&	\plamptwo{}$\times$Low	&	WCA$\times$MIRA	&	22.1	&	126.1	&	2014-11-19	\\
+\pid{13526}	&	lcgq01qfq	&	7	&	\plamptwo{}$\times$Low	&	WCA$\times$MIRA	&	22.1	&	126.1	&	2014-11-19	\\
+\pid{13526}	&	lcgq02hoq	&	7	&	\plamptwo{}$\times$Low	&	WCA$\times$MIRA	&	22.1	&	126.1	&	2014-11-17	\\
+\pid{13526}	&	lcgq02hyq	&	10	&	\plamptwo{}$\times$Low	&	WCA$\times$MIRA	&	22.1	&	126.1	&	2014-11-17	\\
+\pid{13526}	&	lcgq02icq	&	10	&	\plampone{}$\times$Low	&	WCA$\times$MIRA	&	22.1	&	127.1	&	2014-11-17	\\
+\pid{13526}	&	lcgq02ieq	&	10	&	\plamptwo{}$\times$Low	&	WCA$\times$MIRA	&	22.1	&	127.1	&	2014-11-17	\\
+\pid{13972}	&	lcri01g5q	&	10	&	\plamptwo{}$\times$Low	&	WCA$\times$MIRA	&	22.1	&	126.1	&	2015-10-06	\\
+\pid{13972}	&	lcri01g9q	&	10	&	\plamptwo{}$\times$Low	&	WCA$\times$MIRA	&	22.1	&	126.1	&	2015-10-06	\\
+\pid{13972}	&	lcri02haq	&	14	&	\plamptwo{}$\times$Low	&	WCA$\times$MIRA	&	22.1	&	126.1	&	2015-10-06	\\
+\pid{13972}	&	lcri02hkq	&	14	&	\plamptwo{}$\times$Low	&	WCA$\times$MIRA	&	22.1	&	126.1	&	2015-10-06	\\
+\pid{13972}	&	lcri02hyq	&	14	&	\plampone{}$\times$Low	&	WCA$\times$MIRA	&	22.1	&	125.1	&	2015-10-06	\\
+\pid{13972}	&	lcri02i0q	&	24	&	\plamptwo{}$\times$Low	&	WCA$\times$MIRA	&	22.1	&	125.1	&	2015-10-06	\\
+\pid{14452}	&	ld3la1cqq	&	10	&	\plamptwo{}$\times$Low	&	WCA$\times$MIRA	&	22.1	&	125.1 	&	2016-04-01 \\
+\pid{14452}	&	ld3la2olq	&	10	&	\plamptwo{}$\times$Low	&	WCA$\times$MIRA	&	22.1	&	125.1 	&	2016-10-02 \\
+\pid{14440}	&	ld3701gzq	&	9	&	\plamptwo{}$\times$Low	&	WCA$\times$MIRA	&	22.1	&	126.1	&	2016-10-18	\\
+\pid{14440}	&	ld3701h3q	&	10	&	\plamptwo{}$\times$Low	&	WCA$\times$MIRA	&	22.1	&	126.1	&	2016-10-18	\\
+\pid{14440}	&	ld3702n1q	&	14	&	\plamptwo{}$\times$Low	&	WCA$\times$MIRA	&	22.1	&	126.1	&	2016-10-19	\\
+\pid{14440}	&	ld3702neq	&	14	&	\plamptwo{}$\times$Low	&	WCA$\times$MIRA	&	22.1	&	126.1	&	2016-10-19	\\
+\pid{14440}	&	ld3702o1q	&	14	&	\plampone{}$\times$Low	&	WCA$\times$MIRA	&	22.1	&	125.1	&	2016-10-19	\\
+\pid{14440}	&	ld3702o3q	&	24	&	\plamptwo{}$\times$Low	&	WCA$\times$MIRA	&	22.1	&	125.1	&	2016-10-19	\\
+\pid{14857}	&	ldozbadnq	&	9	&	\plamptwo{}$\times$Low	&	WCA$\times$MIRA	&	22.1	&	126.1	&	2017-09-04	\\
+\pid{14857}	&	ldozbadrq	&	10	&	\plamptwo{}$\times$Low	&	WCA$\times$MIRA	&	22.1	&	126.1	&	2017-09-04	\\
+\pid{14857}	&	ldozbblgq	&	14	&	\plamptwo{}$\times$Low	&	WCA$\times$MIRA	&	22.1	&	126.1	&	2017-09-06	\\
+\pid{14857}	&	ldozbblqq	&	14	&	\plamptwo{}$\times$Low	&	WCA$\times$MIRA	&	22.1	&	126.1	&	2017-09-06	\\
+\pid{14857}	&	ldozbbm4q	&	16	&	\plampone{}$\times$Low	&	WCA$\times$MIRA	&	22.1	&	125.1	&	2017-09-06	\\
+\pid{14857}	&	ldozbbm6q	&	26	&	\plamptwo{}$\times$Low	&	WCA$\times$MIRA	&	22.1	&	125.1	&	2017-09-06	\\
 \midrule
-\multicolumn{13}{c}{WCA$\times$MIRB}\\
+\multicolumn{8}{c}{WCA$\times$MIRRORB}\\
 \midrule
-lcgp01bpq	&	13523	&	WAVE	&	  TT 	&	WAVECAL	&	40	&	P2	&	Low	&	WCA&	MIRB	&	22.1	&	127.1	&	2013-11-11	\\
-lcgp01bsq	&	13523	&	WAVE	&	  TT 	&	WAVECAL	&	40	&	P1	&	Low	&	WCA&	MIRB	&	22.1	&	127.1	&	2013-11-11	\\
-lcgq02hsq	&	13526	&	WAVE	&	  TT 	&	WAVECAL	&	12	&	P2	&	Med	&	WCA&	MIRB	&	22.1	&	126.1	&	2014-11-17	\\
-lcgq02hwq	&	13526	&	WAVE	&	  TT 	&	WAVECAL	&	12	&	P2	&	Med	&	WCA&	MIRB	&	22.1	&	126.1	&	2014-11-17	\\
-lcgq02igq	&	13526	&	WAVE	&	  TT 	&	WAVECAL	&	30	&	P1	&	Low	&	WCA&	MIRB	&	22.1	&	127.1	&	2014-11-17	\\
-lcgq02iiq	&	13526	&	WAVE	&	  TT 	&	WAVECAL	&	20	&	P2	&	Med	&	WCA&	MIRB	&	22.1	&	127.1	&	2014-11-17	\\
-lcri02heq	&	13972	&	WAVE	&	  TT 	&	WAVECAL	&	24	&	P2	&	Med	&	WCA&	MIRB	&	22.1	&	126.1	&	2015-10-06	\\
-lcri02hiq	&	13972	&	WAVE	&	  TT 	&	WAVECAL	&	24	&	P2	&	Med	&	WCA&	MIRB	&	22.1	&	126.1	&	2015-10-06	\\
-lcri02i2q	&	13972	&	WAVE	&	  TT 	&	WAVECAL	&	30	&	P1	&	Low	&	WCA&	MIRB	&	22.1	&	125.1	&	2015-10-06	\\
-lcri02i4q	&	13972	&	WAVE	&	  TT 	&	WAVECAL	&	24	&	P2	&	Med	&	WCA&	MIRB	&	22.1	&	125.1	&	2015-10-06	\\
-ld3la1cuq	&	14452	&	WAVE	&	  TT 	&	WAVECAL	&	20	&	P2	&	Med	&	WCA&	MIRB	&	22.1	&	125.1	&	2016-04-01	\\
-ld3la2opq	&	14452	&	WAVE	&	  TT 	&	WAVECAL	&	20	&	P2	&	Med	&	WCA&	MIRB	&	22.1	&	125.1	&	2016-10-02	\\
-ld3702n7q	&	14440	&	WAVE	&	  TT 	&	WAVECAL	&	24	&	P2	&	Med	&	WCA&	MIRB	&	22.1	&	126.1	&	2016-10-19	\\
-ld3702nbq	&	14440	&	WAVE	&	  TT 	&	WAVECAL	&	24	&	P2	&	Med	&	WCA&	MIRB	&	22.1	&	126.1	&	2016-10-19	\\
-ld3702o5q	&	14440	&	WAVE	&	  TT 	&	WAVECAL	&	30	&	P1	&	Low	&	WCA&	MIRB	&	22.1	&	125.1	&	2016-10-19	\\
-ld3702o7q	&	14440	&	WAVE	&	  TT 	&	WAVECAL	&	24	&	P2	&	Med	&	WCA&	MIRB	&	22.1	&	125.1	&	2016-10-19	\\
-ldozbblkq	&	14857	&	WAVE	&	  TT 	&	WAVECAL	&	24	&	P2	&	Med	&	WCA&	MIRB	&	22.1	&	126.1	&	2017-09-06	\\
-ldozbbloq	&	14857	&	WAVE	&	  TT 	&	WAVECAL	&	24	&	P2	&	Med	&	WCA&	MIRB	&	22.1	&	126.1	&	2017-09-06	\\
-ldozbbm8q	&	14857	&	WAVE	&	  TT 	&	WAVECAL	&	32	&	P1	&	Low	&	WCA&	MIRB	&	22.1	&	125.1	&	2017-09-06	\\
-ldozbbmaq	&	14857	&	WAVE	&	  TT 	&	WAVECAL	&	26	&	P2	&	Med	&	WCA&	MIRB	&	22.1	&	125.1	&	2017-09-06	\\
+\pid{13523}	&	lcgp01bpq	&	40	&	\plamptwo{}$\times$Low	&	WCA$\times$MIRB	&	22.1	&	127.1	&	2013-11-11	\\
+\pid{13523}	&	lcgp01bsq	&	40	&	\plampone{}$\times$Low	&	WCA$\times$MIRB	&	22.1	&	127.1	&	2013-11-11	\\
+\pid{13526}	&	lcgq02hsq	&	12	&	\plamptwo{}$\times$Med	&	WCA$\times$MIRB	&	22.1	&	126.1	&	2014-11-17	\\
+\pid{13526}	&	lcgq02hwq	&	12	&	\plamptwo{}$\times$Med	&	WCA$\times$MIRB	&	22.1	&	126.1	&	2014-11-17	\\
+\pid{13526}	&	lcgq02igq	&	30	&	\plampone{}$\times$Low	&	WCA$\times$MIRB	&	22.1	&	127.1	&	2014-11-17	\\
+\pid{13526}	&	lcgq02iiq	&	20	&	\plamptwo{}$\times$Med	&	WCA$\times$MIRB	&	22.1	&	127.1	&	2014-11-17	\\
+\pid{13972}	&	lcri02heq	&	24	&	\plamptwo{}$\times$Med	&	WCA$\times$MIRB	&	22.1	&	126.1	&	2015-10-06	\\
+\pid{13972}	&	lcri02hiq	&	24	&	\plamptwo{}$\times$Med	&	WCA$\times$MIRB	&	22.1	&	126.1	&	2015-10-06	\\
+\pid{13972}	&	lcri02i2q	&	30	&	\plampone{}$\times$Low	&	WCA$\times$MIRB	&	22.1	&	125.1	&	2015-10-06	\\
+\pid{13972}	&	lcri02i4q	&	24	&	\plamptwo{}$\times$Med	&	WCA$\times$MIRB	&	22.1	&	125.1	&	2015-10-06	\\
+\pid{14452}	&	ld3la1cuq	&	20	&	\plamptwo{}$\times$Med	&	WCA$\times$MIRB	&	22.1	&	125.1	&	2016-04-01	\\
+\pid{14452}	&	ld3la2opq	&	20	&	\plamptwo{}$\times$Med	&	WCA$\times$MIRB	&	22.1	&	125.1	&	2016-10-02	\\
+\pid{14440}	&	ld3702n7q	&	24	&	\plamptwo{}$\times$Med	&	WCA$\times$MIRB	&	22.1	&	126.1	&	2016-10-19	\\
+\pid{14440}	&	ld3702nbq	&	24	&	\plamptwo{}$\times$Med	&	WCA$\times$MIRB	&	22.1	&	126.1	&	2016-10-19	\\
+\pid{14440}	&	ld3702o5q	&	30	&	\plampone{}$\times$Low	&	WCA$\times$MIRB	&	22.1	&	125.1	&	2016-10-19	\\
+\pid{14440}	&	ld3702o7q	&	24	&	\plamptwo{}$\times$Med	&	WCA$\times$MIRB	&	22.1	&	125.1	&	2016-10-19	\\
+\pid{14857}	&	ldozbblkq	&	24	&	\plamptwo{}$\times$Med	&	WCA$\times$MIRB	&	22.1	&	126.1	&	2017-09-06	\\
+\pid{14857}	&	ldozbbloq	&	24	&	\plamptwo{}$\times$Med	&	WCA$\times$MIRB	&	22.1	&	126.1	&	2017-09-06	\\
+\pid{14857}	&	ldozbbm8q	&	32	&	\plampone{}$\times$Low	&	WCA$\times$MIRB	&	22.1	&	125.1	&	2017-09-06	\\
+\pid{14857}	&	ldozbbmaq	&	26	&	\plamptwo{}$\times$Med	&	WCA$\times$MIRB	&	22.1	&	125.1	&	2017-09-06	\\
 \bottomrule
 \enddata
-\tablenotetext{c}{The P2 wavelength calibration lamp current settings are LOW (6~mA), MED (10~mA) and HIGH (18~mA). The P2 wavelength calibration lamp current settings are LOW (3~mA), MED (10~mA) and HIGH (14~mA).}
-\tablenotetext{t}{TT = TIME-TAG.}
+%\tablenotetext{c}{The \plamptwo{}wavelength calibration lamp current settings are LOW (6~mA), Med (10~mA) and HIGH (18~mA). The \plamptwo{}wavelength calibration lamp current settings are LOW (3~mA), Med (10~mA) and HIGH (14~mA).}
 \tablenotetext{x}{\textit{APERYPOS}, the AD aperture mechanism positions are stored in the FSW in \textsc{pcmech\_ApMDispPosition}.
-The trailing "0.1" reported in the FITS headers is a conversion anomaly that is present in all aperture positions (\textit{APERXPOS} \& \textit{APERYPOS}).}
-\tablenotetext{y}{It is not uncommon that the XD aperture location (\textit{APERXPOS}) is $\pm$ one step off from its nominal position.}
-\tablecomments{All exposures in this table are \textit{EXPTYPE}=WAVECAL (target = WAVE) and contain only TT PtNe lamp (WCA) images, and the indicated MIRROR position (\textit{OPT\_ELEM}).}
+The trailing "0.1" reported in the FITS headers is a conversion anomaly present in all reported aperture positions (\textit{APERXPOS} \& \textit{APERYPOS}).}
+\tablenotetext{y}{It is not uncommon that the XD aperture location (\textit{APERXPOS}) is $\pm 1$ step off from its nominal position.}
+\tablecomments{All exposures in this table are \textit{TARGNAME}=WAVE, time-tag (TT) \textit{EXPTYPE}=WAVECAL (target = WAVE) exposures and contain only PtNe lamp (WCA) images at the indicated MIRROR position (\textit{OPT\_ELEM}).}
 \end{deluxetable}

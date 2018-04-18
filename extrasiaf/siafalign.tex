@@ -1,0 +1,28 @@
+\subsection{C17--C24 COS to SIAF Alignment \label{subsec:siafalign}}
+
+
+The columns of Table~\ref{tab:colinsiaf} are:
+\footnotesize
+\begin{enumerate}
+\item \textit{PROPOSID} gives the HST program id (PID).
+\item YEAR.DAY gives the Year and day of the year of the observation.
+\item \textit{DATE-OBS} gives the observation date as reported in the
+fits header in DY-Mon-YEAR format.
+\item gives HST [V2,V3] coordinates (in \arcsec) of
+the initial HST pointing before the (Config\#1) PSA$\times$MIRA \tacq{IMAGE}.
+\item gives HST [V2,V3] coordinates (in \arcsec) of
+the intermediate HST pointing after the (Config\#1) PSA$\times$MIRA \tacq{IMAGE}
+and before the (Config\#2) PSA$\times$MIRB \tacq{IMAGE}.
+\item gives HST [V2,V3] ``Miss-Distances'' (in \arcsec) of
+the initial HST pointing before the (Config\#1) PSA$\times$MIRA \tacq{IMAGE}
+and are the Initial Pointing coordinates subtracted from the \textit{LNPSA}
+SIAF entry active at the time of the observation.
+\item gives HST [V2,V3] ``Miss-Distances'' (in \arcsec) of
+the intermediate HST pointing after the PSA$\times$MIRA \tacq{IMAGE}.
+\item ``SIAF Dates'' gives the dates the [V2,V3] SIAF entry in the following ``SIAF Entry'' column was active.
+\item ``SIAF Entry'' gives the [V2,V3] entries that were active at the time
+of the observations of this row.
+\end{enumerate}
+\normalsize
+
+\input{extrasiaf/colinsiaf.tex}

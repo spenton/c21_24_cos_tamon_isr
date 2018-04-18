@@ -1,27 +1,34 @@
-% $Id: spVER.tex,v 1.5 2018/03/30 20:22:12 penton Exp $
+% $Id: spVER.tex,v 1.7 2018/04/17 18:38:43 penton Exp $
 \section{Spectroscopic TA Verification}\label{sec:spVER}
 \normalsize
-After the series of \texttt{ACQ/IMAGE}s that start each visit, the target should be accurately centered.
+After the series of \tacq{IMAGE}s that start each visit, the target should be accurately centered.
 We take advantage of this to monitor certain aspects of COS spectroscopic TAs.
 
-COS spectroscopic TAs consist of up to three stages \texttt{ACQ/SEARCH}, \texttt{PEAKD}, and \texttt{PEAKXD}.
-The COS spectroscopic \texttt{ACQ/SEARCH} and \texttt{PEAKD} algorithms do not use any FSW patchable constants, and do not flash the
+COS spectroscopic TAs consist of up to three stages \tacq{SEARCH}, \texttt{PEAKD}, and \texttt{PEAKXD}.
+The COS spectroscopic \tacq{SEARCH} and \texttt{PEAKD} algorithms do not use any FSW patchable constants, and do not flash the
 internal calibration lamps. The only monitoring required for these TA phases is to ensure that the mechanisms were in their proper
-positions and that the TA subarrays defined in the HST ground commanding are proper for the mechanism positions used during the acquisitions.
+positions and that the TA subarrays defined in the HST ground commanding are proper for the mechanism positions used during the TAs.
 As discussed in \S~\ref{sec:subarray}, the majority of the details will be addressed for each FUV LP in its enabling ISR, or have already been verified
-for the NUV and FUV LP1 positions in Penton \& Keyes (2011).
+for the LP1 positions in Penton \& Keyes (2011).
 
-COS NUV (LP1) and FUV LP2--4 spectroscopic TA in the XD direction uses \texttt{ACQ/PEAKXD} and requires the use of the XD WCA-to-PSA offsets with the nominal \numposone~ algorithm.
+COS NUV (LP1) and FUV LP2--4 spectroscopic TA in the XD direction uses \tacq{PEAKXD} and requires the use of the XD WCA-to-PSA offsets with the nominal \numposone~ algorithm.
 These offsets are contained for both the NUV and FUV channels in the FSW patchable constant table \textsc{pcta\_CalTargetOffset}, and are provided for reference for all COS LPs in Table~\ref{tab:wcatopsa}.
 This ISR only attempts to verify that these offsets were appropriate for all data obtained during the annual monitoring programs.
 
-Each FUV central wavelength setting (\cenwave) uses a unique OSM1 rotation, whereas all NUV TAs use the same OSM1 rotation independent of \cenwave.
-However, each NUV \cenwave uses a different OSM2 rotation during TA. Each FUV \cenwave has it's own set of TA subarrays (up to four per segment), while the NUV TA subarrays are not \cenwave
+Each FUV \cenwave{} uses a unique OSM1 rotation, whereas all NUV TAs use the same OSM1 rotation independent of \cenwave{}.
+However, each NUV \cenwave{} uses a different OSM2 rotation during TA. Each FUV \cenwave{} has its own set of TA subarrays (up to four per segment), while the NUV TA subarrays are not \cenwave{}
 specific, but are grating specific.
 
-The verification process is for \texttt{ACQ/PEAKXD} is simple, take a normal spectrum with a target signal-to-noise ratio of least 50 for the entire spectrum (2500 target counts),
-and directly measure the WCA-to-PSA offset and compare it the FSW value. For NUV exposures, this is almost always \texttt{STRIPE=B}, and for the FUV, only events from FUVA are used at LP2--4.
+The verification process for \tacq{PEAKXD} is simple, take a normal spectrum with a target signal-to-noise ratio of least 50 for the entire spectrum (2500 target counts),
+and directly measure the WCA-to-SA offset and compare it the FSW value. For NUV exposures, this is almost always \texttt{STRIPE=B}, and for the FUV, only events from FUVA are used at LP2--4.
 TA subarrays are used to mask out any detector hot-spots or Geocoronal light that could interfere with the centering process. These spectra are also compared to the TA subarrays to
 verify that they satisfactory.
 
+\fsw{PKXD} uses the measured target location and known WCA-to-SA offset to calculate the required centering slew.
+This requires converting from NUV pixels and FUV rows to arcseconds on the sky. Table~\ref{tab:platescales} gives the
+COS FSW platescale values\footnote{Stored in the \textsc{pcta\_FUVMilliArcsecsPerPixelXDisp} table}. All NUV spectroscopic
+\fsw{PKXD}s use the same plate scale value of 0.02384\arcsec{}/p, stored in \textsc{pcta\_NUVMilliArcsecsPerPixelXDisp}.
+Each NUV grating and \cenwave{} has a slightly different plate scale, but the difference is small enough to ignore for COS TAs, see COS-11-0014B \S~{2.5} (Penton 2001B).
+
 \input{pctaWCA2SA.tex}
+\input{pctaPS.tex}

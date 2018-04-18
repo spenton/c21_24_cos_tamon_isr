@@ -1,25 +1,27 @@
-% $Id: requirements.tex,v 1.2 2018/03/27 18:32:49 penton Exp $
+% $Id: requirements.tex,v 1.4 2018/04/17 18:38:43 penton Exp $
 \subsection{COS TA Centering Requirements}\label{subsec:requirements}
 
-The COS TA centering requirements are based upon the wavelength accuracy requirements in the AD, and for flux and resolution optimization
-in the XD.\footnote{The COS requirements are documented in the CEI (Contract End Item) Specification (Smith et. al., 2004).} The strictest NUV requirements are [AD,XD] = [0.041, 0.3]\arcsec, while for the FUV they are [AD,XD] = [0.106, 0.3]\arcsec.\footnote{While the XD requirement for all TAs is $\pm$ 0.3\arcsec, our 1$\sigma$ goal is $\pm$ 0.1\arcsec. This goal ensures that spectra fall on a consistent XD location on the the detector, which aids in extraction and calibration accuracy.}
+The COS TA centering requirements are based upon wavelength accuracy requirements in the AD, and for flux and resolution optimization
+in the XD.\footnote{The COS requirements are documented in the CEI (Contract End Item) Specification (Smith et. al., 2004).}
+The strictest [AD,XD] NUV requirements are [0.041, 0.3]\arcsec, while for the FUV they are [0.106, 0.3]\arcsec.\footnote{While the XD requirement for all TAs is $\pm$ 0.3\arcsec, our 1$\sigma$ goal is $\pm$ 0.1\arcsec. This goal ensures that spectra fall on a consistent XD location on the the detector, which aids in extraction and calibration accuracy.}
 Since the AD requirement is in units of \kmsno, it is detector, grating, and wavelength dependent as defined, generally, in Equation~\ref{eq:wave}, and specifically
 for each grating in Equations~\ref{eq:TAcenter}--\ref{eq:TAcenterL}.
 Wavelengths assigned to COS data are required to have an absolute uncertainty of less than $\pm$15 k/ms in the medium resolution modes, $\pm$150 km/s in G140L mode and $\pm$ 175 km/s in G230L mode.
 In the XD direction, the requirement is to be centered to within $\pm$0.3\arcsec, however, our goal is $\pm$0.1\arcsec\ for FUV flat-fielding purposes.
-Since the AD requirement is in units of km/s, it is detector and wavelength dependent as defined and shown in Equation~\ref{eq:wave}.\\
+Since the AD requirement is in units of km/s, it is detector and wavelength dependent shown in Equation~\ref{eq:wave}.\\
 \begin{equation}
-\Delta AD (\AA) ={ {{\rm velocity\ requirement}\ \times \lambda}\over{ c~\times {\rm dispersion}\ (\AA/p) \times {\rm platescale}\ (p/\arcsec)}}
+\Delta AD (\AA) ={ {{\rm velocity\ requirement}\ \cdot \lambda}\over{ c~\cdot {\rm dispersion}\ (\AA/p) \cdot {\rm platescale}\ (p/\arcsec)}}
 \label{eq:wave}
 \end{equation}
 \begin{eqnarray}\label{eq:TAcenter}
-\Delta\ AD(G185M@1825\AA) = {{ 15\kms \times 1825\AA}\over{c \times 0 .037\AA/p\times 42.47 p/\arcsec}}  = 0.058\arcsec\\
-\Delta\ AD(G225M@2250\AA) = {{ 15\kms \times 2250\AA}\over{c \times  0.035\AA/p\times 42.47 p/\arcsec}}  = 0.076\arcsec\\
-\Delta\ AD(G285M@2850\AA) = {{ 15\kms \times 2850\AA}\over{c \times  0.040\AA/p\times 42.47 p/\arcsec}}  = 0.084\arcsec\\
-\Delta\ AD(G230L@2450\AA) = {{175\kms \times 2450\AA}\over{c \times  0.390\AA/p\times 42.47 p/\arcsec}}  = 0.086\arcsec\\
-\Delta\ AD(G130M@1300\AA) = {{ 15\kms \times 1300\AA}\over{c \times 0.00997\AA/ p\times 43.5 p/\arcsec}} = 0.150\arcsec\\
-\Delta\ AD(G160M@1600\AA) = {{ 15\kms \times 1600\AA}\over{c \times 0.01223\AA/ p\times 42.9 p/\arcsec}} = 0.153\arcsec\\
-\Delta\ AD(G140L@1800\AA) = {{150\kms \times 1800\AA}\over{c \times 0.08030\AA/ p\times 45.4 p/\arcsec}} = 0.247\arcsec\label{eq:TAcenterL}
+\setlength\itemsep{0.1em}
+\Delta\ AD(G185M@1825\AA) = {{ 15\kms \cdot 1825\AA}\over{c \cdot 0 .037\AA/p\cdot 42.47 p/\arcsec}}  = 0.058\arcsec\\
+\Delta\ AD(G225M@2250\AA) = {{ 15\kms \cdot 2250\AA}\over{c \cdot  0.035\AA/p\cdot 42.47 p/\arcsec}}  = 0.076\arcsec\\
+\Delta\ AD(G285M@2850\AA) = {{ 15\kms \cdot 2850\AA}\over{c \cdot  0.040\AA/p\cdot 42.47 p/\arcsec}}  = 0.084\arcsec\\
+\Delta\ AD(G230L@2450\AA) = {{175\kms \cdot 2450\AA}\over{c \cdot  0.390\AA/p\cdot 42.47 p/\arcsec}}  = 0.086\arcsec\\
+\Delta\ AD(G130M@1300\AA) = {{ 15\kms \cdot 1300\AA}\over{c \cdot 0.00997\AA/ p\cdot 43.5 p/\arcsec}} = 0.150\arcsec\\
+\Delta\ AD(G160M@1600\AA) = {{ 15\kms \cdot 1600\AA}\over{c \cdot 0.01223\AA/ p\cdot 42.9 p/\arcsec}} = 0.153\arcsec\\
+\Delta\ AD(G140L@1800\AA) = {{150\kms \cdot 1800\AA}\over{c \cdot 0.08030\AA/ p\cdot 45.4 p/\arcsec}} = 0.247\arcsec\label{eq:TAcenterL}
 \end{eqnarray}
 \normalsize
 

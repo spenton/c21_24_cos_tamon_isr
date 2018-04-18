@@ -1,9 +1,9 @@
-% $Id: pctaWCA2SA.tex,v 1.5 2018/03/30 20:22:12 penton Exp $
+% $Id: pctaWCA2SA.tex,v 1.7 2018/04/17 18:38:43 penton Exp $
 \begin{table}
 \centering
 	\begin{threeparttable}[tbc]
 	\caption{\tacq{PEAKXD} WCA-to-PSA offsets}
-	\begin{tabular*}{.75\linewidth}{@{\extracolsep{\fill}}lrrr}
+	\begin{tabular*}{.8\linewidth}{@{\extracolsep{\fill}}lrrr}
 		\toprule
 		\textit{OPT\_ELEM} &	LP1	&	LP2	&	LP3	\\
 		\midrule
@@ -15,18 +15,18 @@
 		\midrule
 		\multicolumn{4}{c}{NUV\tnote{2}}\\
 		\midrule
-		G130M	&	 -898	&	-943	&	-892 \\
-		G140L	&	 -884	&	-950	&	-857 \\
-		G160M	&	 -898	&	-933	&	-901 \\
+		G185M	&	3742	&	\dots	&	\dots \\
+		G225M	&	3746	&	\dots	&	\dots \\
+		G230L	&	3734	&	\dots	&	\dots \\
+		G285M	&	3749	&	\dots	&	\dots \\
 		\bottomrule
 	\end{tabular*}
-	\footnotesize
+	\scriptsize
 		\begin{tablenotes}
+			\item[] {FSW patchable constant \textsc{pcta\_CalTargetOffsetScale} determines the FSW scaling (currently set to 10). FUV offsets are ``negative'' due to the parity of HST slews relative to the COS coordinate system.\\}
 			\item[1] {Divide the FUV numbers by -10 to get the number of XD rows between the PSA and WCA spectra for a target centered in the aperture.}
 			\item[2] {Divide the NUV numbers by 10 to get the NUV WCA-to-PSA offset. }
 		\end{tablenotes}
-	The FSW patchable constant \textsc{pcta\_CalTargetOffsetScale} determines the FSW scaling (currently set to 10).
-	FUV scalings are "negative" due to the parity of HST slews relative to the COS coordinate system.
 	\label{tab:wcatopsa}
 	\normalsize
 	\end{threeparttable}
