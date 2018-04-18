@@ -1,4 +1,4 @@
-% $Id: spVER.tex,v 1.7 2018/04/17 18:38:43 penton Exp $
+% $Id: spVER.tex,v 1.8 2018/04/18 04:33:16 penton Exp penton $
 \section{Spectroscopic TA Verification}\label{sec:spVER}
 \normalsize
 After the series of \tacq{IMAGE}s that start each visit, the target should be accurately centered.
@@ -25,7 +25,7 @@ TA subarrays are used to mask out any detector hot-spots or Geocoronal light tha
 verify that they satisfactory.
 
 \fsw{PKXD} uses the measured target location and known WCA-to-SA offset to calculate the required centering slew.
-This requires converting from NUV pixels and FUV rows to arcseconds on the sky. Table~\ref{tab:platescales} gives the
+This requires converting from NUV pixels and FUV rows to arcseconds on the sky. Table~\ref{tab:FSWplatescales} gives the
 COS FSW platescale values\footnote{Stored in the \textsc{pcta\_FUVMilliArcsecsPerPixelXDisp} table}. All NUV spectroscopic
 \fsw{PKXD}s use the same plate scale value of 0.02384\arcsec{}/p, stored in \textsc{pcta\_NUVMilliArcsecsPerPixelXDisp}.
 Each NUV grating and \cenwave{} has a slightly different plate scale, but the difference is small enough to ignore for COS TAs, see COS-11-0014B \S~{2.5} (Penton 2001B).
