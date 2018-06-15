@@ -1,15 +1,13 @@
 \section{SIAF Verification} \label{sec:siaf}
 
 \subsection{COS SIAF History}\label{subsec:siafhistory}
-The pre-SM4 COS Science Instrument Aperture File (SIAF) is described in detail in Mallo, 2008.
+The pre-SM4 COS Science Instrument Aperture File (SIAF) is described in detail in Lallo, 2008.
 The active COS entries in the 2018 SIAF, and the [V2,V3] aperture positions are given in Table~\ref{tab:activesiaf}.
 The changes since SMOV to the COS SIAF, and the continuing Fine Guidance Sensor (FGS) re-alignment efforts are
 documented in Table~\ref{tab:siafhistory}.
 This table includes all NUV LP1 and FUV LP1--4 entries. Each LP contains entries for the BOA, PSA, BOA when the PSA is being used, and PSA when the BOA is being used.
 
-\input{extrasiaf/siafhistory.tex}
-
-The COS SIAF ``Aperture Names''  start with the ``L"", and are followed by either an ``N'' (NUV), ``F'' (FUV), or
+The COS SIAF ``Aperture Names''  start with the ``L'', and are followed by either an ``N'' (NUV), ``F'' (FUV), or
 ``APT''' indicating that the aperture is only used in APT and not for observations.
 ``APT'' in the APT entries are immediately followed by an ``N'' or ``F''.
 The SA (BOA or PSA) or MAC then follows. MAC represents the APT/SPSS\footnote{SPSS=Science Planning and Scheduling System} MACro aperture used for bright object checking.
@@ -20,13 +18,13 @@ an AD aperture scan, using \texttt{POS\_TARGs} in APT, determines the SIAF entry
 the desired LP [V2,V3] aperture center. As shown in Figure~\ref{fig:SIAF1}, this alignment procedure produces
 a series of aperture locations that are at an $\approx$ 44.2$\degree$ angle to the -V3 (U3) axis.
 
-\input{extrasiaf/activesiaf.tex}
-
 The orientation of the COS AD and XD directions in relation to the HST mechanical [V2,V3] coordinates
 and U-frame are shown in Figure~\ref{fig:ADXDV23}. The HST U-frame of [U2,U3]=[-V2,-V3] and is used by APT
 and SPSS.  Converting the orientation shown in Figure~\ref{fig:SIAF1} to
 the nomenclature of the SIAF, the COS FUV apertures are aligned as follows:
 $\beta_{x}=135.8\degree$, $\beta_y=45.8\degree$, and parity=+1. As shown in Figure~\ref{fig:SIAF1}, for COS:
+\input{extrasiaf/siafhistory.tex}
+\input{extrasiaf/activesiaf.tex}
 \begin{eqnarray}
 \setlength\itemsep{0.1em}
 AD = [+V2,-V3]\label{eq:ADV23}\\

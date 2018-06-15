@@ -1,10 +1,10 @@
 % $Id: programs.tex,v 1.5 2018/04/17 18:38:43 penton Exp $
 \section{Program Descriptions} \label{sec:programs}
 
-COS \tacq{IMAGE} has four commonly used combinations of two Science Apertures (SAs), the Primary Science Aperture (PSA) and the Bright Object Aperture (BOA), and two mirror modes, MIRA and MIRB.
+COS \tacq{IMAGE} has four combinations of two Science Apertures (SAs), the Primary Science Aperture (PSA) and the Bright Object Aperture (BOA), and two mirror modes, MIRA and MIRB.
 During the 2009 servicing mission orbital verification (SMOV) phase, a series of C17 calibration programs in NUV imaging mode (\pid{11469}, \pid{11473}, \& \pid{11471}) carefully determined the two-dimensional offset from the COS WCA to the center of the PSA when observed with MIRA.
-These AD (Y$_{DET}$) and XD (X$_{DET}$) offsets were loaded in the FSW TA parameters\footnote{In the COS FSW, these WCA-to-SA offsets are stored as patchable constants in the \textsc{pcta\_XImCalTargetOffset} (XD) and \textsc{pcta\_YImCalTargetOffset} (AD)}.}
-A target was then centered using a PSA$\times$MIRA \tacq{IMAGE}, then a target image was taken along with a MIRB image
+These AD (Y$_{DET}$) and XD (X$_{DET}$) offsets were loaded in the FSW TA parameters\footnote{In the COS FSW, these WCA-to-SA offsets are stored as patchable constants in the \textsc{pcta\_XImCalTargetOffset} (XD) and \textsc{pcta\_YImCalTargetOffset} (AD). See Appendix C of COS TIR 2010-03 for a complete list of COS TA FSW tables.}.}
+A target was then centered using a PSA$\times$MIRA \tacq{IMAGE}, then a MIRA image of the centered target was taken along with a co-eval WCA image
 of the WCA image. These images were used to determine the AD and XD offsets of the image target and WCA centroids.
 These values were uploaded in the FSW paramaters. This bootstrapping procedure was repeated with the BOA$\times$MIRA
 and BOA$\times$MIRB  modes until all four \tacq{IMAGE} modes were co-aligned.
@@ -14,6 +14,7 @@ This includes the assumption that the WCA-to-SA offsets have remained stable ove
 In addition to COS calibration programs listed above, and described in detail is \S~\ref{subsec:History}--\ref{subsec:elists},
 COS \tacq{IMAGE} exposures obtained in the C17--C23 visits of the ``Focal Plane Calibration (SI-FGS Alignment)" series were used in the monitoring discussed in this ISR.
 These programs were developed by the HST Telescope's division (PIs Cox and/or Lallo) for Fine Guidance Sensor (FGS) to Science Instrument (SI) alignment, and are described in \S~\ref{subsec:fgs2si}.
+See Table~\ref{tab:fgs2si} for a list of HST Program IDs.
 
 All data for a given cycle were intentionally taken contemporaneously to avoid any long-term detector or spacecraft effects from affecting our results.
 Our requirement was that all data for a given cycles' TA monitoring were taken within 45 days of each other.

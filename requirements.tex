@@ -3,12 +3,11 @@
 
 The COS TA centering requirements are based upon wavelength accuracy requirements in the AD, and for flux and resolution optimization
 in the XD.\footnote{The COS requirements are documented in the CEI (Contract End Item) Specification (Smith et. al., 2004).}
-The strictest [AD,XD] NUV requirements are [0.041, 0.3]\arcsec, while for the FUV they are [0.106, 0.3]\arcsec.\footnote{While the XD requirement for all TAs is $\pm$ 0.3\arcsec, our 1$\sigma$ goal is $\pm$ 0.1\arcsec. This goal ensures that spectra fall on a consistent XD location on the the detector, which aids in extraction and calibration accuracy.}
+Wavelengths assigned to COS data are required to have an absolute uncertainty of less than $\pm$15 k/ms in the medium resolution modes, $\pm$~150 km/s in G140L mode and $\pm$~175 km/s in G230L mode.
+In the XD direction, the requirement is to be centered to within $\pm$0.3\arcsec for flux optimization, however, our goal is $\pm$0.1\arcsec\ for FUV flat-fielding and resolution purposes.
 Since the AD requirement is in units of \kmsno, it is detector, grating, and wavelength dependent as defined, generally, in Equation~\ref{eq:wave}, and specifically
 for each grating in Equations~\ref{eq:TAcenter}--\ref{eq:TAcenterL}.
-Wavelengths assigned to COS data are required to have an absolute uncertainty of less than $\pm$15 k/ms in the medium resolution modes, $\pm$150 km/s in G140L mode and $\pm$ 175 km/s in G230L mode.
-In the XD direction, the requirement is to be centered to within $\pm$0.3\arcsec, however, our goal is $\pm$0.1\arcsec\ for FUV flat-fielding purposes.
-Since the AD requirement is in units of km/s, it is detector and wavelength dependent shown in Equation~\ref{eq:wave}.\\
+
 \begin{equation}
 \Delta AD (\AA) ={ {{\rm velocity\ requirement}\ \cdot \lambda}\over{ c~\cdot {\rm dispersion}\ (\AA/p) \cdot {\rm platescale}\ (p/\arcsec)}}
 \label{eq:wave}
@@ -25,6 +24,8 @@ Since the AD requirement is in units of km/s, it is detector and wavelength depe
 \end{eqnarray}
 \normalsize
 
-Assuming that the wavelength error budget is split evenly between the COS TA and wavelength scale accuracies,
+Assuming that the wavelength error budget is split evenly between the COS TA and wavelength scale determinations,
 the error budgets for the COS gratings, in arc-seconds (\arcsec), are given in Table~\ref{tab:TAaccuracy}. By ``evenly'' we mean that when added in quadrature the total error budget is that given by the second column of Table~\ref{tab:TAaccuracy}.
 Setting the TA error budget equal to the wavelength scale accuracy, the AD TA requirement given in the third column is the second column divided by $\sqrt{2}$.
+
+As shown in Table~\ref{tab:TAaccuracy}, the strictest [AD,XD] NUV requirements are [0.041, 0.3]\arcsec, while for the FUV they are [0.106, 0.3]\arcsec.\footnote{While the XD requirement for all TAs is $\pm$~0.3\arcsec, our 1$\sigma$ goal is $\pm$~0.1\arcsec. This goal ensures that spectra fall on a consistent XD location on the the detector, which aids in extraction and calibration accuracy.}

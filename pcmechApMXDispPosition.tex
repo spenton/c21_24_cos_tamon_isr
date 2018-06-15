@@ -1,14 +1,14 @@
 % $Id: pcmechApMXDispPosition.tex,v 1.2 2018/04/17 18:38:43 penton Exp $
 %pcmech_ApMXDispPosition
 %\input{pcmechApMXDispPosition}
-
+\begin{center}
 \begin{deluxetable}{ccccc}
 \tablecolumns{5}
-\tabletypesize{\normalsize}
-\tablewidth{5 in}
+\tabletypesize{\footnotesize}
+\tablewidth{5.1 in}
 \tablecaption{COS Cross-Dispersion (XD) Aperture Positions (\textit{APERXPOS})\label{tab:ApMXDispPosition}}
 \tablehead{
-\colhead{\textit{LIFE\_ADJ}} &    \multicolumn{2}{c}{NUV} & \multicolumn{2}{c}{FUV} \\
+\colhead{\textit{LIFE\_ADJ}} &    \multicolumn{2}{c}{FUV} & \multicolumn{2}{c}{NUV} \\
 \colhead{(LP)} & \colhead{PSA\tablenotemark{a}$/$WCA\tablenotemark{b}} & \colhead{BOA\tablenotemark{c}$/$FCA\tablenotemark{d}} & \colhead{PSA$/$WCA} & \colhead{BOA$/$FCA} \\
 \colhead{(1)}&\colhead{(2)} & \colhead{(3)}&\colhead{(4)} & \colhead{(5)}
 }
@@ -20,13 +20,14 @@ LP3 &  181	&	 -98	& \dots	&	\dots\\
 LP4 &  234	&	 -45 	& \dots	&	\dots\\
 \bottomrule
 \enddata
-\tiny
-\tablenotetext{a}{PSA=Primary Science Aperture}
-\tablenotetext{b}{WCA=Wavelength Calibration Aperture}
-\tablenotetext{c}{BOA=Bright Object Aperture}
-\tablenotetext{d}{FCA=Flat-field Calibration Aperture}
-\tablecomments{COS XD aperture positions (\textit{APERXPOS}) are stored in the \textsc{pcmech\_ApMXDispPosition} FSW table. Although LP1--8 are defined in that table for both NUV and FUV, only the NUV LP1 and FUV LP1--4 entries listed here have been used for science observations.
+\footnotesize
+\tablenotetext{a}{\footnotesize PSA=Primary Science Aperture}
+\tablenotetext{b}{\footnotesize WCA=Wavelength Calibration Aperture}
+\tablenotetext{c}{\footnotesize BOA=Bright Object Aperture}
+\tablenotetext{d}{\footnotesize FCA=Flat-field Calibration Aperture}
+\tablecomments{\footnotesize COS XD aperture positions (\textit{APERXPOS}) are stored in the \textsc{pcmech\_ApMXDispPosition} FSW table. Although LP1--8 are defined in that table for both NUV and FUV, only the NUV LP1 and FUV LP1--4 here have been used for science observations.
 Values used for FCA calibration observations are different from those listed here, and are commanded via APT special commanding (e.g., during the semi-annual FUV Gain Map programs).
-Along-Dispersion (AD) values (\textit{APERYPOS}) are stored in the \textsc{pcmech\_ApMDispPosition} FSW table. All COS apertures and LPs use \textit{APERYPOS=22}. }
+AD values (\textit{APERYPOS}) are stored in the \textsc{pcmech\_ApMDispPosition} FSW table. All COS apertures and LPs use \textit{APERYPOS=22}. }
 \normalsize
 \end{deluxetable}
+\end{center}

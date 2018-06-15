@@ -1,18 +1,18 @@
 % $Id: fgs2si.tex,v 1.6 2018/04/18 04:10:05 penton Exp $
 \subsection{FGS-to-SI Programs}\label{subsec:fgs2si}
-From C17--C23, an FGS-to-SI program was executed with COS visits twice a year. These programs contained COS exposures designed to assist in the monitoring of the COS NUV alignent to HST.
+From C17--C23, an FGS-to-SI program was executed with COS visits twice a year. These programs contained COS exposures designed to assist in the monitoring of the COS NUV alignent to the HST Optical Telescope Assembly (OTA).
 These programs used the same two target stars with COS in visits spaced six months apart. Both visits observed the astrometric open cluster M35, at orientations that were 180\degree~apart.
 The two stars observed were 206W3 (in the Fall) and 427W3 (in the Spring). Due to orbital time constraints, the exact content of the COS visits in these programs varied from year to year.
 The COS TA Monitoring programs were timed to execute within 45 days of the Fall observations of 206W3.
 
-The COS portion of each program begins with a PSA$\times$MIRA \tacq{IMAGE} on a target should be approximately centered due to observations with other instruments earlier in the visit.
+The COS portion of each program begins with a PSA$\times$MIRA \tacq{IMAGE} on a target which should be approximately centered due to observations with other instruments earlier in the visit.
 Post-observation telemetry data\footnote{The [V2,V3] positions reported in the telemetry have an uncertainty of $\sim$ 10~mas (Cox, private communication).}, and the results of the \tacq{IMAGE}, are used to refine this assumption.
 This process verifies the COS NUV PSA aperture position\footnote{Specifically, the \textit{LFPSAA} SIAF entry.} as described in \S~\ref{subsec:siafalign}.
 
 After this PSA$\times$MIRA \tacq{IMAGE}, a PSA$\times$MIRB \tacq{IMAGE} is then performed (together, a ``set'').
 This bootstraps the PSA$\times$MIRB centering to the PSA$\times$MIRA (a measure of COS TA precision) and to the SIAF verification (a measure of its accuracy relative to HSTs' definition of the COS aperture center).
 This allows us to monitor the properties of the PSA$\times$MIRB image in a controlled way on a centered target.
-Due to the nature of the FGS-to-SI alignment program, it was not practical to place the COS exposures into ``non-interruptible' sequences.
+Due to the nature of the FGS-to-SI alignment program, it was not practical to place the COS exposures into ``non-interruptible'' sequences.
 As discussed in \S~\ref{subsec:siafalign}, this had some minor impacts on some of the PSA$\times$MIRB \tacq{IMAGE}s.
 
 The historical list of FGS-to-SI proposals, HST cycles (C\#\#), and content are given in Table~\ref{tab:fgs2si}.

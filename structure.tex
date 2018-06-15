@@ -1,7 +1,7 @@
 % $Id: structure.tex,v 1.5 2018/04/18 04:33:16 penton Exp penton $
 \subsection{COS TA Monitoring Program Structure}\label{subsec:structure}
 
-Each cycles TA monitoring program contains three single-orbit visits. The number of visits is mandated by the bootstrapping technique between the four different \tacq{IMAGE} SA$\times$MIR configurations.
+Each cycle's TA monitoring program contains three single-orbit visits. The number of visits is required by the bootstrapping technique between the four different \tacq{IMAGE} SA$\times$MIR configurations.
 
 Each visit begins with a comparison of the centering of two \tacq{IMAGE}~modes out of the possible four science apertures (SA, PSA or BOA) $\times$ (MIRA or MIRB).
 This back-to-back process allows us to test that all \tacq{IMAGE} modes are centering the target to the same point in the aperture.
@@ -18,7 +18,8 @@ This visit was usually treated as an on-hold contingency visit in case, for what
 %\footnote{This program was replaced with an improved process for aligning the FGSs. Accordingly,  we activated this contingency visit to obtain the necessary PSA$\times$MIRA and PSA$\times$MIRB exposures for C24.
 The target for this contingency visit is 206W3, the same target as the Fall visit of the FGS-to-SI alignment program.
 In one case, (C22, \pid{13972}), this visit was re-purposed to verify a change to the MIRB\tacq{IMAGE} configuration required due to the increasing background (see \pr{78749}).}
-	\item{The 2\ts{nd} orbit of each program takes back-to-back PSA$\times$MIRB and BOA$\times$MIRA \tacq{IMAGE}s and target (WD1657+343) TIME-TAG images (with lamp flashes).
+	\item{The 2\ts{nd} orbit of each program takes back-to-back PSA$\times$MIRB and BOA$\times$MIRA \tacq{IMAGE}s and target (WD1657+343) + TIME-TAG images. During these images,
+	\plamptwo{} is turned on to produce a simultaneous WCA image.
 	A second PSA$\times$MIRB \tacq{IMAGE} is then performed to provide a second measurement of the offset.
 	Additionally, NUV and FUV spectra are acquired to test their WCA-to-PSA offsets.}
 	\item{The 3\ts{rd} orbit of each program takes back-to-back BOA$\times$MIRA and MIRB \tacq{IMAGE}s and target (HIP66578) TIME-TAG images (with lamp flashes).

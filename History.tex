@@ -1,14 +1,13 @@
 % $Id: History.tex,v 1.7 2018/04/18 04:10:05 penton Exp $
 \subsection{COS TA Monitoring Program History}\label{subsec:History}
-After the installation of COS into HST in 2009 (STS-125), and the servicing mission orbital verification (SMOV) phase,
+After the installation of COS into HST in 2009 (STS-125), and the Servicing Mission Orbital Verification (SMOV) phase,
 a series of calibration programs in NUV imaging mode carefully determined the two-dimensional offset from the COS WCA to the center of the Primary Science Aperture (PSA) when observed with MIRA.
 % X$_{DET}$ and Y$_{DET}$ offsets were loaded in the FSW TA parameters \textsc{XImCalTargetOffset} and \textsc{YImCalTargetOffset}.
-A target was then centered using a PSA$\times$MIRA \texttt{ACQ/IMAGE}, and a target image was taken along with a MIRB image
-of the WCA image. These images were used to determine the AD and XD offsets of the PSA$\times$MIRB image target and WCA centroids.
+A target was then centered using a PSA$\times$MIRA \texttt{ACQ/IMAGE}, and a target image was taken along with a WCA+MIRB image. These images were used to determine the AD and XD offsets of the PSA$\times$MIRB image target and WCA centroids.
 This bootstrapping procedure was repeated with the BOA$\times$MIRA and BOA$\times$MIRB \texttt{ACQ/IMAGE} modes until all four \texttt{ACQ/IMAGE} modes were co-aligned.
 
-The FGS-to-SI programs perform a PSA$\times$MIRA \texttt{ACQ/IMAGE} on a target that should be approximately centered in the aperture.
-After some post-processing analysis of the spacecraft telemetry, the PSA$\times$MIRA \texttt{ACQ/IMAGE} can be used to estimate the accuracy of the NUV PSA aperture position in the SIAF\footnote{Science Instrument Aperture File (Mallo, 2008)}.
+The FGS-to-SI programs, described below, perform a PSA$\times$MIRA \texttt{ACQ/IMAGE} on a target that should be approximately centered in the aperture.
+After some post-processing analysis of the spacecraft telemetry, the PSA$\times$MIRA \texttt{ACQ/IMAGE} can be used to estimate the accuracy of the NUV PSA aperture position in the SIAF\footnote{Science Instrument Aperture File (Lallo, 2008)}.
 
 %\footnote{On November 6, 2014, the MIRB \texttt{ACQ/IMAGE} wavelength calibration lamp (P2) exposure was changed from a 30 second exposure
 %at LOW current (3~mA) to a 12 second exposure at MED current (10~mA). At this point the \textsc{pcta\_XImCalTargetOffset} and \textsc{pcta\_YImCalTargetOffset}
@@ -28,7 +27,7 @@ behavior is controlled by the following FSW patchable constants :\\
 	\item[\underline{\rm Description}:]Flag to indicate whether to use ``median'' or ``mean'' for the calculation of the cross-dispersion coordinate of the wavelength calibration lamp spectrum in the phase \textsc{LTACAL} for the FUV detector.
 	\item[\underline{\rm Format}:]    Boolean
 	\item[\underline{\rm Limits/Ranges}:]  TRUE = use median;  FALSE = use mean
-	\item[\underline{\rm Current Value}\footnote{``Current Value'' indicates the LV61 value. These values have worked well and there is no reason to consider changing these values at this time.}:]  FALSE (use mean)
+	\item[\underline{\rm Current Value}:]\footnote{``Current Value'' indicates the LV61 value. These values have worked well and there is no reason to consider changing these values at this time.}  FALSE (use mean)
 \end{description}
 \item{\textsc{\bf pcta\_UseMedian4CAL4NUV}}
 	\begin{description}
@@ -54,21 +53,21 @@ behavior is controlled by the following FSW patchable constants :\\
 \end{enumerate}
 \normalsize
 
-During COS TA, all \tacq{} procedures operate in ACCUM mode (no individual photon events, no pulse-height information, and no calibrations) and operate using integer values only.
-For \tacq{IMAGE}, the WCA lamp image location is determined using a median in each coordinate. Therefore, a $\pm$ 0.5p uncertainty is present during each \textsc{LTAIMCAL} measurement when determining the center of the SA position for the
-\textsc{LTAIMAGE} portion of the \tacq{IMAGE}. The target location phase of \tacq{IMAGE} (\textsc{LTAIMAGE}) uses a flux-weighted centroid over a 9$\times$9 checkbox, which is described in detail in the COS IHB (C25, Fox et al., 2017: Section 8.4, ``ACQ/IMAGE Acquisition Mode'') and in \S~4.2
-of COS TIR 2010-03 (Penton \& Keyes, 2010). A point source in a PSA$\times$MIRA image produces an approximately Gaussian image with a FWHM of ~2.5p.
+During COS TA, all \tacq{} procedures operate in ACCUM mode and operate using integer values only.
+For \tacq{IMAGE}, the WCA lamp image location is determined using a median in each coordinate. Therefore, a $\pm$~0.5~p uncertainty is present during each \textsc{LTAIMCAL} measurement when determining the center of the SA position for the
+\textsc{LTAIMAGE} portion of the \tacq{IMAGE}. The target location phase of \tacq{IMAGE} (\textsc{LTAIMAGE}) uses a flux-weighted centroid over a 9$\times$9 checkbox, which is described in detail in the C26 COS IHB (Fischer et al., 2018: Section 8.4, ``ACQ/IMAGE Acquisition Mode'') and in \S~4.2
+of COS TIR 2010-03 (Penton \& Keyes, 2010). A point source in a PSA$\times$MIRA image produces an approximately Gaussian image with a FWHM of $\sim$2.5~p.
 The 9$\times$9 checkbox considers the majority of the target ($>70\%$\footnote{PSA$\times$MIRB, BOA$\times$MIRA, and BOA$\times$MIRB 9$\times$9 checkbox fractions are $\sim$ 51\%, 38\%, and 28\%, respectively.})
-light while minimizing background contamination,\footnote{As of April, 2018, the average NUV detector background was $\sim$ 8.2E-4 counts/s/p.} and should find the target center to within $\pm \frac{1}{3}$~p.
+light while minimizing background contamination,\footnote{As of April, 2018, the average NUV detector background was $\sim$ 8.2E-4 cps.} and nominally centers the target to within $\pm \frac{1}{3}$~p.
 Combined \textsc{LTAIMCAL} and \textsc{LTAIMAGE} TA stages have a combined uncertainty of $\sqrt{\frac{1}{2}^2 + \frac{1}{3}^2}~p = 0.6$~p.
 \tacq{IMAGE} relies upon the WCA-to-SA offset, which was measured in a similar way and has the same uncertainty. Therefore, the total uncertainty
-of a PSA$\times$MIRA \tacq{IMAGE} is $\sqrt{2} 0.6$~p = 0.85~p in each direction ($\sim$0.020\arcsec). As the
+of a PSA$\times$MIRA \tacq{IMAGE} is $\sqrt{2} \cdot 0.6$~p = 0.85~p in each direction ($\sim$0.020\arcsec{}). As the
 \tacq{IMAGE} configurations were bootstrapped from the PSA$\times$MIRA configuration, their uncertainties follow an identical derivation and
 are given in Table~\ref{tab:unc}.
 
-Additionally, the COS aperture mechanism is repeatable in the XD direction to $\pm 1$ motor step (0.053\arcsec), as reported by the header keyword \textit{APERYPOS}. In addition, the WCA location phase of the \tacq{IMAGE} (\textsc{LTAIMCAL}), which uses the median integer pixel location as the lamp location, cannot measure the WCA position to better than $\frac{1}{2}$ pixel in either AD or XD.
+Additionally, the COS aperture mechanism is repeatable in the XD direction to $\pm$~1 motor step (0.053\arcsec{}), as reported by the header keyword \textit{APERYPOS}. In addition, the WCA location phase of the \tacq{IMAGE} (\textsc{LTAIMCAL}), which uses the median integer pixel location as the lamp location, cannot measure the WCA position to better than $\frac{1}{2}$ pixel in either AD or XD.
 On the NUV detector, an imaging pixel is 0.02352\arcsec{} (AD) and 0.02362\arcsec{} (XD), so there is an intrinsic radial uncertainty of $\sim$0.017\arcsec{} after each \textsc{LTAIMCAL}.
-Occasionally, the motion from the PSA to the BOA misses by up to $\pm 2$ \textit{APERYPOS} steps. However, in the data of this ISR, this was not observed, and this uncertainty is not included in our error estimates.
+Occasionally, the aperture mechanism motion from the PSA to the BOA misses by up to $\pm$~2 \textit{APERYPOS} steps. However, in the data used in ISR, this was not observed, and this uncertainty is not included in our error estimates.
 
 \begin{table}[htb]
 \centering
@@ -79,15 +78,15 @@ Occasionally, the motion from the PSA to the BOA misses by up to $\pm 2$ \textit
 				  &    Offset           & WCA+SA Measurement   & \tacq{IMAGE} \\
 				  &  Uncertainty      &  Uncertainty   & Uncertainty \\
 	\midrule
-	PSA$\times$MIRA &	$\sqrt{\frac{1}{2}^2 + \frac{1}{3}^2 }$~p = 0.6~p	& 0.6~p	& $\sqrt{2} * 0.6$p = 0.85p ($\sim$ 0.020\arcsec) \\
-	PSA$\times$MIRB &	$\sqrt{2} * 0.6$~p =	0.85p		& 0.6~p & $\sqrt{3} * 0.6$p = 1.04 p ($\sim$ 0.024\arcsec) \\
-	BOA$\times$MIRA &	$\sqrt{3} * 0.6$~p =	1.04p		& 0.6~p & $\sqrt{4} * 0.6$p = 1.20 p ($\sim$ 0.028\arcsec) \\
-	BOA$\times$MIRB &	$\sqrt{4} * 0.6$~p =	1.20p		& 0.6~p & $\sqrt{5} * 0.6$p = 1.34 p ($\sim$ 0.032\arcsec)\\
+	PSA$\times$MIRA &	$\sqrt{\frac{1}{2}^2 + \frac{1}{3}^2 }$~p = 0.6~p	& 0.6~p	& $\sqrt{2} \cdot 0.6$p = 0.85p ($\sim$ 0.020\arcsec{}) \\
+	PSA$\times$MIRB &	$\sqrt{2} \cdot 0.6$~p =	0.85p		& 0.6~p & $\sqrt{3} \cdot 0.6$p = 1.04 p ($\sim$ 0.024\arcsec{}) \\
+	BOA$\times$MIRA &	$\sqrt{3} \cdot 0.6$~p =	1.04p		& 0.6~p & $\sqrt{4} \cdot 0.6$p = 1.20 p ($\sim$ 0.028\arcsec{}) \\
+	BOA$\times$MIRB &	$\sqrt{4} \cdot 0.6$~p =	1.20p		& 0.6~p & $\sqrt{5} \cdot 0.6$p = 1.34 p ($\sim$ 0.032\arcsec{})\\
 	\bottomrule
 	\end{tabular}
 \end{table}
-For NUV \tacq{PEAKXD}, the same $\pm$ 0.5~p uncertainty is present in both the spectral and target locations portions of the \textsc{LTAPKXD}. Combined in quadrature, this implies that
-an \textsc{LTAPKXD} has an inherent XD centering accuracy of no less than $\sqrt{2}$ 0.5~p = 0.7~p = 0.017\arcsec. For FUV \textsc{LTAPKXD}, a mean is used to measure both the WCA lamp spectrum XD location and the target XD location.
-For FUV LP1--3, uncorrected geometric and thermal distortions can cause targets with different spectral energy distributions (SEDs) to center differently. This effect has been measured (Penton \& Keyes, 2010) to be as large at $\pm 2$ rows or
-$\sim 0.2$\arcsec.\footnote{At FUV LP4 this effect is even more pronounced and prohibits \textsc{LTAPKXD} (\numposone~\tacq{PEAKXD}) from achieving the centering requirement of $\pm 0.3$\arcsec. For this reason, the \tacq{PEAKD} FSW routine \textsc{LTAPKD} was enabled
+For NUV \tacq{PEAKXD}, the same $\pm$~0.5~p uncertainty is present in both the spectral and target locations portions of the \textsc{LTAPKXD}. Combined in quadrature, this implies that
+an \textsc{LTAPKXD} has an inherent XD centering accuracy of no less than $\sqrt{2} \cdot 0.5$~p = 0.7~p = 0.017\arcsec{}. For FUV \textsc{LTAPKXD}, a mean is used to measure both the WCA lamp spectrum XD location and the target XD location.
+For FUV LP1--3, uncorrected geometric and thermal distortions can cause targets with different spectral energy distributions (SEDs) to center differently. This effect has been measured (Penton \& Keyes, 2010) to be as large at $\pm$~2 rows or
+$\sim 0.2$\arcsec{}.\footnote{At FUV LP4 this effect is even more pronounced and prohibits \textsc{LTAPKXD} (\numposone~\tacq{PEAKXD}) from achieving the centering requirement of $\pm$~0.3\arcsec{}. For this reason, the \tacq{PEAKD} FSW routine \textsc{LTAPKD} was enabled
 for XD usage in FSW version LV58 (installed 2014.132 and initially tested on-orbit on 2014.300 in \pid{13636}).}

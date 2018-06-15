@@ -1,13 +1,15 @@
 % $Id: pctaPS.tex,v 1.2 2018/04/18 04:33:16 penton Exp penton $
-\begin{table}
-\footnotesize
+\begin{center}
+\begin{table}[htb!]
 \centering
+\vspace{-0.1cm}
+\footnotesize
 	\begin{threeparttable}[tbc]
-	\caption{\fsw{PKXD} Plate Scales}
-	\begin{tabular*}{.8\linewidth}{@{\extracolsep{\fill}}lrrr}
+	\caption[]{\fsw{PKXD} Plate Scales}
+	\begin{tabular*}{.75\linewidth}{@{\extracolsep{\fill}}lrrr}
 		\toprule
 		\textit{OPT\_ELEM} &	LP1	&	LP2	&	LP3	\\
-		\midrule
+		\toprule
 		\multicolumn{4}{c}{FUV\tnote{1}}\\
 		\midrule
 		G130M &  -11086 &  -11400 &   -9550 \\
@@ -22,14 +24,15 @@
 	\scriptsize
 		\begin{tablenotes}
 			\item[] {The FSW patchable constant \textsc{pcta\_MilliArcsecsPerPixelScale} determines the FSW scaling (currently set to 100). FUV plate scales are ``negative'' due to the parity of HST slews relative to the COS coordinate system.\\}
-			\item[1] {Divide the FUV numbers by 100 to get the FUV plate scale in mas/row.}
-			\item[2] {Divide the NUV numbers by 100 to get the NUV plate scale in mas/p. }
+			\item[1] {Divide FUV numbers by 100 to get FUV plate scale in mas/row.}
+			\item[2] {Divide NUV numbers by 100 to get NUV plate scale in mas/p. }
 		\end{tablenotes}
 	\label{tab:FSWplatescales}
 	\normalsize
 	\end{threeparttable}
 \normalsize
 \end{table}
+\end{center}
 %\begin{deluxetable}{lrrr}
 %\tablewidth{0pt}
 %\tabcolsep 12 pt

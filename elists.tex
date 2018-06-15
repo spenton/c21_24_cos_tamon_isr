@@ -5,7 +5,7 @@
 Table~\ref{tab:NUVtamonimagePSA} gives the operational details of all NUV PSA imaging exposures which opened the
 external shutter used in this ISR, while Table~\ref{tab:NUVtamonimageBOA} details the NUV BOA imaging exposures.
 Table~\ref{tab:NUVtamonimageWCA} gives the operational details of all NUV imaging WAVECAL exposures.
-Tables~\ref{tab:NUVtamonspec} and ~\ref{tab:FUVtamon} give the details of all spectroscopic exposures used in this ISR.
+Tables~\ref{tab:NUVtamonspec} and \ref{tab:FUVtamon} give the details of all spectroscopic exposures used in this ISR.
 All tables follow the convention that if an entry was extracted from a FITS header, then the column name will appear in \textit{ITALICIZED ALL CAPITALS}.\\
 
 The columns of the Table~\ref{tab:NUVtamonimagePSA} and ~\ref{tab:NUVtamonimageBOA} give:
@@ -13,14 +13,15 @@ The columns of the Table~\ref{tab:NUVtamonimagePSA} and ~\ref{tab:NUVtamonimageB
 \begin{enumerate}
 \item \textit{ROOTNAME} gives the IPPPSSOOT of the COS exposure,
 \item \textit{PROPOSID} gives the HST program id (PID),
-\item \textit{TARNMAME} gives the target name as present in the MAST archive,
+\item \textit{TARGNAME} gives the target name as present in the MAST archive,
 \item \textit{OBSMODE} gives the observation mode, where ``TT'' is used for Time-Tag observations,
 \item \textit{EXPTYPE} gives the exposure type, which is either \tacq{IMAGE} or EXT/SCI. EXT/SCI images using \textit{APERTURE} = PSA allow co-eval target and lamp images for
 direct measurement of their WCA-to-SA offset. \tacq{IMAGE} exposures return before and after target images in \textsc{OBSTYPE}=ACCUM, but do not return lamp images.
-\item \textit{EXPTIME} gives the exposure time in seconds. For EXT/SCI PSA images, the lamp time may be different. These lamp times are given in Table~\ref{tab:lamptimes}.
-\item gives the PtNe Lamp\# gives the wavelength calibration lamp name, \plampone or \plamptwo and current setting. The conversion from current setting to current in milli-amps (mA) is given in \S~\ref{subsec:conventions}, and in the table footnotes.
+\item \textit{EXPTIME} gives the exposure time in seconds. For EXT/SCI PSA images, the lamp time may be different.
+%These lamp times are given in Table~\ref{tab:lamptimes}.
+\item gives the PtNe Lamp\# gives the wavelength calibration lamp name (\plampone{} or \plamptwo{}) and current setting. The conversion from current setting to current in milli-amps (mA) is given in \S~\ref{subsec:conventions}, and in the table footnotes.
 \item gives the configuration (\textit{APERTURE}$\times$\textit{OPT\_ELEM}) of the SA and grating or MIRROR used as the primary optic.
-\item \textit{APERXPOS} gives the AD (X$_{USER}$) aperture position. The default position is \textit{APERXPOS=$22$} for all FUV and NUV science and TA exposures.\footnote{The trailing "0.1" is a FITS conversion anomaly present in all aperture positions (\textit{APERXPOS} \& \textit{APERYPOS}).}
+\item \textit{APERXPOS} gives the AD (X$_{USER}$) aperture position. The default position is \textit{APERXPOS}=22 for all FUV and NUV science and TA exposures.\footnote{The trailing "0.1" is a FITS conversion anomaly present in all aperture positions (\textit{APERXPOS} \& \textit{APERYPOS}).}
 \item \textit{APERYPOS} gives the XD (Y$_{USER}$) aperture position. It is not uncommon that the XD aperture location (\textit{APERYPOS}) is $\pm 1$ step off from its nominal position during the \fsw{IMCAL} phase. Each \textit{APERYPOS} step is $\approx0.053\arcsec$, or about $\frac{1}{6}$ of
 our XD centering requirement, and $\frac{1}{2}$ of our $1\sigma$ XD centering goal. The default NUV and FUV LP1 PSA/BOA positions are \textit{APERYPOS=$126/-153$}, where the WCA has the same XD (\textit{APERYPOS}) position as the PSA.
 As shown in Table~\ref{tab:ApMXDispPosition}, the nominal PSA \& WCA \textit{APERYPOS} positions for LP2, LP3, and LP4 are +53, +181, and +234, respectively.\footnote{Due
@@ -38,14 +39,14 @@ The columns of the NUV imaging WAVECAL table (Table~\ref{tab:NUVtamonimageWCA} a
 The columns of the spectroscopic NUV (Table~\ref{tab:NUVtamonspec}) and FUV (Table~\ref{tab:FUVtamon}) tables are similar to the columns listed above for Tables~\ref{tab:NUVtamonimagePSA} \& \ref{tab:NUVtamonimageBOA}, with the following exceptions:
 \begin{itemize}
 \item All spectroscopic exposures are time-tag (\textit{OBSMODE}=TT) with the PSA, so the configuration column has been removed.
-\item The ``Lamp\#'/Current'' column is not present. In the programs of this ISR, the default \plampone lamp usage for spectroscopic observations was overridden with the use of the \textsc{USELAMP=LINE2} and \textsc{CURRENT=MEDIUM} special commanding
+\item The ``Lamp\#'/Current'' column is not present. In the programs of this ISR, the default \plampone{} lamp usage for spectroscopic observations was overridden with the use of the \textsc{USELAMP=LINE2} and \textsc{CURRENT=MEDIUM} special commanding
 in APT to simulate the lamp exposures obtained in \textsc{LTAPKXD} exposures.
-The APT optional parameter \texttt{FLASH} was used to set \plamptwo exposures times that
+The APT optional parameter \texttt{FLASH} was used to set \plamptwo{} exposures times that
 provided counts in excess of those expected during the TA exposures.  Since all spectra were taken in TT mode,
 if required, an exact replica of the counts received in an actual \textsc{LTAPKXD} WCA spectrum could be re-produced.
 The additional counts allow for a better determination of the WCA-to-SA XD offsets discussed in \S~\ref{sec:spVER} and \S~\ref{subsec:FspVER}.
 \item The \textit{OPT\_ELEM} column shows the grating in use, as this in now the primary optic.
-\item \cenwave{} now follows the \textit{OPT\_ELEM} column, givng the central wavelength setting.
+\item \cenwave{} now follows the \textit{OPT\_ELEM} column, giving the central wavelength setting.
 \item The LP gives the lifetime position (\textit{LIFE\_ADJ}) of the observation. Note that there is only one NUV LP, so all NUV observations are LP1.
 \end{itemize}
 \normalsize
