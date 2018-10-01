@@ -4,10 +4,9 @@
 COS \tacq{IMAGE} has four combinations of two Science Apertures (SAs), the Primary Science Aperture (PSA) and the Bright Object Aperture (BOA), and two mirror modes, MIRA and MIRB.
 During the 2009 servicing mission orbital verification (SMOV) phase, a series of C17 calibration programs in NUV imaging mode (\pid{11469}, \pid{11473}, \& \pid{11471}) carefully determined the two-dimensional offset from the COS WCA to the center of the PSA when observed with MIRA.
 These AD (Y$_{DET}$) and XD (X$_{DET}$) offsets were loaded in the FSW TA parameters\footnote{In the COS FSW, these WCA-to-SA offsets are stored as patchable constants in the \textsc{pcta\_XImCalTargetOffset} (XD) and \textsc{pcta\_YImCalTargetOffset} (AD). See Appendix C of COS TIR 2010-03 for a complete list of COS TA FSW tables.}.}
-A target was then centered using a PSA$\times$MIRA \tacq{IMAGE}, then a MIRA image of the centered target was taken along with a co-eval WCA image
-of the WCA image. These images were used to determine the AD and XD offsets of the image target and WCA centroids.
-These values were uploaded in the FSW paramaters. This bootstrapping procedure was repeated with the BOA$\times$MIRA
-and BOA$\times$MIRB  modes until all four \tacq{IMAGE} modes were co-aligned.
+In \pid{11471}, a target was centered using a PSA$\times$MIRA \tacq{IMAGE}, then a PSA$\times$MIRA image of the centered target was taken along with a co-eval WCA image to directly verify the proper installation and commanding of the PSA$\times$MIRA FSW patchable constants (offsets).
+This was immediately followed with a PSA$\times$MIRB target plus WCA image to directly measure the offsets on a centered target for PSA$\times$MIRB. These PSA$\times$MIRB target-to-WCA AD and XD offsets were then uploaded in the FSW.
+This bootstrapping procedure was repeated with the BOA$\times$MIRA and BOA$\times$MIRB modes until all four \tacq{IMAGE} modes were co-aligned, and all offset parameters were loaded into the FSW.
 
 In the COS TA Monitoring programs described in this ISR, we re-use this bootstrapping strategy to test the co-alignment of all four \tacq{IMAGE} modes\footnote{The underlying assumption of these programs is that the PSA$\times$MIRA \tacq{IMAGE} centering relative to the aperture center has not changed since SMOV.
 This includes the assumption that the WCA-to-SA offsets have remained stable over C17--C24.}.
@@ -18,6 +17,6 @@ See Table~\ref{tab:fgs2si} for a list of HST Program IDs.
 
 All data for a given cycle were intentionally taken contemporaneously to avoid any long-term detector or spacecraft effects from affecting our results.
 Our requirement was that all data for a given cycles' TA monitoring were taken within 45 days of each other.
-There were minor differences in the specific exposures in each cycles TA monitoring program, these are discussed in \S~\ref{subsec:differences}.\\
+There were minor differences in the specific exposures in each cycles TA monitoring program, these are discussed in \S~\ref{subsec:differences}.
 
 All programs verify that the TA subarrays in use for the given cycle were proper for the \tacq and spectroscopic modes tested, verify the WCA-to-SA offsets, and monitor, as much as possible, the performance of COS TAs.

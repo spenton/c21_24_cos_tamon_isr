@@ -13,10 +13,10 @@
 \colhead{\textit{APERTURE}}&
 \colhead{\textit{APER}}&\colhead{\textit{APER}}&\colhead{\textit{DATE-OBS}}\\
 \colhead{\textit{OSID}}&\colhead{\textit{NAME}}&
-\colhead{\textit{NAME}}&\colhead{\textit{MODE\tablenotemark{t}}}&\colhead{}&
+\colhead{\textit{NAME}}&\colhead{\textit{MODE}}&\colhead{}&
 \colhead{(s)}&\colhead{Lamp\#$\times$Current}&
 \colhead{$\times$\textit{OPT\_ELEM}}&
-\colhead{\textit{XPOS\tablenotemark{x}}}&\colhead{\textit{YPOS\tablenotemark{y}}}&\colhead{}\\
+\colhead{\textit{XPOS\tablenotemark{d}}}&\colhead{\textit{YPOS\tablenotemark{c}}}&\colhead{}\\
 \colhead{(1)}&\colhead{(2)}	&	\colhead{(3)}&\colhead{(4)} &
 \colhead{(5)}&\colhead{(6)}	&	\colhead{(7)}&\colhead{(8)} &
 \colhead{(9)}&\colhead{(10)}&	\colhead{(11)}
@@ -82,13 +82,13 @@
 14857	&	ldozpbfdq	&	206W3	&	 TT 	&	EXT/SCI 	&	220	&	\plamptwo{}$\times$Med	&	PSA$\times$MIRB	&22.1	&	125.1	&	2017-09-10	\\
 \bottomrule
 \enddata
-\tablenotetext{a}{The intended PtNe lamp flashes of \pid{13124} did not occur as expected. This was corrected in all other programs.}
-\tablenotetext{t}{TT = TIME-TAG.}
-\tablenotetext{x}{\textit{APERYPOS}, the AD aperture mechanism positions, are stored in the FSW in \textsc{pcmech\_ApMDispPosition}.
+\vspace{-0.2 cm}\tablenotetext{a}{The intended PtNe lamp flashes of \pid{13124} did not occur as expected. This was corrected in all other programs.}
+\vspace{-0.1 cm}\tablenotetext{b}{\textit{APERYPOS}, the AD aperture mechanism positions, are stored in the FSW in \textsc{pcmech\_ApMDispPosition}.
 The trailing ``0.1'' reported in the FITS headers is a conversion anomaly that is present in all aperture positions (\textit{APERXPOS} \& \textit{APERYPOS}).}
-\tablenotetext{y}{It is not uncommon that the XD aperture location (\textit{APERXPOS}) is $\pm 1$ step off from its nominal position.
+\vspace{-0.1 cm}\tablenotetext{c}{It is not uncommon that the XD aperture location (\textit{APERXPOS}) is $\pm 1$ step off from its nominal position.
 The XD aperture mechanism positions are stored in the FSW in \textsc{pcmech\_ApMXDispPosition} (see Table~\ref{tab:ApMXDispPosition}).}
-\tablecomments{PSA \textsc{EXPTYPE}=EXT/SCI exposures contain coeval target and PtNe lamp TT images.}
+\vspace{-0.2 cm}
+\tablecomments{PSA \textsc{EXPTYPE}=\extsci{} exposures contain simultaneous target and PtNe lamp (WCA) time-tag (TT) images.}
 \end{deluxetable}
 \end{center}
 
@@ -106,10 +106,10 @@ The XD aperture mechanism positions are stored in the FSW in \textsc{pcmech\_ApM
 \colhead{\textit{APERTURE}}&
 \colhead{\textit{APER}}&\colhead{\textit{APER}}&\colhead{\textit{DATE-OBS}}\\
 \colhead{\textit{OSID}}&\colhead{\textit{NAME}}&
-\colhead{\textit{NAME}}&\colhead{\textit{MODE\tablenotemark{t}}}&\colhead{}&
+\colhead{\textit{NAME}}&\colhead{\textit{MODE}}&\colhead{}&
 \colhead{(s)}&\colhead{Lamp\#$\times$Current}&
 \colhead{$\times$\textit{OPT\_ELEM}}&
-\colhead{\textit{XPOS\tablenotemark{x}}}&\colhead{\textit{YPOS\tablenotemark{y}}}&\colhead{}\\
+\colhead{\textit{XPOS\tablenotemark{b}}}&\colhead{\textit{YPOS\tablenotemark{c}}}&\colhead{}\\
 \colhead{(1)}&\colhead{(2)}	&	\colhead{(3)}&\colhead{(4)} &
 \colhead{(5)}&\colhead{(6)}	&	\colhead{(7)}&\colhead{(8)} &
 \colhead{(9)}&\colhead{(10)}	&	\colhead{(11)}
@@ -154,19 +154,19 @@ The XD aperture mechanism positions are stored in the FSW in \textsc{pcmech\_ApM
 14857	&	ldozbblmq	&	HIP66578	&	ACCUM	&	ACQ/IMAGE	&	183	&	\plamptwo{}$\times$Med	&	BOA$\times$MIRB	&22.1	&	-153.1	&	2017-09-06	\\
 \bottomrule
 \enddata
-\tablenotetext{a}{The intended PtNe lamp flashes of \pid{13124} did not occur as expected. This was corrected in all other programs.}
+\tablenotetext{a}{The intended PtNe (WCA) lamp flashes of \pid{13124} did not occur as expected. This was corrected in all other programs.}
 %\tablenotetext{c}{The \plamptwo{}wavelength calibration lamp current settings are LOW (3~mA), Med (10~mA) and HIGH (14~mA).}
-\tablenotetext{t}{TT = TIME-TAG.}
-\tablenotetext{x}{\textit{APERYPOS}, the AD aperture mechanism positions, are stored in the FSW in \textsc{pcmech\_ApMDispPosition}.
+%\tablenotetext{b}{TT = TIME-TAG.}
+\tablenotetext{b}{\textit{APERYPOS}, the AD aperture mechanism positions, are stored in the FSW in \textsc{pcmech\_ApMDispPosition}.
 The trailing "0.1" reported in the FITS headers is a conversion anomaly that is present in all aperture positions (\textit{APERXPOS} \& \textit{APERYPOS}).}
-\tablenotetext{y}{It is not uncommon that the XD aperture location (\textit{APERXPOS}) is $\pm1$ step off from its nominal position.
+\tablenotetext{c}{It is not uncommon that the XD aperture location (\textit{APERXPOS}) is $\pm1$ step off from its nominal position.
 The XD aperture mechanism positions are stored in the FSW in \textsc{pcmech\_ApMXDispPosition} (see Table~\ref{tab:ApMXDispPosition}).}
-\tablecomments{PSA \textsc{EXPTYPE}=EXT/SCI exposures contain coeval target and PtNe lamp TT images.}
+\tablecomments{PSA \textsc{EXPTYPE}=\extsci{} exposures contain simultaneous target and PtNe lamp (WCA) time-tag (TT) images.}
 \end{deluxetable}
 \end{center}
 \begin{center}
 \begin{deluxetable}{rccccrrr}
-%\tabcolsep 8pt
+\tabcolsep 10pt
 \tabletypesize{\scriptsize}
 \tablecolumns{8}
 %\tablewidth{0 pt}
@@ -180,10 +180,10 @@ The XD aperture mechanism positions are stored in the FSW in \textsc{pcmech\_ApM
 \colhead{\textit{APER}}&\colhead{\textit{APER}}&\colhead{\textit{DATE-OBS}}\\
 \colhead{\textit{OSID}}&\colhead{\textit{NAME}}&
 %\colhead{\textit{NAME}}&
-%\colhead{\textit{MODE\tablenotemark{t}}}&\colhead{}&
+%\colhead{\textit{MODE\tablenotemark{b}}}&\colhead{}&
 \colhead{(s)}&\colhead{Lamp\#$\times$Current}&
 \colhead{$\times$\textit{OPT\_ELEM}}&
-\colhead{\textit{XPOS\tablenotemark{x}}}&\colhead{\textit{YPOS\tablenotemark{y}}}&\colhead{}\\
+\colhead{\textit{XPOS\tablenotemark{a}}}&\colhead{\textit{YPOS\tablenotemark{b}}}&\colhead{}\\
 \colhead{(1)}&\colhead{(2)}	&	\colhead{(3)}&\colhead{(4)} &
 \colhead{(5)}&\colhead{(6)}	&	\colhead{(7)}&\colhead{(8)}
 }
@@ -244,9 +244,9 @@ The XD aperture mechanism positions are stored in the FSW in \textsc{pcmech\_ApM
 \bottomrule
 \enddata
 %\tablenotetext{c}{The \plamptwo{}wavelength calibration lamp current settings are LOW (6~mA), Med (10~mA) and HIGH (18~mA). The \plamptwo{}wavelength calibration lamp current settings are LOW (3~mA), Med (10~mA) and HIGH (14~mA).}
-\tablenotetext{x}{\textit{APERYPOS}, the AD aperture mechanism positions are stored in the FSW in \textsc{pcmech\_ApMDispPosition}.
+\tablenotetext{a}{\textit{APERYPOS}, the AD aperture mechanism positions are stored in the FSW in \textsc{pcmech\_ApMDispPosition}.
 The trailing "0.1" reported in the FITS headers is a conversion anomaly present in all reported aperture positions (\textit{APERXPOS} \& \textit{APERYPOS}).}
-\tablenotetext{y}{It is not uncommon that the XD aperture location (\textit{APERXPOS}) is $\pm1$ step off from its nominal position.}
+\tablenotetext{b}{It is not uncommon that the XD aperture location (\textit{APERXPOS}) is $\pm1$ step off from its nominal position.}
 \tablecomments{All exposures in this table are \textit{TARGNAME}=WAVE, time-tag (TT) \textit{EXPTYPE}=WAVECAL (target = WAVE) exposures and contain only PtNe lamp (WCA) images at the indicated MIRROR position (\textit{OPT\_ELEM}).}
 \end{deluxetable}
 \end{center}

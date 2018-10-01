@@ -31,19 +31,30 @@
 %\end{enumerate}
 \section{NUV Imaging TA verification}\label{sec:NimVER}
 
-{\bf Add intro here}
+{\bf Add intro here, seriously add it here. To be added in V0.4}
 
 %\input{tamon_output.tex}
 
 \subsection{Baseline Bootstrapping of \tacq{IMAGE} Modes}\label{subsec:basebootstrap}
 
-Each visit of each cycles annual TA monitoring program directly compares two \tacq{IMAGE} configurations.
-We can bootstrap these back to PSA$\times$MIRA to test the co-alignment of all four configurations.
+Each visit of each cycles' annual TA monitoring program directly compares two \tacq{IMAGE} configurations.
+The comparison is based upon the offset between the measured centroid of the target in the science aperture (SA) and the \plamptwo\ lamp light through the wavelength calibration aperture (WCA).
+The expected positions of the SA and WCA centroids for all four combinations (PSA or BOA $\times$ MIRA or MIRB) are given in Table~\ref{tab:pctaWCA2SANIM}.
+
+Table~\ref{tab:pctaWCA2SANIM} gives the expected AD and XD offsets in the WCA-to-SA format, as used in the FSW.
+The FSW uses detector coordinates (X$_{DET}$ and Y$_{DET}$), while the \textsc{\_rawacq.fits} files give the target images and
+coordinates in USER coordinates (X$_{USER}$ and Y$_{USER}$). Table~\ref{tab:pctaWCA2SANIM} repeats the conversions previously
+given in ~\ref{eq:NUVuserX}--\ref{eq:NUVuserY} so that the offsets are available for reference in either coordinate system.
+As previously noted, and described in Table~\ref{tab:pctaWCA2SANIM}, the MIRB positions were updated on 2014.283 to compensate for increasing NUV detector background.
+
+We can bootstrap the position of all SA$\times$MIR combinations back to PSA$\times$MIRA to test the co-alignment of all four configurations.
 We call this the `baseline` bootstrapping, the results of which are shown in Table~\ref{tab:basebootstrap1720}
-for C17--20 and in Table~\ref{tab:basebootstrap2124} for C21--C24
-The values shown in this table are almost exclusively taken from the \textsc{\_rawacq.fits} FITS
-headers of the indicated \tacq{IMAGE}s. The values in these header keywords have been converted to
-COS USER coordinates as given by equations~\ref{eq:NUVuserX} \& \ref{eq:NUVuserY}. In these header keyword names, 'Y' refers to XD (Y$_{USER}$) and 'X' to AD (X$_{USER}$).\\
+for C17--20 and in Table~\ref{tab:basebootstrap2124} for C21--C24.
+The values shown	 are taken or derived from the \textsc{\_rawacq.fits} FITS
+headers of the indicated \tacq{IMAGE}s. The values in the .fits header keywords have been converted
+to USER coordinates, as given by equations~\ref{eq:NUVuserX} \& \ref{eq:NUVuserY}.
+In these header keyword names, 'Y' refers to XD (Y$_{USER}$) and 'X' to AD (X$_{USER}$).\\
+
 
 The columns of the Tables~\ref{tab:basebootstrap1720} \&~\ref{tab:basebootstrap2124} give:
 \footnotesize
@@ -54,7 +65,7 @@ The columns of the Tables~\ref{tab:basebootstrap1720} \&~\ref{tab:basebootstrap2
 \item gives the measured AD median (in p) of the WCA (lamp) image, as reported in the \tacq{IMAGE} \textit{LAMPMXCR} keyword.
 (The header keyword name uses 'X$_{USER}$' for AD).
 \item gives the measured XD median (in p) of the WCA (lamp) image, as reported in the \textit{LAMPMXCR} keyword (The header keyword name uses 'Y$_{USER}$' for XD).
-\item gives the measured AD centroid\footnote{For details of the \tacq{IMAGE} target centroiding algorithm, see the COS IHB (Fox et al., 2017 or Penton \& Keyes, 2011)} (in p) of the SA (PSA or BOA) target image. This is reported in the \textit{ACQCENTX} keyword ('X' USER coordinate is AD).
+\item gives the measured AD centroid\footnote{For \tacq{IMAGE} centroiding algorithm details, see the COS IHB (Fox et al., 2017 or Penton \& Keyes, 2011)} (in p) of the SA (PSA or BOA) target image. This is reported in the \textit{ACQCENTX} keyword ('X' USER coordinate is AD).
 \item gives the measured XD centroid (in p) of the SA image. This is reported in the \textit{ACQCENTY} keyword ('Y' USER coordinate is XD).
 \item gives the calculated AD centroid (in p) of the SA in use, as reported in the \textit{ACQPREFX} keyword. Calculated as the WCA measured position plus the AD component of the WCA-to-SA offset from the FSW.
 \item gives the calculated XD centroid (in p) of the SA in use, as reported in the \textit{ACQPREFY} keyword. Calculated as the WCA measured position plus the XD component of the WCA-to-SA offset from the FSW.

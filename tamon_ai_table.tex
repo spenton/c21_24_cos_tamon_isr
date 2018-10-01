@@ -1,9 +1,10 @@
 \begin{deluxetable}{rrr|rrrr|rrrr|r}
 \tablecolumns{12}
 \tablewidth{0pt}
-\tabcolsep 5 pt
+\tabcolsep 7.6 pt
+\tablewidth{5.7 in}
 \tabletypesize{\scriptsize}
-\tablecaption{FITS Reported TA \tacq{IMAGE} Subarrays\label{tab:IMsubs}}
+\tablecaption{FITS Reported \tacq{IMAGE} Subarrays\label{tab:IMsubs}}
 \tablehead{
 \colhead{\textit{PROP}} & \colhead{\textit{ROOT}} & \colhead{\textit{APERTURE}} & \multicolumn{4}{c}{WCA} & \multicolumn{4}{|c|}{SA (PSA or BOA)} & \colhead{\textit{DATE-OBS}}\\
 \colhead{\textit{OSID}} & \colhead{\textit{NAME}} & \colhead{$\times$MIRROR} & \multicolumn{1}{|r}{XC} & \colhead{YC} & \colhead{XS} & \colhead{YS} & \colhead{XC} & \colhead{YC} & \colhead{XS} & \colhead{YS} & \colhead{}\\
@@ -72,6 +73,6 @@
 14857& ldozpbfbq & PSA$\times$MIRB & 187 & 566 & 50 & 300 & 411 & 200 & 345 & 816 & 2017-09-10 \\
 \bottomrule
 \enddata
-\tablecomments{As correctly reported in the FITS files, the  MIRB subarrays values were updated from [XC,YC]=[184,539] to [187,566] on 2014.279 with \pr{78749}. Simultaneously, the MIRB \tacq{} lamp exposure time and current settings (for the \plamptwo{} lamp)
+\vspace{-0.3cm}\tablecomments{As correctly reported in the FITS files, the  MIRB subarrays values were updated from [XC,YC]=[184,539] to [187,566] on 2014.279 with \pr{78749}. Simultaneously, the MIRB \tacq{} lamp exposure time and current settings (for the \plamptwo{} lamp)
 TAsubarrays.tex:were changed from 17s @ LOW current to 12s @ MED current (\pr{78749}). The FSW WCA-to-SA offsets (\textsc{[X,Y]imCalTargetOffset}) were adjusted accordingly (\pr{79116}) on 2014.289.}
 \end{deluxetable}

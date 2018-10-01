@@ -2,8 +2,7 @@
 \clearpage
 \subsection{Exposure Lists}\label{subsec:elists}
 
-Table~\ref{tab:NUVtamonimagePSA} gives the operational details of all NUV PSA imaging exposures which opened the
-external shutter used in this ISR, while Table~\ref{tab:NUVtamonimageBOA} details the NUV BOA imaging exposures.
+Table~\ref{tab:NUVtamonimagePSA} gives the operational details of all NUV PSA imaging exposures used in this ISR, while Table~\ref{tab:NUVtamonimageBOA} details the NUV BOA imaging exposures.
 Table~\ref{tab:NUVtamonimageWCA} gives the operational details of all NUV imaging WAVECAL exposures.
 Tables~\ref{tab:NUVtamonspec} and \ref{tab:FUVtamon} give the details of all spectroscopic exposures used in this ISR.
 All tables follow the convention that if an entry was extracted from a FITS header, then the column name will appear in \textit{ITALICIZED ALL CAPITALS}.\\
@@ -15,13 +14,13 @@ The columns of the Table~\ref{tab:NUVtamonimagePSA} and ~\ref{tab:NUVtamonimageB
 \item \textit{PROPOSID} gives the HST program id (PID),
 \item \textit{TARGNAME} gives the target name as present in the MAST archive,
 \item \textit{OBSMODE} gives the observation mode, where ``TT'' is used for Time-Tag observations,
-\item \textit{EXPTYPE} gives the exposure type, which is either \tacq{IMAGE} or EXT/SCI. EXT/SCI images using \textit{APERTURE} = PSA allow co-eval target and lamp images for
+\item \textit{EXPTYPE} gives the exposure type, which is either \tacq{IMAGE} or \extsci. \extsci{} images using \textit{APERTURE}=PSA allow coeval target and lamp images for
 direct measurement of their WCA-to-SA offset. \tacq{IMAGE} exposures return before and after target images in \textsc{OBSTYPE}=ACCUM, but do not return lamp images.
-\item \textit{EXPTIME} gives the exposure time in seconds. For EXT/SCI PSA images, the lamp time may be different.
+\item \textit{EXPTIME} gives the exposure time in seconds. For \extsci{} PSA images, the lamp time may be different.
 %These lamp times are given in Table~\ref{tab:lamptimes}.
-\item gives the PtNe Lamp\# gives the wavelength calibration lamp name (\plampone{} or \plamptwo{}) and current setting. The conversion from current setting to current in milli-amps (mA) is given in \S~\ref{subsec:conventions}, and in the table footnotes.
-\item gives the configuration (\textit{APERTURE}$\times$\textit{OPT\_ELEM}) of the SA and grating or MIRROR used as the primary optic.
-\item \textit{APERXPOS} gives the AD (X$_{USER}$) aperture position. The default position is \textit{APERXPOS}=22 for all FUV and NUV science and TA exposures.\footnote{The trailing "0.1" is a FITS conversion anomaly present in all aperture positions (\textit{APERXPOS} \& \textit{APERYPOS}).}
+\item Gives the PtNe Lamp\# gives the wavelength calibration lamp name (\plampone{} or \plamptwo{}) and current setting. The conversion from setting (LOW/MED/HIGH) to current in milli-amps (mA) is given in \S~\ref{subsec:conventions}.
+\item Gives the configuration (\textit{APERTURE}$\times$\textit{OPT\_ELEM}) of the SA and grating or MIRROR used as the primary optic.
+\item \textit{APERXPOS} gives the AD (X$_{USER}$) aperture position. The default position is \textit{APERXPOS}=22 for all FUV and NUV science and TA exposures.\footnote{The trailing "0.1" is a FITS conversion anomaly that is present in all aperture positions (\textit{APERXPOS} \& \textit{APERYPOS}).}
 \item \textit{APERYPOS} gives the XD (Y$_{USER}$) aperture position. It is not uncommon that the XD aperture location (\textit{APERYPOS}) is $\pm 1$ step off from its nominal position during the \fsw{IMCAL} phase. Each \textit{APERYPOS} step is $\approx0.053\arcsec$, or about $\frac{1}{6}$ of
 our XD centering requirement, and $\frac{1}{2}$ of our $1\sigma$ XD centering goal. The default NUV and FUV LP1 PSA/BOA positions are \textit{APERYPOS=$126/-153$}, where the WCA has the same XD (\textit{APERYPOS}) position as the PSA.
 As shown in Table~\ref{tab:ApMXDispPosition}, the nominal PSA \& WCA \textit{APERYPOS} positions for LP2, LP3, and LP4 are +53, +181, and +234, respectively.\footnote{Due
@@ -32,9 +31,9 @@ share the common \textsc{pcmech\_ApMXDispPosition} (\textit{APERYPOS}) entry of 
 \normalsize
 
 The columns of the NUV imaging WAVECAL table (Table~\ref{tab:NUVtamonimageWCA} are similar to those of Tables~\ref{tab:NUVtamonimagePSA} \& \ref{tab:NUVtamonimageBOA}, with the following exception:
-\begin{enumerate}
+\begin{itemize}
 \item All exposures have \textit{TARGNAME}=WAVE, \textit{OBSMODE}=TT, and \textit{EXPTYPE}=WAVECAL, so these columns have been removed.
-\end{enumerate}
+\end{itemize}
 
 The columns of the spectroscopic NUV (Table~\ref{tab:NUVtamonspec}) and FUV (Table~\ref{tab:FUVtamon}) tables are similar to the columns listed above for Tables~\ref{tab:NUVtamonimagePSA} \& \ref{tab:NUVtamonimageBOA}, with the following exceptions:
 \begin{itemize}
@@ -52,7 +51,7 @@ The additional counts allow for a better determination of the WCA-to-SA XD offse
 \normalsize
 
 The nominal focus value for \tacq{IMAGE} exposures is \textit{LOMFSTP}=-88. Minor deviations from this value are expected, and should not impact any results presented in this ISR.
-For the exposures in this ISR, the $-91\leq \textit{LOMFSTP} \leq-86 $. For all exposures in this ISR, OSM1 reported the nominal \tacq{IMAGE} position of \textit{LOM1STP}, OSM2
+For the exposures in this ISR, $-91\leq \textit{LOMFSTP} \leq-86 $. For all exposures in this ISR, OSM1 reported the nominal \tacq{IMAGE} position of \textit{LOM1STP}; OSM2
 also reported all nominal values of \textit{LOM2STP}=8964 for MIRRORA and  9424 for MIRRORB.
 \input{NUVimagetamonfiles2.tex}
 \input{pcmechApMXDispPosition}

@@ -1,11 +1,11 @@
 % $Id: structure.tex,v 1.5 2018/04/18 04:33:16 penton Exp penton $
 \subsection{COS TA Monitoring Program Structure}\label{subsec:structure}
 
-Each cycle's TA monitoring program contains three single-orbit visits. The number of visits is required by the bootstrapping technique between the four different \tacq{IMAGE} SA$\times$MIR configurations.
+Each cycles' TA monitoring program contains three single-orbit visits. The number of visits (3) is required by the bootstrapping technique between the four different \tacq{IMAGE} SA$\times$MIR configurations.
 
 Each visit begins with a comparison of the centering of two \tacq{IMAGE}~modes out of the possible four science apertures (SA, PSA or BOA) $\times$ (MIRA or MIRB).
 This back-to-back process allows us to test that all \tacq{IMAGE} modes are centering the target to the same point in the aperture.
-This comparison involves not only the \tacq{IMAGE}s, but NUV detector images of the PtNe lamp (WCA) image and, if possible, coeval target images.
+This comparison involves not only the \tacq{IMAGE}s, but NUV detector images of the PtNe lamp (WCA) image and, if possible, simultaneous target images.
 These direct lamp+target comparisons are only available for the PSA modes. For the BOA modes, the WCA lamp images and target images are taken consecutively.
 The lamp+target exposures are interleaved throughout the visit and are available to measure and verify the imaging WCA-to-SA offsets are still accurate for each HST Cycle.
 Images will usually use the PtNe\#2 (\plamptwo{}) lamp, as it is the primary TA lamp, but some images will use PtNe\#1 (\plampone{}) to monitor both lamps in imaging mode.
@@ -17,15 +17,15 @@ However, this exact configuration of \tacq{IMAGE}s occurs at the end of each sem
 This visit was usually treated as an on-hold contingency visit in case, for whatever reason, the fall visit of the program did not execute in a given cycle.
 %\footnote{This program was replaced with an improved process for aligning the FGSs. Accordingly,  we activated this contingency visit to obtain the necessary PSA$\times$MIRA and PSA$\times$MIRB exposures for C24.
 The target for this contingency visit is 206W3, the same target as the Fall visit of the FGS-to-SI alignment program.
-In one case, (C22, \pid{13972}), this visit was re-purposed to verify a change to the MIRB\tacq{IMAGE} configuration required due to the increasing background (see \pr{78749}).}
-	\item{The 2\ts{nd} orbit of each program takes back-to-back PSA$\times$MIRB and BOA$\times$MIRA \tacq{IMAGE}s and target (WD1657+343) + TIME-TAG images. During these images,
-	\plamptwo{} is turned on to produce a simultaneous WCA image.
-	A second PSA$\times$MIRB \tacq{IMAGE} is then performed to provide a second measurement of the offset.
+In one case (C22, \pid{13972}), this visit was re-purposed to verify a change to the MIRB \tacq{IMAGE} configuration required due to the increasing background (see \pr{78749}).}
+	\item{The 2\ts{nd} orbit of each program takes back-to-back PSA$\times$MIRB and BOA$\times$MIRA \tacq{IMAGE}s, along with target (WD1657+343) and WCA TIME-TAG images.
+	During these images, \plamptwo{} is turned on to produce a simultaneous WCA image when the PSA is in use and a separate, but coeval, image when the BOA is used.
+	A second PSA$\times$MIRB \tacq{IMAGE} is then performed to provide a second measurement of the AD and XD offsets.
 	Additionally, NUV and FUV spectra are acquired to test their WCA-to-PSA offsets.}
-	\item{The 3\ts{rd} orbit of each program takes back-to-back BOA$\times$MIRA and MIRB \tacq{IMAGE}s and target (HIP66578) TIME-TAG images (with lamp flashes).
+	\item{The 3\ts{rd} orbit of each program takes back-to-back BOA$\times$MIRA and MIRB \tacq{IMAGE}s, along with target (HIP66578) and concurrent, but separate, WCA TIME-TAG images.
 	As in the 2\ts{nd} orbit, a second BOA$\times$MIRA \tacq{IMAGE} is then performed to provide a second measurement of the offset.
 	Additional NUV and FUV spectra are acquired to the remaining WCA-to-PSA offsets not tested in the 2\ts{nd} orbit.}
-	\item{All visits were executed in APT 3-Gyro mode (\texttt{3GOBAD}) with the \texttt{BASE1B3} guide star requirement set in APT.}
+	\item{All visits were executed in APT 3-Gyro mode (\texttt{3GOBAD}) with the \texttt{BASE1B3} guide star requirement set in APT. This ensures that a pair of guide stars is required and allows FGS3 to be selected.}
 \end{itemize}
 The exact configuration of which gratings and \cenwaves{} were spectroscopically tested varied with each cycle as the programs evolved.
 Specifically, with the 2015 change in OSM2 home position\footnote{In May 2015, the ``home'' position of the COS Optic Select Mechanism \#2 (OSM2, the NUV grating wheel) was changed from G185M/1850 to the MIRA position to reduce wear on the OSM, increase observing efficiency, and reduce mechanism drift and position offsets during \tacq{IMAGE} TAs. (see \pr{80893} and \pr{80894}).}, NUV spectra were re-ordered for efficiency and some NUV \cenwaves{} were changed to those

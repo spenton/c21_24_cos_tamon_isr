@@ -6,8 +6,8 @@
 %\tablewidth{0 pt}
 \tablecaption{COS/NUV TA Monitoring Imaging Exposures\label{tab:NUVtamonimage}}
 \tablehead{
-\colhead{\textit{ROOTNAME}}&\colhead{\textit{PROPOSID}}&\colhead{\textit{TARGNAME}}&\colhead{\textit{OBSMODE\tablenotemark{t}}} &\colhead{\textit{EXPTYPE}}   &\colhead{\textit{EXPTIME}}  &\colhead{PtNe}&\colhead{Lamp}   &\colhead{\textit{APERTURE}}&\colhead{\textit{APERXPOS\tablenotemark{x}}}&\colhead{\textit{APERYPOS\tablenotemark{y}}}&\colhead{\textit{OPT\_ELEM}}&\colhead{\textit{DATE-OBS}}\\
-\colhead{}                 &  &\colhead{}        &\colhead{}&\colhead{}&\colhead{(s)}&\colhead{Lamp \#}&\colhead{Current\tablenotemark{c}}&\colhead{}&\colhead{}&\colhead{ }&\colhead{}&\colhead{} \\
+\colhead{\textit{ROOTNAME}}&\colhead{\textit{PROPOSID}}&\colhead{\textit{TARGNAME}}&\colhead{\textit{OBSMODE\tablenotemark{a}}} &\colhead{\textit{EXPTYPE}}   &\colhead{\textit{EXPTIME}}  &\colhead{PtNe}&\colhead{Lamp}   &\colhead{\textit{APERTURE}}&\colhead{\textit{APERXPOS\tablenotemark{c}}}&\colhead{\textit{APERYPOS\tablenotemark{d}}}&\colhead{\textit{OPT\_ELEM}}&\colhead{\textit{DATE-OBS}}\\
+\colhead{}                 &  &\colhead{}        &\colhead{}&\colhead{}&\colhead{(s)}&\colhead{Lamp \#}&\colhead{Current\tablenotemark{b}}&\colhead{}&\colhead{}&\colhead{ }&\colhead{}&\colhead{} \\
 \colhead{(1)}&\colhead{(2)} & \colhead{(3)}&\colhead{(4)} &
 \colhead{(5)}&\colhead{(6)} & \colhead{(7)}&\colhead{(8)} &
 \colhead{(9)}&\colhead{(10)} & \colhead{(11)} &\colhead{(12)} & \colhead{(13)}
@@ -152,10 +152,10 @@ ldozpbfhq	&	14857	&	206W3	&	ACCUM	&	ACQ/IMAGE	&	20	&	\plamptwo{}	&	Low	&	PSA	&	2
 \bottomrule
 \enddata
 %\end{center}
-\tablenotetext{c}{For the \plampone{} lamp, the three current settings are LOW (6mA), MED (10mA) and HIGH (18mA). For the \plamptwo{} lamp, the current settings are LOW (3mA), MED (10mA) and HIGH (14mA).}
-\tablenotetext{t}{TT = TIME-TAG.}
-\tablecomments{Exposures listed as \textsc{EXPTYPE}=EXT/SCI contain coeval target and PtNe lamp (\plampone{} or \plamptwo{}) images taken in time-tag (\textsc{OBSTYPE}=TT) mode.
-Exposures listed as \textsc{EXPTYPE}=WAVECAL (target = WAVE) contain only TT PtNe lamp (WCA) images.  \tacq{IMAGE} exposures return before and after target images in \textsc{OBSTYPE}=ACCUM, but do not return  lamp images.}
+\tablenotetext{a}{For the \plampone{} lamp, the three current settings are LOW (6mA), MED (10mA) and HIGH (18mA). For the \plamptwo{} lamp, the current settings are LOW (3mA), MED (10mA) and HIGH (14mA).}
+\tablenotetext{b}{TT = TIME-TAG.}
+\tablecomments{Exposures listed as \textsc{EXPTYPE}=\extsci{} contain coeval target and PtNe lamp (\plampone{} or \plamptwo{}) images taken in time-tag (\textsc{OBSTYPE}=TT) mode.
+Exposures listed as \textsc{EXPTYPE}=WAVECAL (target=WAVE) contain only TT PtNe lamp (WCA) images.  \tacq{IMAGE} exposures return before and after target images in \textsc{OBSTYPE}=ACCUM, but do not return  lamp images.}
 \end{deluxetable}
 %   740	const SHORT pcmech_ApMXDispPosition[TA_NUM_APERTURES][MIE_NUM_DETECTORS] =
 %   741	{
