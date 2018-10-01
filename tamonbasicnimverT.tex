@@ -1,0 +1,290 @@
+% tamon_basic_nimver
+%
+% RCSID="$Id: tamonbasicnimverT.tex,v 1.2 2018/04/17 18:38:43 penton Exp $"
+%
+\begin{deluxetable}{llrccccccrrrrr}
+\tablecolumns{14}
+\tabcolsep 3pt
+\tablecaption{C17--C20 PSA \tacq{IMAGE} Co-alignment Measurements\label{tab:basebootstrap1720}}
+\tabletypesize{\scriptsize}
+\tablehead{
+\colhead{\textit{PROP}}&\colhead{\textit{ROOT}}&\colhead{Configuration}  &
+\multicolumn{2}{c}{WCA-Msrd\tablenotemark{a}}  &
+\multicolumn{2}{c}{PSA-Msrd}  &
+\multicolumn{2}{c}{PSA-Centered}  &
+\multicolumn{2}{c}{SA-to-WCA}     &
+\multicolumn{2}{c}{TA Centering}  &
+\colhead{\textit{DATE-}}\\
+
+\colhead{\textit{OSID}}& \colhead{\textit{NAME}} & \colhead{\textit{APERTURE}}&
+\colhead{\textit{MXCR}}&\colhead{\textit{MYCR}}&
+\colhead{\textit{ACQ}}&\colhead{\textit{ACQ}}&
+\colhead{\textit{ACQ}}&\colhead{\textit{ACQ}}&
+\colhead{} &\colhead{}&
+\colhead{\textit{ACQ}}&\colhead{\textit{ACQ}}&
+\colhead{\textit{OBS}}\\
+
+\colhead{}&\colhead{}&\colhead{$\times$}&
+\colhead{\textit{LAMP}}&\colhead{\textit{LAMP}}&
+\colhead{\textit{CENTX}}&\colhead{\textit{CENTY}}&
+\colhead{\textit{PREFX}}&\colhead{\textit{PREFY}}&
+\colhead{} & \colhead{} &
+\colhead{\textit{SLEWX}}&\colhead{\textit{SLEWY}}&
+\colhead{}\\
+
+\colhead{(PID)}&\colhead{}&\colhead{\textit{OPT\_ELEM}}&
+\colhead{AD} &\colhead{XD\tablenotemark{b}}&
+\colhead{AD} &\colhead{XD\tablenotemark{b}}&
+\colhead{AD} &\colhead{XD\tablenotemark{b}}&
+\colhead{AD} &\colhead{XD\tablenotemark{b}}&
+\colhead{AD} &\colhead{XD\tablenotemark{b}}&
+\colhead{}\\
+
+\colhead{(1)} & \colhead{(2)} & \colhead{(3)}&
+\colhead{(4)} & \colhead{(5)} & \colhead{(6)} & \colhead{(7)} &
+\colhead{(8)} & \colhead{(9)} & \colhead{(10)} & \colhead{(11)} &
+\colhead{(12)} & \colhead{(13)} & \colhead{(14)}
+}
+\startdata
+\toprule
+\multicolumn{14}{c}{C17} \\
+\midrule
+\pid{11878} &lbcla3s3q&PSA$\times$MIRA&555&653&509.3&282.7&509.7&280.3& 45.3&372.7&  -0.010&   0.056&2010-11-05 \\
+\pid{11878} &lbcla3s7q&PSA$\times$MIRB&342&813&296.4&439.8&297.0&438.9& 45.0&374.1&  -0.015&   0.021&2010-11-05 \\
+\midrule
+\multicolumn{14}{c}{C18} \\
+\midrule
+\pid{12399} &lbm7a2ahq&PSA$\times$MIRA&529&653&475.2&279.5&483.7&280.3& 45.3&372.7&  -0.200&  -0.019&2011-09-12 \\
+\pid{12399} &lbm7a2ajq&PSA$\times$MIRB&317&813&271.2&439.3&272.0&438.9& 45.0&374.1&  -0.018&   0.008&2011-09-12 \\
+\midrule
+\multicolumn{14}{c}{C19} \\
+\midrule
+\pid{12781} &lbx1a2ffq&PSA$\times$MIRA&503&650&450.0&280.6&457.7&277.3& 45.3&372.7&  -0.183&   0.078&2012-09-24 \\
+\pid{12781} &lbx1a2fhq&PSA$\times$MIRB&296&811&249.8&436.0&251.0&436.9& 45.0&374.1&  -0.028&  -0.021&2012-09-24 \\
+\midrule
+\multicolumn{14}{c}{C20} \\
+\midrule
+\pid{13171} &lc6ka2imq&PSA$\times$MIRA&508&650&459.7&284.0&462.7&277.3& 45.3&372.7&  -0.070&   0.158&2013-09-01 \\
+\pid{13171} &lc6ka2ioq&PSA$\times$MIRB&304&811&258.2&436.5&259.0&436.9& 45.0&374.1&  -0.019&  -0.009&2013-09-01 \\
+\pid{13124} &lc6601rrq&PSA$\times$MIRB&312&810&266.5&426.9&267.0&435.9& 45.0&374.1&  -0.012&  -0.211&2013-10-24 \\
+\pid{13124} &lc6601rvq&BOA$\times$MIRA&524&650&479.0&284.8&478.5&281.6& 45.5&368.4&   0.012&   0.074&2013-10-24 \\
+\pid{13124} &lc6602y5q&BOA$\times$MIRA&533&651&484.7&281.2&487.5&282.6& 45.5&368.4&  -0.066&  -0.032&2013-11-01 \\
+\pid{13124} &lc6602y9q&BOA$\times$MIRB&326&813&279.7&442.3&280.5&446.7& 45.5&366.3&  -0.019&  -0.102&2013-11-01 \\
+\midrule
+\bottomrule
+\enddata
+\tablenotetext{a}{Non-repeatability of the OSM and aperture mechanisms, along with environmental factors, result in
+lamp center offsets of up to $\pm 3$~p in AD and to $ > \pm 50$~p in XD in these exposures. }
+%\tablenotetext{b}{BOA \tacq{IMAGE}s move the aperture in the XD direction to obtain the WCA lamp image. Occasionally, the aperture mechanism misses the desired location by $\pm 1 $ \textit{APERXPOS} step of $\sim0.05\arcsec$.}
+%\tablenotetext{c}{These PSA$\times$MIRA \tacq{IMAGE}s were part of the FGS-to-SI programs and do {\bf NOT} have a proceeding TA. The TA centering adjustments presented here are to be compared to the FGS-to-SI post processing results presented in Table~\ref{tab:fgs2siInit}.}
+\tablecomments{If the table caption is in the \texttt{Courier} font, this value was taken directly from the indicated \textsc{\_rawacq.fits} header keyword. In DETector coordinates, +AD is -Y$_{DET}$, +XD is -X$_{DET}$, in USER coordinates, +AD is +Y$_{USER}$, +XD is +X$_{USER}$.}
+\end{deluxetable}
+
+\begin{deluxetable}{llrccccccrrrrr}
+\tablecolumns{14}
+\tabcolsep 3pt
+\tablecaption{C21--24 \tacq{IMAGE} Bootstrapping Results\label{tab:basebootstrap2124}}
+\tabletypesize{\scriptsize}
+\tablehead{
+\colhead{\textit{PROP}}&\colhead{\textit{ROOT}}&\colhead{Configuration}  &
+\multicolumn{2}{c}{WCA-Msrd\tablenotemark{a}}  &
+\multicolumn{2}{c}{SA-Msrd\tablenotemark{b}}  &
+\multicolumn{2}{c}{SA-Centered}  &
+\multicolumn{2}{c}{SA-to-WCA}     &
+\multicolumn{2}{c}{TA Centering}  &
+\colhead{\textit{DATE-}}\\
+
+\colhead{\textit{OSID}}& \colhead{\textit{NAME}} & \colhead{\textit{APERTURE}}&
+\colhead{\textit{MXCR}}&\colhead{\textit{MYCR}}&
+\colhead{\textit{ACQ}}&\colhead{\textit{ACQ}}&
+\colhead{\textit{ACQ}}&\colhead{\textit{ACQ}}&
+\colhead{} &\colhead{}&
+\colhead{\textit{ACQ}}&\colhead{\textit{ACQ}}&
+\colhead{\textit{OBS}}\\
+
+\colhead{}&\colhead{}&\colhead{$\times$}&
+\colhead{\textit{LAMP}}&\colhead{\textit{LAMP}}&
+\colhead{\textit{CENTX}}&\colhead{\textit{CENTY}}&
+\colhead{\textit{PREFX}}&\colhead{\textit{PREFY}}&
+\colhead{} & \colhead{} &
+\colhead{\textit{SLEWX}}&\colhead{\textit{SLEWY}}&
+\colhead{}\\
+
+\colhead{(PID)}&\colhead{}&\colhead{\textit{OPT\_ELEM}}&
+\colhead{AD} &\colhead{XD}&
+\colhead{AD} &\colhead{XD}&
+\colhead{AD} &\colhead{XD}&
+\colhead{AD} &\colhead{XD}&
+\colhead{AD} &\colhead{XD}&
+\colhead{}\\
+
+\colhead{(1)} & \colhead{(2)} & \colhead{(3)}&
+\colhead{(4)} & \colhead{(5)} & \colhead{(6)} & \colhead{(7)} &
+\colhead{(8)} & \colhead{(9)} & \colhead{(10)} & \colhead{(11)} &
+\colhead{(12)} & \colhead{(13)} & \colhead{(14)}
+}
+\startdata
+\toprule
+\multicolumn{14}{c}{C21} \\
+\midrule
+\pid{13616} &lci4a2e3q&PSA$\times$MIRA&517&650&471.7&282.9&471.7&277.3& 45.3&372.7&   0.001&   0.133&2014-10-27 \\
+\pid{13616} &lci4a2e5q&PSA$\times$MIRB&305&809&259.7&436.1&259.0&435.0& 46.0&374.0&   0.016&   0.027&2014-10-27 \\
+\midrule
+\pid{13526} &lcgq03dbq&PSA$\times$MIRA&566&648&527.7&268.2&520.7&275.3& 45.3&372.7&   0.166&  -0.168&2014-10-06 \\
+\pid{13526} &lcgq03dlq&PSA$\times$MIRB&357&808&310.8&434.2&312.0&433.9& 45.0&374.1&  -0.029&   0.006&2014-10-06 \\
+\pid{13526} &lcgq03dtq&PSA$\times$MIRA&574&649&530.1&275.2&528.7&276.3& 45.3&372.7&   0.032&  -0.026&2014-10-06 \\
+\pid{13526} &lcgq01q5q&PSA$\times$MIRB&306&809&222.4&447.7&260.0&435.0& 46.0&374.0&  -0.888&   0.298&2014-11-19 \\
+\pid{13526} &lcgq01qdq&BOA$\times$MIRA&520&651&472.9&283.2&474.5&282.6& 45.5&368.4&  -0.038&   0.013&2014-11-19 \\
+\pid{13526} &lcgq01qjq&PSA$\times$MIRB&305&811&260.2&433.7&259.0&437.0& 46.0&374.0&   0.027&  -0.078&2014-11-19 \\
+\pid{13526} &lcgq02hmq&BOA$\times$MIRA&495&649&452.0&293.6&449.5&280.6& 45.5&368.4&   0.058&   0.305&2014-11-17 \\
+\pid{13526} &lcgq02huq&BOA$\times$MIRB&285&811&237.9&440.3&238.5&444.8& 46.5&366.2&  -0.015&  -0.105&2014-11-17 \\
+\pid{13526} &lcgq02i0q&BOA$\times$MIRA&501&651&455.7&285.3&455.5&282.6& 45.5&368.4&   0.006&   0.063&2014-11-17 \\
+\midrule
+\multicolumn{14}{c}{C22} \\
+\midrule
+\pid{14035} &lcsla2bhq&PSA$\times$MIRA&505&653&458.8&284.8&459.7&280.3& 45.3&372.7&  -0.020&   0.105&2015-10-02 \\
+\pid{14035} &lcsla2bjq&PSA$\times$MIRB&293&813&247.9&439.3&247.0&439.0& 46.0&374.0&   0.022&   0.007&2015-10-02 \\
+\pid{13972} &lcri01fzq&PSA$\times$MIRB&302&813&264.0&427.4&256.0&439.0& 46.0&374.0&   0.189&  -0.273&2015-10-06 \\
+\pid{13972} &lcri01g7q&BOA$\times$MIRA&517&651&471.0&287.2&471.5&282.6& 45.5&368.4&  -0.011&   0.109&2015-10-06 \\
+\pid{13972} &lcri01geq&PSA$\times$MIRB&300&812&255.5&434.1&254.0&438.0& 46.0&374.0&   0.036&  -0.092&2015-10-06 \\
+\pid{13972} &lcri02h8q&BOA$\times$MIRA&499&654&462.0&272.2&453.5&285.6& 45.5&368.4&   0.201&  -0.315&2015-10-06 \\
+\pid{13972} &lcri02hgq&BOA$\times$MIRB&286&810&240.6&444.2&239.5&443.8& 46.5&366.2&   0.026&   0.010&2015-10-06 \\
+\pid{13972} &lcri02hmq&BOA$\times$MIRA&504&651&457.7&284.2&458.5&282.6& 45.5&368.4&  -0.018&   0.038&2015-10-06 \\
+\midrule
+\multicolumn{14}{c}{C23} \\
+\midrule
+\pid{14452} &ld3la2ojq&PSA$\times$MIRA&527&654&481.0&284.5&481.7&281.3& 45.3&372.7&  -0.017&   0.075&2016-10-02 \\
+\pid{14452} &ld3la2onq&PSA$\times$MIRB&306&813&259.9&439.9&260.0&439.0& 46.0&374.0&  -0.002&   0.021&2016-10-02 \\
+\pid{14440} &ld3701gtq&PSA$\times$MIRB&297&813&246.6&442.7&251.0&439.0& 46.0&374.0&  -0.104&   0.088&2016-10-18 \\
+\pid{14440} &ld3701h1q&BOA$\times$MIRA&518&651&471.7&287.1&472.5&282.6& 45.5&368.4&  -0.018&   0.105&2016-10-18 \\
+\pid{14440} &ld3701h7q&PSA$\times$MIRB&295&811&249.7&434.0&249.0&437.0& 46.0&374.0&   0.016&  -0.071&2016-10-18 \\
+\pid{14440} &ld3702mzq&BOA$\times$MIRA&509&654&480.0&299.3&463.5&285.6& 45.5&368.4&   0.390&   0.322&2016-10-19 \\
+\pid{14440} &ld3702n9q&BOA$\times$MIRB&295&811&248.5&446.1&248.5&444.8& 46.5&366.2&   0.001&   0.030&2016-10-19 \\
+\pid{14440} &ld3702nhq&BOA$\times$MIRA&516&651&470.0&285.0&470.5&282.6& 45.5&368.4&  -0.012&   0.057&2016-10-19 \\
+\midrule
+\multicolumn{14}{c}{C24} \\
+\midrule
+\pid{14857} &ldozpbf5q&PSA$\times$MIRA&515&654&467.3&266.2&469.7&281.3& 45.3&372.7&  -0.058&  -0.355&2017-09-10 \\
+\pid{14857} &ldozpbfbq&PSA$\times$MIRB&289&813&243.8&440.0&243.0&439.0& 46.0&374.0&   0.020&   0.023&2017-09-10 \\
+\pid{14857} &ldozpbfhq&PSA$\times$MIRA&510&653&463.9&279.8&464.7&280.3& 45.3&372.7&  -0.020&  -0.011&2017-09-10 \\
+\pid{14857} &ldozbadhq&PSA$\times$MIRB&299&813&237.5&397.9&253.0&439.0& 46.0&374.0&  -0.366&  -0.967&2017-09-04 \\
+\pid{14857} &ldozbadpq&BOA$\times$MIRA&524&651&477.9&287.4&478.5&282.6& 45.5&368.4&  -0.013&   0.113&2017-09-04 \\
+\pid{14857} &ldozbadvq&PSA$\times$MIRB&298&811&253.2&434.5&252.0&437.0& 46.0&374.0&   0.029&  -0.059&2017-09-04 \\
+\pid{14857} &ldozbbleq&BOA$\times$MIRA&518&653&484.8&289.5&472.5&284.6& 45.5&368.4&   0.290&   0.114&2017-09-06 \\
+\pid{14857} &ldozbblmq&BOA$\times$MIRB&293&811&246.7&444.3&246.5&444.8& 46.5&366.2&   0.006&  -0.011&2017-09-06 \\
+\pid{14857} &ldozbblsq&BOA$\times$MIRA&514&651&467.9&285.1&468.5&282.6& 45.5&368.4&  -0.015&   0.060&2017-09-06 \\
+\bottomrule
+\enddata
+\tablenotetext{a}{Non-repeatability of the OSM and aperture mechanisms, along with environmental factors, result in
+lamp center offsets of up to $\pm$ 6~p in AD and $> \pm 50$~p in XD in these exposures.}
+\tablenotetext{b}{BOA \tacq{IMAGE}s move the aperture in the XD direction to obtain the WCA lamp image. Occasionally, the aperture mechanism misses the desired location by $\pm 1$ \textit{APERYPOS} step of $\sim0.053\arcsec$.}
+%\tablenotetext{c}{These PSA$\times$MIRA \tacq{IMAGE}s were part of the FGS-to-SI programs and do not have a proceeding \tacq{IMAGE}. The TA centerings presented here are to be compared to the FGS-to-SI post processing results presented in Table~\ref{tab:fgs2siInit}.}
+\tablecomments{If the table caption is in the \textit{ITALICS}, this value was taken directly from the indicated \textsc{\_rawacq.fits} header keyword. Columns 4-11 are in units of NUV pixels (p). Columns 12 \& 13 are in arcseconds (\arcsec). In DETector coordinates, +AD is -Y$_{DET}$, +XD is -X$_{DET}$, in USER coordinates, +AD is +Y$_{USER}$, +XD is +X$_{USER}$.}
+\end{deluxetable}
+
+\begin{deluxetable}{llrccccccrrrrr}
+\tablecolumns{14}
+\tabcolsep 4pt
+\tablecaption{\tacq{IMAGE} Bootstrapping Measurements Sorted by Configuration\label{tab:bootstrapAligned}}
+\tabletypesize{\scriptsize}
+\tablehead{
+\colhead{\textit{PROP}}&\colhead{\textit{ROOT}}&
+\colhead{HST}  &
+\multicolumn{2}{c}{WCA-Msrd\tablenotemark{a}}  &
+\multicolumn{2}{c}{SA-Msrd\tablenotemark{b}}  &
+\multicolumn{2}{c}{SA-Center}  &
+\multicolumn{2}{c}{SA-to-WCA}     &
+\multicolumn{2}{c}{TA Centering}&\colhead{\textit{DATE}}\\
+
+\colhead{\textit{OSID}}& \colhead{\textit{NAME}} & \colhead{Cycle}&
+\colhead{\textit{LAMP}}&\colhead{\textit{LAMP}}&
+\colhead{\textit{ACQ}}&\colhead{\textit{ACQ}}&
+\colhead{\textit{ACQ}}&\colhead{\textit{ACQ}}&
+\colhead{}& \colhead{} &\colhead{\textit{ACQ}}&\colhead{\textit{ACQ}}& \colhead{\textit{OBS}} \\
+
+\colhead{}& \colhead{} & \colhead{}&
+\colhead{\textit{MXCR}}&\colhead{\textit{MYCR}}&
+\colhead{\textit{MSRDX}}&\colhead{\textit{MSRDY}}&
+\colhead{\textit{PREFX}}&\colhead{\textit{PREFY}}&
+\colhead{}& \colhead{} &\colhead{\textit{SLEWX}}&\colhead{\textit{SLEWY}}& \\
+\colhead{(PID)}  &     \colhead{}     & \colhead{} &
+\colhead{AD} &\colhead{XD}&
+\colhead{AD} &\colhead{XD}&
+\colhead{AD} &\colhead{XD}&
+\colhead{AD} &\colhead{XD}& \colhead{AD (\arcsec)} & \colhead{XD (\arcsec)} &\colhead{}\\
+\colhead{(1)}  &\colhead{(2)} & \colhead{(3)}&\colhead{(4)} &
+\colhead{(5)}  &\colhead{(6)} & \colhead{(7)}&\colhead{(8)} &
+\colhead{(9)}  &\colhead{(10)} & \colhead{(11)} &\colhead{(12)} &
+\colhead{(13)} &\colhead{(14)}
+}
+\startdata
+\toprule
+\multicolumn{14}{c}{PSA$\times$MIRRORA}\\
+\midrule
+\pid{11878} &lbcla3s3q&C17&555&653&509.3&282.7&509.7&280.3& 45.3&372.7&  -0.010&   0.056&2010-11-05 \\
+\pid{12399} &lbm7a2ahq&C18&529&653&475.2&279.5&483.7&280.3& 45.3&372.7&  -0.200&  -0.019&2011-09-12 \\
+\pid{12781} &lbx1a2ffq&C19&503&650&450.0&280.6&457.7&277.3& 45.3&372.7&  -0.183&   0.078&2012-09-24 \\
+\pid{13171} &lc6ka2imq&C20&508&650&459.7&284.0&462.7&277.3& 45.3&372.7&  -0.070&   0.158&2013-09-01 \\
+\pid{13616} &lci4a2e3q&C21&517&650&471.7&282.9&471.7&277.3& 45.3&372.7&   0.001&   0.133&2014-10-27 \\
+\pid{14035} &lcsla2bhq&C22&505&653&458.8&284.8&459.7&280.3& 45.3&372.7&  -0.020&   0.105&2015-10-02 \\
+\pid{14452} &ld3la2ojq&C23&527&654&481.0&284.5&481.7&281.3& 45.3&372.7&  -0.017&   0.075&2016-10-02 \\
+\pid{14857} &ldozpbf5q&C24&515&654&467.3&266.2&469.7&281.3& 45.3&372.7&  -0.058&  -0.355&2017-09-10 \\
+\pid{14857} &ldozpbfhq&C24&510&653&463.9&279.8&464.7&280.3& 45.3&372.7&  -0.020&  -0.011&2017-09-10 \\
+\midrule
+\multicolumn{14}{c}{PSA$\times$MIRRORB\tablenotemark{c}}\\
+\midrule
+\pid{11878} &lbcla3s7q&C17&342&813&296.4&439.8&297.0&438.9& 45.0&374.1&  -0.015&   0.021&2010-11-05 \\
+\pid{12399} &lbm7a2ajq&C18&317&813&271.2&439.3&272.0&438.9& 45.0&374.1&  -0.018&   0.008&2011-09-12 \\
+\pid{12781} &lbx1a2fhq&C19&296&811&249.8&436.0&251.0&436.9& 45.0&374.1&  -0.028&  -0.021&2012-09-24 \\
+\pid{13171} &lc6ka2ioq&C20&304&811&258.2&436.5&259.0&436.9& 45.0&374.1&  -0.019&  -0.009&2013-09-01 \\
+\pid{13124} &lc6601rrq&C20&312&810&266.5&426.9&267.0&435.9& 45.0&374.1&  -0.012&  -0.211&2013-10-24 \\
+\hline
+\pid{13616} &lci4a2e5q&C21&305&809&259.7&436.1&259.0&435.0& 46.0&374.0&   0.016&   0.027&2014-10-27 \\
+\pid{14035} &lcsla2bjq&C22&293&813&247.9&439.3&247.0&439.0& 46.0&374.0&   0.022&   0.007&2015-10-02 \\
+\pid{13972} &lcri01fzq&C22&302&813&264.0&427.4&256.0&439.0& 46.0&374.0&   0.189&  -0.273&2015-10-06 \\
+\pid{13972} &lcri01geq&C22&300&812&255.5&434.1&254.0&438.0& 46.0&374.0&   0.036&  -0.092&2015-10-06 \\
+\pid{14452} &ld3la2onq&C23&306&813&259.9&439.9&260.0&439.0& 46.0&374.0&  -0.002&   0.021&2016-10-02 \\
+\pid{14440} &ld3701gtq&C23&297&813&246.6&442.7&251.0&439.0& 46.0&374.0&  -0.104&   0.088&2016-10-18 \\
+\pid{14440} &ld3701h7q&C23&295&811&249.7&434.0&249.0&437.0& 46.0&374.0&   0.016&  -0.071&2016-10-18 \\
+\pid{14857} &ldozbadhq&C24&299&813&237.5&397.9&253.0&439.0& 46.0&374.0&  -0.366&  -0.967&2017-09-04 \\
+\pid{14857} &ldozbadvq&C24&298&811&253.2&434.5&252.0&437.0& 46.0&374.0&   0.029&  -0.059&2017-09-04 \\
+\pid{14857} &ldozpbfbq&C24&289&813&243.8&440.0&243.0&439.0& 46.0&374.0&   0.020&   0.023&2017-09-10 \\
+\midrule
+\multicolumn{14}{c}{BOA$\times$MIRRORA}\\
+\midrule
+\pid{13124} &lc6601rvq&C20&524&650&479.0&284.8&478.5&281.6& 45.5&368.4&   0.012&   0.074&2013-10-24 \\
+\pid{13124} &lc6602y5q&C20&533&651&484.7&281.2&487.5&282.6& 45.5&368.4&  -0.066&  -0.032&2013-11-01 \\
+\pid{13526} &lcgq01qdq&C21&520&651&472.9&283.2&474.5&282.6& 45.5&368.4&  -0.038&   0.013&2014-11-19 \\
+\pid{13972} &lcri01g7q&C22&517&651&471.0&287.2&471.5&282.6& 45.5&368.4&  -0.011&   0.109&2015-10-06 \\
+\pid{13972} &lcri02h8q&C22&499&654&462.0&272.2&453.5&285.6& 45.5&368.4&   0.201&  -0.315&2015-10-06 \\
+\pid{13972} &lcri02hmq&C22&504&651&457.7&284.2&458.5&282.6& 45.5&368.4&  -0.018&   0.038&2015-10-06 \\
+\pid{14440} &ld3701h1q&C23&518&651&471.7&287.1&472.5&282.6& 45.5&368.4&  -0.018&   0.105&2016-10-18 \\
+\pid{14440} &ld3702mzq&C23&509&654&480.0&299.3&463.5&285.6& 45.5&368.4&   0.390&   0.322&2016-10-19 \\
+\pid{14440} &ld3702nhq&C23&516&651&470.0&285.0&470.5&282.6& 45.5&368.4&  -0.012&   0.057&2016-10-19 \\
+\pid{14857} &ldozbadpq&C24&524&651&477.9&287.4&478.5&282.6& 45.5&368.4&  -0.013&   0.113&2017-09-04 \\
+\pid{14857} &ldozbbleq&C24&518&653&484.8&289.5&472.5&284.6& 45.5&368.4&   0.290&   0.114&2017-09-06 \\
+\pid{14857} &ldozbblsq&C24&514&651&467.9&285.1&468.5&282.6& 45.5&368.4&  -0.015&   0.060&2017-09-06 \\
+\midrule
+\multicolumn{14}{c}{BOA$\times$MIRRORB\tablenotemark{c}}\\
+\midrule
+\pid{13124} &lc6602y9q&C20&326&813&279.7&442.3&280.5&446.7& 45.5&366.3&  -0.019&  -0.102&2013-11-01 \\
+\hline
+\pid{13526} &lcgq02huq&C21&285&811&237.9&440.3&238.5&444.8& 46.5&366.2&  -0.015&  -0.105&2014-11-17 \\
+\pid{13972} &lcri02hgq&C22&286&810&240.6&444.2&239.5&443.8& 46.5&366.2&   0.026&   0.010&2015-10-06 \\
+\pid{14440} &ld3702n9q&C23&295&811&248.5&446.1&248.5&444.8& 46.5&366.2&   0.001&   0.030&2016-10-19 \\
+\pid{14857} &ldozbblmq&C24&293&811&246.7&444.3&246.5&444.8& 46.5&366.2&   0.006&  -0.011&2017-09-06 \\
+\bottomrule
+\enddata
+\tablenotetext{a}{Environmental factors, and non-repeatable mechanisms, results in
+lamp offsets up to $\pm$ 6~p in AD and $> \pm 50$~p in XD. }
+\tablenotetext{b}{BOA \tacq{IMAGE}s move the aperture in the XD and can miss its WCA location by $\pm1$ \textit{APERXPOS} $\sim0.053\arcsec$ step.}
+%\tablenotetext{c}{These PSA$\times$MIRA \tacq{IMAGE}s were part of the FGS-to-SI programs and do {\bf NOT} have a proceeding TA. TA centering adjustments presented here are to be compared to the FGS-to-SI post processing results presented in Table~\ref{tab:fgs2siInit}.}
+\tablenotetext{c}{On 2014.310, the MIRB \texttt{ACQ/IMAGE} lamp exposure changed in duration \& current (\pr{67139}).}
+\tablecomments{Table captions in \texttt{Courier} indicated \textsc{\_rawacq.fits} header keywords.  Columns 4-11 are in units of NUV pixels (p). Columns 12 \& 13 are in arcseconds (\arcsec). In DETector coordinates, +AD is -Y$_{DET}$, +XD is -X$_{DET}$, in USER coordinates, +AD is +Y$_{USER}$, +XD is +X$_{USER}$.}
+%           FROM   TO
+%   PSA_B   3741   3740
+%   BOA_B   3663   3662
+%           FROM   TO
+%   PSA_B   450    460
+%   BOA_B   455    465
+\end{deluxetable}

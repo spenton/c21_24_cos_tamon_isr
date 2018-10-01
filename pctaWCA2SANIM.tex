@@ -1,0 +1,45 @@
+% rcs_id = "$Id: pctaWCA2SANIM.tex,v 1.4 2018/04/17 18:38:43 penton Exp $"
+\begin{center}
+\begin{table}[htb!]
+\centering
+\vspace{-0.1cm}
+\footnotesize
+	\begin{threeparttable}
+	\caption[\textsc{pcta\_[X,Y]ImCalTargetOffset} Values]{\tacq{IMAGE} WCA-to-SA FSW Target Offsets}
+		\begin{tabular*}{.95\linewidth}{@{\extracolsep{\fill}}ccccrr}
+		\toprule
+		Direction & DETector$^{a}$ & USER$^{a}$ & \textit{OPT\_ELEM}  &	\multicolumn{2}{c}{SCI Aperture (SA)}\\
+		(AD or XD) & Coordinate &	Coordinate &	(MIRRORA/B) & PSA	&	BOA\\
+		\bottomrule
+		\midrule
+		\multicolumn{6}{c}{MIRRORA}\\
+		\midrule
+		AD$^c$	&	Y$_{DET}$	&	-X$_{USER}$	&	MIRA	&	45.3	&	45.5 \\
+		XD$^d$	&	X$_{DET}$	&	-Y$_{USER}$	&	MIRA	&	372.7	&	368.4 \\
+		\midrule
+		\multicolumn{6}{c}{MIRRORB {\bf prior} to Oct-20-2014 (2014.283)}\\
+		\midrule
+		AD	&	Y$_{DET}$	&	-X$_{USER}$	&	MIRB	&	45.0	&	45.5 \\
+		XD	&	X$_{DET}$	&	-Y$_{USER}$	&	MIRB	&	374.1	&	366.3 \\
+		\midrule
+		\multicolumn{6}{c}{MIRRORB {\bf after}$^{b}$ to Oct-20-2014 (2014.283)}\\
+		\midrule
+		AD	&	Y$_{DET}$	&	-X$_{USER}$	&	MIRB	&	46.0	&	46.5 \\
+		XD	&	X$_{DET}$	&	-Y$_{USER}$	&	MIRB	&	374.0	&	366.2 \\
+		\bottomrule
+		\end{tabular*}
+		\label{tab:pctaWCA2SANIM}
+		\scriptsize
+		\begin{tablenotes}
+			\item[a] COS DETector and USER coordinates are related by equations~\ref{eq:NUVuserX} \& \ref{eq:NUVuserY}. A consequence of
+			these definitions, a given \textit{APERTURE}$\times$\textit{OPT\_ELEM} configurations' AD or XD WCA-to-SA offset in one coordinate system is equal to the SA-to-WCA offset in the other.
+			For example, the AD PSA$\times$MIRA WCA-to-PSA offset is +45.3 in detector coordinates (Y$_{DET}$), as is the SA-to-WCA AD offset in USER coordinates (X$_{USER}$).
+			\item[b] Installed 2014.283 (\pr{79116}, "Update MIRRORB Cal Target Offsets").
+			\item[c] XD  offsets, measured from WCA median to  SA center, stored in  FSW \textsc{pcta\_XImCalTargetOffset} table.
+			\item[d] AD  offsets, measured from WCA  median to SA center, stored in  FSW \textsc{pcta\_YImCalTargetOffset} table.
+		\end{tablenotes}
+		\normalsize
+	\end{threeparttable}
+\normalsize
+\end{table}
+\end{center}
